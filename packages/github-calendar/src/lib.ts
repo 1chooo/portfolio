@@ -1,4 +1,4 @@
-import type { Activity } from "@workspace/github-calendar/types";
+import type { Activity } from "@1chooo/github-calendar/types";
 
 export const transformData = (
   data: Array<Activity>,

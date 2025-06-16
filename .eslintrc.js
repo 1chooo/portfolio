@@ -2,7 +2,7 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   ignorePatterns: ["apps/**", "packages/**"],
-  extends: ["@workspace/eslint-config/react-internal.js"],
+  extends: ["@1chooo/eslint-config/react-internal.js"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: true,

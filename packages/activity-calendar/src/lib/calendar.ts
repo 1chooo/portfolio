@@ -10,12 +10,12 @@ import {
   startOfYear,
   subWeeks,
 } from "date-fns";
-import { NAMESPACE } from "@workspace/activity-calendar/constants";
+import { NAMESPACE } from "@1chooo/activity-calendar/constants";
 import type {
   Activity,
   DayIndex,
   Week,
-} from "@workspace/activity-calendar/types";
+} from "@1chooo/activity-calendar/types";
 
 export function validateActivities(
   activities: Array<Activity>,

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { cn } from "@workspace/ui/lib/utils";
+import { cn } from "@1chooo/ui/lib/utils";
 
 import "@/styles/markdown-styles.css";
 

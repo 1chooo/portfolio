@@ -3,8 +3,8 @@ import type {
   ColorScale,
   Theme,
   ThemeInput,
-} from "@workspace/activity-calendar/types";
-import { range } from "@workspace/activity-calendar/lib/calendar";
+} from "@1chooo/activity-calendar/types";
+import { range } from "@1chooo/activity-calendar/lib/calendar";
 
 export function createTheme(input?: ThemeInput, steps = 5): Theme {
   const defaultTheme = createDefaultTheme(steps);

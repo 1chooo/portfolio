@@ -9,7 +9,7 @@ import { getAllPosts } from "@/lib/api";
 
 import config from "@/config";
 
-import { cn } from "@workspace/ui/lib/utils";
+import { cn } from "@1chooo/ui/lib/utils";
 
 import "react-loading-skeleton/dist/skeleton.css";
 import "@/styles/markdown-styles.css";

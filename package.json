@@ -1,5 +1,5 @@
 {
-  "name": "1chooo-com-monorepo",
+  "name": "1chooo-com",
   "version": "0.11.0",
   "private": true,
   "author": {
@@ -23,8 +23,8 @@
     "gen-config": "node scripts/gen-config.js"
   },
   "devDependencies": {
-    "@workspace/eslint-config": "workspace:*",
-    "@workspace/typescript-config": "workspace:*",
+    "@1chooo/eslint-config": "workspace:*",
+    "@1chooo/typescript-config": "workspace:*",
     "prettier": "^3.5.3",
     "turbo": "2.5.4",
     "typescript": "5.8.3"

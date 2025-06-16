@@ -1,12 +1,12 @@
 import { getMonth, parseISO } from "date-fns";
-import type { Props } from "@workspace/activity-calendar/components/activity-calendar";
-import { DEFAULT_MONTH_LABELS } from "@workspace/activity-calendar/constants";
+import type { Props } from "@1chooo/activity-calendar/components/activity-calendar";
+import { DEFAULT_MONTH_LABELS } from "@1chooo/activity-calendar/constants";
 import type {
   DayIndex,
   DayName,
   Week,
   WeekdayLabels,
-} from "@workspace/activity-calendar/types";
+} from "@1chooo/activity-calendar/types";
 
 type MonthLabel = {
   weekIndex: number;

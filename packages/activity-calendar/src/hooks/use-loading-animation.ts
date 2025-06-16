@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { NAMESPACE } from "@workspace/activity-calendar/constants";
+import { NAMESPACE } from "@1chooo/activity-calendar/constants";
 
 export const loadingAnimationName = `${NAMESPACE}--loading-animation`;
 

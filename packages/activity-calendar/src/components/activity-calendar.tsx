@@ -14,26 +14,26 @@ import {
   DEFAULT_LABELS,
   LABEL_MARGIN,
   NAMESPACE,
-} from "@workspace/activity-calendar/constants";
-import { useColorScheme } from "@workspace/activity-calendar/hooks/use-color-scheme";
+} from "@1chooo/activity-calendar/constants";
+import { useColorScheme } from "@1chooo/activity-calendar/hooks/use-color-scheme";
 import {
   loadingAnimationName,
   useLoadingAnimation,
-} from "@workspace/activity-calendar/hooks/use-loading-animation";
-import { usePrefersReducedMotion } from "@workspace/activity-calendar/hooks/use-prefers-reduced-motion";
+} from "@1chooo/activity-calendar/hooks/use-loading-animation";
+import { usePrefersReducedMotion } from "@1chooo/activity-calendar/hooks/use-prefers-reduced-motion";
 import {
   generateEmptyData,
   getClassName,
   groupByWeeks,
   range,
   validateActivities,
-} from "@workspace/activity-calendar/lib/calendar";
+} from "@1chooo/activity-calendar/lib/calendar";
 import {
   getMonthLabels,
   initWeekdayLabels,
   maxWeekdayLabelWidth,
-} from "@workspace/activity-calendar/lib/label";
-import { createTheme } from "@workspace/activity-calendar/lib/theme";
+} from "@1chooo/activity-calendar/lib/label";
+import { createTheme } from "@1chooo/activity-calendar/lib/theme";
 import type {
   Activity,
   BlockElement,
@@ -44,8 +44,8 @@ import type {
   ReactEvent,
   SVGRectEventHandler,
   ThemeInput,
-} from "@workspace/activity-calendar/types";
-import { styles } from "@workspace/activity-calendar/styles";
+} from "@1chooo/activity-calendar/types";
+import { styles } from "@1chooo/activity-calendar/styles";
 
 export type Props = {
   /**

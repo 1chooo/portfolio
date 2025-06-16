@@ -14,7 +14,7 @@ import markdownToHtml from "@/lib/markdownToHtml";
 
 import config from "@/config";
 
-import { cn } from "@workspace/ui/lib/utils";
+import { cn } from "@1chooo/ui/lib/utils";
 
 import "@/styles/markdown-styles.css";
 

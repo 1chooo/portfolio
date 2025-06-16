@@ -4,16 +4,16 @@ import { forwardRef, useCallback, useEffect, useState } from "react";
 import {
   Skeleton,
   ActivityCalendar,
-} from "@workspace/activity-calendar/components/activity-calendar";
-import type { ThemeInput } from "@workspace/activity-calendar/types";
-import type { Props as ActivityCalendarProps } from "@workspace/activity-calendar/components/activity-calendar";
-import { transformData } from "@workspace/github-calendar/lib";
+} from "@1chooo/activity-calendar/components/activity-calendar";
+import type { ThemeInput } from "@1chooo/activity-calendar/types";
+import type { Props as ActivityCalendarProps } from "@1chooo/activity-calendar/components/activity-calendar";
+import { transformData } from "@1chooo/github-calendar/lib";
 import type {
   Activity,
   ApiErrorResponse,
   ApiResponse,
   Year,
-} from "@workspace/github-calendar/types";
+} from "@1chooo/github-calendar/types";
 
 export type Props = {
   username: string;

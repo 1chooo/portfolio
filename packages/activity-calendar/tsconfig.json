@@ -1,9 +1,9 @@
 {
-  "extends": "@workspace/typescript-config/react-library.json",
+  "extends": "@1chooo/typescript-config/react-library.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@workspace/activity-calendar/*": [
+      "@1chooo/activity-calendar/*": [
         "./src/*"
       ]
     }

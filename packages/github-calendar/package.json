@@ -1,5 +1,5 @@
 {
-  "name": "@workspace/github-calendar",
+  "name": "@1chooo/github-calendar",
   "version": "0.11.0",
   "type": "module",
   "author": {
@@ -30,15 +30,15 @@
   "dependencies": {
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "@workspace/activity-calendar": "workspace:*"
+    "@1chooo/activity-calendar": "workspace:*"
   },
   "devDependencies": {
     "@turbo/gen": "^2.5.2",
     "@types/node": "24.0.0",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.0",
-    "@workspace/eslint-config": "workspace:*",
-    "@workspace/typescript-config": "workspace:*",
+    "@1chooo/eslint-config": "workspace:*",
+    "@1chooo/typescript-config": "workspace:*",
     "typescript": "^5.8.3"
   },
   "exports": {

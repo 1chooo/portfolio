@@ -2,7 +2,7 @@ import ArticleTitile from "@/components/article-title";
 import AnimatedSection from "@/components/animated-section";
 import markdownToHtml from "@/lib/markdownToHtml";
 
-import { cn } from "@workspace/ui/lib/utils";
+import { cn } from "@1chooo/ui/lib/utils";
 
 import "@/styles/markdown-styles.css";
 

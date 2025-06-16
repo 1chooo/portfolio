@@ -10,9 +10,9 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   transpilePackages: [
-    "@workspace/ui",
-    "@workspace/activity-calendar",
-    "@workspace/github-calendar"
+    "@1chooo/ui",
+    "@1chooo/activity-calendar",
+    "@1chooo/github-calendar"
   ],
 };
 
