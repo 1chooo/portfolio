@@ -95,7 +95,7 @@
   "devDependencies": {
     "@giscus/react": "^3.1.0",
     "@shikijs/rehype": "^3.6.0",
-    "@types/react": "19.1.0",
+    "@types/react": "19.1.8",
     "@types/react-dom": "19.1.0",
     "@types/react-syntax-highlighter": "^15.5.13",
     "@1chooo/eslint-config": "workspace:^",
