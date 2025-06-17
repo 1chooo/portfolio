@@ -113,10 +113,10 @@ const config: Config = {
         "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
       images: [
         {
-          url: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
-          width: 1200,
-          height: 630,
-          alt: "Chun-Ho (Hugo) Lin - 1chooo Cover Image",
+          url: "/opengraph-image",
+          width: 1920,
+          height: 1080,
+          alt: "Chun-Ho (Hugo) Lin - 1chooo",
         },
       ],
     },
@@ -126,7 +126,14 @@ const config: Config = {
       title: "Chun-Ho (Hugo) Lin - 1chooo",
       description:
         "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
-      images: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
+      images: [
+        {
+          url: "/twitter-image",
+          width: 1920,
+          height: 1080,
+          alt: "Chun-Ho (Hugo) Lin - 1chooo",
+        },
+      ],
     },
     icons: {
       icon: "/favicon.ico",
