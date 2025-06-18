@@ -34,8 +34,8 @@ const parseMarkdown = (markdownText: string) => {
   const unorderedListProcessedText = parseUnorderedList(markdownText);
   const lines = unorderedListProcessedText.split("\n");
 
-  return lines.map((line) => {
-    const key = line + Math.random().toString(36).substr(2, 9);
+  return lines.map((line, index) => {
+    const key = `line-${index}`;
 
     if (
       line.startsWith("<li>") ||
