@@ -39,7 +39,7 @@
     "@radix-ui/react-slot": "^1.2.2",
     "@rehype-pretty/transformers": "^0.13.2",
     "@testing-library/user-event": "^14.6.1",
-    "@types/node": "24.0.0",
+    "@types/node": "24.0.3",
     "@vercel/analytics": "^1.5.0",
     "@1chooo/ui": "workspace:*",
     "@1chooo/github-calendar": "workspace:*",
