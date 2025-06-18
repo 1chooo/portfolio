@@ -1,9 +1,26 @@
 "use client";
 
+import React from "react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { BriefcaseIcon } from "lucide-react";
 import { getIcon } from "@/components/icons";
+
+import {
+  parseItalic,
+  parseBold,
+  parseHeadings,
+  parseStrikethrough,
+  parseBlockquote,
+  parseInlineCode,
+  parseHorizontalRule,
+  parseHighlight,
+  parseLinks,
+  parseImages,
+  parseUnorderedList,
+} from "@/lib/markdown-parser";
+
+import { cn } from "@1chooo/ui/lib/utils";
 
 import type { ResumeCardType } from "@/types/resume";
 
@@ -12,6 +29,52 @@ import "@/styles/resume-card.css";
 interface ResumeCardProps {
   resumeCard: ResumeCardType;
 }
+
+const parseMarkdown = (markdownText: string) => {
+  const unorderedListProcessedText = parseUnorderedList(markdownText);
+  const lines = unorderedListProcessedText.split("\n");
+
+  return lines.map((line) => {
+    const key = line + Math.random().toString(36).substr(2, 9);
+
+    if (
+      line.startsWith("<li>") ||
+      line.startsWith("</ul>") ||
+      line.startsWith("<ul>")
+    ) {
+      return (
+        <div
+          className={cn("markdown")}
+          key={key}
+          dangerouslySetInnerHTML={{ __html: line }}
+        />
+      );
+    }
+
+    const element =
+      parseHorizontalRule(line) || parseBlockquote(line) || parseHeadings(line);
+
+    if (element) {
+      return React.cloneElement(element, { key });
+    }
+
+    let parsedLine = parseBold(line);
+    parsedLine = parseItalic(parsedLine);
+    parsedLine = parseStrikethrough(parsedLine);
+    parsedLine = parseInlineCode(parsedLine);
+    parsedLine = parseHighlight(parsedLine);
+    parsedLine = parseImages(parsedLine);
+    parsedLine = parseLinks(parsedLine);
+
+    return (
+      <p
+        className={cn("markdown")}
+        key={key}
+        dangerouslySetInnerHTML={{ __html: parsedLine }}
+      />
+    );
+  });
+};
 
 export default function ResumeCard({ resumeCard }: ResumeCardProps) {
   const { institution, institutionImage, title, tags } = resumeCard;
@@ -167,7 +230,7 @@ export default function ResumeCard({ resumeCard }: ResumeCardProps) {
               <div className="space-y-4">
                 <ul className="text-light-gray list-disc pl-5">
                   {resumeCard.details.map((item, index) => (
-                    <li key={index}>{item}</li>
+                    <li key={index}>{parseMarkdown(item)}</li>
                   ))}
                 </ul>
               </div>

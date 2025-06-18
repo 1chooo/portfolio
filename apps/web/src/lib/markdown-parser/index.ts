@@ -1,4 +1,5 @@
-import "@/styles/preview.css";
+import "@/styles/markdown-styles.css";
+
 export * from "./parse-headings";
 export * from "./parse-italic";
 export * from "./parse-bold";
