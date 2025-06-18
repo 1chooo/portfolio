@@ -22,7 +22,7 @@
   "devDependencies": {
     "@next/eslint-plugin-next": "^15.3.3",
     "@typescript-eslint/eslint-plugin": "8.34.1",
-    "@typescript-eslint/parser": "8.34.0",
+    "@typescript-eslint/parser": "8.34.1",
     "eslint": "^9.26.0",
     "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-only-warn": "^1.1.0",
