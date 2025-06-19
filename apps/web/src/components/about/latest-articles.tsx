@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import AboutSection from "@/components/section/about";
 
 import Image from "next/image";
-import { Post } from "@/interfaces/post";
+import { BlogPost } from "@/types/blog";
 
 import { ProgressBarLink } from "@/components/progress-bar";
 import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
@@ -19,14 +19,14 @@ import { cn } from "@/lib/utils";
 
 import "@/styles/about/latest-posts.css";
 
-type Props = {
-  posts: Post[];
-};
+interface LatestArticlesProps {
+  posts: BlogPost[];
+}
 
-export function LatestArticles({ posts }: Props) {
+export function LatestArticles({ posts }: LatestArticlesProps) {
   const [isMounted, setIsMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [visiblePosts, setVisiblePosts] = useState<Post[]>([]);
+  const [visiblePosts, setVisiblePosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
     setIsMounted(true);
