@@ -5,12 +5,14 @@ coverImage: "/images/banner/posts/three-methods-to-access-environment-variable-v
 date: "2024-12-26"
 author:
   name: 1chooo
-  picture: "https://github.com/1chooo.png"
+  avatar: "https://github.com/1chooo.png"
 ogImage:
   url: "/images/banner/posts/three-methods-to-access-environment-variable-values-in-python.png"
-
 publishedAt: "2024-12-26"
-category: Project
+lastModifiedAt: "2024-12-26"
+categories:
+  - Python
+  - Backend
 tags:
   - Python
   - Environment
@@ -18,10 +20,6 @@ tags:
   - python-dotenv
   - os.environ
   - os.getenv
-summary: "In Python, you can access environment variables using the `os` module, which provides a property called `environ` that contains the environment variables. In this post, I will share with you three methods to access environment variable values in Python."
-banner: /images/banner/posts/three-methods-to-access-environment-variable-values-in-python.png
-alt: "Three methods to Access environment variable values in Python"
-mathjax: false
 ---
 
 Hi everyone! I'm Hugo. I am currently focusing on developing https://1chooo.com and backend applications with Python. And there is a scenario where I need to access environment variable values in Python. However, sometimes it works, sometimes it doesn't. So, I decided to write this post to share with you three methods to access environment variable values in Python. That way, you can easily access environment variables in your Python applications.

@@ -1,4 +1,4 @@
-import { Post } from "@/interfaces/post";
+import { BlogPost } from "@/types/blog";
 import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
@@ -15,10 +15,10 @@ export function getBlogPostBySlug(slug: string) {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  return { ...data, slug: realSlug, content } as Post;
+  return { ...data, slug: realSlug, content } as BlogPost;
 }
 
-export function getBlogPosts(): Post[] {
+export function getBlogPosts(): BlogPost[] {
   const slugs = getPostSlugs();
   const posts = slugs
     .map((slug) => getBlogPostBySlug(slug))

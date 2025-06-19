@@ -5,21 +5,20 @@ coverImage: "/images/banner/posts/hugo-s-go-to-stack-for-building-maintainable-s
 date: "2025-01-09"
 author:
   name: 1chooo
-  picture: "https://github.com/1chooo.png"
+  avatar: "https://github.com/1chooo.png"
 ogImage:
   url: "/images/banner/posts/hugo-s-go-to-stack-for-building-maintainable-software.webp"
-
 publishedAt: "2025-01-09"
-category: Coding
+lastModifiedAt: "2025-01-09"
+categories:
+  - React
+  - Python
 tags:
   - React
   - Web Development
   - Clean Code
   - Software Development
   - Software Engineering
-banner: /images/banner/posts/hugo-s-go-to-stack-for-building-maintainable-software.webp
-alt: "Hugo's Go-To Stack for Building Maintainable Software"
-mathjax: false
 ---
 
 Hey there 👋 This is Hugo. Here's a quick summary of my go-to tech stack for Software Development. My experience comes from being highly active on GitHub, with over 5,000 contributions in 2024 (check it out [here](https://github.com/1chooo?tab=overview&from=2024-12-01&to=2024-12-31)). Additionally, I'll share insights on writing maintainable, clean, and scalable code.

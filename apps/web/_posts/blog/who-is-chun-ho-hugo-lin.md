@@ -5,22 +5,19 @@ coverImage: "/images/banner/posts/who-is-chun-ho-hugo-lin.webp"
 date: "2025-01-02"
 author:
   name: 1chooo
-  picture: "https://github.com/1chooo.png"
+  avatar: "https://github.com/1chooo.png"
 ogImage:
   url: "/images/banner/posts/who-is-chun-ho-hugo-lin.webp"
-
 publishedAt: "2025-01-02"
-category: Life
+lastModifiedAt: "2025-01-02"
+categories:
+  - Life
 tags:
   - Introduction
   - Chun-Ho (Hugo) Lin
   - Software Engineering
   - Chun-Ho Lin
   - Hugo Lin
-summary: "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻."
-banner: /images/banner/posts/who-is-chun-ho-hugo-lin.webp
-alt: "Who is Chun-Ho (Hugo) Lin"
-mathjax: true
 ---
 
 I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from [National Central University 🐿️](https://www.ncu.edu.tw/), driven by a _sincere passion_ for **Software Engineering 💻.**

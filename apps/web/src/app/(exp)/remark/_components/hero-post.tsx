@@ -1,6 +1,6 @@
 import Avatar from "@/app/(exp)/remark/_components/avatar";
 import CoverImage from "@/app/(exp)/remark/_components/cover-image";
-import { type Author } from "@/interfaces/author";
+import type { Author } from "@/types/blog";
 import Link from "next/link";
 import DateFormatter from "./date-formatter";
 
@@ -39,7 +39,7 @@ export function HeroPost({
         </div>
         <div>
           <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-          <Avatar name={author.name} picture={author.picture} />
+          <Avatar name={author.name} picture={author.avatar} />
         </div>
       </div>
     </section>

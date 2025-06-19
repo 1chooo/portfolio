@@ -7,7 +7,7 @@ import { ProgressBarLink } from "@/components/progress-bar";
 import { getBlogPosts } from "@/lib/api/blog";
 
 import config from "@/config";
-import { Post } from "@/interfaces/post";
+import { BlogPost } from "@/types/blog";
 
 import "@/styles/blog.css";
 
@@ -26,7 +26,7 @@ export default function Blog() {
       <ArticleTitile title="Hugo's Blog" />
       <section className="blog-posts">
         <ul className="blog-posts-list">
-          {allPosts.map((post: Post) => (
+          {allPosts.map((post: BlogPost) => (
             <li key={post.slug} className="blog-post-item">
               <ProgressBarLink
                 href={`/blog/${post.slug}`}
@@ -47,8 +47,8 @@ export default function Blog() {
                 <div className="blog-content">
                   <div className="blog-meta">
                     <span className="dot"></span>
-                    <time dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString("en-us", {
+                    <time dateTime={post.publishedAt}>
+                      {new Date(post.publishedAt).toLocaleDateString("en-us", {
                         month: "long",
                         day: "numeric",
                         year: "numeric",

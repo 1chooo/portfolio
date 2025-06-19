@@ -1,8 +1,8 @@
-import { Post } from "@/interfaces/post";
+import type { BlogPost } from "@/types/blog";
 import { PostPreview } from "./post-preview";
 
 type Props = {
-  posts: Post[];
+  posts: BlogPost[];
 };
 
 export function MoreStories({ posts }: Props) {
