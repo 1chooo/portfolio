@@ -17,6 +17,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { Link as ViewTransitionsLink } from "next-view-transitions";
 
 interface ProgressContextType {
   state: "initial" | "in-progress" | "completing" | "complete";
@@ -109,6 +110,84 @@ export function ProgressBarLink({
     <Link href={href} onClick={handleClick} {...props}>
       {children}
     </Link>
+  );
+}
+
+export function ViewTransitionsProgressBarLink({
+  href,
+  children,
+  ...props
+}: ProgressBarLinkProps) {
+  let progress = useProgressBar();
+  let router = useRouter();
+
+  let handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    progress.start();
+
+    let url: string;
+    if (typeof href === "string") {
+      url = href;
+    } else if (typeof href === "object" && href !== null) {
+      let { pathname, query } = href;
+      let searchParams = new URLSearchParams(query || {}).toString();
+      url = `${pathname}${searchParams ? `?${searchParams}` : ""}`;
+    } else {
+      console.error("Invalid href prop");
+      return;
+    }
+
+    startTransition(() => {
+      slideInOut();
+      router.push(url);
+      progress.done();
+    });
+  };
+
+  return (
+    <ViewTransitionsLink href={href} onClick={handleClick} {...props}>
+      {children}
+    </ViewTransitionsLink>
+  );
+}
+
+function slideInOut() {
+  document.documentElement.animate(
+    [
+      {
+        opacity: 1,
+        transform: "translate(0, 0)",
+      },
+      {
+        opacity: 0,
+        transform: "translate(-100px, 0)",
+      },
+    ],
+    {
+      duration: 400,
+      easing: "ease",
+      fill: "forwards",
+      pseudoElement: "::view-transition-old(root)",
+    },
+  );
+
+  document.documentElement.animate(
+    [
+      {
+        opacity: 0,
+        transform: "translate(100px, 0)",
+      },
+      {
+        opacity: 1,
+        transform: "translate(0, 0)",
+      },
+    ],
+    {
+      duration: 400,
+      easing: "ease",
+      fill: "forwards",
+      pseudoElement: "::view-transition-new(root)",
+    },
   );
 }
 
