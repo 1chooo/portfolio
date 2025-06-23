@@ -1,6 +1,7 @@
 import Script from "next/script";
 import type { Metadata } from "next";
 import { Roboto, Roboto_Mono } from "next/font/google";
+import { ViewTransitions } from "next-view-transitions";
 
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
@@ -57,38 +58,40 @@ const addJsonLd = (): JsonLdHtml => {
 
 function HomeLayout({ children }: { readonly children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${roboto.variable} ${robotoMono.variable}`}>
-      <body>
-        <ProgressBar className="fixed top-0 h-1 bg-yellow-500">
-          <Hello />
-          <main>
-            <SideBar
-              avatar={avatar}
-              firstName={firstName}
-              lastName={lastName}
-              middleName={middleName}
-              preferredName={preferredName}
-              status={status}
-              socialLinks={socialLinks}
-              contacts={contacts}
-            />
-            <div className="main-content">
-              <VercelNavBar navigationLinks={navigationLinks} />
-              {children}
-            </div>
-          </main>
-        </ProgressBar>
-        <Script
-          id="application/ld+json"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={addJsonLd()}
-          key="1chooo-website-jsonld"
-        />
-        <Analytics />
-      </body>
-      <GoogleAnalytics gaId={googleAnalyticId as string} />
-      <GoogleTagManager gtmId={googleTagManagerId as string} />
-    </html>
+    <ViewTransitions>
+      <html lang="en" className={`${roboto.variable} ${robotoMono.variable}`}>
+        <body>
+          <ProgressBar className="fixed top-0 h-1 bg-yellow-500">
+            <Hello />
+            <main>
+              <SideBar
+                avatar={avatar}
+                firstName={firstName}
+                lastName={lastName}
+                middleName={middleName}
+                preferredName={preferredName}
+                status={status}
+                socialLinks={socialLinks}
+                contacts={contacts}
+              />
+              <div className="main-content">
+                <VercelNavBar navigationLinks={navigationLinks} />
+                {children}
+              </div>
+            </main>
+          </ProgressBar>
+          <Script
+            id="application/ld+json"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={addJsonLd()}
+            key="1chooo-website-jsonld"
+          />
+          <Analytics />
+        </body>
+        <GoogleAnalytics gaId={googleAnalyticId as string} />
+        <GoogleTagManager gtmId={googleTagManagerId as string} />
+      </html>
+    </ViewTransitions>
   );
 }
 
