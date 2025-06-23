@@ -88,7 +88,7 @@ function HomeLayout({ children }: { readonly children: React.ReactNode }) {
           />
           <VercelAnalytic />
           <UmamiAnalytic />
-          <GoogleAnalytic googleAnalyticId={googleAnalyticId as string} googleTagManagerId={googleTagManagerId as string} />
+          <GoogleAnalytic googleAnalyticId={googleAnalyticId} googleTagManagerId={googleTagManagerId} />
         </body>
       </html>
     </ViewTransitions>
