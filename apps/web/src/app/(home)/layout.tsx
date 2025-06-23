@@ -3,14 +3,13 @@ import type { Metadata } from "next";
 import { Roboto, Roboto_Mono } from "next/font/google";
 import { ViewTransitions } from "next-view-transitions";
 
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
-import { Analytics } from "@vercel/analytics/next";
-
 import { VercelNavBar } from "@/components/layout/vercel-navbar";
 import SideBar from "@/components/layout/side-bar";
 import Hello from "@/components/hello";
 import { ProgressBar } from "@/components/progress-bar";
-import UmamiAnalytic from "@/components/umami-analytic";
+import UmamiAnalytic from "@/components/analytics/umami";
+import VercelAnalytic from "@/components/analytics/vercel";
+import GoogleAnalytic from "@/components/analytics/google";
 
 import config from "@/config";
 
@@ -87,11 +86,10 @@ function HomeLayout({ children }: { readonly children: React.ReactNode }) {
             dangerouslySetInnerHTML={addJsonLd()}
             key="1chooo-website-jsonld"
           />
-          <Analytics />
+          <VercelAnalytic />
           <UmamiAnalytic />
+          <GoogleAnalytic googleAnalyticId={googleAnalyticId as string} googleTagManagerId={googleTagManagerId as string} />
         </body>
-        <GoogleAnalytics gaId={googleAnalyticId as string} />
-        <GoogleTagManager gtmId={googleTagManagerId as string} />
       </html>
     </ViewTransitions>
   );
