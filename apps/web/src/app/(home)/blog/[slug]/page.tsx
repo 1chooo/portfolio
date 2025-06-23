@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { LuFacebook, LuTwitter } from "react-icons/lu";
 import Balancer from "react-wrap-balancer";
+import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 
 import ArticleTitile from "@/components/article-title";
 import Comments from "@/components/comments";
@@ -36,7 +37,12 @@ export default async function Post(props: Params) {
   return (
     <div>
       <article>
-        <ArticleTitile title="Hugo's Blog" />
+        <ViewTransitionsProgressBarLink href="/blog" rel="noopener noreferrer">
+          <ArticleTitile
+            className="text-light-gray hover:text-light-gray-70"
+            title="← Back to Blog"
+          />
+        </ViewTransitionsProgressBarLink>
         <h1 className="font-semibold text-4xl text-white-2 max-w-[650px]">
           <Balancer>{post.title}</Balancer>
         </h1>

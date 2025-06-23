@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import ArticleTitile from "@/components/article-title";
-import { ProgressBarLink } from "@/components/progress-bar";
+import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 
 import { getBlogPosts } from "@/lib/api/blog";
 
@@ -30,7 +30,7 @@ export default function Blog() {
         <ul className="blog-posts-list">
           {allPosts.map((post: BlogPost) => (
             <li key={post.slug} className="blog-post-item">
-              <ProgressBarLink
+              <ViewTransitionsProgressBarLink
                 href={`/blog/${post.slug}`}
                 rel="noopener noreferrer"
               >
@@ -49,7 +49,9 @@ export default function Blog() {
                 <div className="blog-content">
                   <div className="blog-meta">
                     <p className="blog-category">{post.category}</p>
-                    <h3 className="blog-item-title"><Balancer>{post.title}</Balancer></h3>
+                    <h3 className="blog-item-title">
+                      <Balancer>{post.title}</Balancer>
+                    </h3>
                   </div>
                   <time className="blog-time" dateTime={post.publishedAt}>
                     {new Date(post.publishedAt).toLocaleDateString("en-us", {
@@ -59,7 +61,7 @@ export default function Blog() {
                     })}
                   </time>
                 </div>
-              </ProgressBarLink>
+              </ViewTransitionsProgressBarLink>
             </li>
           ))}
         </ul>
