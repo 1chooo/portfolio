@@ -47,7 +47,7 @@
     "cobe": "^0.6.3",
     "date-fns": "^4.1.0",
     "gray-matter": "^4.0.3",
-    "lucide-react": "0.516.0",
+    "lucide-react": "0.523.0",
     "motion": "^12.19.1",
     "next": "15.3.4",
     "next-view-transitions": "0.3.4",
