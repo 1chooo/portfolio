@@ -20,7 +20,7 @@ const config: Config = {
   navigationLinks: [
     { path: "/", label: "About" },
     { path: "/resume", label: "Resume" },
-    { path: "/portfolio", label: "Portfolio" },
+    { path: "/project", label: "Project" },
     { path: "/blog", label: "Blog" },
   ],
   contacts: [

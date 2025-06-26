@@ -24,6 +24,10 @@ export const VercelNavBar = ({ navigationLinks }: VercelNavBarProps) => {
     if (path === "/blog" && currentPath.startsWith("/blog")) return true;
     else if (path === "/portfolio" && currentPath.startsWith("/portfolio"))
       return true;
+    else if (path === "/project" && currentPath.startsWith("/project"))
+      return true;
+    else if (path === "/post" && currentPath.startsWith("/post"))
+      return true;
     return currentPath === path;
   };
 
