@@ -17,7 +17,7 @@ import { cn } from "@1chooo/ui/lib/utils";
 import classes from "@/styles/blog.module.css";
 
 interface CategoryPageProps {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 }
 
 function getAllCategories(posts: BlogPost[]): Record<string, number> {
@@ -40,8 +40,9 @@ function filterPostsByCategory(posts: BlogPost[], selectedCategory: string): Blo
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
-  const categoryName = decodeURIComponent(params.category);
-  
+  const { category } = await params;
+  const categoryName = decodeURIComponent(category);
+
   return {
     title: `${categoryName} | Blog | ${config.title}`,
     description: `Blog posts about ${categoryName}`,
@@ -52,7 +53,7 @@ export async function generateStaticParams() {
   try {
     const allPosts = await getBlogPosts();
     const categories = getAllCategories(allPosts);
-    
+
     return Object.keys(categories).map((category) => ({
       category: category.toLowerCase(),
     }));
@@ -63,6 +64,7 @@ export async function generateStaticParams() {
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
+  const { category } = await params;
   let allPosts: BlogPost[];
 
   try {
@@ -72,9 +74,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     allPosts = [];
   }
 
-  const categoryParam = decodeURIComponent(params.category);
+  const categoryParam = decodeURIComponent(category);
   const filteredPosts = filterPostsByCategory(allPosts, categoryParam);
-  
+
   // 如果找不到該分類的文章，顯示 404
   if (filteredPosts.length === 0) {
     notFound();
@@ -82,13 +84,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   const categories = getAllCategories(allPosts);
   const blogCategories = Object.keys(categories);
-  
-  // 找到正確的分類名稱（保持原始大小寫）
-  const actualCategoryName = filteredPosts[0]?.category || categoryParam;
 
   return (
     <article>
-      <PageTitle title={`${actualCategoryName} | Hugo's Blog`} />
+      <PageTitle title={`Hugo's Blog`} />
 
       <section className={cn(classes.blog)}>
         <ul className={classes.filters}>
