@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 import PageTitle from "@/components/page-title";
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
@@ -15,10 +16,9 @@ import { cn } from "@1chooo/ui/lib/utils";
 
 import classes from "@/styles/blog.module.css";
 
-export const metadata: Metadata = {
-  title: `Blog | ${config.title}`,
-  description: config.description,
-};
+interface CategoryPageProps {
+  params: { category: string };
+}
 
 function getAllCategories(posts: BlogPost[]): Record<string, number> {
   const allCategories: Record<string, number> = Object.create(null);
@@ -33,7 +33,36 @@ function getAllCategories(posts: BlogPost[]): Record<string, number> {
   return allCategories;
 }
 
-export default async function Blog() {
+function filterPostsByCategory(posts: BlogPost[], selectedCategory: string): BlogPost[] {
+  return posts.filter(post => {
+    return post.category.toLowerCase() === selectedCategory.toLowerCase();
+  });
+}
+
+export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
+  const categoryName = decodeURIComponent(params.category);
+  
+  return {
+    title: `${categoryName} | Blog | ${config.title}`,
+    description: `Blog posts about ${categoryName}`,
+  };
+}
+
+export async function generateStaticParams() {
+  try {
+    const allPosts = await getBlogPosts();
+    const categories = getAllCategories(allPosts);
+    
+    return Object.keys(categories).map((category) => ({
+      category: category.toLowerCase(),
+    }));
+  } catch (error) {
+    console.error('Failed to generate static params:', error);
+    return [];
+  }
+}
+
+export default async function CategoryPage({ params }: CategoryPageProps) {
   let allPosts: BlogPost[];
 
   try {
@@ -43,19 +72,30 @@ export default async function Blog() {
     allPosts = [];
   }
 
+  const categoryParam = decodeURIComponent(params.category);
+  const filteredPosts = filterPostsByCategory(allPosts, categoryParam);
+  
+  // 如果找不到該分類的文章，顯示 404
+  if (filteredPosts.length === 0) {
+    notFound();
+  }
+
   const categories = getAllCategories(allPosts);
   const blogCategories = Object.keys(categories);
+  
+  // 找到正確的分類名稱（保持原始大小寫）
+  const actualCategoryName = filteredPosts[0]?.category || categoryParam;
 
   return (
     <article>
-      <PageTitle title="Hugo's Blog" />
+      <PageTitle title={`${actualCategoryName} | Hugo's Blog`} />
 
       <section className={cn(classes.blog)}>
         <ul className={classes.filters}>
           <li>
             <ViewTransitionsProgressBarLink
               href="/blog"
-              className={cn(classes.filterButton, classes.filterButtonActive)}
+              className={cn(classes.filterButton)}
             >
               All ({allPosts.length})
             </ViewTransitionsProgressBarLink>
@@ -65,7 +105,9 @@ export default async function Blog() {
             <li key={index}>
               <ViewTransitionsProgressBarLink
                 href={`/blog/category/${encodeURIComponent(category.toLowerCase())}`}
-                className={cn(classes.filterButton)}
+                className={cn(classes.filterButton, {
+                  [classes.filterButtonActive]: category.toLowerCase() === categoryParam.toLowerCase(),
+                })}
               >
                 {category} ({categories[category]})
               </ViewTransitionsProgressBarLink>
@@ -76,7 +118,7 @@ export default async function Blog() {
 
       <section className={cn(classes.blog)}>
         <ul className={cn(classes.cards)}>
-          {allPosts.map((post: BlogPost) => (
+          {filteredPosts.map((post: BlogPost) => (
             <li className={cn(classes.card)} key={post.slug}>
               <ViewTransitionsProgressBarLink
                 href={`/blog/${post.slug}`}
