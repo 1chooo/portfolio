@@ -1,5 +1,6 @@
 .blog {
-  margin-bottom: 10px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .blog .cards {
@@ -109,6 +110,43 @@
   text-overflow: ellipsis;
 }
 
+.blog .filters {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
+.blog .filterButton {
+  color: var(--light-gray);
+  font-size: var(--fs-5);
+  transition: var(--transition-1);
+}
+
+.blog .filterLink {
+  color: var(--light-gray);
+  font-size: var(--fs-5);
+  transition: var(--transition-1);
+}
+
+.blog .filterButton:hover {
+  color: var(--light-gray-70);
+}
+
+.blog .filterButtonActive {
+  color: var(--orange-yellow-crayola);
+}
+
+.blog .filterLink:hover {
+  color: var(--light-gray-70);
+}
+
+.blog .filterLinkActive {
+  color: var(--orange-yellow-crayola);
+}
+
 @media (min-width: 450px) {
   .blog .card {
     height: 450px;
@@ -150,6 +188,8 @@
   .blog .card {
     height: 450px;
   }
+
+
 }
 
 @media (min-width: 1024px) {

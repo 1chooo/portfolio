@@ -12,7 +12,7 @@ function FilterList({ path, selectedTag, blogTags }: FilterListProps) {
   return (
     <ul className="filter-list">
       {blogTags.map((tag, index) => (
-        <li className="filter-item" key={index}>
+        <li className="filter-item" key={`${index}-${tag}`}>
           <ViewTransitionsProgressBarLink
             href={`/${path}?tag=${encodeURIComponent(tag)}`}
             className={`filter-btn ${selectedTag === tag ? "active" : ""}`}
