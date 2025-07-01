@@ -1,4 +1,8 @@
 import Link from "next/link";
+import React from "react";
+
+import GitHubCalendar from "@1chooo/github-calendar";
+import { ThemeInput } from "@1chooo/activity-calendar/types";
 
 import PostsLoop from "@/components/about/posts-loop";
 import { BlogPost } from "@/types/blog";
@@ -11,11 +15,32 @@ import "@/styles/about/coding-stats.css";
 interface MyWritingsProps {
   count?: number;
   posts?: BlogPost[];
+  githubUsername?: string;
 }
 
-export function MyWritings({ count, posts }: MyWritingsProps) {
+export function MyWritings({ count, posts, githubUsername }: MyWritingsProps) {
+  const yellowTheme: ThemeInput = {
+    light: ["#EBEBEB", "#FFDA6B"],
+    dark: ["#383838", "#FFDA6B"],
+  };
+
   return (
     <div className="w-full max-w-4xl mx-auto my-7 xl:px-0">
+      <BlurFade inView delay={0.4} direction="up">
+        <section id="github-calendar" className="text-light-gray my-5">
+          <GitHubCalendar
+            username={githubUsername}
+            blockSize={12}
+            blockMargin={4}
+            colorScheme="dark"
+            blockRadius={2}
+            fontSize={14}
+            style={{ fontWeight: "bold" }}
+            theme={yellowTheme}
+          />
+        </section>
+      </BlurFade>
+
       <div className="flex flex-col items-start justify-start md:flex-row md:space-x-7">
         <PostsLoop count={count} posts={posts} />
 
@@ -28,7 +53,7 @@ export function MyWritings({ count, posts }: MyWritingsProps) {
                 className="shadow-feature-card dark:shadow-feature-card-dark flex flex-col gap-2 overflow-hidden rounded-xl p-2"
               >
                 <div className="relative flex items-center space-x-2">
-                  <Newspaper className="flex-none w-6 h-6 text-neutral-700 dark:text-neutral-200" />
+                  <Newspaper className="flex-none text-neutral-700 dark:text-neutral-200" size={18} />
                   <h2 className="flex text-sm font-semibold text-neutral-900 dark:text-neutral-100">
                     Subscribe my blog
                   </h2>
@@ -78,7 +103,7 @@ export function MyWritings({ count, posts }: MyWritingsProps) {
             <div className="coding-item relative rounded-2xl shadow-shadow-2 bg-gradient-onyx before:absolute before:content-[''] before:rounded-2xl mt-4">
               <div className="flex flex-wrap gap-2 shadow-feature-card dark:shadow-feature-card-dark rounded-xl">
                 <div className="relative flex items-center space-x-2">
-                  <Zap className="flex-none w-6 h-6 text-white-1" />
+                  <Zap className="flex-none text-white-1" size={18} />
                   <h2 className="flex text-sm font-semibold text-white-1">
                     Technology Stack
                   </h2>
@@ -590,6 +615,6 @@ export function MyWritings({ count, posts }: MyWritingsProps) {
           </BlurFade>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
