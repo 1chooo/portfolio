@@ -28,16 +28,18 @@ export function MyWritings({ count, posts, githubUsername }: MyWritingsProps) {
     <div className="w-full max-w-4xl mx-auto my-7 xl:px-0">
       <BlurFade inView delay={0.4} direction="up">
         <section id="github-calendar" className="text-light-gray my-5">
-          <GitHubCalendar
-            username={githubUsername}
-            blockSize={12}
-            blockMargin={4}
-            colorScheme="dark"
-            blockRadius={2}
-            fontSize={14}
-            style={{ fontWeight: "bold" }}
-            theme={yellowTheme}
-          />
+          {githubUsername && (
+            <GitHubCalendar
+              username={githubUsername}
+              blockSize={12}
+              blockMargin={4}
+              colorScheme="dark"
+              blockRadius={2}
+              fontSize={14}
+              style={{ fontWeight: "bold" }}
+              theme={yellowTheme}
+            />
+          )}
         </section>
       </BlurFade>
 
