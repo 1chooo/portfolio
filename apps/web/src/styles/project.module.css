@@ -1,5 +1,6 @@
 .project {
-  margin-bottom: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .project .cards {
@@ -101,6 +102,43 @@
   color: var(--light-gray-70);
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
+}
+
+.project .filters {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
+.project .filterButton {
+  color: var(--light-gray);
+  font-size: var(--fs-5);
+  transition: var(--transition-1);
+}
+
+.project .filterLink {
+  color: var(--light-gray);
+  font-size: var(--fs-5);
+  transition: var(--transition-1);
+}
+
+.project .filterButton:hover {
+  color: var(--light-gray-70);
+}
+
+.project .filterButtonActive {
+  color: var(--orange-yellow-crayola);
+}
+
+.project .filterLink:hover {
+  color: var(--light-gray-70);
+}
+
+.project .filterLinkActive {
+  color: var(--orange-yellow-crayola);
 }
 
 @media (min-width: 375px) {

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import PageTitle from "@/components/page-title";
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
@@ -13,11 +14,33 @@ import { LuEye } from "react-icons/lu";
 import classes from "@/styles/project.module.css";
 import { ProjectPost } from "@/types/project";
 
-export async function generateMetadata(): Promise<Metadata> {
+interface CategoryPageProps {
+  params: Promise<{ category: string }>;
+}
+
+export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
+  const { category } = await params;
+  const categoryName = decodeURIComponent(category);
+
   return {
-    title: `Project | ${config.title}`,
+    title: `${categoryName} | Project | ${config.title}`,
     description: config.description,
   };
+}
+
+export async function generateStaticParams() {
+  try {
+    let projects: ProjectPost[];
+    projects = await getProjects();
+    const categories = getCategories(projects);
+
+    return Object.keys(categories).map((category) => ({
+      category: category.toLowerCase(),
+    }));
+  } catch (error) {
+    console.error("Failed to generate static params:", error);
+    return [];
+  }
 }
 
 function getCategories(posts: ProjectPost[]): Record<string, number> {
@@ -33,7 +56,14 @@ function getCategories(posts: ProjectPost[]): Record<string, number> {
   return categories;
 }
 
-export default async function Project() {
+function filterProjectsByCategory(posts: ProjectPost[], selectedCategory: string): ProjectPost[] {
+  return posts.filter(post => {
+    return post.category.toLowerCase() === selectedCategory.toLowerCase();
+  });
+}
+
+export default async function CategoryPage({ params }: CategoryPageProps) {
+  const { category } = await params;
   let projects: ProjectPost[];
 
   try {
@@ -41,6 +71,13 @@ export default async function Project() {
   } catch (error) {
     console.error('Failed to load blog posts:', error);
     projects = [];
+  }
+
+  const categoryParam = decodeURIComponent(category);
+  const filteredPosts = filterProjectsByCategory(projects, categoryParam);
+
+  if (filteredPosts.length === 0) {
+    notFound();
   }
 
   const categories = getCategories(projects);
@@ -55,7 +92,7 @@ export default async function Project() {
           <li>
             <ViewTransitionsProgressBarLink
               href="/project"
-              className={cn(classes.filterButton, classes.filterButtonActive)}
+              className={cn(classes.filterButton)}
             >
               All ({projects.length})
             </ViewTransitionsProgressBarLink>
@@ -65,7 +102,9 @@ export default async function Project() {
             <li key={index}>
               <ViewTransitionsProgressBarLink
                 href={`/project/category/${encodeURIComponent(category.toLowerCase())}`}
-                className={cn(classes.filterButton)}
+                className={cn(classes.filterButton, {
+                  [classes.filterButtonActive]: category.toLowerCase() === categoryParam.toLowerCase(),
+                })}
               >
                 {category} ({categories[category]})
               </ViewTransitionsProgressBarLink>
@@ -76,7 +115,7 @@ export default async function Project() {
 
       <section className={cn(classes.project)}>
         <ul className={cn(classes.cards)}>
-          {projects.map((post) => (
+          {filteredPosts.map((post) => (
             <li
               key={post.slug}
               className={cn(classes.card, classes.cardActive)}
