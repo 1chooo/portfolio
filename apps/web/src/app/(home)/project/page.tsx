@@ -39,7 +39,7 @@ export default async function Project() {
   try {
     projects = await getProjects();
   } catch (error) {
-    console.error('Failed to load blog posts:', error);
+    console.error('Failed to load project posts:', error);
     projects = [];
   }
 
