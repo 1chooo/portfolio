@@ -13,7 +13,7 @@ interface AboutSectionProps {
 function AboutSection({ id, title, children }: AboutSectionProps) {
   return (
     <section id={id} className={classes.section}>
-      {title && title !== "" && (
+      {title && (
         <BlurFade inView delay={0.4} direction="down">
           <h2 className={classes.title}>{title}</h2>
         </BlurFade>
