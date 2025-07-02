@@ -37,7 +37,7 @@
     "@1chooo/ui": "workspace:*",
     "@next/bundle-analyzer": "15.3.4",
     "@next/third-parties": "15.3.4",
-    "@primer/octicons-react": "^19.15.1",
+    "@primer/octicons-react": "^19.15.3",
     "@rehype-pretty/transformers": "^0.13.2",
     "@types/node": "24.0.4",
     "@vercel/analytics": "^1.5.0",
