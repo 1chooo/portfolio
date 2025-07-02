@@ -38,7 +38,7 @@
     "@1chooo/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "^4.1.5",
     "@turbo/gen": "^2.5.2",
-    "@types/node": "24.0.4",
+    "@types/node": "24.0.10",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.0",
     "tailwindcss": "^4.0.8",
