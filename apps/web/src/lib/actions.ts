@@ -25,33 +25,57 @@ async function getGeoData(ip: string | null): Promise<GeoData> {
 
 export async function incrementViewCount(route: string, email?: string) {
   try {
+    console.log("Incrementing view count for route:", route)
+
+    // Validate environment variables
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      throw new Error("Missing Supabase environment variables")
+    }
+
     const supabase = createServerClient()
     const headersList = await headers()
     const ip = headersList.get("x-forwarded-for") || headersList.get("x-real-ip")
 
+    console.log("Getting geo data for IP:", ip)
     const geoData = await getGeoData(ip)
 
-    const { error } = await supabase.from("views").insert({
-      route,
-      email: email || null,
-      ...geoData,
-    })
+    console.log("Inserting view record...")
+    const { data, error } = await supabase
+      .from("views")
+      .insert({
+        route,
+        email: email || null,
+        ...geoData,
+      })
+      .select()
 
     if (error) {
-      console.error("Error incrementing view count:", error)
-      throw error
+      console.error("Supabase error:", error)
+      throw new Error(`Database error: ${error.message}`)
     }
+
+    console.log("View count incremented successfully:", data)
 
     // Revalidate the page to show updated count
     revalidatePath(route)
+
+    return { success: true, data }
   } catch (error) {
     console.error("Failed to increment view count:", error)
-    throw error
+    // Don't throw the error, just log it and return a failure response
+    return { success: false, error: error instanceof Error ? error.message : "Unknown error" }
   }
 }
 
 export async function getViewCount(route: string): Promise<number> {
   try {
+    console.log("Getting view count for route:", route)
+
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      console.error("Missing Supabase environment variables")
+      return 0
+    }
+
     const supabase = createServerClient()
 
     const { count, error } = await supabase.from("views").select("*", { count: "exact", head: true }).eq("route", route)
@@ -61,6 +85,7 @@ export async function getViewCount(route: string): Promise<number> {
       return 0
     }
 
+    console.log("View count for", route, ":", count)
     return count || 0
   } catch (error) {
     console.error("Failed to get view count:", error)
