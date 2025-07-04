@@ -6,7 +6,8 @@ import Link from "next/link";
 import { LuFacebook, LuTwitter } from "react-icons/lu";
 import Balancer from "react-wrap-balancer";
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
-
+import ViewCounter from "@/components/view-counter"
+import { getViewCount } from "@/lib/actions"
 import { FadeLeft, FadeUp, FadeIn } from "@/components/animations";
 import PageTitle from "@/components/page-title";
 import Comments from "@/components/comments";
@@ -33,6 +34,8 @@ export default async function Post(props: Params) {
   const post = getBlogPostBySlug(params.slug);
   const shareUrl = `https://1chooo.com/blog/${post.slug}`;
   const shareText = `Check out this post:`;
+  const route = `/blog/${params.slug}`
+  const viewCount = await getViewCount(route)
 
   if (!post) {
     return notFound();
@@ -76,6 +79,7 @@ export default async function Post(props: Params) {
                 aria-hidden="true"
               ></span>
               <span>{post.category.toUpperCase()}</span>
+              <ViewCounter route={route} initialCount={viewCount} trackView={true} />
             </div>
             <div className="flex items-center space-x-2 ml-4">
               <Link
