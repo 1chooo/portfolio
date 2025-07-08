@@ -55,7 +55,7 @@
   "devDependencies": {
     "@1chooo/eslint-config": "workspace:^",
     "@1chooo/typescript-config": "workspace:*",
-    "@commitlint/cli": "^18.6.1",
+    "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^18.6.3",
     "@jest/globals": "^29.7.0",
     "@tsconfig/node20": "^20.1.4",
