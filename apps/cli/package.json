@@ -78,7 +78,7 @@
   },
   "dependencies": {
     "consola": "^3.2.3",
-    "dotenv": "^16.4.5",
+    "dotenv": "^17.1.0",
     "giget": "^1.2.3",
     "picocolors": "^1.0.1",
     "yargs": "^17.7.2"

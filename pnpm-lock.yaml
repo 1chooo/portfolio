@@ -30,8 +30,8 @@ importers:
         specifier: ^3.2.3
         version: 3.4.2
       dotenv:
-        specifier: ^16.4.5
-        version: 16.6.1
+        specifier: ^17.1.0
+        version: 17.1.0
       giget:
         specifier: ^1.2.3
         version: 1.2.5
@@ -3876,8 +3876,8 @@ packages:
     resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
     engines: {node: '>=12'}
 
-  dotenv@16.6.1:
-    resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
+  dotenv@17.1.0:
+    resolution: {integrity: sha512-tG9VUTJTuju6GcXgbdsOuRhupE8cb4mRgY5JLRCh4MtGoVo3/gfGUtOMwmProM6d0ba2mCFvv+WrpYJV6qgJXQ==}
     engines: {node: '>=12'}
 
   dunder-proto@1.0.1:
@@ -11964,7 +11964,7 @@ snapshots:
 
   dotenv@16.0.3: {}
 
-  dotenv@16.6.1: {}
+  dotenv@17.1.0: {}
 
   dunder-proto@1.0.1:
     dependencies:
