@@ -3,17 +3,18 @@ title: "Task Oriented Dialogue Assistant Model (ToDAM)"
 excerpt: "This is the project that I served as an Intern at eCloudValley in 2024/03-2024/05. The project is to build a ticket system for the customer service department."
 thumbnail: "/images/thumbnail/project/todam-tw.webp"
 category: "Website"
-publishedAt: "2024-05-31"
+startDate: "2024-03"
+endDate: "2024-05"
+techStack:
+  - python
+  - redis
 author:
   name: Hugo Lin
   avatar: "https://github.com/1chooo.png"
   url: "https://1chooo.com"
-tags:
-  - AWS
-  - Cloud Engineer
-  - FastAPI
-  - Intern
-  - TAM
+demo: "https://youtu.be/i86gxusBZNY"
+docs: "https://github.com/TODAM-tw/todam-ticket-system/tree/main/docs"
+code: "https://github.com/TODAM-tw/todam-ticket-system"
 ---
 
 This is the project that I served as an Intern at eCloudValley in 2024/03-2024/05. The project is to build a ticket system for the customer service department.

@@ -7,17 +7,21 @@ export type Author = {
 export type ProjectPost = {
   slug: string;
   title: string;
-  publishedAt: string;
+  startDate: string;
+  endDate: string;
+  techStack: string[];
   thumbnail: string;
   author: Author;
   /**
    * @todo let user to customize the color of tags and categories
    */
-  tags: string[];
   category: string;
   excerpt: string;
   content: string;
   processedContent?: string;
   readingTime?: string;
   [key: string]: any;
+  code?: string;
+  demo?: string;
+  docs?: string;
 };

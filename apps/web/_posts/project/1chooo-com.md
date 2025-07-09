@@ -3,17 +3,20 @@ title: "1chooo.com"
 excerpt: "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻."
 thumbnail: "/images/thumbnail/project/1chooo-com.webp"
 category: "Website"
-publishedAt: "2024-12-31"
+startDate: "2024-01"
+endDate: ""
+techStack:
+  - nextjs
+  - react
+  - typescript
+  - tailwindcss
 author:
   name: Hugo Lin
   avatar: "https://github.com/1chooo.png"
   url: "https://1chooo.com"
-tags:
-  - Next.js
-  - React
-  - Turbo
-  - Portfolio
-  - Blog
+demo: "https://1chooo.com"
+docs: "https://docs.1chooo.com"
+code: "https://github.com/1chooo/portfolio"
 ---
 
 👨🏻‍💻 $ ls -al Hugo -- A Turborepo of my personal portfolio and blog website built with React, Next.js, Tailwind CSS and TypeScript

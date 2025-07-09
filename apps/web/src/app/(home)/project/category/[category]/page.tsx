@@ -9,7 +9,8 @@ import { getProjects } from "@/lib/api/project";
 import { cn } from "@1chooo/ui/lib/utils";
 
 import config from "@/config";
-import { LuEye } from "react-icons/lu";
+import { TechBadges } from "@/lib/tech-badge-no-link";
+import Balancer from "react-wrap-balancer";
 
 import styles from "@/styles/project.module.css";
 import { ProjectPost } from "@/types/project";
@@ -123,37 +124,57 @@ export default async function ProjectCategory({
 
       <section className={cn(styles.project)}>
         <ul className={cn(styles.cards)}>
-          {filteredPosts.map((post) => (
-            <li
-              key={post.slug}
-              className={cn(styles.card, styles.cardActive)}
-              data-category={post.category}
-            >
+          {filteredPosts.map((post: ProjectPost) => (
+            <li className={cn(styles.card)} key={post.slug}>
               <ViewTransitionsProgressBarLink
                 href={`/project/${post.slug}`}
                 rel="noopener noreferrer"
               >
                 <figure className={cn(styles.bannerBox)}>
-                  <div className={cn(styles.iconBox)}>
-                    <LuEye />
-                  </div>
                   <Image
                     src={
                       post.thumbnail ||
                       "https://docs.1chooo.com/images/cover-with-1chooo-com.png"
                     }
-                    alt={post.title || "Portfolio post image"}
-                    width={480}
-                    height={270}
-                    priority
+                    alt={post.title || "Blog post image"}
+                    width={960}
+                    height={540}
+                    priority={false}
                     placeholder="blur"
                     loading="eager"
-                    quality={50}
                     blurDataURL="https://docs.1chooo.com/images/cover-with-1chooo-com.png"
                   />
                 </figure>
-                <h3 className={cn(styles.title)}>{post.title}</h3>
-                <p className={cn(styles.category)}>{post.category}</p>
+                <div className={cn(styles.content)}>
+                  <div className={cn(styles.meta)}>
+                    <div className="flex justify-between items-center">
+                      <time className={cn(styles.period)}>
+                        {new Date(post.startDate).toLocaleDateString("en-us", {
+                          month: "long",
+                          year: "numeric",
+                        })}
+                        {" - "}
+                        {post.endDate
+                          ? new Date(post.endDate).toLocaleDateString("en-us", {
+                            month: "long",
+                            year: "numeric",
+                          })
+                          : "Present"}
+                      </time>
+                      <p className={cn(styles.category)}>
+                        {post.category.toUpperCase()}
+                      </p>
+                    </div>
+                    <h3 className={cn(styles.title)}>
+                      <Balancer>{post.title}</Balancer>
+                    </h3>
+                  </div>
+                  <div className="flex flex-wrap gap-2 shadow-feature-card dark:shadow-feature-card-dark rounded-xl mt-4">
+                    {post.techStack.map((badgeKey) => (
+                      <span key={badgeKey}>{TechBadges[badgeKey]}</span>
+                    ))}
+                  </div>
+                </div>
               </ViewTransitionsProgressBarLink>
             </li>
           ))}

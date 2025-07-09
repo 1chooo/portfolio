@@ -3,17 +3,16 @@ title: "UML Editor"
 excerpt: "🎨 NCU-SE6029-2024-Spring-Object-Oriented Analysis and Design (OOAD) Project"
 thumbnail: "/images/thumbnail/project/uml-editor.webp"
 category: "App"
-publishedAt: "2024-06-30"
+startDate: "2024-03"
+endDate: "2024-06"
+techStack:
+  - java
 author:
   name: Hugo Lin
   avatar: "https://github.com/1chooo.png"
   url: "https://1chooo.com"
-tags:
-  - Java
-  - JavaFX
-  - UML
-  - OOAD
-  - NCU
+docs: "https://1chooo.github.io/uml-editor"
+code: "https://github.com/1chooo/uml-editor"
 ---
 
 🎨 NCU-SE6029-2024-Spring-Object-Oriented Analysis and Design (OOAD) Project
