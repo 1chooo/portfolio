@@ -139,10 +139,10 @@ export const TECH_BADGE_CONFIGS: Record<string, TechBadgeConfig> = {
     href: "https://gradio.app/",
     svgIcon: "gradio",
   },
-  googleanalytic: {
+  googleanalytics: {
     name: "Google Analytics",
     href: "https://www.google.com/analytics",
-    svgIcon: "googleanalytic",
+    svgIcon: "googleanalytics",
   },
   shadcnui: {
     name: "Shadcn UI",

@@ -13,6 +13,7 @@ techStack:
   - lambda
   - fastapi
   - gradio
+  - docker
 author:
   name: Hugo Lin
   avatar: "https://github.com/1chooo.png"

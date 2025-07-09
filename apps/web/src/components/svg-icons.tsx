@@ -1018,7 +1018,7 @@ const SVGIcons = {
   /**
    * @see https://www.svgrepo.com/svg/353804/google-analytics
    */
-  googleanalytic: (props: SVGIconProps) => (
+  googleanalytics: (props: SVGIconProps) => (
     <svg
       viewBox="-14 0 284 284"
       version="1.1"

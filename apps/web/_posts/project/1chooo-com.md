@@ -10,7 +10,7 @@ techStack:
   - react
   - typescript
   - shadcnui
-  - googleanalytic
+  - googleanalytics
   - supabase
   - vitest
   - tailwindcss
