@@ -1,61 +1,33 @@
-/*-----------------------------------*\
-  #copyright 2024-2025 @1chooo
-\*-----------------------------------*/
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /**
-  * colors
-  */
-
-  --color-1: 0 100% 63%;
-  --color-2: 270 100% 63%;
-  --color-3: 210 100% 63%;
-  --color-4: 195 100% 63%;
-  --color-5: 90 100% 63%;
-
   /* gradient */
-
-  --bg-gradient-onyx: linear-gradient(
-    to bottom right,
-    hsl(240, 1%, 25%) 3%,
-    hsl(0, 0%, 19%) 97%
-  );
+  --bg-gradient-onyx: linear-gradient(to bottom right,
+      hsl(240, 1%, 25%) 3%,
+      hsl(0, 0%, 19%) 97%);
   --bg-gradient-jet:
-    linear-gradient(
-      to bottom right,
+    linear-gradient(to bottom right,
       hsla(240, 1%, 18%, 0.251) 0%,
-      hsla(240, 2%, 11%, 0) 100%
-    ),
+      hsla(240, 2%, 11%, 0) 100%),
     hsl(240, 2%, 13%);
-  --bg-gradient-yellow-1: linear-gradient(
-    to bottom right,
-    hsl(45, 100%, 71%) 0%,
-    hsla(36, 100%, 69%, 0) 50%
-  );
+  --bg-gradient-yellow-1: linear-gradient(to bottom right,
+      hsl(45, 100%, 71%) 0%,
+      hsla(36, 100%, 69%, 0) 50%);
   --bg-gradient-yellow-2:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       hsla(45, 100%, 71%, 0.251) 0%,
-      hsla(35, 100%, 68%, 0) 59.86%
-    ),
+      hsla(35, 100%, 68%, 0) 59.86%),
     hsl(240, 2%, 13%);
-  --border-gradient-onyx: linear-gradient(
-    to bottom right,
-    hsl(0, 0%, 25%) 0%,
-    hsla(0, 0%, 25%, 0) 50%
-  );
-  --text-gradient-yellow: linear-gradient(
-    to right,
-    hsl(45, 100%, 72%),
-    hsl(35, 100%, 68%)
-  );
+  --border-gradient-onyx: linear-gradient(to bottom right,
+      hsl(0, 0%, 25%) 0%,
+      hsla(0, 0%, 25%, 0) 50%);
+  --text-gradient-yellow: linear-gradient(to right,
+      hsl(45, 100%, 72%),
+      hsl(35, 100%, 68%));
 
   /* solid */
-
   --jet: hsl(0, 0%, 22%);
   --onyx: hsl(240, 1%, 17%);
   --eerie-black-1: hsl(240, 2%, 13%);
@@ -68,10 +40,6 @@
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
-
-  /**
-  * typography
-  */
 
   /* font-size */
   --fs-1: 24px;
@@ -89,20 +57,14 @@
   --fw-500: 500;
   --fw-600: 600;
 
-  /**
-  * shadow
-  */
-
+  /* shadow */
   --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
   --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);
   --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.25);
   --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.15);
   --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.25);
 
-  /**
-  * transition
-  */
-
+  /* transition */
   --transition-1: 0.25s ease;
   --transition-2: 0.5s ease-in-out;
 }
@@ -179,11 +141,8 @@ pre {
   margin-top: 1rem;
   margin-bottom: 1rem;
   white-space: pre;
-  /* 保持原始格式，不自動換行 */
   overflow-x: auto;
-  /* 水平方向出現滾動條 */
   overflow-y: hidden;
-  /* 隐藏垂直滾動條 */
   max-width: 100%;
   position: relative;
 }
@@ -298,9 +257,7 @@ article {
 }
 
 .has-scrollbar::-webkit-scrollbar {
-  /* for vertical scrollbar */
   width: 5px;
-  /* for horizontal scrollbar */
   height: 5px;
 }
 
@@ -483,7 +440,7 @@ main {
   transition: 0.15s ease-in-out;
 }
 
-.filter-select.active + .select-list {
+.filter-select.active+.select-list {
   opacity: 1;
   visibility: visible;
   pointer-events: all;
