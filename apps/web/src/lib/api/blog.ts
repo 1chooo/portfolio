@@ -37,8 +37,7 @@ export function getBlogPosts(): BlogPost[] {
   const slugs = getPostSlugs();
   const posts = slugs
     .map((slug) => getBlogPostBySlug(slug))
-    // sort posts by date in descending order
-    .sort((post1, post2) => (post1.publishedAt > post2.publishedAt ? -1 : 1));
+    .sort((blog1, blog2) => (blog1.publishedAt > blog2.publishedAt ? -1 : 1));
   return posts;
 }
 
@@ -57,9 +56,8 @@ export async function getBlogPostsWithProcessedContent(): Promise<BlogPost[]> {
     }),
   );
 
-  // sort posts by date in descending order
-  return posts.sort((post1, post2) =>
-    post1.publishedAt > post2.publishedAt ? -1 : 1,
+  return posts.sort((blog1, blog2) =>
+    blog1.publishedAt > blog2.publishedAt ? -1 : 1,
   );
 }
 
@@ -77,8 +75,7 @@ export async function getBlogPostsWithReadingTime(): Promise<BlogPost[]> {
     }),
   );
 
-  // sort posts by date in descending order
-  return posts.sort((post1, post2) =>
-    post1.publishedAt > post2.publishedAt ? -1 : 1,
+  return posts.sort((blog1, blog2) =>
+    blog1.publishedAt > blog2.publishedAt ? -1 : 1,
   );
 }

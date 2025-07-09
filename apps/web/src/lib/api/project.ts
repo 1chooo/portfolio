@@ -37,23 +37,23 @@ export function getProjects(): ProjectPost[] {
   const posts = slugs
     .map((slug) => getProjectPostBySlug(slug))
     // sort posts: ongoing projects (null/empty endDate) first, then by endDate descending
-    .sort((post1, post2) => {
-      const endDate1 = post1.endDate;
-      const endDate2 = post2.endDate;
+    .sort((project1, project2) => {
+      const endDate1 = project1.endDate;
+      const endDate2 = project2.endDate;
 
-      // If post1 is ongoing (null or empty endDate) and post2 is not, post1 comes first
+      // If project1 is ongoing (null or empty endDate) and project2 is not, project1 comes first
       if ((!endDate1 || endDate1 === "") && endDate2 && endDate2 !== "") {
         return -1;
       }
 
-      // If post2 is ongoing and post1 is not, post2 comes first
+      // If project2 is ongoing and project1 is not, project2 comes first
       if ((!endDate2 || endDate2 === "") && endDate1 && endDate1 !== "") {
         return 1;
       }
 
       // If both are ongoing, sort by startDate descending (most recent start first)
       if ((!endDate1 || endDate1 === "") && (!endDate2 || endDate2 === "")) {
-        return post1.startDate > post2.startDate ? -1 : 1;
+        return project1.startDate > project2.startDate ? -1 : 1;
       }
 
       // If both have endDate, sort by endDate descending
@@ -79,23 +79,23 @@ export async function getProjectPostsWithProcessedContent(): Promise<
   );
 
   // sort posts: ongoing projects (null/empty endDate) first, then by endDate descending
-  return posts.sort((post1, post2) => {
-    const endDate1 = post1.endDate;
-    const endDate2 = post2.endDate;
+  return posts.sort((project1, project2) => {
+    const endDate1 = project1.endDate;
+    const endDate2 = project2.endDate;
 
-    // If post1 is ongoing (null or empty endDate) and post2 is not, post1 comes first
+    // If project1 is ongoing (null or empty endDate) and project2 is not, project1 comes first
     if ((!endDate1 || endDate1 === "") && endDate2 && endDate2 !== "") {
       return -1;
     }
 
-    // If post2 is ongoing and post1 is not, post2 comes first
+    // If project2 is ongoing and project1 is not, project2 comes first
     if ((!endDate2 || endDate2 === "") && endDate1 && endDate1 !== "") {
       return 1;
     }
 
     // If both are ongoing, sort by startDate descending (most recent start first)
     if ((!endDate1 || endDate1 === "") && (!endDate2 || endDate2 === "")) {
-      return post1.startDate > post2.startDate ? -1 : 1;
+      return project1.startDate > project2.startDate ? -1 : 1;
     }
 
     // If both have endDate, sort by endDate descending
@@ -118,23 +118,23 @@ export async function getProjectPostsWithReadingTime(): Promise<ProjectPost[]> {
   );
 
   // sort posts: ongoing projects (null/empty endDate) first, then by endDate descending
-  return posts.sort((post1, post2) => {
-    const endDate1 = post1.endDate;
-    const endDate2 = post2.endDate;
+  return posts.sort((project1, project2) => {
+    const endDate1 = project1.endDate;
+    const endDate2 = project2.endDate;
 
-    // If post1 is ongoing (null or empty endDate) and post2 is not, post1 comes first
+    // If project1 is ongoing (null or empty endDate) and project2 is not, project1 comes first
     if ((!endDate1 || endDate1 === "") && endDate2 && endDate2 !== "") {
       return -1;
     }
 
-    // If post2 is ongoing and post1 is not, post2 comes first
+    // If project2 is ongoing and project1 is not, project2 comes first
     if ((!endDate2 || endDate2 === "") && endDate1 && endDate1 !== "") {
       return 1;
     }
 
     // If both are ongoing, sort by startDate descending (most recent start first)
     if ((!endDate1 || endDate1 === "") && (!endDate2 || endDate2 === "")) {
-      return post1.startDate > post2.startDate ? -1 : 1;
+      return project1.startDate > project2.startDate ? -1 : 1;
     }
 
     // If both have endDate, sort by endDate descending
