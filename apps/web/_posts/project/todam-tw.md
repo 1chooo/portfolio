@@ -2,7 +2,7 @@
 title: "Task Oriented Dialogue Assistant Model (ToDAM)"
 excerpt: "This is the project that I served as an Intern at eCloudValley in 2024/03-2024/05. The project is to build a ticket system for the customer service department."
 thumbnail: "/images/thumbnail/project/todam-tw.webp"
-category: "Website"
+category: "Web"
 startDate: "2024-03"
 endDate: "2024-05"
 techStack:

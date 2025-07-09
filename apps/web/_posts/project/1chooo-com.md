@@ -2,7 +2,7 @@
 title: "1chooo.com"
 excerpt: "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻."
 thumbnail: "/images/thumbnail/project/1chooo-com.webp"
-category: "Website"
+category: "Web"
 startDate: "2024-01"
 endDate: ""
 techStack:
