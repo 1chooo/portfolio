@@ -10,6 +10,7 @@ techStack:
   - react
   - docker
   - javascript
+  - npm
 author:
   name: Hugo Lin
   avatar: "https://github.com/1chooo.png"

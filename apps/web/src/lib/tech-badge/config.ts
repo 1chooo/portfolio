@@ -154,6 +154,166 @@ export const TECH_BADGE_CONFIGS: Record<string, TechBadgeConfig> = {
     href: "https://vitest.dev",
     svgIcon: "vitest",
   },
+  tensorflow: {
+    name: "TensorFlow",
+    href: "https://www.tensorflow.org",
+    svgIcon: "tensorflow",
+  },
+  colab: {
+    name: "Google Colab",
+    href: "https://colab.research.google.com",
+    svgIcon: "colab",
+  },
+  line: {
+    name: "LINE",
+    href: "https://line.me",
+    svgIcon: "line",
+  },
+  keras: {
+    name: "Keras",
+    href: "https://keras.io",
+    svgIcon: "keras",
+  },
+  pandas: {
+    name: "Pandas",
+    href: "https://pandas.pydata.org",
+    svgIcon: "pandas",
+  },
+  numpy: {
+    name: "NumPy",
+    href: "https://numpy.org",
+    svgIcon: "numpy",
+  },
+  pnpm: {
+    name: "pnpm",
+    href: "https://pnpm.io",
+    svgIcon: "pnpm",
+  },
+  npm: {
+    name: "npm",
+    href: "https://www.npmjs.com",
+    svgIcon: "npm",
+  },
+  turborepolight: {
+    name: "Turborepo",
+    href: "https://turborepo.org",
+    svgIcon: "turborepolight",
+  },
+  turborepo: {
+    name: "Turborepo",
+    href: "https://turborepo.org",
+    svgIcon: "turborepo",
+  },
+  gitlab: {
+    name: "GitLab",
+    href: "https://about.gitlab.com/",
+    svgIcon: "gitlab",
+  },
+  nodejs: {
+    name: "Node.js",
+    href: "https://nodejs.org",
+    svgIcon: "nodejs",
+  },
+  figma: {
+    name: "Figma",
+    href: "https://www.figma.com",
+    svgIcon: "figma",
+  },
+  astro: {
+    name: "Astro",
+    href: "https://astro.build",
+    svgIcon: "astro",
+  },
+  c: {
+    name: "C",
+    href: "https://en.wikipedia.org/wiki/C_(programming_language)",
+    svgIcon: "c",
+  },
+  gcp: {
+    name: "GCP",
+    href: "https://cloud.google.com",
+    svgIcon: "gcp",
+  },
+  terraform: {
+    name: "Terraform",
+    href: "https://www.terraform.io",
+    svgIcon: "terraform",
+  },
+  git: {
+    name: "Git",
+    href: "https://git-scm.com",
+    svgIcon: "git",
+  },
+  vue: {
+    name: "Vue.js",
+    href: "https://vuejs.org",
+    svgIcon: "vue",
+  },
+  php: {
+    name: "PHP",
+    href: "https://www.php.net",
+    svgIcon: "php",
+  },
+  mongodb: {
+    name: "MongoDB",
+    href: "https://www.mongodb.com",
+    svgIcon: "mongodb",
+  },
+  mysql: {
+    name: "MySQL",
+    href: "https://www.mysql.com",
+    svgIcon: "mysql",
+  },
+  pytorch: {
+    name: "PyTorch",
+    href: "https://pytorch.org",
+    svgIcon: "pytorch",
+  },
+  rust: {
+    name: "Rust",
+    href: "https://www.rust-lang.org",
+    svgIcon: "rust",
+  },
+  homebrew: {
+    name: "Homebrew",
+    href: "https://brew.sh",
+    svgIcon: "homebrew",
+  },
+  bash: {
+    name: "Bash",
+    href: "https://www.gnu.org/software/bash/",
+    svgIcon: "bash",
+  },
+  markdown: {
+    name: "Markdown",
+    href: "https://www.markdownguide.org",
+    svgIcon: "markdowndark",
+  },
+  flask: {
+    name: "Flask",
+    href: "https://flask.palletsprojects.com",
+    svgIcon: "flask",
+  },
+  scikitlearn: {
+    name: "Scikit-learn",
+    href: "https://scikit-learn.org",
+    svgIcon: "scikitlearn",
+  },
+  svelte: {
+    name: "Svelte",
+    href: "https://svelte.dev",
+    svgIcon: "svelte",
+  },
+  fortran: {
+    name: "Fortran",
+    href: "https://fortran-lang.org",
+    svgIcon: "fortran",
+  },
+  vitejs: {
+    name: "Vite.js",
+    href: "https://vitejs.dev",
+    svgIcon: "vitejs",
+  },
 } as const;
 
 // Export type for badge keys
