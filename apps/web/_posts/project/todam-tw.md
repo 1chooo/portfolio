@@ -5,8 +5,9 @@ thumbnail: "/images/thumbnail/project/todam-tw.webp"
 category: "Website"
 publishedAt: "2024-05-31"
 author:
-  name: 1chooo
+  name: Hugo Lin
   avatar: "https://github.com/1chooo.png"
+  url: "https://1chooo.com"
 tags:
   - AWS
   - Cloud Engineer

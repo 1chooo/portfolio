@@ -5,8 +5,9 @@ thumbnail: "/images/thumbnail/project/1chooo-com.webp"
 category: "Website"
 publishedAt: "2024-12-31"
 author:
-  name: 1chooo
+  name: Hugo Lin
   avatar: "https://github.com/1chooo.png"
+  url: "https://1chooo.com"
 tags:
   - Next.js
   - React

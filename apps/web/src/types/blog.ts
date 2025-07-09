@@ -17,7 +17,7 @@ export type BlogPost = {
   category: string;
   excerpt: string;
   content: string;
-  processedContent?: string; // Processed HTML content
+  processedContent?: string;
   readingTime?: string;
   [key: string]: any;
 };

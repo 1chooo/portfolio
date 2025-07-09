@@ -9,8 +9,7 @@ import { ViewCounter } from "@/app/(home)/blog/view-counter";
 import { FadeLeft, FadeUp, FadeIn } from "@/components/animations";
 import PageTitle from "@/components/page-title";
 import Comments from "@/components/comments";
-import { getBlogPostBySlugWithProcessedContent } from "@/lib/api/blog";
-import { getBlogPosts, getBlogPostBySlug } from "@/lib/api/blog";
+import { getBlogPostBySlugWithProcessedContent, getBlogPosts, getBlogPostBySlug } from "@/lib/api/blog";
 
 import config from "@/config";
 

@@ -5,8 +5,9 @@ thumbnail: "/images/thumbnail/project/uml-editor.webp"
 category: "App"
 publishedAt: "2024-06-30"
 author:
-  name: 1chooo
+  name: Hugo Lin
   avatar: "https://github.com/1chooo.png"
+  url: "https://1chooo.com"
 tags:
   - Java
   - JavaFX
