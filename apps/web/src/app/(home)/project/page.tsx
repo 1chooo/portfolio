@@ -12,7 +12,7 @@ import config from "@/config";
 import styles from "@/styles/project.module.css";
 import { ProjectPost } from "@/types/project";
 import Balancer from "react-wrap-balancer";
-import { TechBadges } from "@/lib/tech-badge-no-link";
+import { NonClickableTechBadges } from "@/lib/tech-badge/utils";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -124,7 +124,7 @@ export default async function Project() {
                   </div>
                   <div className="flex flex-wrap gap-2 shadow-feature-card dark:shadow-feature-card-dark rounded-xl mt-4">
                     {post.techStack.map((badgeKey) => (
-                      <span key={badgeKey}>{TechBadges[badgeKey]}</span>
+                      <span key={badgeKey}>{NonClickableTechBadges[badgeKey]}</span>
                     ))}
                   </div>
                 </div>

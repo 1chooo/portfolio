@@ -1,4 +1,4 @@
-import { TechBadges } from "@/lib/tech-badge-helper";
+import { ClickableTechBadges } from "@/lib/tech-badge-utils";
 import PageTitle from "@/components/page-title";
 import GitHubCalendar from "@1chooo/github-calendar";
 import config from "@/config";
@@ -42,7 +42,7 @@ export const metadata = {
 <PageTitle title="MDX Demo" />
 # Hello <Thing />
 
-{TechBadges.TypeScript}
+{ClickableTechBadges.typescript}
 
 <GitHubMap />
 

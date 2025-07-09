@@ -4,7 +4,7 @@ import { Zap } from "lucide-react";
 import PostsLoop from "@/components/about/posts-loop";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import GradientCard from "@/components/gradient-card";
-import { TechBadges } from "@/lib/tech-badge-helper";
+import { ClickableTechBadges } from "@/lib/tech-badge/utils";
 import config from "@/config";
 
 import { BlogPost } from "@/types/blog";
@@ -33,7 +33,7 @@ function MyWritings({ count, posts }: MyWritingsProps) {
                   </div>
                   <div className="flex flex-wrap gap-2 shadow-feature-card dark:shadow-feature-card-dark rounded-xl mt-4">
                     {badges.map((badgeKey) => (
-                      <span key={badgeKey}>{TechBadges[badgeKey]}</span>
+                      <span key={badgeKey}>{ClickableTechBadges[badgeKey]}</span>
                     ))}
                   </div>
                 </div>
