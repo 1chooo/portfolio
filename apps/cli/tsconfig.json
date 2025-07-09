@@ -3,6 +3,9 @@
   "compilerOptions": {
     "outDir": "dist/src",
     "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "module": "esnext",
     "moduleResolution": "bundler",
     "allowUnusedLabels": false,
@@ -16,7 +19,7 @@
     "sourceMap": true,
     "resolveJsonModule": true
   },
-  "include": ["src"],
+  "include": ["src", "bin"],
   "exclude": ["dist", "bundle", "node_modules"],
   "ts-node": {
     // these options are overrides used only by ts-node

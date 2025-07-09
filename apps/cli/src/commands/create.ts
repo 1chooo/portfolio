@@ -1,7 +1,7 @@
 import { isAbsolute, join } from "path";
 import { ArgumentsCamelCase, Argv } from "yargs";
 import * as process from "node:process";
-import { logger } from "../logger";
+import { logger } from "@/logger";
 import { bold, green, red } from "picocolors";
 import { downloadTemplate } from "giget";
 

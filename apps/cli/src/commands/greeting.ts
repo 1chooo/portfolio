@@ -1,5 +1,5 @@
 import { Argv } from "yargs";
-import { logger } from "../logger";
+import { logger } from "@/logger";
 import { bold, green } from "picocolors";
 
 interface GreetingArgv {}
