@@ -153,7 +153,7 @@ export const TECH_BADGE_CONFIGS: Record<string, TechBadgeConfig> = {
     name: "Vitest",
     href: "https://vitest.dev",
     svgIcon: "vitest",
-  }
+  },
 } as const;
 
 // Export type for badge keys

@@ -156,9 +156,9 @@ export default async function ProjectCategory({
                         {" - "}
                         {post.endDate
                           ? new Date(post.endDate).toLocaleDateString("en-us", {
-                            month: "long",
-                            year: "numeric",
-                          })
+                              month: "long",
+                              year: "numeric",
+                            })
                           : "Present"}
                       </time>
                       <p className={cn(styles.category)}>
@@ -171,7 +171,9 @@ export default async function ProjectCategory({
                   </div>
                   <div className="flex flex-wrap gap-2 shadow-feature-card dark:shadow-feature-card-dark rounded-xl mt-4">
                     {post.techStack.map((badgeKey) => (
-                      <span key={badgeKey}>{NonClickableTechBadges[badgeKey]}</span>
+                      <span key={badgeKey}>
+                        {NonClickableTechBadges[badgeKey]}
+                      </span>
                     ))}
                   </div>
                 </div>

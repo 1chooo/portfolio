@@ -8,7 +8,11 @@ import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 import { FadeLeft, FadeUp, FadeIn } from "@/components/animations";
 import PageTitle from "@/components/page-title";
 import { ViewCounter } from "@/app/(home)/project/view-counter";
-import { getProjectPostBySlugWithProcessedContent, getProjects, getProjectPostBySlug } from "@/lib/api/project";
+import {
+  getProjectPostBySlugWithProcessedContent,
+  getProjects,
+  getProjectPostBySlug,
+} from "@/lib/api/project";
 
 import Balancer from "react-wrap-balancer";
 

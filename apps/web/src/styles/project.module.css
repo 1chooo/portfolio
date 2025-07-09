@@ -13,7 +13,7 @@
   height: 400px;
 }
 
-.project .card>a {
+.project .card > a {
   position: relative;
   background: var(--border-gradient-onyx);
   height: 100%;
@@ -24,7 +24,7 @@
   flex-direction: column;
 }
 
-.project .card>a::before {
+.project .card > a::before {
   content: "";
   position: absolute;
   inset: 1px;
@@ -48,7 +48,7 @@
   transition: var(--transition-1);
 }
 
-.project .card>a:hover .bannerBox img {
+.project .card > a:hover .bannerBox img {
   transform: scale(1.1);
 }
 
@@ -87,7 +87,7 @@
   transition: color 0.2s ease;
 }
 
-.project .card>a:hover .title {
+.project .card > a:hover .title {
   color: var(--orange-yellow-crayola);
 }
 
