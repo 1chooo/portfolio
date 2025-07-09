@@ -8,6 +8,11 @@ endDate: "2024-05"
 techStack:
   - python
   - redis
+  - bedrock
+  - dynamodb
+  - lambda
+  - fastapi
+  - gradio
 author:
   name: Hugo Lin
   avatar: "https://github.com/1chooo.png"

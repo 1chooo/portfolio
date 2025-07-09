@@ -9,6 +9,10 @@ techStack:
   - nextjs
   - react
   - typescript
+  - shadcnui
+  - googleanalytic
+  - supabase
+  - vitest
   - tailwindcss
 author:
   name: Hugo Lin

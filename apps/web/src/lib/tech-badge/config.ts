@@ -104,6 +104,56 @@ export const TECH_BADGE_CONFIGS: Record<string, TechBadgeConfig> = {
     href: "https://firebase.google.com",
     svgIcon: "firebase",
   },
+  vercellight: {
+    name: "Vercel",
+    href: "https://vercel.com/home",
+    svgIcon: "vercellight",
+  },
+  verceldark: {
+    name: "Vercel",
+    href: "https://vercel.com/home",
+    svgIcon: "verceldark",
+  },
+  lambda: {
+    name: "Lambda",
+    href: "https://aws.amazon.com/lambda/",
+    svgIcon: "lambda",
+  },
+  bedrock: {
+    name: "Bedrock",
+    href: "https://aws.amazon.com/bedrock/",
+    svgIcon: "bedrock",
+  },
+  dynamodb: {
+    name: "DynamoDB",
+    href: "https://aws.amazon.com/dynamodb/",
+    svgIcon: "dynamodb",
+  },
+  fastapi: {
+    name: "FastAPI",
+    href: "https://fastapi.tiangolo.com/",
+    svgIcon: "fastapi",
+  },
+  gradio: {
+    name: "Gradio",
+    href: "https://gradio.app/",
+    svgIcon: "gradio",
+  },
+  googleanalytic: {
+    name: "Google Analytics",
+    href: "https://www.google.com/analytics",
+    svgIcon: "googleanalytic",
+  },
+  shadcnui: {
+    name: "Shadcn UI",
+    href: "https://ui.shadcn.com",
+    svgIcon: "shadcnui",
+  },
+  vitest: {
+    name: "Vitest",
+    href: "https://vitest.dev",
+    svgIcon: "vitest",
+  }
 } as const;
 
 // Export type for badge keys
