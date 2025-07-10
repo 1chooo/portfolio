@@ -9,7 +9,7 @@ import CodingStats from "@/components/about/coding-stats";
 import config from "@/config";
 
 const AboutSection = dynamic(() => import("@/components/section/about"));
-const AnimatedSection = dynamic(() => import("@/components/animated-section"));
+const AnimatedSection = dynamic(() => import("@/components/animations/animated-section"));
 
 async function About() {
   const allPosts = getBlogPosts();

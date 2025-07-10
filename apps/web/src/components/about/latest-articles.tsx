@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
-import StaggeredAnimationSection from "@/components/staggered-animation-section";
+import StaggeredAnimationSection from "@/components/animations/staggered-animation-section";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { getIcon, ICON_NAMES } from "@/components/icons";
 

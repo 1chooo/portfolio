@@ -18,7 +18,7 @@ import "@/styles/markdown-styles.css";
 
 const AboutSection = dynamic(() => import("@/components/section/about"));
 const TalkToHugo = dynamic(() => import("@/components/about/talk-to-hugo"));
-const AnimatedSection = dynamic(() => import("@/components/animated-section"));
+const AnimatedSection = dynamic(() => import("@/components/animations/animated-section"));
 
 const { about, web3formsAccessKey } = config;
 const { firstName, lastName, preferredName, introduction, githubUsername } =

@@ -1,5 +1,5 @@
 import PageTitle from "@/components/page-title";
-import AnimatedSection from "@/components/animated-section";
+import AnimatedSection from "@/components/animations/animated-section";
 import markdownToHtml from "@/lib/markdown-to-html";
 
 import { cn } from "@1chooo/ui/lib/utils";
