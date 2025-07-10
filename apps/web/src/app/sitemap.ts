@@ -1,38 +1,56 @@
 import type { MetadataRoute } from "next";
-import { getBlogPosts } from "@/lib/db/v1/post";
-import { getPortfolioPosts } from "@/lib/db/v1/portfolio";
+
+import { getBlogPosts } from "@/lib/api/blog";
+import { getProjects } from "@/lib/api/project";
+
 import config from "@/config";
 
 const { siteURL } = config;
 
-function mapPostsToSitemap(
-  posts: { metadata: { publishedAt: string }; slug: string }[],
+function mapBlogPostsToSitemap(
+  posts: { publishedAt: string; slug: string }[],
   prefix: string,
 ) {
   return posts.map((post) => ({
     url: `${siteURL}/${prefix}/${post.slug}`,
-    lastModified: post.metadata.publishedAt,
+    lastModified: post.publishedAt,
   }));
 }
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const posts = await getBlogPosts();
-  const postMaps = mapPostsToSitemap(posts, "post");
+function mapProjectPostsToSitemap(
+  projects: { endDate: string; slug: string }[],
+  prefix: string,
+) {
+  return projects.map((project) => ({
+    url: `${siteURL}/${prefix}/${project.slug}`,
+    lastModified:
+      project.endDate && project.endDate.trim() !== ""
+        ? project.endDate
+        : new Date().toISOString(),
+  }));
+}
 
-  const portfolios = await getPortfolioPosts();
-  const portfolioMaps = mapPostsToSitemap(portfolios, "portfolio");
+function sitemap(): MetadataRoute.Sitemap {
+  const posts = getBlogPosts();
+  const postMaps = mapBlogPostsToSitemap(posts, "blog");
+
+  const projects = getProjects();
+  const projectMaps = mapProjectPostsToSitemap(projects, "project");
 
   const routes = [
     "",
     "/resume",
-    "/portfolio",
-    "/post",
-    "/gallery",
+    "/project",
     "/blog",
+    "/code-of-conduct",
+    "/terms",
+    "/cv",
   ].map((route) => ({
     url: `${siteURL}${route}`,
     lastModified: new Date().toISOString().split("T")[0],
   }));
 
-  return [...routes, ...postMaps, ...portfolioMaps];
+  return [...routes, ...postMaps, ...projectMaps];
 }
+
+export default sitemap;

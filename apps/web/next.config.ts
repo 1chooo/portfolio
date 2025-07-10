@@ -35,6 +35,16 @@ const nextConfig: NextConfig = {
         destination: "/manifest.json",
         permanent: true,
       },
+      {
+        source: "/sitemap",
+        destination: "/sitemap.xml",
+        permanent: true,
+      },
+      {
+        source: "/cv",
+        destination: "/cv.pdf",
+        permanent: true,
+      },
     ];
   },
 };
