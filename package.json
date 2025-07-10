@@ -21,7 +21,8 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md,js,json,css}\"",
     "delete": "rm -rf apps/docs/ && rm -rf apps/web/src/contents/ && rm -rf apps/web/src/config/index.ts",
-    "gen-config": "node scripts/gen-config.js"
+    "gen-config": "node scripts/gen-config.js",
+    "clean": "rm -rf node_modules packages/*/node_modules apps/*/node_modules"
   },
   "devDependencies": {
     "@1chooo/eslint-config": "workspace:*",
