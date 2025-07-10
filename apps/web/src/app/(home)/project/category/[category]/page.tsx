@@ -169,7 +169,7 @@ export default async function ProjectCategory({
                       <Balancer>{post.title}</Balancer>
                     </h3>
                   </div>
-                  <div className="flex flex-wrap gap-2 shadow-feature-card dark:shadow-feature-card-dark rounded-xl mt-4">
+                  <div className="flex flex-wrap gap-2 mt-4 overflow-hidden relative max-h-16">
                     {post.techStack.map((badgeKey) => (
                       <span key={badgeKey}>
                         {NonClickableTechBadges[badgeKey]}
