@@ -1,51 +1,50 @@
 import { NextResponse } from "next/server";
 import RSS from "rss";
-import { getBlogPosts } from "@/lib/db/v1/post";
-import { getPortfolioPosts } from "@/lib/db/v1/portfolio";
+import { getBlogPosts } from "@/lib/api/blog";
+import { getProjects } from "@/lib/api/project";
 import config from "@/config";
 
-const { title, description, author, siteURL, homeMetaData } = config;
-const { openGraph } = homeMetaData;
-const { images } = openGraph;
-const { url } = images[0];
-const imageUrl = url;
+import type { ItemOptions } from "@/types/rss";
+
+const { author, siteURL, rssOptions } = config;
 
 export async function GET() {
-  const feed = new RSS({
-    title: title,
-    description: description,
-    site_url: siteURL,
-    feed_url: `${siteURL}/rss.xml`,
-    language: "en-US",
-    image_url: imageUrl,
-  });
+  const feed = new RSS(rssOptions);
 
-  let posts = await getBlogPosts();
+  const posts = await getBlogPosts();
 
   for (const post of posts) {
-    let { title, publishedAt, summary } = post.metadata;
+    const { title, publishedAt, excerpt } = post;
 
-    feed.item({
+    let itemOptions: ItemOptions;
+    itemOptions = {
       title,
-      url: `${siteURL}/post/${post.slug}`,
-      publishedAt,
-      description: summary,
+      url: `${siteURL}/blog/${post.slug}`,
+      date: publishedAt,
+      description: excerpt,
       author: author,
-    });
+    }
+
+    feed.item(itemOptions);
   }
 
-  let projects = await getPortfolioPosts();
+  const projects = await getProjects();
 
   for (const project of projects) {
-    let { title, publishedAt, summary } = project.metadata;
+    const { title, endDate, excerpt } = project;
 
-    feed.item({
+    const projectDate = endDate && endDate.trim() !== "" ? endDate : new Date().toISOString();
+
+    let itemOptions: ItemOptions;
+    itemOptions = {
       title,
-      url: `${siteURL}/portfolio/${project.slug}`,
-      publishedAt,
-      description: summary,
+      url: `${siteURL}/project/${project.slug}`,
+      date: projectDate,
+      description: excerpt,
       author: author,
-    });
+    }
+
+    feed.item(itemOptions);
   }
 
   return new NextResponse(feed.xml({ indent: true }), {

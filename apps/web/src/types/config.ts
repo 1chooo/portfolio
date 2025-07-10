@@ -6,6 +6,7 @@ import type { Icon as OcticonsType } from "@primer/octicons-react";
 import type { Person } from "@/types/json-ld";
 import type { Metadata, MetadataRoute } from "next";
 import type { Resumes } from "@/types/resume";
+import type { FeedOptions } from "@/types/rss";
 
 export type VCardIconType = ReactIconType | OcticonsType | string;
 
@@ -63,6 +64,7 @@ export type Config = {
   llmsTxtContent?: string;
   llmsFullTxtContent?: string;
   techStacks: TechStackCategory;
+  rssOptions: FeedOptions;
 };
 
 type AnalyticPlatforms = "google-analytics" | "vercel" | "umami";
