@@ -36,9 +36,12 @@ const components: MDXComponents = {
   ),
 };
 
-function Mdx(props: MDXRemoteProps) {
+async function Mdx(props: MDXRemoteProps) {
   return (
-    <MDXRemote {...props} components={{ ...components, ...props.components }} />
+    <MDXRemote
+      {...props}
+      components={{ ...components, ...(props.components || {}) }}
+    />
   );
 }
 

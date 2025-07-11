@@ -11,13 +11,9 @@ import PageTitle from "@/components/page-title";
 import Comments from "@/components/comments";
 import {
   getMdxPostSlugs,
-  getMdxBlogPostExists,
-  getMdxBlogPostBySlugWithFrontmatter,
   getMdxBlogPostBySlug,
 } from "@/lib/api/mdx-blog";
-import { getCleanMdxContent } from "@/lib/clean-mdx";
-import Mdx from "@/components/mdx";
-
+import { allBlogs } from "content-collections";
 import config from "@/config";
 
 import "@/styles/markdown-styles.css";
@@ -34,17 +30,12 @@ export default async function Blog(props: Params) {
   const params = await props.params;
   const { slug } = params;
 
-  // Check if the MDX file exists
-  if (!getMdxBlogPostExists(slug)) {
-    return notFound();
-  }
-
-  // Get the blog post frontmatter data (without processing content)
-  const post = getMdxBlogPostBySlugWithFrontmatter(slug);
-
+  const post = allBlogs.find((post) => post.slug === slug);
   if (!post) {
     return notFound();
   }
+
+  const { default: Content } = await import(`@/content/b/${post.slug}.mdx`);
 
   return (
     <div>
@@ -100,7 +91,7 @@ export default async function Blog(props: Params) {
                     })}
                   </time>
                 </div>
-                {post.readingTime && <span>{post.readingTime}</span>}
+                {/* {post.readingTime && <span>{post.readingTime}</span>} */}
                 <span
                   className="w-1 h-1 bg-current rounded-full mx-2"
                   aria-hidden="true"
@@ -116,7 +107,7 @@ export default async function Blog(props: Params) {
         <FadeIn delay={0.3 * 3}>
           <div className="flex justify-center">
             <div className="text-light-gray w-[90%] sm:w-[90%] md:w-[90%] lg:w-[80%] xl:w-[80%]">
-              <Mdx source={getCleanMdxContent(slug)} />
+              <Content />
             </div>
           </div>
         </FadeIn>
