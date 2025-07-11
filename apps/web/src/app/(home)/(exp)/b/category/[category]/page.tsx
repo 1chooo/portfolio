@@ -9,7 +9,10 @@ import Balancer from "react-wrap-balancer";
 
 import config from "@/config";
 
-import { getMdxBlogPostsByCategory, getMdxBlogCategories } from "@/lib/api/mdx-blog";
+import {
+  getMdxBlogPostsByCategory,
+  getMdxBlogCategories,
+} from "@/lib/api/mdx-blog";
 import type { BlogPost } from "@/types/blog";
 
 import { cn } from "@1chooo/ui/lib/utils";
@@ -48,7 +51,7 @@ export async function generateStaticParams() {
 export default async function BlogCategory({ params }: BlogCategoryProps) {
   const { category } = await params;
   const categoryParam = decodeURIComponent(category);
-  
+
   let filteredPosts: BlogPost[];
   let allCategories: Record<string, number>;
 
@@ -78,7 +81,12 @@ export default async function BlogCategory({ params }: BlogCategoryProps) {
               href="/b"
               className={cn(styles.filterButton)}
             >
-              All ({Object.values(allCategories).reduce((sum, count) => sum + count, 0)})
+              All (
+              {Object.values(allCategories).reduce(
+                (sum, count) => sum + count,
+                0,
+              )}
+              )
             </ViewTransitionsProgressBarLink>
           </li>
 
@@ -88,7 +96,8 @@ export default async function BlogCategory({ params }: BlogCategoryProps) {
                 href={`/b/category/${encodeURIComponent(cat.toLowerCase())}`}
                 className={cn(
                   styles.filterButton,
-                  cat.toLowerCase() === categoryParam.toLowerCase() && styles.filterButtonActive
+                  cat.toLowerCase() === categoryParam.toLowerCase() &&
+                    styles.filterButtonActive,
                 )}
               >
                 {cat} ({allCategories[cat]})

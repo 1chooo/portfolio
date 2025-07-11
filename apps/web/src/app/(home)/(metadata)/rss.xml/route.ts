@@ -23,7 +23,7 @@ export async function GET() {
       date: publishedAt,
       description: excerpt,
       author: author,
-    }
+    };
 
     feed.item(itemOptions);
   }
@@ -33,7 +33,8 @@ export async function GET() {
   for (const project of projects) {
     const { title, endDate, excerpt } = project;
 
-    const projectDate = endDate && endDate.trim() !== "" ? endDate : new Date().toISOString();
+    const projectDate =
+      endDate && endDate.trim() !== "" ? endDate : new Date().toISOString();
 
     let itemOptions: ItemOptions;
     itemOptions = {
@@ -42,7 +43,7 @@ export async function GET() {
       date: projectDate,
       description: excerpt,
       author: author,
-    }
+    };
 
     feed.item(itemOptions);
   }

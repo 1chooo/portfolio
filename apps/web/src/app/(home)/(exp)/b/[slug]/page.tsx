@@ -9,7 +9,12 @@ import { ViewCounter } from "@/app/(home)/blog/view-counter";
 import { FadeLeft, FadeUp, FadeIn } from "@/components/animations/animations";
 import PageTitle from "@/components/page-title";
 import Comments from "@/components/comments";
-import { getMdxPostSlugs, getMdxBlogPostExists, getMdxBlogPostBySlugWithFrontmatter, getMdxBlogPostBySlug } from "@/lib/api/mdx-blog";
+import {
+  getMdxPostSlugs,
+  getMdxBlogPostExists,
+  getMdxBlogPostBySlugWithFrontmatter,
+  getMdxBlogPostBySlug,
+} from "@/lib/api/mdx-blog";
 import { getCleanMdxContent } from "@/lib/clean-mdx";
 import Mdx from "@/components/mdx";
 
@@ -24,7 +29,6 @@ type Params = {
     slug: string;
   }>;
 };
-
 
 export default async function Blog(props: Params) {
   const params = await props.params;
@@ -162,7 +166,7 @@ export async function generateMetadata(
 export function generateStaticParams() {
   // Get all MDX post slugs for static generation
   const slugs = getMdxPostSlugs();
-  return slugs.map(slug => ({ slug }));
+  return slugs.map((slug) => ({ slug }));
 }
 
-export const dynamicParams = false
+export const dynamicParams = false;

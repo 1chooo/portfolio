@@ -62,7 +62,7 @@ export type FeedOptions = {
    * string PubSubHubbub hub url
    */
   custom_elements?: Array<Record<string, any>>;
-}
+};
 
 export type ItemOptions = {
   /**
@@ -102,7 +102,7 @@ export type ItemOptions = {
    */
   long?: number;
   /* enclosure takes url or file key for the enclosure object
-   *  
+   *
    *   url:  _required_ url to file object (or file)
    *   file: _required_ path to binary file (or url)
    *   size: _optional_ size of the file
@@ -115,12 +115,12 @@ export type ItemOptions = {
     file: string;
     size?: number;
     type?: string;
-  }
+  };
   /**
    * optional array Put additional elements in the item (node-xml syntax)
    */
   custom_elements?: Array<Record<string, any>>;
-}
+};
 
 export type RssFeed = {
   options?: FeedOptions;

@@ -456,7 +456,8 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
   },
   rssOptions: {
     title: "Chun-Ho (Hugo) Lin - 1chooo",
-    description: "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
+    description:
+      "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
     site_url: "https://1chooo.com",
     feed_url: "https://1chooo.com/rss.xml",
     language: "en-US",
@@ -465,7 +466,12 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
     managingEditor: "hugo@1chooo.com (Chun-Ho Lin)",
     webMaster: "hugo@1chooo.com (Chun-Ho Lin)",
     copyright: "© 2025 Chun-Ho (Hugo) Lin",
-    categories: ["Technology", "Software Development", "Web Development", "Programming"],
+    categories: [
+      "Technology",
+      "Software Development",
+      "Web Development",
+      "Programming",
+    ],
   },
 };
 
