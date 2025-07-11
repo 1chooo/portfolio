@@ -1,4 +1,5 @@
 import React, { Suspense } from "react";
+import type { Metadata, ResolvingMetadata } from "next";
 
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -8,7 +9,7 @@ import { ViewCounter } from "@/app/(home)/blog/view-counter";
 import { FadeLeft, FadeUp, FadeIn } from "@/components/animations/animations";
 import PageTitle from "@/components/page-title";
 import Comments from "@/components/comments";
-import { getMdxPostSlugs, getMdxBlogPostExists, getMdxBlogPostBySlugWithFrontmatter } from "@/lib/api/mdx-blog";
+import { getMdxPostSlugs, getMdxBlogPostExists, getMdxBlogPostBySlugWithFrontmatter, getMdxBlogPostBySlug } from "@/lib/api/mdx-blog";
 import { getCleanMdxContent } from "@/lib/clean-mdx";
 import Mdx from "@/components/mdx";
 
@@ -109,8 +110,10 @@ export default async function Blog(props: Params) {
         </header>
 
         <FadeIn delay={0.3 * 3}>
-          <div className="prose prose-invert max-w-none">
-            <Mdx source={getCleanMdxContent(slug)} />
+          <div className="flex justify-center">
+            <div className="text-light-gray w-[90%] sm:w-[90%] md:w-[90%] lg:w-[80%] xl:w-[80%]">
+              <Mdx source={getCleanMdxContent(slug)} />
+            </div>
           </div>
         </FadeIn>
       </article>
@@ -121,6 +124,39 @@ export default async function Blog(props: Params) {
       </article>
     </div>
   );
+}
+
+export async function generateMetadata(
+  props: Params,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const params = await props.params;
+  const post = getMdxBlogPostBySlug(params.slug);
+
+  if (!post) {
+    return notFound();
+  }
+
+  const title = `${post.title}`;
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title,
+    authors: [
+      {
+        name: post.author.name,
+        url: post.author.url || "https://1chooo.com",
+      },
+    ],
+    description: post.excerpt || config.description,
+    keywords: post.tags || config.keywords,
+    openGraph: {
+      title,
+      images: [post.thumbnail, ...previousImages],
+    },
+  };
 }
 
 export function generateStaticParams() {
