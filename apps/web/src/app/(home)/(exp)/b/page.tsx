@@ -5,11 +5,9 @@ import PageTitle from "@/components/page-title";
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 
 import Balancer from "react-wrap-balancer";
+import { allBlogs } from "content-collections";
 
 import config from "@/config";
-
-import { getMdxBlogPosts, getMdxBlogCategories } from "@/lib/api/mdx-blog";
-import type { BlogPost } from "@/types/blog";
 
 import { cn } from "@1chooo/ui/lib/utils";
 
@@ -23,51 +21,13 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function MdxBlog() {
-  let allPosts: BlogPost[];
-  let categories: Record<string, number>;
-
-  try {
-    allPosts = getMdxBlogPosts();
-    categories = getMdxBlogCategories();
-  } catch (error) {
-    console.error("Failed to load MDX blog posts:", error);
-    allPosts = [];
-    categories = {};
-  }
-
-  const blogCategories = Object.keys(categories);
-
   return (
     <article>
       <PageTitle title="Hugo's Experimental Blog (MDX)" />
 
       <section className={cn(styles.blog)}>
-        <ul className={styles.filters}>
-          <li>
-            <ViewTransitionsProgressBarLink
-              href="/b"
-              className={cn(styles.filterButton, styles.filterButtonActive)}
-            >
-              All ({allPosts.length})
-            </ViewTransitionsProgressBarLink>
-          </li>
-
-          {blogCategories.map((category, index) => (
-            <li key={index}>
-              <ViewTransitionsProgressBarLink
-                href={`/b/category/${encodeURIComponent(category.toLowerCase())}`}
-                className={cn(styles.filterButton)}
-              >
-                {category} ({categories[category]})
-              </ViewTransitionsProgressBarLink>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className={cn(styles.blog)}>
         <ul className={cn(styles.cards)}>
-          {allPosts.map((post: BlogPost) => (
+          {allBlogs.map((post) => (
             <li className={cn(styles.card)} key={post.slug}>
               <ViewTransitionsProgressBarLink
                 href={`/b/${post.slug}`}

@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
+import { withContentCollections } from "@content-collections/next";
+import remarkFrontmatter from 'remark-frontmatter'
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -55,11 +58,10 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 const withMDX = createMDX({
   // Add markdown plugins here, as desired
-  extension: /\.(md|mdx)$/,
   options: {
-    remarkPlugins: [],
+    remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
     rehypePlugins: [],
   },
 });
 
-module.exports = withBundleAnalyzer(withMDX(nextConfig));
+module.exports = withContentCollections(withBundleAnalyzer(withMDX(nextConfig)));
