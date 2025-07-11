@@ -1,6 +1,5 @@
 import React, { Suspense } from "react";
 
-import type { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Balancer from "react-wrap-balancer";
@@ -9,12 +8,19 @@ import { ViewCounter } from "@/app/(home)/blog/view-counter";
 import { FadeLeft, FadeUp, FadeIn } from "@/components/animations/animations";
 import PageTitle from "@/components/page-title";
 import Comments from "@/components/comments";
-import { getBlogPostBySlugWithProcessedContent } from "@/lib/api/blog";
-import { getBlogPosts, getBlogPostBySlug } from "@/lib/api/blog";
+import { getMdxPostSlugs, getMdxBlogPostExists, getMdxBlogPostBySlugWithFrontmatter } from "@/lib/api/mdx-blog";
+import { getCleanMdxContent } from "@/lib/clean-mdx";
+import Mdx from "@/components/mdx";
+
+/**
+ * Get MDX component without frontmatter for rendering
+ */
+export function CleanMDXContent({ slug }: { slug: string }) {
+  const content = getCleanMdxContent(slug);
+  return <Mdx source={content} />;
+}
 
 import config from "@/config";
-
-import { cn } from "@1chooo/ui/lib/utils";
 
 import "@/styles/markdown-styles.css";
 
@@ -26,9 +32,18 @@ type Params = {
   }>;
 };
 
-export default async function Post(props: Params) {
+
+export default async function Blog(props: Params) {
   const params = await props.params;
-  const post = await getBlogPostBySlugWithProcessedContent(params.slug);
+  const { slug } = params;
+
+  // Check if the MDX file exists
+  if (!getMdxBlogPostExists(slug)) {
+    return notFound();
+  }
+
+  // Get the blog post frontmatter data (without processing content)
+  const post = getMdxBlogPostBySlugWithFrontmatter(slug);
 
   if (!post) {
     return notFound();
@@ -102,13 +117,8 @@ export default async function Post(props: Params) {
         </header>
 
         <FadeIn delay={0.3 * 3}>
-          <div className="flex justify-center">
-            <div
-              className={cn(
-                "markdown text-light-gray w-[90%] sm:w-[90%] md:w-[90%] lg:w-[80%] xl:w-[80%]",
-              )}
-              dangerouslySetInnerHTML={{ __html: post.processedContent || "" }}
-            />
+          <div className="prose prose-invert max-w-none">
+            <CleanMDXContent slug={slug} />
           </div>
         </FadeIn>
       </article>
@@ -121,43 +131,10 @@ export default async function Post(props: Params) {
   );
 }
 
-export async function generateMetadata(
-  props: Params,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
-  const params = await props.params;
-  const post = getBlogPostBySlug(params.slug);
-
-  if (!post) {
-    return notFound();
-  }
-
-  const title = `${post.title}`;
-
-  // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images || [];
-
-  return {
-    title,
-    authors: [
-      {
-        name: post.author.name,
-        url: post.author.url || "https://1chooo.com",
-      },
-    ],
-    description: post.excerpt || config.description,
-    keywords: post.tags || config.keywords,
-    openGraph: {
-      title,
-      images: [post.thumbnail, ...previousImages],
-    },
-  };
+export function generateStaticParams() {
+  // Get all MDX post slugs for static generation
+  const slugs = getMdxPostSlugs();
+  return slugs.map(slug => ({ slug }));
 }
 
-export async function generateStaticParams() {
-  const posts = getBlogPosts();
-
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-}
+export const dynamicParams = false

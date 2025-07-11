@@ -9,7 +9,7 @@ import Balancer from "react-wrap-balancer";
 
 import config from "@/config";
 
-import { getBlogPosts } from "@/lib/api/blog";
+import { getMdxBlogPostsByCategory, getMdxBlogCategories } from "@/lib/api/mdx-blog";
 import type { BlogPost } from "@/types/blog";
 
 import { cn } from "@1chooo/ui/lib/utils";
@@ -20,28 +20,6 @@ interface BlogCategoryProps {
   params: Promise<{ category: string }>;
 }
 
-function getCategories(posts: BlogPost[]): Record<string, number> {
-  const categories: Record<string, number> = Object.create(null);
-
-  for (const post of posts) {
-    const category = post.category;
-
-    categories[category] ??= 0;
-    categories[category] += 1;
-  }
-
-  return categories;
-}
-
-function filterPostsByCategory(
-  posts: BlogPost[],
-  selectedCategory: string,
-): BlogPost[] {
-  return posts.filter((post) => {
-    return post.category.toLowerCase() === selectedCategory.toLowerCase();
-  });
-}
-
 export async function generateMetadata({
   params,
 }: BlogCategoryProps): Promise<Metadata> {
@@ -49,15 +27,14 @@ export async function generateMetadata({
   const categoryName = decodeURIComponent(category);
 
   return {
-    title: `${categoryName} | Blog | ${config.title}`,
-    description: `Blog posts about ${categoryName}`,
+    title: `${categoryName} | Experimental Blog | ${config.title}`,
+    description: `Experimental blog posts about ${categoryName}`,
   };
 }
 
 export async function generateStaticParams() {
   try {
-    const allPosts = await getBlogPosts();
-    const categories = getCategories(allPosts);
+    const categories = getMdxBlogCategories();
 
     return Object.keys(categories).map((category) => ({
       category: category.toLowerCase(),
@@ -70,28 +47,29 @@ export async function generateStaticParams() {
 
 export default async function BlogCategory({ params }: BlogCategoryProps) {
   const { category } = await params;
-  let allPosts: BlogPost[];
+  const categoryParam = decodeURIComponent(category);
+  
+  let filteredPosts: BlogPost[];
+  let allCategories: Record<string, number>;
 
   try {
-    allPosts = await getBlogPosts();
+    filteredPosts = getMdxBlogPostsByCategory(categoryParam);
+    allCategories = getMdxBlogCategories();
   } catch (error) {
     console.error("Failed to load blog posts:", error);
-    allPosts = [];
+    filteredPosts = [];
+    allCategories = {};
   }
-
-  const categoryParam = decodeURIComponent(category);
-  const filteredPosts = filterPostsByCategory(allPosts, categoryParam);
 
   if (filteredPosts.length === 0) {
     notFound();
   }
 
-  const categories = getCategories(allPosts);
-  const blogCategories = Object.keys(categories);
+  const blogCategories = Object.keys(allCategories);
 
   return (
     <article>
-      <PageTitle title="Hugo's Blog" />
+      <PageTitle title={`${categoryParam} - Experimental Blog`} />
 
       <section className={cn(styles.blog)}>
         <ul className={styles.filters}>
@@ -100,20 +78,20 @@ export default async function BlogCategory({ params }: BlogCategoryProps) {
               href="/b"
               className={cn(styles.filterButton)}
             >
-              All ({allPosts.length})
+              All ({Object.values(allCategories).reduce((sum, count) => sum + count, 0)})
             </ViewTransitionsProgressBarLink>
           </li>
 
-          {blogCategories.map((category, index) => (
+          {blogCategories.map((cat, index) => (
             <li key={index}>
               <ViewTransitionsProgressBarLink
-                href={`/b/category/${encodeURIComponent(category.toLowerCase())}`}
-                className={cn(styles.filterButton, {
-                  [styles.filterButtonActive]:
-                    category.toLowerCase() === categoryParam.toLowerCase(),
-                })}
+                href={`/b/category/${encodeURIComponent(cat.toLowerCase())}`}
+                className={cn(
+                  styles.filterButton,
+                  cat.toLowerCase() === categoryParam.toLowerCase() && styles.filterButtonActive
+                )}
               >
-                {category} ({categories[category]})
+                {cat} ({allCategories[cat]})
               </ViewTransitionsProgressBarLink>
             </li>
           ))}

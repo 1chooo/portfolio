@@ -1,0 +1,32 @@
+.h1 {
+  font-size: 2.25rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  font-weight: 700;
+  color: var(--white-1);
+}
+
+.h2 {
+  font-size: 1.875rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--white-1);
+}
+
+.h3 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--white-1);
+}
+
+.p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  color: var(--light-gray);
+}

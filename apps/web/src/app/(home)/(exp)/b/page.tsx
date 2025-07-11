@@ -8,7 +8,7 @@ import Balancer from "react-wrap-balancer";
 
 import config from "@/config";
 
-import { getBlogPosts } from "@/lib/api/blog";
+import { getMdxBlogPosts, getMdxBlogCategories } from "@/lib/api/mdx-blog";
 import type { BlogPost } from "@/types/blog";
 
 import { cn } from "@1chooo/ui/lib/utils";
@@ -17,40 +17,29 @@ import styles from "@/styles/blog.module.css";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: `Blog | ${config.title}`,
-    description: config.description,
+    title: `Experimental Blog | ${config.title}`,
+    description: `${config.description} - MDX Blog Experiments`,
   };
 }
 
-function getCategories(posts: BlogPost[]): Record<string, number> {
-  const categories: Record<string, number> = Object.create(null);
-
-  for (const post of posts) {
-    const category = post.category;
-
-    categories[category] ??= 0;
-    categories[category] += 1;
-  }
-
-  return categories;
-}
-
-export default async function Blog() {
+export default async function MdxBlog() {
   let allPosts: BlogPost[];
+  let categories: Record<string, number>;
 
   try {
-    allPosts = await getBlogPosts();
+    allPosts = getMdxBlogPosts();
+    categories = getMdxBlogCategories();
   } catch (error) {
-    console.error("Failed to load blog posts:", error);
+    console.error("Failed to load MDX blog posts:", error);
     allPosts = [];
+    categories = {};
   }
 
-  const categories = getCategories(allPosts);
   const blogCategories = Object.keys(categories);
 
   return (
     <article>
-      <PageTitle title="Hugo's Blog (exp)" />
+      <PageTitle title="Hugo's Experimental Blog (MDX)" />
 
       <section className={cn(styles.blog)}>
         <ul className={styles.filters}>
