@@ -12,14 +12,6 @@ import { getMdxPostSlugs, getMdxBlogPostExists, getMdxBlogPostBySlugWithFrontmat
 import { getCleanMdxContent } from "@/lib/clean-mdx";
 import Mdx from "@/components/mdx";
 
-/**
- * Get MDX component without frontmatter for rendering
- */
-export function CleanMDXContent({ slug }: { slug: string }) {
-  const content = getCleanMdxContent(slug);
-  return <Mdx source={content} />;
-}
-
 import config from "@/config";
 
 import "@/styles/markdown-styles.css";
@@ -118,7 +110,7 @@ export default async function Blog(props: Params) {
 
         <FadeIn delay={0.3 * 3}>
           <div className="prose prose-invert max-w-none">
-            <CleanMDXContent slug={slug} />
+            <Mdx source={getCleanMdxContent(slug)} />
           </div>
         </FadeIn>
       </article>
