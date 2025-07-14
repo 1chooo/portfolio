@@ -9,15 +9,23 @@ import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import { MDXComponents } from "mdx/types";
 import React, { ComponentPropsWithoutRef } from "react";
 import Heading from "@/components/mdx/heading";
+import { TechBadge, TechBadgeGroup } from "@/components/mdx/tech-badge";
+import { Separator } from "@/components/mdx/separator";
 
 import styles from "@/styles/md.module.css";
 
 const components: MDXComponents = {
   h1: (props: ComponentPropsWithoutRef<"h1">) => (
-    <Heading as="h1" className={styles.h1} {...props} />
+    <>
+      <Heading as="h1" className={styles.h1} {...props} />
+      <Separator />
+    </>
   ),
   h2: (props: ComponentPropsWithoutRef<"h2">) => (
-    <Heading as="h2" className={styles.h2} {...props} />
+    <>
+      <Heading as="h2" className={styles.h2} {...props} />
+      <Separator />
+    </>
   ),
   h3: (props: ComponentPropsWithoutRef<"h3">) => (
     <Heading as="h3" className={styles.h3} {...props} />
@@ -34,6 +42,11 @@ const components: MDXComponents = {
   p: (props: ComponentPropsWithoutRef<"p">) => (
     <p className={styles.p} {...props} />
   ),
+  // Tech Badge components for MDX
+  TechBadge,
+  TechBadgeGroup,
+  // Separator component for MDX
+  Separator,
 };
 
 function Mdx(props: MDXRemoteProps) {

@@ -1,3 +1,4 @@
+/* Base heading styles */
 .h1,
 .h2,
 .h3,
@@ -5,67 +6,76 @@
 .h5,
 .h6 {
   color: var(--white-1);
-  display: inline-block;
+  display: block;
   text-decoration: none;
+  line-height: 1.375;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
+/* Heading link styles */
+.h1 a,
+.h2 a,
+.h3 a,
+.h4 a,
+.h5 a,
+.h6 a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Hover effects for all headings */
 .h1:hover,
 .h2:hover,
 .h3:hover,
 .h4:hover,
 .h5:hover,
-.h6:hover {
+.h6:hover,
+.h1:hover a,
+.h2:hover a,
+.h3:hover a,
+.h4:hover a,
+.h5:hover a,
+.h6:hover a {
   text-decoration: underline;
   color: var(--light-gray);
   text-decoration-color: var(--orange-yellow-crayola);
 }
 
+/* Specific heading sizes and margins */
 .h1 {
   font-size: 2.25rem;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  line-height: 1.5;
   font-weight: 700;
+  line-height: 1.5;
+  margin-top: 2.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .h2 {
   font-size: 1.875rem;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-  line-height: 1.375;
   font-weight: 600;
+  margin-top: 3rem;
+  margin-bottom: 0.25rem;
 }
 
 .h3 {
   font-size: 1.5rem;
   margin-top: 2rem;
-  margin-bottom: 1rem;
-  line-height: 1.375;
-  font-weight: 500;
 }
 
 .h4 {
   font-size: 1.25rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  line-height: 1.375;
-  font-weight: 500;
 }
 
 .h5 {
   font-size: 1.125rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  line-height: 1.375;
-  font-weight: 500;
 }
 
 .h6 {
   font-size: 1rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  line-height: 1.375;
-  font-weight: 500;
 }
 
 .p,
@@ -79,4 +89,17 @@
 .p {
   line-height: 1.7;
   color: var(--light-gray);
+}
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background: var(--jet);
+  margin: 12px 0 24px 0;
+}
+
+@media (min-width: 580px) {
+  .separator {
+    margin: 16px 0 32px 0;
+  }
 }

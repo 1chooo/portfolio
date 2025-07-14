@@ -17,6 +17,27 @@ tags:
 
 # Getting Started with React
 
+## Single Tech Badge Examples
+
+### Using TechBadge Component (Recommended)
+<TechBadge badge="typescript" />
+<TechBadge badge="react" />
+<TechBadge badge="nextjs" />
+
+## Multiple Tech Badges
+
+### Using TechBadgeGroup Component
+<TechBadgeGroup badges={["typescript", "react", "nextjs", "tailwindcss"]} />
+
+### Non-clickable Badges
+<TechBadgeGroup badges={["python", "django", "docker"]} clickable={false} />
+
+### Custom Styling
+<TechBadgeGroup 
+  badges={["javascript", "nodejs", "npm"]} 
+  className="flex flex-wrap gap-4 mt-4"
+/>
+
 This is a test MDX post to demonstrate the experimental blog functionality.
 
 ## What is React?
