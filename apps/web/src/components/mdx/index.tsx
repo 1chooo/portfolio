@@ -42,6 +42,9 @@ const components: MDXComponents = {
   p: (props: ComponentPropsWithoutRef<"p">) => (
     <p className={styles.p} {...props} />
   ),
+  code: (props: ComponentPropsWithoutRef<"code">) => (
+    <code className={styles.code} {...props} />
+  ),
   // Tech Badge components for MDX
   TechBadge,
   TechBadgeGroup,
