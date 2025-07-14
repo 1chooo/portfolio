@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    optimizePackageImports: ["next-mdx-remote"]
+  },
   reactStrictMode: true,
   images: {
     dangerouslyAllowSVG: true,

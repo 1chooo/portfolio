@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import { join } from "path";
 import { calculateReadingTime } from "@/lib/reading-time";
 
-const mdxBlogPostsDirectory = join(process.cwd(), "src", "content", "b");
+const mdxBlogPostsDirectory = join(process.cwd(), "src", "content", "exp", "blog");
 
 export function getMdxPostSlugs(): string[] {
   if (!fs.existsSync(mdxBlogPostsDirectory)) {
@@ -93,4 +93,19 @@ export function getMdxBlogPostsByCategory(category: string): BlogPost[] {
   return allPosts.filter(
     (post) => post.category.toLowerCase() === category.toLowerCase(),
   );
+}
+
+export function getCleanMdxContent(slug: string): string {
+  const realSlug = slug.replace(/\.mdx$/, "");
+  const fullPath = join(mdxBlogPostsDirectory, `${realSlug}.mdx`);
+
+  if (!fs.existsSync(fullPath)) {
+    throw new Error(`MDX file not found: ${slug}`);
+  }
+
+  // Read the original MDX file
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const { content } = matter(fileContents);
+
+  return content;
 }

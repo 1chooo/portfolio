@@ -14,8 +14,8 @@ import {
   getMdxBlogPostExists,
   getMdxBlogPostBySlugWithFrontmatter,
   getMdxBlogPostBySlug,
+  getCleanMdxContent,
 } from "@/lib/api/mdx-blog";
-import { getCleanMdxContent } from "@/lib/clean-mdx";
 import Mdx from "@/components/mdx";
 
 import config from "@/config";
