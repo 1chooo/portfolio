@@ -5,7 +5,7 @@ export default {
   "code-walkthrough": "Code Walkthrough",
   wiki: "Wiki",
   "change-log": "Change Log",
-  thanks: "Special Thanks",
+  acknowledgments: "Acknowledgments",
   contributing: "Contributing",
   demo: {
     type: "page",
