@@ -10,10 +10,11 @@ import Balancer from "react-wrap-balancer";
 import config from "@/config";
 
 import {
-  getMdxBlogPostsByCategory,
-  getMdxBlogCategories,
-} from "@/lib/api/mdx-blog";
+  getBlogPostsByCategory,
+  getBlogCategories,
+} from "@/lib/api/mdx";
 import type { BlogPost } from "@/types/blog";
+import { EXP_BLOG_DIRECTORY } from "@/lib/constants";
 
 import { cn } from "@1chooo/ui/lib/utils";
 
@@ -37,7 +38,7 @@ export async function generateMetadata({
 
 export async function generateStaticParams() {
   try {
-    const categories = getMdxBlogCategories();
+    const categories = getBlogCategories(EXP_BLOG_DIRECTORY);
 
     return Object.keys(categories).map((category) => ({
       category: category.toLowerCase(),
@@ -56,8 +57,8 @@ export default async function BlogCategory({ params }: BlogCategoryProps) {
   let allCategories: Record<string, number>;
 
   try {
-    filteredPosts = getMdxBlogPostsByCategory(categoryParam);
-    allCategories = getMdxBlogCategories();
+    filteredPosts = getBlogPostsByCategory(EXP_BLOG_DIRECTORY, categoryParam);
+    allCategories = getBlogCategories(EXP_BLOG_DIRECTORY);
   } catch (error) {
     console.error("Failed to load blog posts:", error);
     filteredPosts = [];

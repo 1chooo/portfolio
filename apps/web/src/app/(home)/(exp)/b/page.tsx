@@ -8,8 +8,9 @@ import Balancer from "react-wrap-balancer";
 
 import config from "@/config";
 
-import { getMdxBlogPosts, getMdxBlogCategories } from "@/lib/api/mdx-blog";
+import { getBlogPosts, getBlogCategories } from "@/lib/api/mdx";
 import type { BlogPost } from "@/types/blog";
+import { EXP_BLOG_DIRECTORY } from "@/lib/constants";
 
 import { cn } from "@1chooo/ui/lib/utils";
 
@@ -27,8 +28,8 @@ export default async function MdxBlog() {
   let categories: Record<string, number>;
 
   try {
-    allPosts = getMdxBlogPosts();
-    categories = getMdxBlogCategories();
+    allPosts = getBlogPosts(EXP_BLOG_DIRECTORY);
+    categories = getBlogCategories(EXP_BLOG_DIRECTORY);
   } catch (error) {
     console.error("Failed to load MDX blog posts:", error);
     allPosts = [];

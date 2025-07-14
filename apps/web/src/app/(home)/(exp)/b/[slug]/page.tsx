@@ -11,12 +11,13 @@ import PageTitle from "@/components/page-title";
 import Comments from "@/components/comments";
 import {
   getMdxPostSlugs,
-  getMdxBlogPostExists,
-  getMdxBlogPostBySlugWithFrontmatter,
-  getMdxBlogPostBySlug,
+  getMdxPostExists,
+  getBlogPostBySlug,
   getCleanMdxContent,
-} from "@/lib/api/mdx-blog";
+  getMdxPostBySlug,
+} from "@/lib/api/mdx";
 import Mdx from "@/components/mdx";
+import { EXP_BLOG_DIRECTORY } from "@/lib/constants";
 
 import config from "@/config";
 
@@ -35,12 +36,12 @@ export default async function Blog(props: Params) {
   const { slug } = params;
 
   // Check if the MDX file exists
-  if (!getMdxBlogPostExists(slug)) {
+  if (!getMdxPostExists(EXP_BLOG_DIRECTORY, slug)) {
     return notFound();
   }
 
   // Get the blog post frontmatter data (without processing content)
-  const post = getMdxBlogPostBySlugWithFrontmatter(slug);
+  const post = getBlogPostBySlug(EXP_BLOG_DIRECTORY, slug);
 
   if (!post) {
     return notFound();
@@ -116,7 +117,7 @@ export default async function Blog(props: Params) {
         <FadeIn delay={0.3 * 3}>
           <div className="flex justify-center">
             <div className="text-light-gray w-[90%] sm:w-[90%] md:w-[90%] lg:w-[80%] xl:w-[80%]">
-              <Mdx source={getCleanMdxContent(slug)} />
+              <Mdx source={getCleanMdxContent(EXP_BLOG_DIRECTORY, slug)} />
             </div>
           </div>
         </FadeIn>
@@ -135,7 +136,11 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const params = await props.params;
-  const post = getMdxBlogPostBySlug(params.slug);
+  const post = getMdxPostBySlug(EXP_BLOG_DIRECTORY, params.slug, (data, content, slug) => ({
+    ...data,
+    content,
+    slug,
+  }));
 
   if (!post) {
     return notFound();
@@ -165,7 +170,7 @@ export async function generateMetadata(
 
 export function generateStaticParams() {
   // Get all MDX post slugs for static generation
-  const slugs = getMdxPostSlugs();
+  const slugs = getMdxPostSlugs(EXP_BLOG_DIRECTORY);
   return slugs.map((slug) => ({ slug }));
 }
 
