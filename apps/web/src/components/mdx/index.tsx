@@ -11,6 +11,11 @@ import React, { ComponentPropsWithoutRef } from "react";
 import Heading from "@/components/mdx/heading";
 import { TechBadge, TechBadgeGroup } from "@/components/mdx/tech-badge";
 import { Separator } from "@/components/mdx/separator";
+import { CodeBlock } from "@/components/mdx/code-block";
+import rehypePrettyCode from "rehype-pretty-code";
+import { Options as rehypePrettyCodeOptions } from "rehype-pretty-code";
+
+import { cn } from "@1chooo/ui/lib/utils";
 
 import styles from "@/styles/md.module.css";
 
@@ -45,16 +50,28 @@ const components: MDXComponents = {
   code: (props: ComponentPropsWithoutRef<"code">) => (
     <code className={styles.code} {...props} />
   ),
-  // Tech Badge components for MDX
+  pre: ({ ...props }: React.HTMLAttributes<HTMLElement>) => (
+    <CodeBlock className={cn(styles.pre)} {...props} />
+  ),
   TechBadge,
   TechBadgeGroup,
-  // Separator component for MDX
   Separator,
 };
 
+let options: rehypePrettyCodeOptions;
+options = {
+  theme: "github-dark",
+}
+
 function Mdx(props: MDXRemoteProps) {
   return (
-    <MDXRemote {...props} components={{ ...components, ...props.components }} />
+    <MDXRemote {...props} components={{ ...components, ...props.components }}
+      options={{
+        mdxOptions: {
+          rehypePlugins: [[rehypePrettyCode, options]],
+        },
+      }}
+    />
   );
 }
 

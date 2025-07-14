@@ -17,6 +17,33 @@ tags:
 
 # Getting Started with React
 
+```js /age/#v /name/#v /setAge/#s /setName/#s /50/#i /"Taylor"/#i
+const [age, setAge] = useState(50);
+const [name, setName] = useState("Taylor");
+```
+
+```tsx {6} showLineNumbers
+// Avoid
+interface Props {
+  text?: string;
+}
+
+const Heading: React.FC<Props> = ({ text = "Hello, world!" }) => {
+  return <h1>{text}</h1>;
+};
+```
+
+```tsx {6}
+// Prefer
+interface Props {
+  text?: string;
+}
+
+function Heading({ text = "Hello, world!" }: Props) {
+  return <h1>{text}</h1>;
+}
+```
+
 ## Single Tech Badge Examples
 
 ### Using TechBadge Component (Recommended)

@@ -79,7 +79,7 @@
   font-weight: 500;
 }
 
-.markdown :not(pre) > code {
+.markdown :not(pre)>code {
   font-size: 0.875rem;
   color: #f8f8f2;
   background-color: #282a36;
@@ -174,7 +174,7 @@
   counter-reset: line;
 }
 
-.markdown code[data-line-numbers] > [data-line]::before {
+.markdown code[data-line-numbers]>[data-line]::before {
   counter-increment: line;
   content: counter(line);
 
@@ -185,15 +185,15 @@
   color: gray;
 }
 
-.markdown code[data-line-numbers-max-digits="2"] > [data-line]::before {
+.markdown code[data-line-numbers-max-digits="2"]>[data-line]::before {
   width: 1.25rem;
 }
 
-.markdown code[data-line-numbers-max-digits="3"] > [data-line]::before {
+.markdown code[data-line-numbers-max-digits="3"]>[data-line]::before {
   width: 1.75rem;
 }
 
-.markdown code[data-line-numbers-max-digits="4"] > [data-line]::before {
+.markdown code[data-line-numbers-max-digits="4"]>[data-line]::before {
   width: 2.25rem;
 }
 
@@ -218,5 +218,52 @@
 @media (min-width: 1200px) {
   .markdown .image-with-caption img {
     max-height: 400px;
+  }
+}
+
+pre {
+  font-size: var(--fs-6);
+  padding: 15px;
+  border-radius: 14px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  white-space: pre;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  position: relative;
+}
+
+/* 美化滾動條 (Webkit 瀏覽器) */
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media (min-width: 768px) {
+  pre {
+    white-space: pre;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-x: hidden;
   }
 }

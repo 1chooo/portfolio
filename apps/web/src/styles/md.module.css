@@ -98,7 +98,112 @@
   margin: 12px 0 24px 0;
 }
 
-.code {
+.pre {
+  font-size: var(--fs-6);
+  padding: 15px;
+  border-radius: 14px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  white-space: pre;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  position: relative;
+}
+
+/* 美化滾動條 (Webkit 瀏覽器) */
+.pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.pre::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.pre::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.pre::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media (min-width: 768px) {
+  .pre {
+    white-space: pre;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-x: hidden;
+  }
+}
+
+.code[data-line-numbers] {
+  counter-reset: line;
+}
+
+.code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+
+  /* Other styling */
+  display: inline-block;
+  width: 0.75rem;
+  margin-right: 2rem;
+  text-align: right;
+  color: gray;
+}
+
+.code[data-line-numbers-max-digits="2"] > [data-line]::before {
+  width: 1.25rem;
+}
+
+.code[data-line-numbers-max-digits="3"] > [data-line]::before {
+  width: 1.75rem;
+}
+
+.code[data-line-numbers-max-digits="4"] > [data-line]::before {
+  width: 2.25rem;
+}
+
+.code [data-highlighted-line] {
+  background: rgba(200, 200, 255, 0.1);
+  @apply border-l-blue-400;
+}
+
+.code [data-highlighted-chars] {
+  @apply bg-zinc-600/50 rounded;
+  box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
+}
+
+.code [data-chars-id] {
+  @apply shadow-none p-1 border-b-2;
+}
+
+.code [data-chars-id] span {
+  @apply !text-inherit;
+}
+
+.code [data-chars-id="v"] {
+  @apply !text-pink-300 bg-rose-800/50 border-b-pink-600 font-bold;
+}
+
+.code [data-chars-id="s"] {
+  @apply !text-yellow-300 bg-yellow-800/50 border-b-yellow-600 font-bold;
+}
+
+.code [data-chars-id="i"] {
+  @apply !text-purple-200 bg-purple-800/50 border-b-purple-600 font-bold;
+}
+
+.code:not(pre code) {
   font-size: 0.875rem;
   color: #f8f8f2;
   background-color: #282a36;

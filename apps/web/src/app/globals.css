@@ -146,53 +146,6 @@ body {
   background: var(--smoky-black);
 }
 
-pre {
-  font-size: var(--fs-6);
-  padding: 15px;
-  border-radius: 14px;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  white-space: pre;
-  overflow-x: auto;
-  overflow-y: hidden;
-  max-width: 100%;
-  position: relative;
-}
-
-/* 美化滾動條 (Webkit 瀏覽器) */
-pre::-webkit-scrollbar {
-  height: 8px;
-}
-
-pre::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 4px;
-}
-
-pre::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 4px;
-}
-
-pre::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-@media (min-width: 768px) {
-  pre {
-    white-space: pre;
-    overflow-x: auto;
-  }
-}
-
-@media (max-width: 767px) {
-  pre {
-    white-space: pre-wrap;
-    word-break: break-word;
-    overflow-x: hidden;
-  }
-}
-
 /*-----------------------------------*\
   #REUSED STYLE
 \*-----------------------------------*/
