@@ -1,4 +1,4 @@
-export interface SlugifyOptions {
+interface SlugifyOptions {
   replacement?: string;
   remove?: RegExp;
   lower?: boolean;
@@ -7,10 +7,12 @@ export interface SlugifyOptions {
   trim?: boolean;
 }
 
-export interface CharMap {
+interface CharMap {
   [key: string]: string;
 }
 
-export interface LocaleMap {
+interface LocaleMap {
   [key: string]: CharMap;
 }
+
+export type { SlugifyOptions, CharMap, LocaleMap };

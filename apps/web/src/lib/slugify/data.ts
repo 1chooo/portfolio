@@ -1,4 +1,4 @@
-export const charMap: Record<string, string> = {
+const charMap: Record<string, string> = {
   $: "dollar",
   "%": "percent",
   "&": "and",
@@ -642,7 +642,7 @@ export const charMap: Record<string, string> = {
   ﻻ: "la",
 } as const;
 
-export const locales: Record<string, Record<string, string>> = {
+const locales: Record<string, Record<string, string>> = {
   bg: {
     Й: "Y",
     Ц: "Ts",
@@ -742,3 +742,5 @@ export const locales: Record<string, Record<string, string>> = {
   nl: { "&": "en" },
   sv: { "&": "och", Å: "AA", Ä: "AE", Ö: "OE", å: "aa", ä: "ae", ö: "oe" },
 } as const;
+
+export { charMap, locales };

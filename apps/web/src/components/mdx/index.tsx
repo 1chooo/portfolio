@@ -1,10 +1,3 @@
-/**
- * @see https://github.com/leerob/next-mdx-blog/blob/main/mdx-components.tsx for ComponentPropsWithoutRef
- * @see https://github.com/daniellp99/portfolio/blob/fedd76610816765e17826f7056fbc661d3723bb9/src/components/MdxRemote.tsx#L4
- * @see https://github.com/aayushchugh/ayushchugh.com/blob/3c425a7ef2deb76afb87c612f557242c3f7bcb07/app/components/mdx.tsx#L4
- * @see https://github.com/tszhong0411/nelsonlai.me/blob/main/apps/web/src/components/mdx/mdx.tsx
- */
-
 import React, { ComponentPropsWithoutRef } from "react";
 
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
@@ -33,6 +26,12 @@ type UnorderedListProps = ComponentPropsWithoutRef<"ul">;
 type ListItemProps = ComponentPropsWithoutRef<"li">;
 type OrderedListProps = ComponentPropsWithoutRef<"ol">;
 
+/**
+ * @see https://github.com/leerob/next-mdx-blog/blob/main/mdx-components.tsx for ComponentPropsWithoutRef
+ * @see https://github.com/daniellp99/portfolio/blob/fedd76610816765e17826f7056fbc661d3723bb9/src/components/MdxRemote.tsx#L4
+ * @see https://github.com/aayushchugh/ayushchugh.com/blob/3c425a7ef2deb76afb87c612f557242c3f7bcb07/app/components/mdx.tsx#L4
+ * @see https://github.com/tszhong0411/nelsonlai.me/blob/main/apps/web/src/components/mdx/mdx.tsx
+ */
 const components: MDXComponents = {
   h1: (props: HeadingProps<"h1">) => (
     <>
