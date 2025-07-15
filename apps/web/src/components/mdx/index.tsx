@@ -25,33 +25,38 @@ import { cn } from "@1chooo/ui/lib/utils";
 import styles from "@/styles/md.module.css";
 
 type AnchorProps = ComponentPropsWithoutRef<'a'>;
+type HeadingProps = ComponentPropsWithoutRef<'h1'> | ComponentPropsWithoutRef<'h2'> | ComponentPropsWithoutRef<'h3'> | ComponentPropsWithoutRef<'h4'> | ComponentPropsWithoutRef<'h5'> | ComponentPropsWithoutRef<'h6'>;
+type ParagraphProps = ComponentPropsWithoutRef<'p'>;
+type UnorderedListProps = ComponentPropsWithoutRef<'ul'>;
+type ListItemProps = ComponentPropsWithoutRef<'li'>;
+type OrderedListProps = ComponentPropsWithoutRef<'ol'>;
 
 const components: MDXComponents = {
-  h1: (props: ComponentPropsWithoutRef<"h1">) => (
+  h1: (props: HeadingProps) => (
     <>
       <Heading as="h1" className={styles.h1} {...props} />
       <Separator />
     </>
   ),
-  h2: (props: ComponentPropsWithoutRef<"h2">) => (
+  h2: (props: HeadingProps) => (
     <>
       <Heading as="h2" className={styles.h2} {...props} />
       <Separator />
     </>
   ),
-  h3: (props: ComponentPropsWithoutRef<"h3">) => (
+  h3: (props: HeadingProps) => (
     <Heading as="h3" className={styles.h3} {...props} />
   ),
-  h4: (props: ComponentPropsWithoutRef<"h4">) => (
+  h4: (props: HeadingProps) => (
     <Heading as="h4" className={styles.h4} {...props} />
   ),
-  h5: (props: ComponentPropsWithoutRef<"h5">) => (
+  h5: (props: HeadingProps) => (
     <Heading as="h5" className={styles.h5} {...props} />
   ),
-  h6: (props: ComponentPropsWithoutRef<"h6">) => (
+  h6: (props: HeadingProps) => (
     <Heading as="h6" className={styles.h6} {...props} />
   ),
-  p: (props: ComponentPropsWithoutRef<"p">) => (
+  p: (props: ParagraphProps) => (
     <p className={styles.p} {...props} />
   ),
   code: (props: ComponentPropsWithoutRef<"code">) => (
@@ -60,13 +65,13 @@ const components: MDXComponents = {
   pre: ({ ...props }: React.HTMLAttributes<HTMLElement>) => (
     <CodeBlock className={cn(styles.pre)} {...props} />
   ),
-  li: (props: ComponentPropsWithoutRef<"li">) => (
+  li: (props: ListItemProps) => (
     <Li {...props} />
   ),
-  ol: (props: ComponentPropsWithoutRef<"ol">) => (
+  ol: (props: OrderedListProps) => (
     <Ol {...props} />
   ),
-  ul: (props: ComponentPropsWithoutRef<"ul">) => (
+  ul: (props: UnorderedListProps) => (
     <Ul {...props} />
   ),
   a: (props: AnchorProps) => (
