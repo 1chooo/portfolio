@@ -12,9 +12,16 @@ import { TechBadge, TechBadgeGroup } from "@/components/mdx/tech-badge";
 import { Separator } from "@/components/mdx/separator";
 import { CodeBlock } from "@/components/mdx/code-block";
 import { ListItem, type ListItemProps } from "@/components/mdx/list-item";
-import { OrderedList, type OrderedListProps } from "@/components/mdx/ordered-list";
-import { UnorderedList, type UnorderedListProps } from "@/components/mdx/unordered-list";
+import {
+  OrderedList,
+  type OrderedListProps,
+} from "@/components/mdx/ordered-list";
+import {
+  UnorderedList,
+  type UnorderedListProps,
+} from "@/components/mdx/unordered-list";
 import { Anchor, type AnchorProps } from "@/components/mdx/anchor";
+import { Callout } from "@/components/mdx/callout";
 
 import { cn } from "@1chooo/ui/lib/utils";
 
@@ -67,6 +74,7 @@ const components: MDXComponents = {
   TechBadge,
   TechBadgeGroup,
   Separator,
+  Callout,
 };
 
 let options: rehypePrettyCodeOptions;
