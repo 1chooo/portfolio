@@ -5,16 +5,19 @@
  * @see https://github.com/tszhong0411/nelsonlai.me/blob/main/apps/web/src/components/mdx/mdx.tsx
  */
 
+import React, { ComponentPropsWithoutRef } from "react";
+
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import { MDXComponents } from "mdx/types";
-import React, { ComponentPropsWithoutRef } from "react";
-import Heading from "@/components/mdx/heading";
+
+import { Options as rehypePrettyCodeOptions } from "rehype-pretty-code";
+import rehypePrettyCode from "rehype-pretty-code";
+import remarkGfm from "remark-gfm";
+
+import { Heading, type HeadingProps } from "@/components/mdx/heading";
 import { TechBadge, TechBadgeGroup } from "@/components/mdx/tech-badge";
 import { Separator } from "@/components/mdx/separator";
 import { CodeBlock } from "@/components/mdx/code-block";
-import rehypePrettyCode from "rehype-pretty-code";
-import { Options as rehypePrettyCodeOptions } from "rehype-pretty-code";
-import remarkGfm from "remark-gfm";
 import { Ol } from "@/components/mdx/ol";
 import { Li } from "@/components/mdx/li";
 import { Ul } from "@/components/mdx/ul";
@@ -25,35 +28,34 @@ import { cn } from "@1chooo/ui/lib/utils";
 import styles from "@/styles/md.module.css";
 
 type AnchorProps = ComponentPropsWithoutRef<'a'>;
-type HeadingProps = ComponentPropsWithoutRef<'h1'> | ComponentPropsWithoutRef<'h2'> | ComponentPropsWithoutRef<'h3'> | ComponentPropsWithoutRef<'h4'> | ComponentPropsWithoutRef<'h5'> | ComponentPropsWithoutRef<'h6'>;
 type ParagraphProps = ComponentPropsWithoutRef<'p'>;
 type UnorderedListProps = ComponentPropsWithoutRef<'ul'>;
 type ListItemProps = ComponentPropsWithoutRef<'li'>;
 type OrderedListProps = ComponentPropsWithoutRef<'ol'>;
 
 const components: MDXComponents = {
-  h1: (props: HeadingProps) => (
+  h1: (props: HeadingProps<"h1">) => (
     <>
       <Heading as="h1" className={styles.h1} {...props} />
       <Separator />
     </>
   ),
-  h2: (props: HeadingProps) => (
+  h2: (props: HeadingProps<"h2">) => (
     <>
       <Heading as="h2" className={styles.h2} {...props} />
       <Separator />
     </>
   ),
-  h3: (props: HeadingProps) => (
+  h3: (props: HeadingProps<"h3">) => (
     <Heading as="h3" className={styles.h3} {...props} />
   ),
-  h4: (props: HeadingProps) => (
+  h4: (props: HeadingProps<"h4">) => (
     <Heading as="h4" className={styles.h4} {...props} />
   ),
-  h5: (props: HeadingProps) => (
+  h5: (props: HeadingProps<"h5">) => (
     <Heading as="h5" className={styles.h5} {...props} />
   ),
-  h6: (props: HeadingProps) => (
+  h6: (props: HeadingProps<"h6">) => (
     <Heading as="h6" className={styles.h6} {...props} />
   ),
   p: (props: ParagraphProps) => (
