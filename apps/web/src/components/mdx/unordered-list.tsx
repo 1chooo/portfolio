@@ -3,11 +3,11 @@ import { cn } from "@1chooo/ui/lib/utils";
 
 import styles from "@/styles/md/list.module.css";
 
-interface UlProps extends ComponentPropsWithoutRef<"ul"> {
+interface UnorderedListProps extends ComponentPropsWithoutRef<"ul"> {
   className?: string;
 }
 
-function Ul({ className, children, ...props }: UlProps) {
+function UnorderedList({ className, children, ...props }: UnorderedListProps) {
   return (
     <ul className={cn(styles.ul, "md-ul", className)} {...props}>
       {children}
@@ -15,5 +15,6 @@ function Ul({ className, children, ...props }: UlProps) {
   );
 }
 
-export { Ul };
-export default Ul;
+export { UnorderedList };
+export type { UnorderedListProps };
+export default UnorderedList;

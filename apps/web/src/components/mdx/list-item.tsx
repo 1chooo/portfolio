@@ -3,11 +3,11 @@ import { cn } from "@1chooo/ui/lib/utils";
 
 import styles from "@/styles/md/list.module.css";
 
-interface LiProps extends ComponentPropsWithoutRef<"li"> {
+interface ListItemProps extends ComponentPropsWithoutRef<"li"> {
   className?: string;
 }
 
-function Li({ className, children, ...props }: LiProps) {
+function ListItem({ className, children, ...props }: ListItemProps) {
   return (
     <li className={cn(styles.li, "md-li", className)} {...props}>
       {children}
@@ -15,5 +15,6 @@ function Li({ className, children, ...props }: LiProps) {
   );
 }
 
-export { Li };
-export default Li;
+export { ListItem };
+export type { ListItemProps };
+export default ListItem;

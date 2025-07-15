@@ -5,7 +5,7 @@ import styles from "@/styles/md/anchor.module.css";
 
 type AnchorProps = ComponentPropsWithoutRef<"a">;
 
-export function Anchor({ href, children, ...props }: AnchorProps) {
+function Anchor({ href, children, ...props }: AnchorProps) {
   if (href?.startsWith("/")) {
     return (
       <Link href={href} className={styles.anchor} {...props}>
@@ -35,4 +35,6 @@ export function Anchor({ href, children, ...props }: AnchorProps) {
   );
 }
 
+export { Anchor };
+export type { AnchorProps };
 export default Anchor;

@@ -3,11 +3,11 @@ import { cn } from "@1chooo/ui/lib/utils";
 
 import styles from "@/styles/md/list.module.css";
 
-interface OlProps extends ComponentPropsWithoutRef<"ol"> {
+interface OrderedListProps extends ComponentPropsWithoutRef<"ol"> {
   className?: string;
 }
 
-function Ol({ className, children, ...props }: OlProps) {
+function OrderedList({ className, children, ...props }: OrderedListProps) {
   return (
     <ol className={cn(styles.ol, "md-ol", className)} {...props}>
       {children}
@@ -15,5 +15,6 @@ function Ol({ className, children, ...props }: OlProps) {
   );
 }
 
-export { Ol };
-export default Ol;
+export { OrderedList };
+export type { OrderedListProps };
+export default OrderedList;

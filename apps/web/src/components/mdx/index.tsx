@@ -11,20 +11,16 @@ import { Heading, type HeadingProps } from "@/components/mdx/heading";
 import { TechBadge, TechBadgeGroup } from "@/components/mdx/tech-badge";
 import { Separator } from "@/components/mdx/separator";
 import { CodeBlock } from "@/components/mdx/code-block";
-import { Ol } from "@/components/mdx/ol";
-import { Li } from "@/components/mdx/li";
-import { Ul } from "@/components/mdx/ul";
-import { Anchor } from "@/components/mdx/anchor";
+import { ListItem, type ListItemProps } from "@/components/mdx/list-item";
+import { OrderedList, type OrderedListProps } from "@/components/mdx/ordered-list";
+import { UnorderedList, type UnorderedListProps } from "@/components/mdx/unordered-list";
+import { Anchor, type AnchorProps } from "@/components/mdx/anchor";
 
 import { cn } from "@1chooo/ui/lib/utils";
 
 import styles from "@/styles/md.module.css";
 
-type AnchorProps = ComponentPropsWithoutRef<"a">;
 type ParagraphProps = ComponentPropsWithoutRef<"p">;
-type UnorderedListProps = ComponentPropsWithoutRef<"ul">;
-type ListItemProps = ComponentPropsWithoutRef<"li">;
-type OrderedListProps = ComponentPropsWithoutRef<"ol">;
 
 /**
  * @see https://github.com/leerob/next-mdx-blog/blob/main/mdx-components.tsx for ComponentPropsWithoutRef
@@ -64,9 +60,9 @@ const components: MDXComponents = {
   pre: ({ ...props }: React.HTMLAttributes<HTMLElement>) => (
     <CodeBlock className={cn(styles.pre)} {...props} />
   ),
-  li: (props: ListItemProps) => <Li {...props} />,
-  ol: (props: OrderedListProps) => <Ol {...props} />,
-  ul: (props: UnorderedListProps) => <Ul {...props} />,
+  li: (props: ListItemProps) => <ListItem {...props} />,
+  ol: (props: OrderedListProps) => <OrderedList {...props} />,
+  ul: (props: UnorderedListProps) => <UnorderedList {...props} />,
   a: (props: AnchorProps) => <Anchor {...props} />,
   TechBadge,
   TechBadgeGroup,
