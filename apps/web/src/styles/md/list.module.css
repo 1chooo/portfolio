@@ -22,78 +22,78 @@
   margin-bottom: 0.25rem;
 }
 
-/* Nested list styles - using :global() to handle cross-component nesting */
-:global(.md-ul .md-ul) {
+/* Nested list styles - using :global() with local classes to handle cross-component nesting */
+.ul :global(.md-ul) {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   list-style: circle;
 }
 
-:global(.md-ol .md-ol) {
+.ol :global(.md-ol) {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   list-style: lower-alpha;
 }
 
-:global(.md-ul .md-ol) {
+.ul :global(.md-ol) {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   list-style: decimal;
 }
 
-:global(.md-ol .md-ul) {
+.ol :global(.md-ul) {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   list-style: disc;
 }
 
 /* Third level nested lists */
-:global(.md-ul .md-ul .md-ul) {
+.ul :global(.md-ul .md-ul) {
   list-style: square;
 }
 
-:global(.md-ol .md-ol .md-ol) {
+.ol :global(.md-ol .md-ol) {
   list-style: lower-roman;
 }
 
-:global(.md-ul .md-ol .md-ul),
-:global(.md-ol .md-ul .md-ol) {
+.ul :global(.md-ol .md-ul),
+.ol :global(.md-ul .md-ol) {
   list-style: disc;
 }
 
-:global(.md-ol .md-ul .md-ul),
-:global(.md-ul .md-ol .md-ol) {
+.ol :global(.md-ul .md-ul),
+.ul :global(.md-ol .md-ol) {
   list-style: circle;
 }
 
 /* Fourth level and beyond - cycle through styles */
-:global(.md-ul .md-ul .md-ul .md-ul) {
+.ul :global(.md-ul .md-ul .md-ul) {
   list-style: disc;
 }
 
-:global(.md-ol .md-ol .md-ol .md-ol) {
+.ol :global(.md-ol .md-ol .md-ol) {
   list-style: decimal;
 }
 
 /* Spacing adjustments for deeply nested lists */
-:global(.md-ul .md-ul .md-ul .md-ul),
-:global(.md-ol .md-ol .md-ol .md-ol),
-:global(.md-ul .md-ol .md-ul .md-ol),
-:global(.md-ol .md-ul .md-ol .md-ul) {
+.ul :global(.md-ul .md-ul .md-ul),
+.ol :global(.md-ol .md-ol .md-ol),
+.ul :global(.md-ol .md-ul .md-ol),
+.ol :global(.md-ul .md-ol .md-ul) {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   padding-left: 1.25rem; /* Slightly reduced padding for deep nesting */
 }
 
 /* List item spacing in nested contexts */
-:global(.md-ul .md-li),
-:global(.md-ol .md-li) {
+.ul :global(.md-li),
+.ol :global(.md-li) {
   margin-top: 0.125rem;
   margin-bottom: 0.125rem;
 }
 
 /* Ensure proper spacing between nested list items */
-:global(.md-li:has(> .md-ul)),
-:global(.md-li:has(> .md-ol)) {
+.li:has(:global(> .md-ul)),
+.li:has(:global(> .md-ol)) {
   margin-bottom: 0.5rem;
 }
