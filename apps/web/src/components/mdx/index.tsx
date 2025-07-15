@@ -14,6 +14,10 @@ import { Separator } from "@/components/mdx/separator";
 import { CodeBlock } from "@/components/mdx/code-block";
 import rehypePrettyCode from "rehype-pretty-code";
 import { Options as rehypePrettyCodeOptions } from "rehype-pretty-code";
+import remarkGfm from "remark-gfm";
+import { Ol } from "@/components/mdx/ol";
+import { Li } from "@/components/mdx/li";
+import { Ul } from "@/components/mdx/ul";
 
 import { cn } from "@1chooo/ui/lib/utils";
 
@@ -53,6 +57,15 @@ const components: MDXComponents = {
   pre: ({ ...props }: React.HTMLAttributes<HTMLElement>) => (
     <CodeBlock className={cn(styles.pre)} {...props} />
   ),
+  li: (props: ComponentPropsWithoutRef<"li">) => (
+    <Li {...props} />
+  ),
+  ol: (props: ComponentPropsWithoutRef<"ol">) => (
+    <Ol {...props} />
+  ),
+  ul: (props: ComponentPropsWithoutRef<"ul">) => (
+    <Ul {...props} />
+  ),
   TechBadge,
   TechBadgeGroup,
   Separator,
@@ -69,6 +82,7 @@ function Mdx(props: MDXRemoteProps) {
       options={{
         mdxOptions: {
           rehypePlugins: [[rehypePrettyCode, options]],
+          remarkPlugins: [remarkGfm],
         },
       }}
     />

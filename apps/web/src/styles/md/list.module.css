@@ -1,0 +1,99 @@
+/* Base list styles */
+.ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  color: var(--light-gray);
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.ol {
+  list-style: decimal;
+  padding-left: 1.5rem;
+  color: var(--light-gray);
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.li {
+  line-height: 1.7;
+  color: var(--light-gray);
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Nested list styles - using :global() to handle cross-component nesting */
+:global(.md-ul .md-ul) {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  list-style: circle;
+}
+
+:global(.md-ol .md-ol) {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  list-style: lower-alpha;
+}
+
+:global(.md-ul .md-ol) {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  list-style: decimal;
+}
+
+:global(.md-ol .md-ul) {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  list-style: disc;
+}
+
+/* Third level nested lists */
+:global(.md-ul .md-ul .md-ul) {
+  list-style: square;
+}
+
+:global(.md-ol .md-ol .md-ol) {
+  list-style: lower-roman;
+}
+
+:global(.md-ul .md-ol .md-ul),
+:global(.md-ol .md-ul .md-ol) {
+  list-style: disc;
+}
+
+:global(.md-ol .md-ul .md-ul),
+:global(.md-ul .md-ol .md-ol) {
+  list-style: circle;
+}
+
+/* Fourth level and beyond - cycle through styles */
+:global(.md-ul .md-ul .md-ul .md-ul) {
+  list-style: disc;
+}
+
+:global(.md-ol .md-ol .md-ol .md-ol) {
+  list-style: decimal;
+}
+
+/* Spacing adjustments for deeply nested lists */
+:global(.md-ul .md-ul .md-ul .md-ul),
+:global(.md-ol .md-ol .md-ol .md-ol),
+:global(.md-ul .md-ol .md-ul .md-ol),
+:global(.md-ol .md-ul .md-ol .md-ul) {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  padding-left: 1.25rem; /* Slightly reduced padding for deep nesting */
+}
+
+/* List item spacing in nested contexts */
+:global(.md-ul .md-li),
+:global(.md-ol .md-li) {
+  margin-top: 0.125rem;
+  margin-bottom: 0.125rem;
+}
+
+/* Ensure proper spacing between nested list items */
+:global(.md-li:has(> .md-ul)),
+:global(.md-li:has(> .md-ol)) {
+  margin-bottom: 0.5rem;
+}
