@@ -175,32 +175,50 @@
 
 .code [data-highlighted-line] {
   background: rgba(200, 200, 255, 0.1);
-  @apply border-l-blue-400;
 }
 
 .code [data-highlighted-chars] {
-  @apply bg-zinc-600/50 rounded;
+  background-color: rgba(82, 82, 91, 0.5); /* bg-zinc-600/50 */
+  border-radius: 0.25rem; /* rounded */
   box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
 }
 
 .code [data-chars-id] {
-  @apply shadow-none p-1 border-b-2;
+  box-shadow: none;
+  padding: 0.25rem;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
 }
 
 .code [data-chars-id] span {
-  @apply !text-inherit;
+  color: inherit !important;
 }
 
 .code [data-chars-id="v"] {
-  @apply !text-pink-300 bg-rose-800/50 border-b-pink-600 font-bold;
+  color: #f9a8d4 !important; /* Tailwind pink-300 */
+  background-color: rgba(159, 18, 57, 0.5); /* Tailwind rose-800/50 */
+  border-bottom-color: #db2777; /* Tailwind pink-600 */
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  font-weight: bold;
 }
 
 .code [data-chars-id="s"] {
-  @apply !text-yellow-300 bg-yellow-800/50 border-b-yellow-600 font-bold;
+  color: #fde68a !important; /* Tailwind yellow-300 */
+  background-color: rgba(133, 77, 14, 0.5); /* Tailwind yellow-800/50 */
+  border-bottom-color: #ca8a04; /* Tailwind yellow-600 */
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  font-weight: bold;
 }
 
 .code [data-chars-id="i"] {
-  @apply !text-purple-200 bg-purple-800/50 border-b-purple-600 font-bold;
+  color: #e9d5ff !important; /* Tailwind purple-200 */
+  background-color: rgba(107, 33, 168, 0.5); /* Tailwind purple-800/50 */
+  border-bottom-color: #9333ea; /* Tailwind purple-600 */
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  font-weight: bold;
 }
 
 .code:not(pre code) {
