@@ -9,10 +9,7 @@ interface LiProps extends ComponentPropsWithoutRef<"li"> {
 
 function Li({ className, children, ...props }: LiProps) {
   return (
-    <li 
-      className={cn(styles.li, "md-li", className)} 
-      {...props}
-    >
+    <li className={cn(styles.li, "md-li", className)} {...props}>
       {children}
     </li>
   );

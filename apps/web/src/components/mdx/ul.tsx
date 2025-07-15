@@ -9,10 +9,7 @@ interface UlProps extends ComponentPropsWithoutRef<"ul"> {
 
 function Ul({ className, children, ...props }: UlProps) {
   return (
-    <ul 
-      className={cn(styles.ul, "md-ul", className)} 
-      {...props}
-    >
+    <ul className={cn(styles.ul, "md-ul", className)} {...props}>
       {children}
     </ul>
   );

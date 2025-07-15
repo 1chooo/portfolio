@@ -136,11 +136,15 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const params = await props.params;
-  const post = getMdxPostBySlug(EXP_BLOG_DIRECTORY, params.slug, (data, content, slug) => ({
-    ...data,
-    content,
-    slug,
-  }));
+  const post = getMdxPostBySlug(
+    EXP_BLOG_DIRECTORY,
+    params.slug,
+    (data, content, slug) => ({
+      ...data,
+      content,
+      slug,
+    }),
+  );
 
   if (!post) {
     return notFound();

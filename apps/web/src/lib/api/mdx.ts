@@ -17,10 +17,11 @@ interface BaseMdxPost {
 }
 
 // Transformer functions for different post types
-export const createBlogPostTransformer = () => 
+export const createBlogPostTransformer =
+  () =>
   (data: any, content: string, slug: string): BlogPost => {
     const readingTimeText = calculateReadingTime(content);
-    
+
     return {
       ...data,
       slug,
@@ -37,10 +38,11 @@ export const createBlogPostTransformer = () =>
     } as BlogPost;
   };
 
-export const createProjectPostTransformer = () => 
+export const createProjectPostTransformer =
+  () =>
   (data: any, content: string, slug: string): ProjectPost => {
     const readingTimeText = calculateReadingTime(content);
-    
+
     return {
       ...data,
       slug,
@@ -70,9 +72,9 @@ export function getMdxPostSlugs(mdxPostsDirectory: string): string[] {
 }
 
 export function getMdxPostBySlug<T extends BaseMdxPost>(
-  mdxPostsDirectory: string, 
+  mdxPostsDirectory: string,
   slug: string,
-  postTransformer: (data: any, content: string, slug: string) => T
+  postTransformer: (data: any, content: string, slug: string) => T,
 ): T {
   const realSlug = slug.replace(/\.mdx$/, "");
   const fullPath = join(mdxPostsDirectory, `${realSlug}.mdx`);
@@ -83,34 +85,39 @@ export function getMdxPostBySlug<T extends BaseMdxPost>(
 
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
-  
+
   return postTransformer(data, content, realSlug);
 }
 
 // Sorting functions
-export const sortByPublishedDate = (a: BlogPost, b: BlogPost) => 
+export const sortByPublishedDate = (a: BlogPost, b: BlogPost) =>
   a.publishedAt > b.publishedAt ? -1 : 1;
 
-export const sortByStartDate = (a: ProjectPost, b: ProjectPost) => 
+export const sortByStartDate = (a: ProjectPost, b: ProjectPost) =>
   a.startDate > b.startDate ? -1 : 1;
 
 export function getMdxPosts<T extends BaseMdxPost>(
   mdxPostsDirectory: string,
   postTransformer: (data: any, content: string, slug: string) => T,
-  sortFn?: (a: T, b: T) => number
+  sortFn?: (a: T, b: T) => number,
 ): T[] {
   const slugs = getMdxPostSlugs(mdxPostsDirectory);
-  const posts = slugs.map((slug) => getMdxPostBySlug(mdxPostsDirectory, slug, postTransformer));
-  
+  const posts = slugs.map((slug) =>
+    getMdxPostBySlug(mdxPostsDirectory, slug, postTransformer),
+  );
+
   if (sortFn) {
     return posts.sort(sortFn);
   }
-  
+
   // Default sorting by title if no specific sorting function is provided
   return posts.sort((post1, post2) => post1.title.localeCompare(post2.title));
 }
 
-export function getMdxPostExists(mdxPostsDirectory: string, slug: string): boolean {
+export function getMdxPostExists(
+  mdxPostsDirectory: string,
+  slug: string,
+): boolean {
   const fullPath = join(mdxPostsDirectory, `${slug}.mdx`);
   return fs.existsSync(fullPath);
 }
@@ -118,7 +125,7 @@ export function getMdxPostExists(mdxPostsDirectory: string, slug: string): boole
 // Helper function to get categories from MDX posts
 export function getMdxBlogCategories<T extends BaseMdxPost>(
   mdxPostsDirectory: string,
-  postTransformer: (data: any, content: string, slug: string) => T
+  postTransformer: (data: any, content: string, slug: string) => T,
 ): Record<string, number> {
   const posts = getMdxPosts(mdxPostsDirectory, postTransformer);
   const categories: Record<string, number> = Object.create(null);
@@ -134,9 +141,9 @@ export function getMdxBlogCategories<T extends BaseMdxPost>(
 
 // Helper function to get posts by category
 export function getMdxPostsByCategory<T extends BaseMdxPost>(
-  mdxPostsDirectory: string, 
+  mdxPostsDirectory: string,
   category: string,
-  postTransformer: (data: any, content: string, slug: string) => T
+  postTransformer: (data: any, content: string, slug: string) => T,
 ): T[] {
   const allPosts = getMdxPosts(mdxPostsDirectory, postTransformer);
   return allPosts.filter(
@@ -144,7 +151,10 @@ export function getMdxPostsByCategory<T extends BaseMdxPost>(
   );
 }
 
-export function getCleanMdxContent(mdxPostsDirectory: string, slug: string): string {
+export function getCleanMdxContent(
+  mdxPostsDirectory: string,
+  slug: string,
+): string {
   const realSlug = slug.replace(/\.mdx$/, "");
   const fullPath = join(mdxPostsDirectory, `${realSlug}.mdx`);
 
@@ -160,26 +170,58 @@ export function getCleanMdxContent(mdxPostsDirectory: string, slug: string): str
 }
 
 // Convenience functions for specific post types
-export const getBlogPosts = (mdxPostsDirectory: string): BlogPost[] => 
-  getMdxPosts(mdxPostsDirectory, createBlogPostTransformer(), sortByPublishedDate);
+export const getBlogPosts = (mdxPostsDirectory: string): BlogPost[] =>
+  getMdxPosts(
+    mdxPostsDirectory,
+    createBlogPostTransformer(),
+    sortByPublishedDate,
+  );
 
-export const getProjectPosts = (mdxPostsDirectory: string): ProjectPost[] => 
-  getMdxPosts(mdxPostsDirectory, createProjectPostTransformer(), sortByStartDate);
+export const getProjectPosts = (mdxPostsDirectory: string): ProjectPost[] =>
+  getMdxPosts(
+    mdxPostsDirectory,
+    createProjectPostTransformer(),
+    sortByStartDate,
+  );
 
-export const getBlogPostBySlug = (mdxPostsDirectory: string, slug: string): BlogPost => 
+export const getBlogPostBySlug = (
+  mdxPostsDirectory: string,
+  slug: string,
+): BlogPost =>
   getMdxPostBySlug(mdxPostsDirectory, slug, createBlogPostTransformer());
 
-export const getProjectPostBySlug = (mdxPostsDirectory: string, slug: string): ProjectPost => 
+export const getProjectPostBySlug = (
+  mdxPostsDirectory: string,
+  slug: string,
+): ProjectPost =>
   getMdxPostBySlug(mdxPostsDirectory, slug, createProjectPostTransformer());
 
-export const getBlogCategories = (mdxPostsDirectory: string): Record<string, number> => 
+export const getBlogCategories = (
+  mdxPostsDirectory: string,
+): Record<string, number> =>
   getMdxBlogCategories(mdxPostsDirectory, createBlogPostTransformer());
 
-export const getProjectCategories = (mdxPostsDirectory: string): Record<string, number> => 
+export const getProjectCategories = (
+  mdxPostsDirectory: string,
+): Record<string, number> =>
   getMdxBlogCategories(mdxPostsDirectory, createProjectPostTransformer());
 
-export const getBlogPostsByCategory = (mdxPostsDirectory: string, category: string): BlogPost[] => 
-  getMdxPostsByCategory(mdxPostsDirectory, category, createBlogPostTransformer());
+export const getBlogPostsByCategory = (
+  mdxPostsDirectory: string,
+  category: string,
+): BlogPost[] =>
+  getMdxPostsByCategory(
+    mdxPostsDirectory,
+    category,
+    createBlogPostTransformer(),
+  );
 
-export const getProjectPostsByCategory = (mdxPostsDirectory: string, category: string): ProjectPost[] => 
-  getMdxPostsByCategory(mdxPostsDirectory, category, createProjectPostTransformer());
+export const getProjectPostsByCategory = (
+  mdxPostsDirectory: string,
+  category: string,
+): ProjectPost[] =>
+  getMdxPostsByCategory(
+    mdxPostsDirectory,
+    category,
+    createProjectPostTransformer(),
+  );

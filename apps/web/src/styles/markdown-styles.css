@@ -79,7 +79,7 @@
   font-weight: 500;
 }
 
-.markdown :not(pre)>code {
+.markdown :not(pre) > code {
   font-size: 0.875rem;
   color: #f8f8f2;
   background-color: #282a36;
@@ -174,7 +174,7 @@
   counter-reset: line;
 }
 
-.markdown code[data-line-numbers]>[data-line]::before {
+.markdown code[data-line-numbers] > [data-line]::before {
   counter-increment: line;
   content: counter(line);
 
@@ -185,15 +185,15 @@
   color: gray;
 }
 
-.markdown code[data-line-numbers-max-digits="2"]>[data-line]::before {
+.markdown code[data-line-numbers-max-digits="2"] > [data-line]::before {
   width: 1.25rem;
 }
 
-.markdown code[data-line-numbers-max-digits="3"]>[data-line]::before {
+.markdown code[data-line-numbers-max-digits="3"] > [data-line]::before {
   width: 1.75rem;
 }
 
-.markdown code[data-line-numbers-max-digits="4"]>[data-line]::before {
+.markdown code[data-line-numbers-max-digits="4"] > [data-line]::before {
   width: 2.25rem;
 }
 

@@ -9,10 +9,7 @@ import Balancer from "react-wrap-balancer";
 
 import config from "@/config";
 
-import {
-  getBlogPostsByCategory,
-  getBlogCategories,
-} from "@/lib/api/mdx";
+import { getBlogPostsByCategory, getBlogCategories } from "@/lib/api/mdx";
 import type { BlogPost } from "@/types/blog";
 import { EXP_BLOG_DIRECTORY } from "@/lib/constants";
 

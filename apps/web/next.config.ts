@@ -3,7 +3,7 @@ import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
   experimental: {
-    optimizePackageImports: ["next-mdx-remote", "shiki"]
+    optimizePackageImports: ["next-mdx-remote", "shiki"],
   },
   reactStrictMode: true,
   images: {

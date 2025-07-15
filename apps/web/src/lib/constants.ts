@@ -13,5 +13,16 @@ export const breakpoints: Breakpoint[] = [
 ];
 
 export const BLOG_DIRECTORY = join(process.cwd(), "src", "content", "blog");
-export const PROJECT_DIRECTORY = join(process.cwd(), "src", "content", "project");
-export const EXP_BLOG_DIRECTORY = join(process.cwd(), "src", "content", "exp", "blog");
+export const PROJECT_DIRECTORY = join(
+  process.cwd(),
+  "src",
+  "content",
+  "project",
+);
+export const EXP_BLOG_DIRECTORY = join(
+  process.cwd(),
+  "src",
+  "content",
+  "exp",
+  "blog",
+);

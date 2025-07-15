@@ -9,10 +9,7 @@ interface OlProps extends ComponentPropsWithoutRef<"ol"> {
 
 function Ol({ className, children, ...props }: OlProps) {
   return (
-    <ol 
-      className={cn(styles.ol, "md-ol", className)} 
-      {...props}
-    >
+    <ol className={cn(styles.ol, "md-ol", className)} {...props}>
       {children}
     </ol>
   );

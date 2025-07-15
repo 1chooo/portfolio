@@ -27,11 +27,11 @@ import { cn } from "@1chooo/ui/lib/utils";
 
 import styles from "@/styles/md.module.css";
 
-type AnchorProps = ComponentPropsWithoutRef<'a'>;
-type ParagraphProps = ComponentPropsWithoutRef<'p'>;
-type UnorderedListProps = ComponentPropsWithoutRef<'ul'>;
-type ListItemProps = ComponentPropsWithoutRef<'li'>;
-type OrderedListProps = ComponentPropsWithoutRef<'ol'>;
+type AnchorProps = ComponentPropsWithoutRef<"a">;
+type ParagraphProps = ComponentPropsWithoutRef<"p">;
+type UnorderedListProps = ComponentPropsWithoutRef<"ul">;
+type ListItemProps = ComponentPropsWithoutRef<"li">;
+type OrderedListProps = ComponentPropsWithoutRef<"ol">;
 
 const components: MDXComponents = {
   h1: (props: HeadingProps<"h1">) => (
@@ -58,27 +58,17 @@ const components: MDXComponents = {
   h6: (props: HeadingProps<"h6">) => (
     <Heading as="h6" className={styles.h6} {...props} />
   ),
-  p: (props: ParagraphProps) => (
-    <p className={styles.p} {...props} />
-  ),
+  p: (props: ParagraphProps) => <p className={styles.p} {...props} />,
   code: (props: ComponentPropsWithoutRef<"code">) => (
     <code className={styles.code} {...props} />
   ),
   pre: ({ ...props }: React.HTMLAttributes<HTMLElement>) => (
     <CodeBlock className={cn(styles.pre)} {...props} />
   ),
-  li: (props: ListItemProps) => (
-    <Li {...props} />
-  ),
-  ol: (props: OrderedListProps) => (
-    <Ol {...props} />
-  ),
-  ul: (props: UnorderedListProps) => (
-    <Ul {...props} />
-  ),
-  a: (props: AnchorProps) => (
-    <Anchor {...props} />
-  ),
+  li: (props: ListItemProps) => <Li {...props} />,
+  ol: (props: OrderedListProps) => <Ol {...props} />,
+  ul: (props: UnorderedListProps) => <Ul {...props} />,
+  a: (props: AnchorProps) => <Anchor {...props} />,
   TechBadge,
   TechBadgeGroup,
   Separator,
@@ -87,11 +77,13 @@ const components: MDXComponents = {
 let options: rehypePrettyCodeOptions;
 options = {
   theme: "github-dark",
-}
+};
 
 function Mdx(props: MDXRemoteProps) {
   return (
-    <MDXRemote {...props} components={{ ...components, ...props.components }}
+    <MDXRemote
+      {...props}
+      components={{ ...components, ...props.components }}
       options={{
         mdxOptions: {
           rehypePlugins: [[rehypePrettyCode, options]],

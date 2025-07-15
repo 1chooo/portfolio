@@ -17,10 +17,10 @@ interface TechBadgeProps {
  * <TechBadge badge="typescript" />
  * <TechBadge badge="react" clickable={false} />
  */
-export function TechBadge({ 
-  badge, 
-  clickable = true, 
-  className 
+export function TechBadge({
+  badge,
+  clickable = true,
+  className,
 }: TechBadgeProps) {
   const badges = clickable ? ClickableTechBadges : NonClickableTechBadges;
   const badgeComponent = badges[badge];
@@ -30,11 +30,7 @@ export function TechBadge({
     return null;
   }
 
-  return (
-    <span className={className}>
-      {badgeComponent}
-    </span>
-  );
+  return <span className={className}>{badgeComponent}</span>;
 }
 
 interface TechBadgeGroupProps {
@@ -49,19 +45,19 @@ interface TechBadgeGroupProps {
  * <TechBadgeGroup badges={["typescript", "react", "nextjs"]} />
  * <TechBadgeGroup badges={["python", "django"]} clickable={false} />
  */
-export function TechBadgeGroup({ 
-  badges, 
-  clickable = true, 
-  className = "flex flex-wrap gap-2" 
+export function TechBadgeGroup({
+  badges,
+  clickable = true,
+  className = "flex flex-wrap gap-2",
 }: TechBadgeGroupProps) {
-  const badgeCollection = clickable ? ClickableTechBadges : NonClickableTechBadges;
+  const badgeCollection = clickable
+    ? ClickableTechBadges
+    : NonClickableTechBadges;
 
   return (
     <div className={className}>
       {badges.map((badgeKey) => (
-        <span key={badgeKey}>
-          {badgeCollection[badgeKey]}
-        </span>
+        <span key={badgeKey}>{badgeCollection[badgeKey]}</span>
       ))}
     </div>
   );
