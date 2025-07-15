@@ -1,0 +1,9 @@
+.anchor {
+  display: inline;
+  color: var(--orange-yellow-crayola);
+  text-decoration: underline;
+}
+
+.anchor:hover {
+  opacity: 0.7;
+}

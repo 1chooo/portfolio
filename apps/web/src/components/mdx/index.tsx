@@ -18,10 +18,13 @@ import remarkGfm from "remark-gfm";
 import { Ol } from "@/components/mdx/ol";
 import { Li } from "@/components/mdx/li";
 import { Ul } from "@/components/mdx/ul";
+import { Anchor } from "@/components/mdx/anchor";
 
 import { cn } from "@1chooo/ui/lib/utils";
 
 import styles from "@/styles/md.module.css";
+
+type AnchorProps = ComponentPropsWithoutRef<'a'>;
 
 const components: MDXComponents = {
   h1: (props: ComponentPropsWithoutRef<"h1">) => (
@@ -65,6 +68,9 @@ const components: MDXComponents = {
   ),
   ul: (props: ComponentPropsWithoutRef<"ul">) => (
     <Ul {...props} />
+  ),
+  a: (props: AnchorProps) => (
+    <Anchor {...props} />
   ),
   TechBadge,
   TechBadgeGroup,
