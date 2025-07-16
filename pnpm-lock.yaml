@@ -212,7 +212,7 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0
       motion:
-        specifier: ^12.22.0
+        specifier: 12.23.6
         version: 12.23.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next:
         specifier: 15.4.1
@@ -321,7 +321,7 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@shikijs/rehype':
-        specifier: ^3.6.0
+        specifier: 3.8.0
         version: 3.8.0
       '@testing-library/dom':
         specifier: ^10.4.0
