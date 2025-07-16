@@ -2,6 +2,71 @@
 
 Here, we will document all the changes made to the [1chooo.com](https://1chooo.com) web app, including new features, bug fixes, and improvements.
 
+## [v0.14.1]
+
+### What's Changed
+
+We've been hard at work bringing you some exciting enhancements and important fixes! This release focuses on improving the content experience, especially for code and structured text, along with significant dependency updates to keep things smooth and secure.
+
+#### ✨ New Features & Enhancements
+
+* **Enhanced Code Blocks**: Say goodbye to plain code! Our new code blocks now feature **syntax highlighting** for better readability and a convenient **copy-to-clipboard button** for quick sharing.
+* **Nested List Support**: We've implemented **full support for nested lists** within MDX, allowing for more structured and organized content.
+* **Standalone Anchor Component**: Introduced a new **Anchor component** with consistent styling across the board, ensuring a cohesive look for all your links.
+* **Automatic Heading IDs**: MDX headings now automatically generate **kebab-case IDs**, making it easier to link directly to specific sections within your content.
+
+#### 🛠️ Refinements & Fixes
+
+* **Improved Code Highlighting**: We've refined the styling of our code highlights with **improved colors and borders** for a cleaner, more modern look.
+* **Refined Nested List Styles**: Nested list styles have been fine-tuned with **local classes** to prevent conflicts and ensure consistent rendering across different components.
+* **Unified Component Props**: Props types for heading and list components are now **unified for better consistency and maintainability**.
+* **MDX Heading Fixes**: Corrected slugify imports and refactored heading component types for **more robust MDX heading rendering**.
+* **Cleaned Up MDX Components**: Restructured the slugify module and cleaned up MDX components for **better organization and readability** of the codebase.
+* **Deprecated CSS Removed**: We've removed outdated blog and portfolio CSS files, **streamlining the stylesheet** and reducing clutter.
+
+#### ⬆️ Dependency Updates
+
+We've bumped several key dependencies to their latest versions, ensuring better performance, security, and access to the newest features:
+
+* **Next.js**: Updated from `15.3.5` to `15.4.1`
+* **Giget**: Updated from `1.2.5` to `2.0.0`
+* **Shiki**: Updated from `3.7.0` to `3.8.0`
+* **Supabase JS**: Updated from `2.50.4` to `2.51.0`
+* **ESLint & TypeScript-ESLint**: Various updates to the latest versions for improved linting and code quality.
+* Numerous other development dependencies have also been updated to their latest stable releases.
+
+---
+
+* chore(web): remove deprecated blog and portfolio CSS files by @1chooo in https://github.com/1chooo/portfolio/commit/464cd0a826f6d3f9449da40f02b688f83c172db6
+* feat(web): add enhanced code blocks with syntax highlighting and copy functionality (#1327) by @1chooo in https://github.com/1chooo/portfolio/commit/007018919c974d7837befb8c29887cabef9b0b8d
+* refactor(web): enhance code highlighting styles with improved colors and borders by @1chooo in https://github.com/1chooo/portfolio/commit/9b909499ad4667017b5a0b7b125b110546de70b4
+* feat(mdx): implement nested list support with modular components (#1329) by @1chooo in https://github.com/1chooo/portfolio/commit/e238c0371239a2a2994f0fefef66e4850bd355c9
+* fix(web): refine nested list styles with local classes for better cross-component handling (#1329) by @1chooo in https://github.com/1chooo/portfolio/commit/a7cadb3e2796bdb1489a9203358493fd1bc8a563
+* feat(web): add standalone Anchor component with consistent styling (#1330) by @1chooo in https://github.com/1chooo/portfolio/commit/b02ca11b3e06c9d6ce66c4948a6ea516fadd8a85
+* refactor(web): unify props types for heading and list components for consistency by @1chooo in https://github.com/1chooo/portfolio/commit/ca4e47a43e084cfe82776a7b543ee622103c9cec
+* fix(web): add automatic ID generation for MDX headings with kebab-case slugs (#1326) by @1chooo in https://github.com/1chooo/portfolio/commit/76a4eeb27581c5f8201a32d7ea7717ec206e547a
+* fix(web): correct slugify import and refactor heading component types (#1326) by @1chooo in https://github.com/1chooo/portfolio/commit/998066e0d088d30000590576d40356dcc5e54f57
+* refactor(web): restructure slugify module and clean up MDX components by @1chooo in https://github.com/1chooo/portfolio/commit/aa7b9640b5a7f4514192f28b461a9131ccd7265c
+* refactor(web): extract and standardize MDX list components by @1chooo in https://github.com/1chooo/portfolio/commit/c4d8f99ff3642c66e253864bc00592f57a0370c0
+* chore(deps): bump giget from 1.2.5 to 2.0.0 by @dependabot[bot] in https://github.com/1chooo/portfolio/pull/1331
+* chore(deps): bump shiki from 3.7.0 to 3.8.0 by @dependabot[bot] in https://github.com/1chooo/portfolio/pull/1334
+* chore(deps): bump @supabase/supabase-js from 2.50.4 to 2.51.0 by @dependabot[bot] in https://github.com/1chooo/portfolio/pull/1333
+* chore(deps): bump next from 15.3.5 to 15.4.1 by @dependabot[bot] in https://github.com/1chooo/portfolio/pull/1338
+* chore(deps): bump @next/third-parties from 15.3.5 to 15.4.1 by @dependabot[bot] in https://github.com/1chooo/portfolio/pull/1332
+* chore(deps): bump @next/bundle-analyzer from 15.3.5 to 15.4.1 by @dependabot[bot] in https://github.com/1chooo/portfolio/pull/1339
+* chore(deps): bump eslint from 9.30.1 to 9.31.0 by @dependabot[bot] in https://github.com/1chooo/portfolio/pull/1337
+* chore(deps-dev): bump typescript-eslint from 8.36.0 to 8.37.0 by @dependabot[bot] in https://github.com/1chooo/portfolio/pull/1336
+* chore(deps-dev): bump @eslint/js from 9.30.1 to 9.31.0 by @dependabot[bot] in https://github.com/1chooo/portfolio/pull/1340
+* chore(deps): bump @next/mdxfrom 15.3.5 to 15.4.1 by @1chooo in https://github.com/1chooo/portfolio/commit/51abcf046344707b13670b66969008796b9d64c4
+* chore(deps): add group configurations for nextjs, react, and eslint updates by @1chooo in https://github.com/1chooo/portfolio/commit/69dd0893ed0556f0a70c4d3fd41146144cbb8a52
+* chore(deps-dev): bump semantic-release from 24.2.6 to 24.2.7 by @dependabot[bot] in https://github.com/1chooo/portfolio/pull/1345
+* chore(deps-dev): bump jest and @types/jest by @dependabot[bot] in https://github.com/1chooo/portfolio/pull/1347
+* chore(deps-dev): bump @next/eslint-plugin-next from 15.3.5 to 15.4.1 in the nextjs group by @dependabot[bot] in https://github.com/1chooo/portfolio/pull/1342
+* chore(deps-dev): bump the react group with 2 updates by @dependabot[bot] in https://github.com/1chooo/portfolio/pull/1343
+
+
+**Full Changelog**: https://github.com/1chooo/portfolio/compare/v0.14.0...v0.14.1
+
 ## [v0.14.0]
 
 ### What's Changed
