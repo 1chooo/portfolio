@@ -32,7 +32,8 @@
     "eslint.config.js",
     "next-env.d.ts",
     "next.config.ts",
-    "postcss.config.js",
+    "vite.config.ts",
+    "postcss.config.cjs",
     "dist/types/**/*.ts"
   ],
   "exclude": ["node_modules"]

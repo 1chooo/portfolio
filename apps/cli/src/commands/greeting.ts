@@ -2,7 +2,8 @@ import { Argv } from "yargs";
 import { logger } from "@/logger";
 import { bold, green } from "picocolors";
 
-interface GreetingArgv {}
+// Use 'object' to represent any non-nullish object type
+type GreetingArgv = object;
 
 export const command = "greeting";
 export const describe =

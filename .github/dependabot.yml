@@ -41,3 +41,14 @@ updates:
         update-types:
           - "minor"
           - "patch"
+      vitest:
+        patterns:
+          - "vitest"
+          - "@vitejs/plugin-react" 
+          - "jsdom"
+          - "@testing-library/*" 
+          - "vite-tsconfig-paths"
+        update-types:
+          - "minor"
+          - "patch"
+

@@ -14,7 +14,7 @@ This template incorporates several key tools and libraries to enhance your CLI d
 - **[PicoColors](https://github.com/alexeyraspopov/picocolors):** Lightweight and fast library for styling terminal
   text.
 - **[Consola](https://github.com/unjs/consola):** 🐨Elegant Console Logger for Node.js and Browser
-- **[Jest](https://jestjs.io/):** A delightful JavaScript Testing Framework with a focus on simplicity.
+- **[Vitest](https://vitest.dev/):** A blazing fast unit test framework powered by Vite.
 - **[TS-Node](https://typestrong.org/ts-node/):** TypeScript execution and REPL for Node.js.
 - **[TSUP](https://tsup.egoist.dev/):** The simplest and fastest way to bundle your TypeScript libraries.
 - **[Prettier](https://prettier.io/):** An opinionated code formatter that supports many languages and integrates with
@@ -155,7 +155,7 @@ To contribute to this project or customize it for your needs, consider the follo
 2. **Commit Messages:** We use `commitizen` and `commitlint` to ensure our commit messages are consistent and follow the
    conventional commit format, recommended by `@commitlint/config-conventional`. To make a commit, you can
    run `pnpm commit`, which will guide you through creating a conventional commit message.
-3. **Testing:** Write unit tests for new features or bug fixes using Jest. Make sure to run tests before pushing any
+3. **Testing:** Write unit tests for new features or bug fixes using Vitest. Make sure to run tests before pushing any
    changes.
 4. **Environment Variables:** Use the `.env` file for local development. For production, ensure you configure the
    environment variables in your deployment environment.
