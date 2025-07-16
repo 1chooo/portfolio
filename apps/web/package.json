@@ -40,7 +40,7 @@
     "@mdx-js/react": "^3.1.0",
     "@next/bundle-analyzer": "15.3.5",
     "@next/mdx": "15.3.5",
-    "@next/third-parties": "15.3.5",
+    "@next/third-parties": "15.4.1",
     "@primer/octicons-react": "^19.15.3",
     "@rehype-pretty/transformers": "^0.13.2",
     "@supabase/supabase-js": "^2.51.0",
