@@ -40,8 +40,8 @@
     "@tailwindcss/postcss": "^4.1.11",
     "@turbo/gen": "^2.5.2",
     "@types/node": "24.0.12",
-    "@types/react": "19.1.0",
-    "@types/react-dom": "19.1.0",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
     "tailwindcss": "^4.0.8",
     "typescript": "^5.8.3"
   },
