@@ -14,3 +14,30 @@ updates:
     assignees:
       - "1chooo"
     open-pull-requests-limit: 10
+    groups:
+      nextjs:
+        patterns:
+          - "next"
+          - "@next/*"
+        update-types:
+          - "minor"
+          - "patch"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+        update-types:
+          - "minor"
+          - "patch"
+      eslint:
+        patterns:
+          - "eslint"
+          - "@eslint/*"
+          - "eslint-plugin-*"
+          - "eslint"
+          - "typescript-eslint"
+        update-types:
+          - "minor"
+          - "patch"
