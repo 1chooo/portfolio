@@ -9,8 +9,9 @@ import Balancer from "react-wrap-balancer";
 
 import config from "@/config";
 
-import { getBlogPosts } from "@/lib/api/blog";
+import { getBlogPostsByCategory, getBlogCategories } from "@/lib/api/mdx";
 import type { BlogPost } from "@/types/blog";
+import { BLOG_DIRECTORY } from "@/lib/constants";
 
 import { cn } from "@1chooo/ui/lib/utils";
 
@@ -18,28 +19,6 @@ import styles from "@/styles/blog.module.css";
 
 interface BlogCategoryProps {
   params: Promise<{ category: string }>;
-}
-
-function getCategories(posts: BlogPost[]): Record<string, number> {
-  const categories: Record<string, number> = Object.create(null);
-
-  for (const post of posts) {
-    const category = post.category;
-
-    categories[category] ??= 0;
-    categories[category] += 1;
-  }
-
-  return categories;
-}
-
-function filterPostsByCategory(
-  posts: BlogPost[],
-  selectedCategory: string,
-): BlogPost[] {
-  return posts.filter((post) => {
-    return post.category.toLowerCase() === selectedCategory.toLowerCase();
-  });
 }
 
 export async function generateMetadata({
@@ -56,8 +35,7 @@ export async function generateMetadata({
 
 export async function generateStaticParams() {
   try {
-    const allPosts = await getBlogPosts();
-    const categories = getCategories(allPosts);
+    const categories = getBlogCategories(BLOG_DIRECTORY);
 
     return Object.keys(categories).map((category) => ({
       category: category.toLowerCase(),
@@ -70,24 +48,25 @@ export async function generateStaticParams() {
 
 export default async function BlogCategory({ params }: BlogCategoryProps) {
   const { category } = await params;
-  let allPosts: BlogPost[];
+  const categoryParam = decodeURIComponent(category);
+
+  let filteredPosts: BlogPost[];
+  let allCategories: Record<string, number>;
 
   try {
-    allPosts = await getBlogPosts();
+    filteredPosts = getBlogPostsByCategory(BLOG_DIRECTORY, categoryParam);
+    allCategories = getBlogCategories(BLOG_DIRECTORY);
   } catch (error) {
     console.error("Failed to load blog posts:", error);
-    allPosts = [];
+    filteredPosts = [];
+    allCategories = {};
   }
-
-  const categoryParam = decodeURIComponent(category);
-  const filteredPosts = filterPostsByCategory(allPosts, categoryParam);
 
   if (filteredPosts.length === 0) {
     notFound();
   }
 
-  const categories = getCategories(allPosts);
-  const blogCategories = Object.keys(categories);
+  const blogCategories = Object.keys(allCategories);
 
   return (
     <article>
@@ -100,11 +79,16 @@ export default async function BlogCategory({ params }: BlogCategoryProps) {
               href="/blog"
               className={cn(styles.filterButton)}
             >
-              All ({allPosts.length})
+              All (
+              {Object.values(allCategories).reduce(
+                (sum, count) => sum + count,
+                0,
+              )}
+              )
             </ViewTransitionsProgressBarLink>
           </li>
 
-          {blogCategories.map((category, index) => (
+          {blogCategories.map((cat, index) => (
             <li key={index}>
               <ViewTransitionsProgressBarLink
                 href={`/blog/category/${encodeURIComponent(category.toLowerCase())}`}
@@ -113,7 +97,7 @@ export default async function BlogCategory({ params }: BlogCategoryProps) {
                     category.toLowerCase() === categoryParam.toLowerCase(),
                 })}
               >
-                {category} ({categories[category]})
+                {cat} ({allCategories[cat]})
               </ViewTransitionsProgressBarLink>
             </li>
           ))}

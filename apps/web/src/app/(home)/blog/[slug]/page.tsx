@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
-
 import type { Metadata, ResolvingMetadata } from "next";
+
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Balancer from "react-wrap-balancer";
@@ -10,14 +10,16 @@ import { FadeLeft, FadeUp, FadeIn } from "@/components/animations/animations";
 import PageTitle from "@/components/page-title";
 import Comments from "@/components/comments";
 import {
-  getBlogPostBySlugWithProcessedContent,
-  getBlogPosts,
+  getMdxPostSlugs,
+  getMdxPostExists,
   getBlogPostBySlug,
-} from "@/lib/api/blog";
+  getCleanMdxContent,
+  getMdxPostBySlug,
+} from "@/lib/api/mdx";
+import Mdx from "@/components/mdx";
+import { BLOG_DIRECTORY } from "@/lib/constants";
 
 import config from "@/config";
-
-import { cn } from "@1chooo/ui/lib/utils";
 
 import "@/styles/markdown-styles.css";
 
@@ -29,9 +31,17 @@ type Params = {
   }>;
 };
 
-export default async function Post(props: Params) {
+export default async function Blog(props: Params) {
   const params = await props.params;
-  const post = await getBlogPostBySlugWithProcessedContent(params.slug);
+  const { slug } = params;
+
+  // Check if the MDX file exists
+  if (!getMdxPostExists(BLOG_DIRECTORY, slug)) {
+    return notFound();
+  }
+
+  // Get the blog post frontmatter data (without processing content)
+  const post = getBlogPostBySlug(BLOG_DIRECTORY, slug);
 
   if (!post) {
     return notFound();
@@ -109,12 +119,9 @@ export default async function Post(props: Params) {
 
         <FadeIn delay={0.3 * 3}>
           <div className="flex justify-center">
-            <div
-              className={cn(
-                "markdown text-light-gray w-[90%] sm:w-[90%] md:w-[90%] lg:w-[80%] xl:w-[80%]",
-              )}
-              dangerouslySetInnerHTML={{ __html: post.processedContent || "" }}
-            />
+            <div className="text-light-gray w-[90%] sm:w-[90%] md:w-[90%] lg:w-[80%] xl:w-[80%]">
+              <Mdx source={getCleanMdxContent(BLOG_DIRECTORY, slug)} />
+            </div>
           </div>
         </FadeIn>
       </article>
@@ -132,7 +139,15 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const params = await props.params;
-  const post = getBlogPostBySlug(params.slug);
+  const post = getMdxPostBySlug(
+    BLOG_DIRECTORY,
+    params.slug,
+    (data, content, slug) => ({
+      ...data,
+      content,
+      slug,
+    }),
+  );
 
   if (!post) {
     return notFound();
@@ -160,10 +175,10 @@ export async function generateMetadata(
   };
 }
 
-export async function generateStaticParams() {
-  const posts = getBlogPosts();
-
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+export function generateStaticParams() {
+  // Get all MDX post slugs for static generation
+  const slugs = getMdxPostSlugs(BLOG_DIRECTORY);
+  return slugs.map((slug) => ({ slug }));
 }
+
+export const dynamicParams = false;

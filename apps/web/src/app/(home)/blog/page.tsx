@@ -8,8 +8,9 @@ import Balancer from "react-wrap-balancer";
 
 import config from "@/config";
 
-import { getBlogPosts } from "@/lib/api/blog";
+import { getBlogPosts, getBlogCategories } from "@/lib/api/mdx";
 import type { BlogPost } from "@/types/blog";
+import { BLOG_DIRECTORY } from "@/lib/constants";
 
 import { cn } from "@1chooo/ui/lib/utils";
 
@@ -22,30 +23,19 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-function getCategories(posts: BlogPost[]): Record<string, number> {
-  const categories: Record<string, number> = Object.create(null);
-
-  for (const post of posts) {
-    const category = post.category;
-
-    categories[category] ??= 0;
-    categories[category] += 1;
-  }
-
-  return categories;
-}
-
-export default async function Blog() {
+export default async function MdxBlog() {
   let allPosts: BlogPost[];
+  let categories: Record<string, number>;
 
   try {
-    allPosts = await getBlogPosts();
+    allPosts = getBlogPosts(BLOG_DIRECTORY);
+    categories = getBlogCategories(BLOG_DIRECTORY);
   } catch (error) {
-    console.error("Failed to load blog posts:", error);
+    console.error("Failed to load MDX blog posts:", error);
     allPosts = [];
+    categories = {};
   }
 
-  const categories = getCategories(allPosts);
   const blogCategories = Object.keys(categories);
 
   return (
