@@ -23,6 +23,7 @@ import {
 import { Anchor, type AnchorProps } from "@/components/mdx/anchor";
 import { Callout } from "@/components/mdx/callout";
 import { CaptionImage as Image, type ImageProps } from "@/components/mdx/image";
+import {GitHubMap} from "@/components/mdx/github-map";
 
 import { cn } from "@1chooo/ui/lib/utils";
 
@@ -78,6 +79,7 @@ const components: MDXComponents = {
   Separator,
   Callout,
   Image,
+  GitHubMap,
 };
 
 let options: rehypePrettyCodeOptions;
