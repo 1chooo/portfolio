@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
 
     if (error instanceof z.ZodError) {
       const errorResponse = ErrorResponseSchema.parse({
-        error: `Validation error: ${error.errors.map((e) => e.message).join(", ")}`,
+        error: `Validation error: ${error.issues.map((e) => e.message).join(", ")}`,
       });
       return NextResponse.json(errorResponse, { status: 400 });
     }
@@ -111,7 +111,7 @@ export async function GET(request: NextRequest) {
 
     if (error instanceof z.ZodError) {
       const errorResponse = ErrorResponseSchema.parse({
-        error: `Validation error: ${error.errors.map((e) => e.message).join(", ")}`,
+        error: `Validation error: ${error.issues.map((e) => e.message).join(", ")}`,
       });
       return NextResponse.json(errorResponse, { status: 400 });
     }
