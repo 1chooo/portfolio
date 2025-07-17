@@ -25,12 +25,11 @@ import { Callout } from "@/components/mdx/callout";
 import { CaptionImage as Image, type ImageProps } from "@/components/mdx/image";
 import { GitHubMap } from "@/components/mdx/github-map";
 import { Blockquote, type BlockquoteProps } from "@/components/mdx/blockquote";
+import { Paragraph, type ParagraphProps } from "@/components/mdx/paragraph";
 
 import { cn } from "@1chooo/ui/lib/utils";
 
 import styles from "@/styles/md.module.css";
-
-type ParagraphProps = ComponentPropsWithoutRef<"p">;
 
 /**
  * @see https://github.com/leerob/next-mdx-blog/blob/main/mdx-components.tsx for ComponentPropsWithoutRef
@@ -63,7 +62,7 @@ const components: MDXComponents = {
   h6: (props: HeadingProps<"h6">) => (
     <Heading as="h6" className={styles.h6} {...props} />
   ),
-  p: (props: ParagraphProps) => <p className={styles.p} {...props} />,
+  p: (props: ParagraphProps) => <Paragraph {...props} />,
   code: (props: ComponentPropsWithoutRef<"code">) => (
     <code className={styles.code} {...props} />
   ),
@@ -75,7 +74,7 @@ const components: MDXComponents = {
   ul: (props: UnorderedListProps) => <UnorderedList {...props} />,
   a: (props: AnchorProps) => <Anchor {...props} />,
   img: (props: ImageProps) => <Image {...props} />,
-  blockquote: (props: BlockquoteProps) => <Blockquote  {...props} />,
+  blockquote: (props: BlockquoteProps) => <Blockquote {...props} />,
   TechBadge,
   TechBadgeGroup,
   Separator,

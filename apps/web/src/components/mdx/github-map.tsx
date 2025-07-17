@@ -10,17 +10,17 @@ interface GitHubMapProps {
   year?: number | "last";
 }
 
-function GitHubMap({
-  year = "last",
-  username = "1chooo"
-}: GitHubMapProps) {
+function GitHubMap({ year = "last", username = "1chooo" }: GitHubMapProps) {
   const yellowTheme = {
     light: ["#EBEBEB", "#FFDA6B"],
     dark: ["#383838", "#FFDA6B"],
   };
 
   return (
-    <section id="github-calendar" className={cn(styles.section, "text-light-gray")}>
+    <section
+      id="github-calendar"
+      className={cn(styles.section, "text-light-gray")}
+    >
       <BlurFade inView delay={0.4} direction="down">
         <GitHubCalendar
           year={year}
@@ -35,7 +35,7 @@ function GitHubMap({
         />
       </BlurFade>
     </section>
-  )
+  );
 }
 
 export { GitHubMap };
