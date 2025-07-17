@@ -3,7 +3,8 @@ import dynamic from "next/dynamic";
 import PageTitle from "@/components/page-title";
 
 import markdownToHtml from "@/lib/markdown-to-html";
-import { getBlogPostsWithReadingTime } from "@/lib/api/blog";
+import { getBlogPosts } from "@/lib/api/mdx";
+import { BLOG_DIRECTORY } from "@/lib/constants";
 
 import { MyWritings } from "@/components/about/my-writings";
 import GitHubCalendar from "@1chooo/github-calendar";
@@ -27,7 +28,7 @@ const { firstName, lastName, preferredName, introduction, githubUsername } =
   about;
 
 async function About() {
-  const allPosts = await getBlogPostsWithReadingTime();
+  const allPosts = getBlogPosts(BLOG_DIRECTORY);
   const yellowTheme: ThemeInput = {
     light: ["#EBEBEB", "#FFDA6B"],
     dark: ["#383838", "#FFDA6B"],
