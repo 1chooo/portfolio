@@ -23,7 +23,8 @@ import {
 import { Anchor, type AnchorProps } from "@/components/mdx/anchor";
 import { Callout } from "@/components/mdx/callout";
 import { CaptionImage as Image, type ImageProps } from "@/components/mdx/image";
-import {GitHubMap} from "@/components/mdx/github-map";
+import { GitHubMap } from "@/components/mdx/github-map";
+import { Blockquote, type BlockquoteProps } from "@/components/mdx/blockquote";
 
 import { cn } from "@1chooo/ui/lib/utils";
 
@@ -74,6 +75,7 @@ const components: MDXComponents = {
   ul: (props: UnorderedListProps) => <UnorderedList {...props} />,
   a: (props: AnchorProps) => <Anchor {...props} />,
   img: (props: ImageProps) => <Image {...props} />,
+  blockquote: (props: BlockquoteProps) => <Blockquote  {...props} />,
   TechBadge,
   TechBadgeGroup,
   Separator,
