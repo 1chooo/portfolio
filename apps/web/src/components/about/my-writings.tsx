@@ -3,11 +3,14 @@ import { Zap } from "lucide-react";
 
 import PostsLoop from "@/components/about/posts-loop";
 import { BlurFade } from "@/components/magicui/blur-fade";
-import GradientCard from "@/components/gradient-card";
 import { ClickableTechBadges } from "@/lib/tech-badge/utils";
 import config from "@/config";
 
 import { BlogPost } from "@/types/blog";
+
+import styles from "@/styles/gradient-card.module.css";
+
+import { cn } from "@1chooo/ui/lib/utils";
 
 interface MyWritingsProps {
   count?: number;
@@ -20,10 +23,10 @@ function MyWritings({ count, posts }: MyWritingsProps) {
       <div className="flex flex-col items-start justify-start md:flex-row md:space-x-7">
         <PostsLoop count={count} posts={posts} />
 
-        <div className="w-full mt-10 md:w-1/3 md:mt-0">
+        <ul className="w-full mt-10 md:w-1/3 md:mt-0">
           {Object.entries(config.techStacks).map(([category, badges]) => (
             <BlurFade inView delay={0.4} direction="up" key={category}>
-              <GradientCard className="mb-4">
+              <li className={cn(styles.gradientCard, "mb-4")}>
                 <div className="flex flex-wrap gap-2 shadow-feature-card dark:shadow-feature-card-dark rounded-xl">
                   <div className="relative flex items-center space-x-2">
                     <Zap className="flex-none text-white-1" size={18} />
@@ -39,10 +42,10 @@ function MyWritings({ count, posts }: MyWritingsProps) {
                     ))}
                   </div>
                 </div>
-              </GradientCard>
+              </li>
             </BlurFade>
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   );
