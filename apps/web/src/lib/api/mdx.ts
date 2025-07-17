@@ -93,8 +93,23 @@ export function getMdxPostBySlug<T extends BaseMdxPost>(
 export const sortByPublishedDate = (a: BlogPost, b: BlogPost) =>
   a.publishedAt > b.publishedAt ? -1 : 1;
 
-export const sortByStartDate = (a: ProjectPost, b: ProjectPost) =>
-  a.startDate > b.startDate ? -1 : 1;
+export const sortByEndDate = (a: ProjectPost, b: ProjectPost) => {
+  // If both have endDate, sort by endDate (most recent first)
+  if (a.endDate && b.endDate) {
+    return a.endDate > b.endDate ? -1 : 1;
+  }
+  
+  // If one has endDate and the other doesn't, ongoing projects (no endDate) come first
+  if (a.endDate && !b.endDate) {
+    return 1;
+  }
+  if (!a.endDate && b.endDate) {
+    return -1;
+  }
+  
+  // If both don't have endDate (both ongoing), sort by title alphabetically
+  return a.title.localeCompare(b.title);
+};
 
 export function getMdxPosts<T extends BaseMdxPost>(
   mdxPostsDirectory: string,
@@ -181,7 +196,7 @@ export const getProjectPosts = (mdxPostsDirectory: string): ProjectPost[] =>
   getMdxPosts(
     mdxPostsDirectory,
     createProjectPostTransformer(),
-    sortByStartDate,
+    sortByEndDate,
   );
 
 export const getBlogPostBySlug = (
