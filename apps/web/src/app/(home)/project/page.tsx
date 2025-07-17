@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import PageTitle from "@/components/page-title";
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 
-import { getProjects } from "@/lib/api/project";
+import { getProjectPosts } from "@/lib/api/mdx";
 import { cn } from "@1chooo/ui/lib/utils";
 
 import config from "@/config";
@@ -13,6 +13,7 @@ import styles from "@/styles/project.module.css";
 import { ProjectPost } from "@/types/project";
 import Balancer from "react-wrap-balancer";
 import { NonClickableTechBadges } from "@/lib/tech-badge/utils";
+import { PROJECT_DIRECTORY } from "@/lib/constants";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -38,7 +39,7 @@ export default async function Project() {
   let projects: ProjectPost[];
 
   try {
-    projects = await getProjects();
+    projects = getProjectPosts(PROJECT_DIRECTORY);
   } catch (error) {
     console.error("Failed to load project posts:", error);
     projects = [];

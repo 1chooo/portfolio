@@ -1,8 +1,7 @@
 import type { MetadataRoute } from "next";
 
-import { getProjects } from "@/lib/api/project";
-import { getBlogPosts } from "@/lib/api/mdx";
-import { BLOG_DIRECTORY } from "@/lib/constants";
+import { getProjectPosts, getBlogPosts } from "@/lib/api/mdx";
+import { BLOG_DIRECTORY, PROJECT_DIRECTORY } from "@/lib/constants";
 import config from "@/config";
 
 const { siteURL } = config;
@@ -34,7 +33,7 @@ function sitemap(): MetadataRoute.Sitemap {
   const posts = getBlogPosts(BLOG_DIRECTORY);
   const postMaps = mapBlogPostsToSitemap(posts, "blog");
 
-  const projects = getProjects();
+  const projects = getProjectPosts(PROJECT_DIRECTORY);
   const projectMaps = mapProjectPostsToSitemap(projects, "project");
 
   const routes = [

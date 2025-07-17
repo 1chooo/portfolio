@@ -5,7 +5,8 @@ import { notFound } from "next/navigation";
 import PageTitle from "@/components/page-title";
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 
-import { getProjects } from "@/lib/api/project";
+import { getProjectCategories, getProjectPostsByCategory } from "@/lib/api/mdx";
+import { PROJECT_DIRECTORY } from "@/lib/constants";
 import { cn } from "@1chooo/ui/lib/utils";
 
 import config from "@/config";
@@ -33,9 +34,7 @@ export async function generateMetadata({
 
 export async function generateStaticParams() {
   try {
-    let projects: ProjectPost[];
-    projects = await getProjects();
-    const categories = getCategories(projects);
+    const categories = getProjectCategories(PROJECT_DIRECTORY);
 
     return Object.keys(categories).map((category) => ({
       category: category.toLowerCase(),
@@ -46,50 +45,28 @@ export async function generateStaticParams() {
   }
 }
 
-function getCategories(posts: ProjectPost[]): Record<string, number> {
-  const categories: Record<string, number> = Object.create(null);
-
-  for (const post of posts) {
-    const category = post.category;
-
-    categories[category] ??= 0;
-    categories[category] += 1;
-  }
-
-  return categories;
-}
-
-function filterProjectsByCategory(
-  posts: ProjectPost[],
-  selectedCategory: string,
-): ProjectPost[] {
-  return posts.filter((post) => {
-    return post.category.toLowerCase() === selectedCategory.toLowerCase();
-  });
-}
-
 export default async function ProjectCategory({
   params,
 }: ProjectCategoryProps) {
   const { category } = await params;
-  let projects: ProjectPost[];
+  const categoryParam = decodeURIComponent(category);
+
+  let filteredPosts: ProjectPost[];
+  let allCategories: Record<string, number>;
 
   try {
-    projects = await getProjects();
+    filteredPosts = getProjectPostsByCategory(PROJECT_DIRECTORY, categoryParam);
+    allCategories = getProjectCategories(PROJECT_DIRECTORY);
   } catch (error) {
-    console.error("Failed to load blog posts:", error);
-    projects = [];
+    console.error("Failed to load project posts:", error);
+    filteredPosts = [];
+    allCategories = {};
   }
-
-  const categoryParam = decodeURIComponent(category);
-  const filteredPosts = filterProjectsByCategory(projects, categoryParam);
 
   if (filteredPosts.length === 0) {
     notFound();
   }
-
-  const categories = getCategories(projects);
-  const projectCategories = Object.keys(categories);
+  const projectCategories = Object.keys(allCategories);
 
   return (
     <article>
@@ -102,7 +79,12 @@ export default async function ProjectCategory({
               href="/project"
               className={cn(styles.filterButton)}
             >
-              All ({projects.length})
+              All (
+              {Object.values(allCategories).reduce(
+                (sum, count) => sum + count,
+                0,
+              )}
+              )
             </ViewTransitionsProgressBarLink>
           </li>
 
@@ -115,7 +97,7 @@ export default async function ProjectCategory({
                     category.toLowerCase() === categoryParam.toLowerCase(),
                 })}
               >
-                {category} ({categories[category]})
+                {category} ({allCategories[category]})
               </ViewTransitionsProgressBarLink>
             </li>
           ))}

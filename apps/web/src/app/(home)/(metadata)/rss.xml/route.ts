@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import RSS from "rss";
-import { getBlogPosts } from "@/lib/api/blog";
-import { getProjects } from "@/lib/api/project";
+import { getBlogPosts, getProjectPosts } from "@/lib/api/mdx";
+import { BLOG_DIRECTORY, PROJECT_DIRECTORY } from "@/lib/constants";
 import config from "@/config";
 
 import type { ItemOptions } from "@/types/rss";
@@ -11,7 +11,7 @@ const { author, siteURL, rssOptions } = config;
 export async function GET() {
   const feed = new RSS(rssOptions);
 
-  const posts = await getBlogPosts();
+  const posts = getBlogPosts(BLOG_DIRECTORY);
 
   for (const post of posts) {
     const { title, publishedAt, excerpt } = post;
@@ -28,7 +28,7 @@ export async function GET() {
     feed.item(itemOptions);
   }
 
-  const projects = await getProjects();
+  const projects = getProjectPosts(PROJECT_DIRECTORY);
 
   for (const project of projects) {
     const { title, endDate, excerpt } = project;

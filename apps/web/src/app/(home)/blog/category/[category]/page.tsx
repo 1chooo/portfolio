@@ -88,8 +88,8 @@ export default async function BlogCategory({ params }: BlogCategoryProps) {
             </ViewTransitionsProgressBarLink>
           </li>
 
-          {blogCategories.map((cat, index) => (
-            <li key={index}>
+          {blogCategories.map((category, index) => (
+            <li key={`${index}-${category}`}>
               <ViewTransitionsProgressBarLink
                 href={`/blog/category/${encodeURIComponent(category.toLowerCase())}`}
                 className={cn(styles.filterButton, {
@@ -97,7 +97,7 @@ export default async function BlogCategory({ params }: BlogCategoryProps) {
                     category.toLowerCase() === categoryParam.toLowerCase(),
                 })}
               >
-                {cat} ({allCategories[cat]})
+                {category} ({allCategories[category]})
               </ViewTransitionsProgressBarLink>
             </li>
           ))}
