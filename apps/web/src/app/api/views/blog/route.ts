@@ -11,7 +11,6 @@ export async function POST(request: NextRequest) {
   try {
     const rawBody = await request.json();
 
-    // 驗證請求 body
     const validatedBody = ViewRequestSchema.parse(rawBody);
     const { slug } = validatedBody;
 
@@ -72,10 +71,11 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Error updating views:", error);
 
-    // 如果是 Zod 驗證錯誤
-    if (error instanceof z.ZodError) {
+    // Handle Zod validation errors
+    if (error && typeof error === "object" && "issues" in error) {
+      const zodError = error as z.ZodError;
       const errorResponse = ErrorResponseSchema.parse({
-        error: `Validation error: ${error.issues.map((e) => e.message).join(", ")}`,
+        error: `Validation error: ${zodError.issues.map((issue) => issue.message).join(", ")}`,
       });
       return NextResponse.json(errorResponse, { status: 400 });
     }
@@ -112,10 +112,11 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     console.error("Error fetching views:", error);
 
-    // 如果是 Zod 驗證錯誤
-    if (error instanceof z.ZodError) {
+    // Handle Zod validation errors
+    if (error && typeof error === "object" && "issues" in error) {
+      const zodError = error as z.ZodError;
       const errorResponse = ErrorResponseSchema.parse({
-        error: `Validation error: ${error.issues.map((e) => e.message).join(", ")}`,
+        error: `Validation error: ${zodError.issues.map((issue) => issue.message).join(", ")}`,
       });
       return NextResponse.json(errorResponse, { status: 400 });
     }
