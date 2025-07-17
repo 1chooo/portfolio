@@ -42,7 +42,7 @@ const VercelNavBar = ({ navigationLinks }: VercelNavBarProps) => {
       <BlurFade direction="up">
         <ul className="flex items-center justify-center navbar-list">
           {navigationLinks.map((item) => (
-            <button
+            <li
               key={item.label}
               className="py-2 relative duration-300 transition-colors hover:!text-orange-yellow-crayola navbar-item"
               onClick={() => setActive(item)}
@@ -82,7 +82,7 @@ const VercelNavBar = ({ navigationLinks }: VercelNavBarProps) => {
                   />
                 )}
               </ViewTransitionsProgressBarLink>
-            </button>
+            </li>
           ))}
         </ul>
       </BlurFade>
