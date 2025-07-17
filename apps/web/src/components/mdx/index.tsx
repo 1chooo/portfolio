@@ -22,6 +22,7 @@ import {
 } from "@/components/mdx/unordered-list";
 import { Anchor, type AnchorProps } from "@/components/mdx/anchor";
 import { Callout } from "@/components/mdx/callout";
+import { CaptionImage as Image, type ImageProps } from "@/components/mdx/image";
 
 import { cn } from "@1chooo/ui/lib/utils";
 
@@ -71,10 +72,12 @@ const components: MDXComponents = {
   ol: (props: OrderedListProps) => <OrderedList {...props} />,
   ul: (props: UnorderedListProps) => <UnorderedList {...props} />,
   a: (props: AnchorProps) => <Anchor {...props} />,
+  img: (props: ImageProps) => <Image {...props} />,
   TechBadge,
   TechBadgeGroup,
   Separator,
   Callout,
+  Image,
 };
 
 let options: rehypePrettyCodeOptions;

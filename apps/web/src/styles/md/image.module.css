@@ -1,0 +1,56 @@
+.imageContainer {
+  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.imageFrame {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+  text-align: center;
+  position: relative;
+  border-radius: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  max-height: 12rem;
+}
+
+.responsiveImage {
+  object-fit: contain;
+  border-radius: 1rem;
+}
+
+.imageCaption {
+  color: var(--light-gray-70);
+  text-align: center;
+  display: block;
+  margin-bottom: 2.5rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+@media (min-width: 640px) {
+  .imageFrame {
+    max-height: 24rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .imageFrame {
+    max-height: 24rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .imageFrame {
+    max-height: 24rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .imageFrame {
+    max-height: 24rem;
+  }
+}
