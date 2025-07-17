@@ -38,17 +38,17 @@ function getCategories(posts: BlogPost[]): Record<string, number> {
 
 export default async function MdxBlog() {
   let allPosts: BlogPost[];
-  
-  try {
-      allPosts = getBlogPosts(BLOG_DIRECTORY);
-    } catch (error) {
-      console.error("Failed to load project posts:", error);
-      allPosts = [];
-    }
-  
-    const categories = getCategories(allPosts);
 
-    const blogCategories = Object.keys(categories);
+  try {
+    allPosts = getBlogPosts(BLOG_DIRECTORY);
+  } catch (error) {
+    console.error("Failed to load project posts:", error);
+    allPosts = [];
+  }
+
+  const categories = getCategories(allPosts);
+
+  const blogCategories = Object.keys(categories);
 
   return (
     <article>

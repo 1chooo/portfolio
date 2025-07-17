@@ -19,10 +19,3 @@ export const PROJECT_DIRECTORY = join(
   "content",
   "project",
 );
-export const EXP_BLOG_DIRECTORY = join(
-  process.cwd(),
-  "src",
-  "content",
-  "exp",
-  "blog",
-);

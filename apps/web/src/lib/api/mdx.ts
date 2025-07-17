@@ -98,7 +98,7 @@ export const sortByEndDate = (a: ProjectPost, b: ProjectPost) => {
   if (a.endDate && b.endDate) {
     return a.endDate > b.endDate ? -1 : 1;
   }
-  
+
   // If one has endDate and the other doesn't, ongoing projects (no endDate) come first
   if (a.endDate && !b.endDate) {
     return 1;
@@ -106,7 +106,7 @@ export const sortByEndDate = (a: ProjectPost, b: ProjectPost) => {
   if (!a.endDate && b.endDate) {
     return -1;
   }
-  
+
   // If both don't have endDate (both ongoing), sort by title alphabetically
   return a.title.localeCompare(b.title);
 };
@@ -193,11 +193,7 @@ export const getBlogPosts = (mdxPostsDirectory: string): BlogPost[] =>
   );
 
 export const getProjectPosts = (mdxPostsDirectory: string): ProjectPost[] =>
-  getMdxPosts(
-    mdxPostsDirectory,
-    createProjectPostTransformer(),
-    sortByEndDate,
-  );
+  getMdxPosts(mdxPostsDirectory, createProjectPostTransformer(), sortByEndDate);
 
 export const getBlogPostBySlug = (
   mdxPostsDirectory: string,

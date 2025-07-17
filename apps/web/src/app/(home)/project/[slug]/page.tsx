@@ -98,7 +98,9 @@ export default async function Post(props: Params) {
                     {post.author.name}
                   </div>
                   <time className="text-xs mt-1">
-                    {new Date(post.endDate || new Date().toISOString().split('T')[0]).toLocaleDateString("en-us", {
+                    {new Date(
+                      post.endDate || new Date().toISOString().split("T")[0],
+                    ).toLocaleDateString("en-us", {
                       month: "long",
                       year: "numeric",
                     })}
