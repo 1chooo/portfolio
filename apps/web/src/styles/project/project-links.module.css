@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.link {
+  align-items: center;
+  gap: 0.25rem;
+  position: relative;
+  background: var(--border-gradient-onyx);
+  color: var(--light-grey);
+  display: flex;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  height: 2.5rem;
+  font-size: var(--fs-6);
+  box-shadow: var(--shadow-3);
+  transition: var(--transition-1);
+  z-index: 1;
+}
+
+.link::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+  transition: var(--transition-1);
+}
+
+/* Group hover effect */
+.group:hover {
+  transform: scale(1.05);
+  transition-duration: 300ms;
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+  transition: transform var(--transition-1);
+  flex-shrink: 0;
+}
+
+.iconHover {
+  transition: transform var(--transition-1);
+}
+
+.group:hover .iconHover {
+  transform: rotate(-12deg);
+}
+
+@media (min-width: 580px) {
+  .link {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .container {
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .link {
+    width: max-content;
+  }
+}

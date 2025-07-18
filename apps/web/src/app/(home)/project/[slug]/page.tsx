@@ -17,6 +17,7 @@ import {
 } from "@/lib/api/mdx";
 import Mdx from "@/components/mdx";
 import { PROJECT_DIRECTORY } from "@/lib/constants";
+import { ProjectLinks } from "@/components/mdx/project-links";
 
 import Balancer from "react-wrap-balancer";
 
@@ -122,6 +123,11 @@ export default async function Post(props: Params) {
         <FadeIn delay={0.3 * 3}>
           <div className="flex justify-center">
             <div className="text-light-gray w-[90%] sm:w-[90%] md:w-[90%] lg:w-[80%] xl:w-[80%]">
+              <ProjectLinks
+                demo={post.demo}
+                code={post.code}
+                docs={post.docs}
+              />
               <Mdx source={getCleanMdxContent(PROJECT_DIRECTORY, slug)} />
             </div>
           </div>
