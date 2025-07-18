@@ -390,7 +390,7 @@ const SVGIcons = {
   /**
    * @see https://go.dev/blog/go-brand
    */
-  go: (props: SVGIconProps) => (
+  golang: (props: SVGIconProps) => (
     <svg
       preserveAspectRatio="xMidYMid"
       viewBox="-10.858 -38.49690284 271.141 389.92490284"

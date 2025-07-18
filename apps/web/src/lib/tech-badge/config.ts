@@ -74,10 +74,10 @@ export const TECH_BADGE_CONFIGS: Record<string, TechBadgeConfig> = {
     href: "https://tailwindcss.com",
     svgIcon: "tailwindcss",
   },
-  go: {
+  golang: {
     name: "Golang",
     href: "https://go.dev",
-    svgIcon: "go",
+    svgIcon: "golang",
   },
   kubernetes: {
     name: "Kubernetes",

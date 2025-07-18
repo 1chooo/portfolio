@@ -451,7 +451,7 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
       "shadcnui",
       "googleanalytics",
     ],
-    backend: ["python", "aws", "django", "go", "docker", "fastapi", "github"],
+    backend: ["python", "aws", "django", "golang", "docker", "fastapi", "github"],
     database: ["redis", "supabase", "firebase", "dynamodb"],
   },
   rssOptions: {
