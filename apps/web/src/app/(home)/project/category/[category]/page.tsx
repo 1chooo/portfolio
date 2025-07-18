@@ -14,7 +14,7 @@ import { NonClickableTechBadges } from "@/lib/tech-badge/utils";
 import Balancer from "react-wrap-balancer";
 
 import styles from "@/styles/project.module.css";
-import { ProjectPost } from "@/types/project";
+import { ProjectPost } from "@/types/post";
 
 interface ProjectCategoryProps {
   params: Promise<{ category: string }>;

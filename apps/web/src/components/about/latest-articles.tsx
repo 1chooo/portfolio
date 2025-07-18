@@ -10,7 +10,7 @@ import StaggeredAnimationSection from "@/components/animations/staggered-animati
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { getIcon, ICON_NAMES } from "@/components/icons";
 
-import { BlogPost } from "@/types/blog";
+import { BlogPost } from "@/types/post";
 
 import { cn } from "@1chooo/ui/lib/utils";
 

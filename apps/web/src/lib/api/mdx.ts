@@ -2,19 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
 import { calculateReadingTime } from "@/lib/reading-time";
-import { BlogPost } from "@/types/blog";
-import { ProjectPost } from "@/types/project";
-
-// Base interface that both BlogPost and ProjectPost should extend
-interface BaseMdxPost {
-  slug: string;
-  title: string;
-  category: string;
-  excerpt: string;
-  content: string;
-  readingTime?: string;
-  [key: string]: any;
-}
+import { BasePost, ProjectPost, BlogPost } from "@/types/post";
 
 // Transformer functions for different post types
 export const createBlogPostTransformer =
@@ -71,7 +59,7 @@ export function getMdxPostSlugs(mdxPostsDirectory: string): string[] {
     .map((file) => file.replace(/\.mdx$/, ""));
 }
 
-export function getMdxPostBySlug<T extends BaseMdxPost>(
+export function getMdxPostBySlug<T extends BasePost>(
   mdxPostsDirectory: string,
   slug: string,
   postTransformer: (data: any, content: string, slug: string) => T,
@@ -111,7 +99,7 @@ export const sortByEndDate = (a: ProjectPost, b: ProjectPost) => {
   return a.title.localeCompare(b.title);
 };
 
-export function getMdxPosts<T extends BaseMdxPost>(
+export function getMdxPosts<T extends BasePost>(
   mdxPostsDirectory: string,
   postTransformer: (data: any, content: string, slug: string) => T,
   sortFn?: (a: T, b: T) => number,
@@ -138,7 +126,7 @@ export function getMdxPostExists(
 }
 
 // Helper function to get categories from MDX posts
-export function getMdxBlogCategories<T extends BaseMdxPost>(
+export function getMdxBlogCategories<T extends BasePost>(
   mdxPostsDirectory: string,
   postTransformer: (data: any, content: string, slug: string) => T,
 ): Record<string, number> {
@@ -155,7 +143,7 @@ export function getMdxBlogCategories<T extends BaseMdxPost>(
 }
 
 // Helper function to get posts by category
-export function getMdxPostsByCategory<T extends BaseMdxPost>(
+export function getMdxPostsByCategory<T extends BasePost>(
   mdxPostsDirectory: string,
   category: string,
   postTransformer: (data: any, content: string, slug: string) => T,
