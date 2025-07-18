@@ -6,8 +6,6 @@ import { FadeIn } from "@/components/animations/animations";
 import { getCleanMdxContentFromPath } from "@/lib/api/mdx";
 import { TERMS_PATH } from "@/lib/constants";
 
-import "@/styles/markdown-styles.css";
-
 async function Terms() {
   return (
     <article>

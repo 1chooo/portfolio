@@ -6,8 +6,6 @@ import { FadeIn } from "@/components/animations/animations";
 import { getCleanMdxContentFromPath } from "@/lib/api/mdx";
 import { CODE_OF_CONDUCT_PATH } from "@/lib/constants";
 
-import "@/styles/markdown-styles.css";
-
 export default async function CodeOfConduct() {
   return (
     <article>
