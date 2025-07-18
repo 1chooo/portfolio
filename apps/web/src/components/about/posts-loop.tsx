@@ -7,7 +7,7 @@ import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { ViewCounter } from "@/app/(home)/blog/view-counter";
 
-import { BlogPost } from "@/types/blog";
+import { BlogPost } from "@/types/post";
 import { cn } from "@1chooo/ui/lib/utils";
 
 import styles from "@/styles/gradient-card.module.css";

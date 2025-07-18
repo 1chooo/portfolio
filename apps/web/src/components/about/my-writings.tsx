@@ -6,7 +6,7 @@ import { BlurFade } from "@/components/magicui/blur-fade";
 import { ClickableTechBadges } from "@/lib/tech-badge/utils";
 import config from "@/config";
 
-import { BlogPost } from "@/types/blog";
+import { BlogPost } from "@/types/post";
 
 import styles from "@/styles/gradient-card.module.css";
 

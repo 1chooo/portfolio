@@ -10,7 +10,7 @@ import { cn } from "@1chooo/ui/lib/utils";
 import config from "@/config";
 
 import styles from "@/styles/project.module.css";
-import { ProjectPost } from "@/types/project";
+import { ProjectPost } from "@/types/post";
 import Balancer from "react-wrap-balancer";
 import { NonClickableTechBadges } from "@/lib/tech-badge/utils";
 import { PROJECT_DIRECTORY } from "@/lib/constants";
