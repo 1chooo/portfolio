@@ -184,6 +184,18 @@ export function getCleanMdxContent(
   return content;
 }
 
+export function getCleanMdxContentFromPath(filePath: string): string {
+  if (!fs.existsSync(filePath)) {
+    throw new Error(`MDX file not found: ${filePath}`);
+  }
+
+  // Read the original MDX file
+  const fileContents = fs.readFileSync(filePath, "utf8");
+  const { content } = matter(fileContents);
+
+  return content;
+}
+
 // Convenience functions for specific post types
 export const getBlogPosts = (mdxPostsDirectory: string): BlogPost[] =>
   getMdxPosts(

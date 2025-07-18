@@ -16,7 +16,7 @@ function ProjectLinks({ demo, code, docs, slide }: ProjectLinksProps) {
   const getRepoDisplay = (url: string) => {
     try {
       const urlObj = new URL(url);
-      const pathParts = urlObj.pathname.split('/').filter(Boolean);
+      const pathParts = urlObj.pathname.split("/").filter(Boolean);
       if (pathParts.length >= 2) {
         return `${pathParts[0]}/${pathParts[1]}`;
       }
