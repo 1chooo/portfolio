@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowUpRightIcon } from "lucide-react";
-import config from "@/config";
 import { cn } from "@1chooo/ui/lib/utils";
 
 import styles from "@/styles/project/project-links.module.css";
@@ -13,7 +12,18 @@ interface ProjectLinksProps {
 }
 
 function ProjectLinks({ demo, code, docs }: ProjectLinksProps) {
-  const repo = code?.split("/").pop();
+  const getRepoDisplay = (url: string) => {
+    try {
+      const urlObj = new URL(url);
+      const pathParts = urlObj.pathname.split('/').filter(Boolean);
+      if (pathParts.length >= 2) {
+        return `${pathParts[0]}/${pathParts[1]}`;
+      }
+      return url;
+    } catch {
+      return url;
+    }
+  };
 
   if (!demo && !code && !docs) {
     return null;
@@ -29,7 +39,7 @@ function ProjectLinks({ demo, code, docs }: ProjectLinksProps) {
       )}
       {code && (
         <Link href={code} className={cn(styles.link, styles.group)}>
-          {`${config.about.githubUsername}/${repo}`}
+          {getRepoDisplay(code)}
           <ArrowUpRightIcon className={cn(styles.icon, styles.iconHover)} />
         </Link>
       )}
