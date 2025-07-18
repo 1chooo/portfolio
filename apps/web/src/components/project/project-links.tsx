@@ -9,9 +9,10 @@ interface ProjectLinksProps {
   demo?: string;
   code?: string;
   docs?: string;
+  slide?: string;
 }
 
-function ProjectLinks({ demo, code, docs }: ProjectLinksProps) {
+function ProjectLinks({ demo, code, docs, slide }: ProjectLinksProps) {
   const getRepoDisplay = (url: string) => {
     try {
       const urlObj = new URL(url);
@@ -46,6 +47,12 @@ function ProjectLinks({ demo, code, docs }: ProjectLinksProps) {
       {docs && (
         <Link href={docs} className={cn(styles.link, styles.group)}>
           {"Docs"}
+          <ArrowUpRightIcon className={cn(styles.icon, styles.iconHover)} />
+        </Link>
+      )}
+      {slide && (
+        <Link href={slide} className={cn(styles.link, styles.group)}>
+          {"Slide"}
           <ArrowUpRightIcon className={cn(styles.icon, styles.iconHover)} />
         </Link>
       )}

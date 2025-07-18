@@ -24,4 +24,5 @@ export type ProjectPost = {
   code?: string;
   demo?: string;
   docs?: string;
+  slide?: string;
 };

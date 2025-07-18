@@ -17,7 +17,7 @@ import {
 } from "@/lib/api/mdx";
 import Mdx from "@/components/mdx";
 import { PROJECT_DIRECTORY } from "@/lib/constants";
-import { ProjectLinks } from "@/components/mdx/project-links";
+import { ProjectLinks } from "@/components/project/project-links";
 
 import Balancer from "react-wrap-balancer";
 
@@ -127,6 +127,7 @@ export default async function Post(props: Params) {
                 demo={post.demo}
                 code={post.code}
                 docs={post.docs}
+                slide={post.slide}
               />
               <Mdx source={getCleanMdxContent(PROJECT_DIRECTORY, slug)} />
             </div>
