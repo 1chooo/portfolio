@@ -2,6 +2,32 @@
 
 Here, we will document all the changes made to the [1chooo.com](https://1chooo.com) web app, including new features, bug fixes, and improvements.
 
+## [v0.14.4]
+
+### What's Changed
+
+This release brings significant improvements to how we handle and display **project and blog content**, focusing on better data retrieval, cleaner code, and enhanced semantics.
+
+#### ✨ New Features & Enhancements
+
+* **MDX API Integration for Projects**: We've migrated project post retrieval to use the new **MDX API**, which also improves **sitemap generation** for better SEO.
+* **Enhanced Project Sorting**: Project posts are now sorted with improved logic, prioritizing `endDate` and then `title` for a more intuitive display.
+
+#### 🛠️ Refinements & Fixes
+
+* **Streamlined Content Management**: We've removed outdated blog and project posts, along with their related API functions, leading to **cleaner content management**.
+* **Improved Date Display Logic**: The date display now intelligently uses `endDate` or defaults to the current date if `endDate` isn't available, ensuring accurate timelines.
+* **Semantic HTML Improvements**:
+    * Navigation items have been changed from `button` to **list items** for semantic correctness.
+    * `div` elements have been replaced with `ul` and `li` to ensure a **proper semantic list structure**.
+* **Refactored Blog Post Retrieval**: Blog post retrieval now leverages the **MDX API**, and we've removed the legacy reading time logic.
+* **Optimized Category Logic**: Unused category retrieval has been removed, and category logic is now **encapsulated** for better organization.
+* **Descriptive Go Link**: The "Go link" has been updated to use more **descriptive text** and the official domain.
+
+---
+
+**Full Changelog**: https://github.com/1chooo/portfolio/compare/0.14.3...v0.14.4
+
 ## [v0.14.3]
 
 ### What's Changed
