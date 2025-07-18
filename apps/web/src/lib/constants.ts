@@ -14,14 +14,22 @@ const breakpoints: Breakpoint[] = [
 
 const BLOG_DIRECTORY = join(process.cwd(), "src", "content", "blog");
 const PROJECT_DIRECTORY = join(process.cwd(), "src", "content", "project");
+const ABOUT_PATH = join(process.cwd(), "src", "content", "page", "about.mdx");
 const TERMS_PATH = join(process.cwd(), "src", "content", "page", "terms.mdx");
-const CODE_OF_CONDUCT_PATH = join(process.cwd(), "src", "content", "page", "code-of-conduct.mdx");
+const CODE_OF_CONDUCT_PATH = join(
+  process.cwd(),
+  "src",
+  "content",
+  "page",
+  "code-of-conduct.mdx",
+);
 
 export {
   breakpoints,
   BUILD_TIME,
   TERMS_PATH,
   BLOG_DIRECTORY,
+  ABOUT_PATH,
   PROJECT_DIRECTORY,
   CODE_OF_CONDUCT_PATH,
 };

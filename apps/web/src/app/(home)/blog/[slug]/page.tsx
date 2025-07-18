@@ -21,8 +21,6 @@ import { BLOG_DIRECTORY } from "@/lib/constants";
 
 import config from "@/config";
 
-import "@/styles/markdown-styles.css";
-
 const { giscusConfig } = config;
 
 type Params = {

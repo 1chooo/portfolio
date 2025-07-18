@@ -1,33 +1,25 @@
 import dynamic from "next/dynamic";
 
 import PageTitle from "@/components/page-title";
-
-import markdownToHtml from "@/lib/markdown-to-html";
-import { getBlogPosts } from "@/lib/api/mdx";
-import { BLOG_DIRECTORY } from "@/lib/constants";
-
 import { MyWritings } from "@/components/about/my-writings";
+import { BlurFade } from "@/components/magicui/blur-fade";
+import { FadeLeft, FadeUp } from "@/components/animations/animations";
 import GitHubCalendar from "@1chooo/github-calendar";
 import { ThemeInput } from "@1chooo/activity-calendar/types";
-import { BlurFade } from "@/components/magicui/blur-fade";
+
+import { getBlogPosts, getCleanMdxContentFromPath } from "@/lib/api/mdx";
+import { ABOUT_PATH, BLOG_DIRECTORY } from "@/lib/constants";
 
 import config from "@/config";
 
-import { cn } from "@1chooo/ui/lib/utils";
-
-import "@/styles/markdown-styles.css";
-
 const AboutSection = dynamic(() => import("@/components/section/about"));
 const TalkToHugo = dynamic(() => import("@/components/about/talk-to-hugo"));
-const AnimatedSection = dynamic(
-  () => import("@/components/animations/animated-section"),
-);
+const Mdx = dynamic(() => import("@/components/mdx"));
 
 const { about, web3formsAccessKey } = config;
-const { firstName, lastName, preferredName, introduction, githubUsername } =
-  about;
+const { firstName, lastName, preferredName, githubUsername } = about;
 
-async function About() {
+function About() {
   const allPosts = getBlogPosts(BLOG_DIRECTORY);
   const yellowTheme: ThemeInput = {
     light: ["#EBEBEB", "#FFDA6B"],
@@ -38,23 +30,15 @@ async function About() {
     ? `About ${preferredName} 👨🏻‍💻`
     : `About ${firstName} ${lastName} 👨🏻‍💻`;
 
-  const processedIntroduction = introduction
-    ? await markdownToHtml(introduction)
-    : null;
-
   return (
     <article>
-      <AnimatedSection id="about">
+      <FadeUp delay={0.3 * 2}>
         <PageTitle title={title} />
-      </AnimatedSection>
-      <AnimatedSection>
-        {processedIntroduction && (
-          <div
-            className={cn("markdown")}
-            dangerouslySetInnerHTML={{ __html: processedIntroduction.html }}
-          />
-        )}
-      </AnimatedSection>
+      </FadeUp>
+
+      <FadeLeft delay={0.3 * 1}>
+        <Mdx source={getCleanMdxContentFromPath(ABOUT_PATH)} />
+      </FadeLeft>
 
       <AboutSection id="github-calendar">
         <BlurFade inView delay={0.4} direction="up">

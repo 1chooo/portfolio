@@ -23,8 +23,6 @@ import Balancer from "react-wrap-balancer";
 
 import config from "@/config";
 
-import "@/styles/markdown-styles.css";
-
 const { giscusConfig } = config;
 
 type Params = {
