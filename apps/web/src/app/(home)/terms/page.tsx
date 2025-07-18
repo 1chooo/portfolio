@@ -1,7 +1,6 @@
 import PageTitle from "@/components/page-title";
-import AnimatedSection from "@/components/animations/animated-section";
 import Mdx from "@/components/mdx";
-import { FadeIn } from "@/components/animations/animations";
+import { FadeIn, FadeUp } from "@/components/animations/animations";
 
 import { getCleanMdxContentFromPath } from "@/lib/api/mdx";
 import { TERMS_PATH } from "@/lib/constants";
@@ -9,11 +8,11 @@ import { TERMS_PATH } from "@/lib/constants";
 async function Terms() {
   return (
     <article>
-      <AnimatedSection id="code-of-conduct">
-        <PageTitle title="Code of Conduct" />
-      </AnimatedSection>
+      <FadeUp>
+        <PageTitle title="Terms of Use" />
+      </FadeUp>
 
-      <FadeIn delay={0.3 * 3}>
+      <FadeIn>
         <div className="flex justify-center">
           <div className="w-[90%]">
             <Mdx source={getCleanMdxContentFromPath(TERMS_PATH)} />
