@@ -2,6 +2,29 @@
 
 Here, we will document all the changes made to the [1chooo.com](https://1chooo.com) web app, including new features, bug fixes, and improvements.
 
+## [v0.14.5]
+
+This release brings exciting new ways to showcase your **projects** and significantly **refines our codebase** for better consistency and maintainability.
+
+### ✨ New Features & Enhancements
+
+* **Enhanced Project Links**: We've introduced a new **`ProjectLinks` component** that allows you to easily display **demo, code, and documentation links** for your projects. This also includes **slide link support** for presentations!
+* **Improved Repository Display**: The `ProjectLinks` component now has enhanced logic for displaying repository information.
+
+### 🛠️ Refinements & Code Health
+
+* **Content Integration**: We've seamlessly integrated **Terms and Code of Conduct** into our main content pages, improving navigation and access to important information.
+* **Consistent Naming**: Renamed 'go' to **'golang'** across various components and documentation for better consistency and clarity.
+* **Type Consolidation**: `BlogPost` and `ProjectPost` types have been **consolidated into a single `post.ts` file**, streamlining our data structures.
+* **Codebase Cleanup**:
+    * Removed unused markdown style imports from Code of Conduct and Terms pages.
+    * Replaced `AnimatedSection` with `FadeUp` for smoother transitions on Code of Conduct and Terms pages.
+    * Removed unused markdown styles import and integrated the introduction into the `content/page` structure, reducing clutter.
+
+---
+
+**Full Changelog**: https://github.com/1chooo/portfolio/compare/v0.14.4...v0.14.5
+
 ## [v0.14.4]
 
 ### What's Changed
