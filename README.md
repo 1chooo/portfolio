@@ -57,7 +57,7 @@ This [work] is licensed under [Creative Commons Attribution 4.0 International][c
 
 ## Star History
 
-[![Star History Chart](https://app.repohistory.com/api/svg?repo=1chooo/portfolio&type=Date&theme=dark&transparent=false&color=FFDB70)](https://app.repohistory.com/star-history)
+[![Star History Chart](https://app.repohistory.com/api/svg?repo=1chooo/portfolio&type=Date&background=2C2C2B&color=FFDB70)](https://app.repohistory.com/star-history)
 
 <p align="right" style="font-size: 14px; color: #555; margin-top: 20px;">
     <a href="#readme-top" style="text-decoration: none; color: #007bff; font-weight: bold;">
