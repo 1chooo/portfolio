@@ -2,32 +2,24 @@ import dynamic from "next/dynamic";
 
 import PageTitle from "@/components/page-title";
 import { MyWritings } from "@/components/about/my-writings";
-import { BlurFade } from "@/components/magicui/blur-fade";
 import { FadeLeft, FadeUp } from "@/components/animations/animations";
-import GitHubCalendar from "@1chooo/github-calendar";
-import { ThemeInput } from "@1chooo/activity-calendar/types";
 
 import { getBlogPosts, getCleanMdxContentFromPath } from "@/lib/api/mdx";
-import { ABOUT_PATH, BLOG_DIRECTORY } from "@/lib/constants";
+import { ABOUT_PATH, BLOG_DIRECTORY, PROJECT_DIRECTORY } from "@/lib/constants";
 
 import config from "@/config";
 
 const AboutSection = dynamic(() => import("@/components/section/about"));
 const Mdx = dynamic(() => import("@/components/mdx"));
-
-const { about } = config;
-const { firstName, lastName, preferredName, githubUsername } = about;
+const LatestArticles = dynamic(() => import("@/components/about/latest-articles"));
 
 function About() {
-  const allPosts = getBlogPosts(BLOG_DIRECTORY);
-  const yellowTheme: ThemeInput = {
-    light: ["#EBEBEB", "#FFDA6B"],
-    dark: ["#383838", "#FFDA6B"],
-  };
+  const blogs = getBlogPosts(BLOG_DIRECTORY);
+  const projects = getBlogPosts(PROJECT_DIRECTORY);
 
-  let title = preferredName
-    ? `About ${preferredName} 👨🏻‍💻`
-    : `About ${firstName} ${lastName} 👨🏻‍💻`;
+  let title = config.about.preferredName
+    ? `About ${config.about.preferredName} 👨🏻‍💻`
+    : `About ${config.about.firstName} ${config.about.lastName} 👨🏻‍💻`;
 
   return (
     <article>
@@ -39,27 +31,12 @@ function About() {
         <Mdx source={getCleanMdxContentFromPath(ABOUT_PATH)} />
       </FadeLeft>
 
-      <AboutSection id="github-calendar">
-        <BlurFade inView delay={0.4} direction="up">
-          <section id="github-calendar" className="text-light-gray">
-            {githubUsername && (
-              <GitHubCalendar
-                username={githubUsername}
-                blockSize={12}
-                blockMargin={4}
-                colorScheme="dark"
-                blockRadius={2}
-                fontSize={14}
-                style={{ fontWeight: "bold" }}
-                theme={yellowTheme}
-              />
-            )}
-          </section>
-        </BlurFade>
+      <AboutSection id="selected-project" title="Selected Project">
+        <LatestArticles posts={projects} route="/project"/>
       </AboutSection>
 
       <AboutSection id="my-writings" title="My Writings">
-        <MyWritings count={3} posts={allPosts} />
+        <MyWritings count={3} posts={blogs} />
       </AboutSection>
     </article>
   );
