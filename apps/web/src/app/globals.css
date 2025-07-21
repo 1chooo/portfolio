@@ -134,10 +134,6 @@ body {
   background: var(--smoky-black);
 }
 
-/*-----------------------------------*\
-  #REUSED STYLE
-\*-----------------------------------*/
-
 article {
   background: var(--eerie-black-2);
   border: 1px solid var(--jet);
@@ -145,9 +141,6 @@ article {
   padding: 15px;
   box-shadow: var(--shadow-1);
   z-index: 1;
-}
-
-article {
   display: block;
   animation: fade 0.5s ease backwards;
 }
@@ -226,10 +219,6 @@ article {
   z-index: -1;
 }
 
-/*-----------------------------------*\
-  #MAIN
-\*-----------------------------------*/
-
 main {
   margin: 15px 12px;
   margin-bottom: 75px;
@@ -272,31 +261,6 @@ main {
 
 .clients-item img:hover {
   filter: grayscale(0);
-}
-
-/*-----------------------------------*\
-  #RESUME
-\*-----------------------------------*/
-
-.relevant-courses-list {
-  font-size: var(--fs-6);
-  margin-left: 25px;
-}
-
-.relevant-courses-list span {
-  color: var(--vegas-gold);
-  font-weight: var(--fw-400);
-  line-height: 1.6;
-}
-
-.content-highlight-yellow {
-  color: var(--orange-yellow-crayola);
-  display: inline;
-}
-
-.code-highlight-yellow {
-  color: var(--orange-yellow-crayola);
-  display: inline;
 }
 
 /*-----------------------------------*\
@@ -573,14 +537,6 @@ textarea.form-input::-webkit-resizer {
   }
 
   /**
-  * #RESUME
-  */
-
-  .relevant-courses-list {
-    margin-left: 25px;
-  }
-
-  /**
   * #CONTACT
   */
 
@@ -603,15 +559,7 @@ textarea.form-input::-webkit-resizer {
   }
 }
 
-/**
-* responsive larger than 768px screen
-*/
-
 @media (min-width: 768px) {
-  /**
-  * REUSED STYLE
-  */
-
   article {
     width: 700px;
   }
@@ -679,37 +627,17 @@ textarea.form-input::-webkit-resizer {
   }
 }
 
-/**
-* responsive larger than 1024px screen
-*/
-
 @media (min-width: 1024px) {
-  /**
-  * CUSTOM PROPERTY
-  */
-
   :root {
-    /**
-      * shadow
-      */
-
     --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.125);
     --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.125);
     --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.125);
   }
 
-  /**
-  * REUSED STYLE
-  */
-
   article {
     width: 950px;
     box-shadow: var(--shadow-5);
   }
-
-  /**
-  * MAIN 
-  */
 
   main {
     margin-bottom: 60px;
@@ -721,22 +649,12 @@ textarea.form-input::-webkit-resizer {
     margin: auto;
   }
 
-  /* clients */
-
   .clients-item {
     min-width: calc(25% - 38px);
   }
 }
 
-/**
-* responsive larger than 1250px screen
-*/
-
 @media (min-width: 1250px) {
-  /**
-  * RESET
-  */
-
   body::-webkit-scrollbar {
     width: 20px;
   }
@@ -762,21 +680,10 @@ textarea.form-input::-webkit-resizer {
     height: 60px;
   }
 
-  /**
-  * REUSED STYLE
-  */
-
   article {
     width: auto;
-  }
-
-  article {
     min-height: 100%;
   }
-
-  /**
-  * MAIN
-  */
 
   main {
     max-width: 1200px;
