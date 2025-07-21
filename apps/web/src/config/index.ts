@@ -75,7 +75,11 @@ const config: Config = {
     },
   ],
   homeMetaData: {
-    metadataBase: new URL("https://1chooo.com"),
+    metadataBase: new URL(
+      process.env.NODE_ENV === "production" 
+        ? "https://1chooo.com" 
+        : "http://localhost:3000"
+    ),
     title: "Chun-Ho (Hugo) Lin - 1chooo",
     description:
       "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
