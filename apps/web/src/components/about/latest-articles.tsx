@@ -18,9 +18,10 @@ import styles from "@/styles/about/latest-articles.module.css";
 
 interface LatestArticlesProps {
   posts: BlogPost[];
+  route: string;
 }
 
-function LatestArticles({ posts }: LatestArticlesProps) {
+function LatestArticles({ posts, route }: LatestArticlesProps) {
   const [isMounted, setIsMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [visiblePosts, setVisiblePosts] = useState<BlogPost[]>([]);
@@ -59,7 +60,7 @@ function LatestArticles({ posts }: LatestArticlesProps) {
               className={cn(styles["latest-post"], "group active")}
             >
               <ViewTransitionsProgressBarLink
-                href={`/blog/${post.slug}`}
+                href={`/${route}/${post.slug}`}
                 rel="noopener noreferrer"
               >
                 <figure className={cn(styles["latest-post-img"])}>
@@ -82,7 +83,7 @@ function LatestArticles({ posts }: LatestArticlesProps) {
                     loading="eager"
                   />
                 </figure>
-                <h3 className="ml-[10px] text-white-2 text-base font-normal capitalize leading-[1.3] group-hover:text-orange-yellow-crayola group-hover:font-bold">
+                <h3 className="ml-[10px] text-white-2 text-base font-normal leading-[1.3] group-hover:text-orange-yellow-crayola group-hover:font-bold">
                   {post.title}
                 </h3>
               </ViewTransitionsProgressBarLink>
@@ -98,9 +99,9 @@ function LatestArticles({ posts }: LatestArticlesProps) {
               "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800",
             )}
           >
-            <ViewTransitionsProgressBarLink href="/blog">
+            <ViewTransitionsProgressBarLink href={route}>
               <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-                <span>✨ See More Posts</span>
+                <span>✨ See More Projects</span>
                 <ArrowRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
               </AnimatedShinyText>
             </ViewTransitionsProgressBarLink>
