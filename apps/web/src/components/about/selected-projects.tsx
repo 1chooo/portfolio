@@ -10,21 +10,22 @@ import StaggeredAnimationSection from "@/components/animations/staggered-animati
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { getIcon, ICON_NAMES } from "@/components/icons";
 
-import { BlogPost } from "@/types/post";
+import { ProjectPost } from "@/types/post";
 
 import { cn } from "@1chooo/ui/lib/utils";
 
-import styles from "@/styles/about/latest-articles.module.css";
+import styles from "@/styles/about/selected-projects.module.css";
 
-interface LatestArticlesProps {
-  posts: BlogPost[];
+interface SelectedProjectsProps {
+  posts: ProjectPost[];
   route: string;
+  seeMoreBadge: string;
 }
 
-function LatestArticles({ posts, route }: LatestArticlesProps) {
+function SelectedProjects({ posts, route, seeMoreBadge }: SelectedProjectsProps) {
   const [isMounted, setIsMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [visiblePosts, setVisiblePosts] = useState<BlogPost[]>([]);
+  const [visiblePosts, setVisiblePosts] = useState<ProjectPost[]>([]);
 
   useEffect(() => {
     setIsMounted(true);
@@ -101,7 +102,7 @@ function LatestArticles({ posts, route }: LatestArticlesProps) {
           >
             <ViewTransitionsProgressBarLink href={route}>
               <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-                <span>✨ See More Projects</span>
+                <span>{seeMoreBadge}</span>
                 <ArrowRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
               </AnimatedShinyText>
             </ViewTransitionsProgressBarLink>
@@ -112,5 +113,5 @@ function LatestArticles({ posts, route }: LatestArticlesProps) {
   );
 }
 
-export { LatestArticles };
-export default LatestArticles;
+export { SelectedProjects };
+export default SelectedProjects;
