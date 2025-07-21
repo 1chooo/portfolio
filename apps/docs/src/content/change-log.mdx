@@ -2,6 +2,24 @@
 
 Here, we will document all the changes made to the [1chooo.com](https://1chooo.com) web app, including new features, bug fixes, and improvements.
 
+## [v0.14.6]
+
+This release brings some exciting updates to the **homepage experience** and important **configuration fixes** for your portfolio!
+
+### ✨ New Features & Enhancements
+
+* **Featured Projects on Homepage**: We've added a new "Selected Projects" section to the **home page**. This lets you highlight your key work, providing a more curated and impactful first impression. As part of this, the GitHub Calendar has been removed to streamline the design.
+
+### 🛠️ Refinements & Fixes
+
+* **Improved `metadataBase` URL Handling**: We've fixed the `metadataBase` URL configuration to ensure it correctly points to the appropriate base URL across **different environments**, which is crucial for SEO and proper asset loading.
+* **Enhanced Component Reusability**: The `SelectedProjects` component is now more flexible. We've introduced a `seeMoreBadge` prop to help **maintain reusability** and simplify its structure.
+* **Simplified Project Display**: We've refactored the `SelectedProjects` component to use a **prop-based count and CSS Grid**, making it more efficient and easier to manage the layout of your featured projects.
+
+---
+
+**Full Changelog**: https://github.com/1chooo/portfolio/compare/v0.14.5...v0.14.6
+
 ## [v0.14.5]
 
 This release brings exciting new ways to showcase your **projects** and significantly **refines our codebase** for better consistency and maintainability.
