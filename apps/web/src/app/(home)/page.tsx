@@ -13,10 +13,9 @@ import { ABOUT_PATH, BLOG_DIRECTORY } from "@/lib/constants";
 import config from "@/config";
 
 const AboutSection = dynamic(() => import("@/components/section/about"));
-const TalkToHugo = dynamic(() => import("@/components/about/talk-to-hugo"));
 const Mdx = dynamic(() => import("@/components/mdx"));
 
-const { about, web3formsAccessKey } = config;
+const { about } = config;
 const { firstName, lastName, preferredName, githubUsername } = about;
 
 function About() {
@@ -61,10 +60,6 @@ function About() {
 
       <AboutSection id="my-writings" title="My Writings">
         <MyWritings count={3} posts={allPosts} />
-      </AboutSection>
-
-      <AboutSection id="talk-to-hugo" title="Talk To Hugo">
-        <TalkToHugo web3formsAccessKey={web3formsAccessKey} />
       </AboutSection>
     </article>
   );
