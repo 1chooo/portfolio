@@ -12,9 +12,9 @@ import { getIcon } from "@/components/icons";
 
 import type { Contact, SocialLink } from "@/types/config";
 
-import "@/styles/side-bar.css";
+import styles from "@/styles/layout/sidebar.module.css";
 
-interface SideBarProps {
+interface SidebarProps {
   avatar: string;
   firstName: string;
   lastName: string;
@@ -25,7 +25,7 @@ interface SideBarProps {
   socialLinks?: SocialLink[];
 }
 
-function SideBar({
+function Sidebar({
   avatar,
   firstName,
   lastName,
@@ -33,7 +33,7 @@ function SideBar({
   status,
   contacts,
   socialLinks,
-}: SideBarProps) {
+}: SidebarProps) {
   const [isActive, setIsActive] = useState(false);
   const sideBarRef = useRef<HTMLDivElement>(null);
 
@@ -45,8 +45,8 @@ function SideBar({
 
   return (
     <aside className={sideBarState} ref={sideBarRef} data-sidebar>
-      <div className="sidebar-info">
-        <figure className="avatar-box">
+      <div className={styles.sidebarInfo}>
+        <figure className={styles.avatarBox}>
           <Image
             id={`${firstName} (${preferredName}) ${lastName}`}
             src={avatar}
@@ -58,18 +58,18 @@ function SideBar({
             priority
           />
         </figure>
-        <div className="info-content">
+        <div>
           <h1
-            className="name"
+            className={styles.name}
             title={`${firstName} (${preferredName}) ${lastName}`}
           >
             {firstName} ({preferredName}) {lastName}
           </h1>
-          <p className="title">{status}</p>
+          <p className={styles.title}>{status}</p>
         </div>
 
         <button
-          className="info-more-btn"
+          className={styles.infoMoreBtn}
           onClick={handleSidebarToggle}
           data-sidebar-btn
         >
@@ -80,7 +80,7 @@ function SideBar({
 
       <div className="sidebar-info-more">
         <div className="separator"></div>
-        <ul className="contacts-list">
+        <ul className={styles.contactsList}>
           {contacts.map((contact, index) => {
             const { icon, title, content, link } = contact;
 
@@ -103,7 +103,7 @@ function SideBar({
             return (
               <li key={index} className="min-w-full flex items-center gap-4">
                 <IconBox iconName={icon} />
-                <div className="contact-info">
+                <div className={styles.contactInfo}>
                   <p className="text-light-gray-70 uppercase mb-1 text-xs">
                     {title}
                   </p>
@@ -141,5 +141,5 @@ function SideBar({
   );
 }
 
-export default SideBar;
-export { SideBar };
+export default Sidebar;
+export { Sidebar };

@@ -4,7 +4,7 @@ import { Roboto, Roboto_Mono } from "next/font/google";
 import { ViewTransitions } from "next-view-transitions";
 
 import { VercelNavBar } from "@/components/layout/vercel-navbar";
-import SideBar from "@/components/layout/side-bar";
+import Sidebar from "@/components/layout/sidebar";
 import Hello from "@/components/hello";
 import { ProgressBar } from "@/components/progress-bar";
 import { GoogleAnalytic } from "@/components/analytics/google";
@@ -65,7 +65,7 @@ function HomeLayout({ children }: { readonly children: React.ReactNode }) {
           <ProgressBar className="fixed top-0 h-1 bg-yellow-500">
             <Hello />
             <main>
-              <SideBar
+              <Sidebar
                 avatar={avatar}
                 firstName={firstName}
                 lastName={lastName}
