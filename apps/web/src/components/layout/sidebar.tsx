@@ -41,7 +41,7 @@ function Sidebar({
     setIsActive((prevState) => !prevState);
   };
 
-  const sideBarState = `sidebar ${isActive ? "active" : ""}`;
+  const sideBarState = `${styles.sidebar} ${isActive ? styles.sidebarActive : ""}`;
 
   return (
     <aside className={sideBarState} ref={sideBarRef} data-sidebar>
@@ -78,33 +78,32 @@ function Sidebar({
         </button>
       </div>
 
-      <div className="sidebar-info-more">
-        <div className="separator"></div>
+      <div className={styles.sidebarInfoMore}>
+        <div className={styles.separator}></div>
         <ul className={styles.contactsList}>
-          {contacts.map((contact, index) => {
+          {contacts?.map((contact, index) => {
             const { icon, title, content, link } = contact;
 
             const ContentElement = link ? (
               <Link
                 href={link}
-                className="block text-white-2 text-sm font-light truncate hover:text-orange-yellow-crayola
-            transition-colors"
+                className={styles.contactContentLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {content}
               </Link>
             ) : (
-              <span className="block text-white-2 text-sm font-light truncate">
+              <span className={styles.contactContent}>
                 {content}
               </span>
             );
 
             return (
-              <li key={index} className="min-w-full flex items-center gap-4">
+              <li key={index} className={styles.contactItem}>
                 <IconBox iconName={icon} />
-                <div className={styles.contactInfo}>
-                  <p className="text-light-gray-70 uppercase mb-1 text-xs">
+                <div className={styles.contactInfoContainer}>
+                  <p className={styles.contactTitle}>
                     {title}
                   </p>
                   {ContentElement}
@@ -113,14 +112,14 @@ function Sidebar({
             );
           })}
         </ul>
-        <div className="separator-no-line"></div>
-        <ul className="flex items-center gap-4 pb-1 pl-2 justify-center">
-          {socialLinks.map(({ url, icon }) => {
+        <div className={styles.separatorNoLine}></div>
+        <ul className={styles.socialLinksContainer}>
+          {socialLinks?.map(({ url, icon }) => {
             const Icon = getIcon(icon);
             return (
               <li
                 key={icon}
-                className="text-light-gray-70 text-lg hover:scale-110 hover:text-orange-yellow-crayola"
+                className={styles.socialLinkItem}
               >
                 <Link
                   href={url}
@@ -134,7 +133,7 @@ function Sidebar({
             );
           })}
         </ul>
-        <div className="separator-footer"></div>
+        <div className={styles.separatorFooter}></div>
         <Footer />
       </div>
     </aside>

@@ -4,40 +4,28 @@
 
 :root {
   /* gradient */
-  --bg-gradient-onyx: linear-gradient(
-    to bottom right,
-    hsl(240, 1%, 25%) 3%,
-    hsl(0, 0%, 19%) 97%
-  );
+  --bg-gradient-onyx: linear-gradient(to bottom right,
+      hsl(240, 1%, 25%) 3%,
+      hsl(0, 0%, 19%) 97%);
   --bg-gradient-jet:
-    linear-gradient(
-      to bottom right,
+    linear-gradient(to bottom right,
       hsla(240, 1%, 18%, 0.251) 0%,
-      hsla(240, 2%, 11%, 0) 100%
-    ),
+      hsla(240, 2%, 11%, 0) 100%),
     hsl(240, 2%, 13%);
-  --bg-gradient-yellow-1: linear-gradient(
-    to bottom right,
-    hsl(45, 100%, 71%) 0%,
-    hsla(36, 100%, 69%, 0) 50%
-  );
+  --bg-gradient-yellow-1: linear-gradient(to bottom right,
+      hsl(45, 100%, 71%) 0%,
+      hsla(36, 100%, 69%, 0) 50%);
   --bg-gradient-yellow-2:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       hsla(45, 100%, 71%, 0.251) 0%,
-      hsla(35, 100%, 68%, 0) 59.86%
-    ),
+      hsla(35, 100%, 68%, 0) 59.86%),
     hsl(240, 2%, 13%);
-  --border-gradient-onyx: linear-gradient(
-    to bottom right,
-    hsl(0, 0%, 25%) 0%,
-    hsla(0, 0%, 25%, 0) 50%
-  );
-  --text-gradient-yellow: linear-gradient(
-    to right,
-    hsl(45, 100%, 72%),
-    hsl(35, 100%, 68%)
-  );
+  --border-gradient-onyx: linear-gradient(to bottom right,
+      hsl(0, 0%, 25%) 0%,
+      hsla(0, 0%, 25%, 0) 50%);
+  --text-gradient-yellow: linear-gradient(to right,
+      hsl(45, 100%, 72%),
+      hsl(35, 100%, 68%));
 
   /* solid */
   --jet: hsl(0, 0%, 22%);
@@ -150,7 +138,6 @@ body {
   #REUSED STYLE
 \*-----------------------------------*/
 
-.sidebar,
 article {
   background: var(--eerie-black-2);
   border: 1px solid var(--jet);
@@ -158,27 +145,6 @@ article {
   padding: 15px;
   box-shadow: var(--shadow-1);
   z-index: 1;
-}
-
-.separator {
-  width: 100%;
-  height: 1px;
-  background: var(--jet);
-  margin: 16px 0;
-}
-
-.separator-no-line {
-  margin: 16px 0;
-  width: 100%;
-  height: 1px;
-  opacity: 0;
-}
-
-.separator-footer {
-  width: 100%;
-  height: 1px;
-  background: var(--jet);
-  margin: 16px 0;
 }
 
 article {
@@ -268,32 +234,6 @@ main {
   margin: 15px 12px;
   margin-bottom: 75px;
   min-width: 259px;
-}
-
-/*-----------------------------------*\
-  #SIDEBAR
-\*-----------------------------------*/
-
-.sidebar {
-  margin-bottom: 15px;
-  max-height: 112px;
-  overflow: hidden;
-  transition: var(--transition-2);
-}
-
-.sidebar.active {
-  max-height: 500px;
-}
-
-.sidebar-info-more {
-  opacity: 0;
-  visibility: hidden;
-  transition: var(--transition-2);
-}
-
-.sidebar.active .sidebar-info-more {
-  opacity: 1;
-  visibility: visible;
 }
 
 /**
@@ -405,7 +345,7 @@ main {
   transition: 0.15s ease-in-out;
 }
 
-.filter-select.active + .select-list {
+.filter-select.active+.select-list {
   opacity: 1;
   visibility: visible;
   pointer-events: all;
@@ -604,7 +544,6 @@ textarea.form-input::-webkit-resizer {
   * #REUSED STYLE
   */
 
-  .sidebar,
   article {
     width: 520px;
     margin-inline: auto;
@@ -618,23 +557,6 @@ textarea.form-input::-webkit-resizer {
   main {
     margin-top: 60px;
     margin-bottom: 100px;
-  }
-
-  /**
-  * #SIDEBAR
-  */
-
-  .sidebar {
-    max-height: 180px;
-    margin-bottom: 30px;
-  }
-
-  .sidebar.active {
-    max-height: 625px;
-  }
-
-  .separator {
-    margin: 32px 0;
   }
 
   /* clients */
@@ -690,21 +612,12 @@ textarea.form-input::-webkit-resizer {
   * REUSED STYLE
   */
 
-  .sidebar,
   article {
     width: 700px;
   }
 
   .has-scrollbar::-webkit-scrollbar-button {
     width: 100px;
-  }
-
-  /**
-  * SIDEBAR
-  */
-
-  .sidebar.active {
-    max-height: 900px;
   }
 
   /**
@@ -789,7 +702,6 @@ textarea.form-input::-webkit-resizer {
   * REUSED STYLE
   */
 
-  .sidebar,
   article {
     width: 950px;
     box-shadow: var(--shadow-5);
@@ -854,7 +766,6 @@ textarea.form-input::-webkit-resizer {
   * REUSED STYLE
   */
 
-  .sidebar,
   article {
     width: auto;
   }
@@ -880,29 +791,5 @@ textarea.form-input::-webkit-resizer {
     min-width: 75%;
     width: 75%;
     margin: 0;
-  }
-
-  /**
-  * SIDEBAR
-  */
-
-  .sidebar {
-    position: sticky;
-    top: 60px;
-    max-height: max-content;
-    height: 100%;
-    margin-bottom: 0;
-    padding-top: 60px;
-    z-index: 1;
-  }
-
-  .sidebar-info-more {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .separator:last-of-type {
-    margin: 15px 0;
-    opacity: 0;
   }
 }
