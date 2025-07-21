@@ -12,10 +12,6 @@ import { getIcon } from "@/components/icons";
 
 import type { Contact, SocialLink } from "@/types/config";
 
-import { useResponsiveImageSize } from "@/hooks/use-responsive-image-size";
-
-import { breakpoints } from "@/lib/constants";
-
 import "@/styles/side-bar.css";
 
 interface SideBarProps {
@@ -40,7 +36,6 @@ function SideBar({
 }: SideBarProps) {
   const [isActive, setIsActive] = useState(false);
   const sideBarRef = useRef<HTMLDivElement>(null);
-  const imageSize = useResponsiveImageSize(breakpoints);
 
   const handleSidebarToggle = () => {
     setIsActive((prevState) => !prevState);
@@ -56,8 +51,8 @@ function SideBar({
             id={`${firstName} (${preferredName}) ${lastName}`}
             src={avatar}
             alt={`${firstName} (${preferredName}) ${lastName}`}
-            width={imageSize.width}
-            height={imageSize.height}
+            width={150}
+            height={150}
             quality={50}
             loading="eager"
             priority

@@ -121,6 +121,11 @@
   border-radius: 20px;
 }
 
+.avatar-box img {
+  width: 80px;
+  height: 80px;
+}
+
 .info-content .name {
   color: var(--white-2);
   font-size: var(--fs-3);
@@ -147,6 +152,20 @@
   width: max-content;
   padding: 3px 12px;
   border-radius: 8px;
+}
+
+@media (max-width: 249px) {
+  .avatar-box img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (min-width: 250px) and (max-width: 374px) {
+  .avatar-box img {
+    width: 80px;
+    height: 80px;
+  }
 }
 
 @media (min-width: 375px) {
