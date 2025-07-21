@@ -38,7 +38,7 @@ function SelectedProjects({ count, posts, route, seeMoreBadge }: SelectedProject
               className={cn(styles["latest-post"], "group active")}
             >
               <ViewTransitionsProgressBarLink
-                href={`/${route}/${post.slug}`}
+                href={`${route}/${post.slug}`}
                 rel="noopener noreferrer"
               >
                 <figure className={cn(styles["latest-post-img"])}>
