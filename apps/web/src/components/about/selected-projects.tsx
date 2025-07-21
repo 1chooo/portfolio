@@ -1,12 +1,7 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
 import Image from "next/image";
 
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
-import StaggeredAnimationSection from "@/components/animations/staggered-animation-section";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { getIcon, ICON_NAMES } from "@/components/icons";
 
@@ -17,47 +12,29 @@ import { cn } from "@1chooo/ui/lib/utils";
 import styles from "@/styles/about/selected-projects.module.css";
 
 interface SelectedProjectsProps {
+  count: number;
   posts: ProjectPost[];
   route: string;
   seeMoreBadge: string;
 }
 
-function SelectedProjects({ posts, route, seeMoreBadge }: SelectedProjectsProps) {
-  const [isMounted, setIsMounted] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [visiblePosts, setVisiblePosts] = useState<ProjectPost[]>([]);
-
-  useEffect(() => {
-    setIsMounted(true);
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 580);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  useEffect(() => {
-    if (isMounted) {
-      setVisiblePosts(isMobile ? posts.slice(0, 2) : posts.slice(0, 3));
-    }
-  }, [isMounted, isMobile, posts]);
-
-  if (!isMounted) {
-    return null; // or a loading placeholder
-  }
+function SelectedProjects({ count, posts, route, seeMoreBadge }: SelectedProjectsProps) {
+  const visiblePosts = posts.slice(0, count);
 
   const Eye = getIcon(ICON_NAMES.EYE_LU);
   const ArrowRight = getIcon(ICON_NAMES.ARROW_RIGHT);
 
   return (
     <>
-      <StaggeredAnimationSection>
-        <ul className={cn(styles["latest-posts"])}>
-          {visiblePosts.map((post) => (
+      <ul className={cn(styles["latest-posts"])}>
+        {visiblePosts.map((post, index) => (
+          <BlurFade
+            key={`${index}-${post.slug}`}
+            inView
+            delay={0.4}
+            direction="up"
+          >
             <li
-              key={post.slug}
               className={cn(styles["latest-post"], "group active")}
             >
               <ViewTransitionsProgressBarLink
@@ -75,9 +52,9 @@ function SelectedProjects({ posts, route, seeMoreBadge }: SelectedProjectsProps)
                   </div>
                   <Image
                     src={post.thumbnail}
-                    alt={post.excerpt || "Blog post image"}
-                    width={1200}
-                    height={675}
+                    alt={post.excerpt || "Chun-Ho (Hugo) Lin - Selected Project"}
+                    width={480}
+                    height={270}
                     priority
                     quality={50}
                     placeholder="empty"
@@ -89,9 +66,9 @@ function SelectedProjects({ posts, route, seeMoreBadge }: SelectedProjectsProps)
                 </h3>
               </ViewTransitionsProgressBarLink>
             </li>
-          ))}
-        </ul>
-      </StaggeredAnimationSection>
+          </BlurFade>
+        ))}
+      </ul>
 
       <BlurFade inView delay={0.4} direction="up">
         <div className="z-10 flex items-center justify-center py-4">

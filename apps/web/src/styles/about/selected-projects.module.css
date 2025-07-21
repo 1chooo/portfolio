@@ -1,14 +1,20 @@
 .latest-posts {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 30px;
   margin-bottom: 10px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  overscroll-behavior-inline: contain;
-  scroll-snap-type: inline mandatory;
-  scroll-padding-inline: 25px;
+}
+
+@media (min-width: 768px) {
+  .latest-posts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .latest-posts {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .latest-post-img {
@@ -33,9 +39,8 @@
 }
 
 .latest-post {
-  flex: 0 0 calc(100% / 2 - 15px);
-  scroll-snap-align: start;
   list-style: none;
+  width: 100%;
 }
 
 .latest-post.active {
@@ -90,17 +95,5 @@
 @media (min-width: 580px) {
   .latest-post-img {
     border-radius: 16px;
-  }
-}
-
-@media (min-width: 768px) {
-  .has-scrollbar::-webkit-scrollbar-button {
-    width: 100px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .latest-post {
-    flex: 0 0 calc(100% / 3 - 20px);
   }
 }
