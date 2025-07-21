@@ -32,7 +32,7 @@ function About() {
       </FadeLeft>
 
       <AboutSection id="selected-project" title="Selected Project">
-        <SelectedProjects count={6} posts={projects} route="/project" seeMoreBadge="✨ See More Projects" />
+        <SelectedProjects count={3} posts={projects} route="/project" seeMoreBadge="✨ See More Projects" />
       </AboutSection>
 
       <AboutSection id="my-writings" title="My Writings">
