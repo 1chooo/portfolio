@@ -385,8 +385,8 @@ importers:
         specifier: workspace:*
         version: link:../typescript-config
       '@turbo/gen':
-        specifier: ^2.5.2
-        version: 2.5.4(@types/node@24.0.14)(typescript@5.8.3)
+        specifier: ^2.5.5
+        version: 2.5.5(@types/node@24.0.14)(typescript@5.8.3)
       '@types/node':
         specifier: 24.0.14
         version: 24.0.14
@@ -458,8 +458,8 @@ importers:
         specifier: workspace:*
         version: link:../typescript-config
       '@turbo/gen':
-        specifier: ^2.5.2
-        version: 2.5.4(@types/node@24.0.14)(typescript@5.8.3)
+        specifier: ^2.5.5
+        version: 2.5.5(@types/node@24.0.14)(typescript@5.8.3)
       '@types/node':
         specifier: 24.0.14
         version: 24.0.14
@@ -536,8 +536,8 @@ importers:
         specifier: ^4.1.11
         version: 4.1.11
       '@turbo/gen':
-        specifier: ^2.5.2
-        version: 2.5.4(@types/node@24.0.14)(typescript@5.8.3)
+        specifier: ^2.5.5
+        version: 2.5.5(@types/node@24.0.14)(typescript@5.8.3)
       '@types/node':
         specifier: 24.0.14
         version: 24.0.14
@@ -2442,12 +2442,12 @@ packages:
   '@tsconfig/node20@20.1.6':
     resolution: {integrity: sha512-sz+Hqx9zwZDpZIV871WSbUzSqNIsXzghZydypnfgzPKLltVJfkINfUeTct31n/tTSa9ZE1ZOfKdRre1uHHquYQ==}
 
-  '@turbo/gen@2.5.4':
-    resolution: {integrity: sha512-e69ut1PHTuwjqoZNF4Zpi8mOvh6EIkbUthh797y+Z/46bwiQfGsEKfw94t0CT+8UcwMvRZCbRXU7xo8hI86eDQ==}
+  '@turbo/gen@2.5.5':
+    resolution: {integrity: sha512-8zay4rVILdeTRLBR3rVVRLmLpvQrektMPXjwK9aze86nVwcLYxrCBYghRs88SOxk2r1qlwgg/e8UNzdkGB2UdA==}
     hasBin: true
 
-  '@turbo/workspaces@2.5.4':
-    resolution: {integrity: sha512-LLmImNOyDOZ8XNsNolefa7wQdrzAss0CoedPADCZFB+iIDXW+8w4YkgOvKaLKBLcm9kb7gWCP4L0o0EiZLXBUA==}
+  '@turbo/workspaces@2.5.5':
+    resolution: {integrity: sha512-Gye68+szmOp96xMvmondTRQYcYvevDqUP9JuN9jC6kqzFel7U1pJ/hoPvyD3WGQNxyKsdF+wJ5fvNaYXkzr6tQ==}
     hasBin: true
 
   '@types/aria-query@5.0.4':
@@ -10142,9 +10142,9 @@ snapshots:
 
   '@tsconfig/node20@20.1.6': {}
 
-  '@turbo/gen@2.5.4(@types/node@24.0.14)(typescript@5.8.3)':
+  '@turbo/gen@2.5.5(@types/node@24.0.14)(typescript@5.8.3)':
     dependencies:
-      '@turbo/workspaces': 2.5.4
+      '@turbo/workspaces': 2.5.5
       commander: 10.0.1
       fs-extra: 10.1.0
       inquirer: 8.2.6
@@ -10162,7 +10162,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@turbo/workspaces@2.5.4':
+  '@turbo/workspaces@2.5.5':
     dependencies:
       commander: 10.0.1
       execa: 5.1.1
