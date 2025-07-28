@@ -51,4 +51,11 @@ updates:
         update-types:
           - "minor"
           - "patch"
+      shiki:
+        patterns:
+          - "shiki"
+          - "@shikijs/rehype"
+        update-types:
+          - "minor"
+          - "patch"
 
