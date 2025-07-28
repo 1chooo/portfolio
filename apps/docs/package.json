@@ -21,7 +21,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "lucide-react": "0.525.0",
+    "lucide-react": "0.528.0",
     "next": "15.4.3",
     "nextra": "^4.2.13",
     "nextra-theme-docs": "^4.2.13",
