@@ -43,7 +43,7 @@
     "@next/bundle-analyzer": "15.4.4",
     "@next/mdx": "15.4.4",
     "@next/third-parties": "15.4.4",
-    "@primer/octicons-react": "^19.15.4",
+    "@primer/octicons-react": "^19.15.5",
     "@rehype-pretty/transformers": "^0.13.2",
     "@supabase/supabase-js": "^2.52.1",
     "@types/mdx": "^2.0.13",
