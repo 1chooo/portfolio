@@ -57,7 +57,7 @@
     "gray-matter": "^4.0.3",
     "lucide-react": "0.536.0",
     "mdast-util-to-string": "^4.0.0",
-    "motion": "12.23.6",
+    "motion": "12.23.12",
     "next": "15.4.4",
     "next-mdx-remote": "^5.0.0",
     "next-view-transitions": "0.3.4",
