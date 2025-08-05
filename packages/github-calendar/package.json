@@ -36,7 +36,7 @@
     "@1chooo/eslint-config": "workspace:*",
     "@1chooo/typescript-config": "workspace:*",
     "@turbo/gen": "^2.5.5",
-    "@types/node": "24.1.0",
+    "@types/node": "24.2.0",
     "@types/react": "19.1.9",
     "@types/react-dom": "19.1.7",
     "eslint": "9.32.0",
