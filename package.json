@@ -20,13 +20,18 @@
     "test": "turbo run test",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md,js,json,css}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,md,js,json,css}\"",
+    "lint-staged": "lint-staged",
     "delete": "rm -rf apps/docs/ && rm -rf apps/web/src/contents/ && rm -rf apps/web/src/config/index.ts",
     "gen-config": "node scripts/gen-config.js",
-    "clean": "rm -rf node_modules packages/*/node_modules apps/*/node_modules"
+    "clean": "rm -rf node_modules packages/*/node_modules apps/*/node_modules",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@1chooo/eslint-config": "workspace:*",
     "@1chooo/typescript-config": "workspace:*",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.4",
     "prettier": "^3.6.2",
     "turbo": "2.5.5",
     "typescript": "5.8.3"
@@ -34,5 +39,10 @@
   "packageManager": "pnpm@10.12.1+sha256.889bac470ec93ccc3764488a19d6ba8f9c648ad5e50a9a6e4be3768a5de387a3",
   "engines": {
     "node": ">=20"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,json,css,md}": [
+      "prettier --write"
+    ]
   }
 }
