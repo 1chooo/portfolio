@@ -33,6 +33,20 @@ For instructions on setting up the app locally and contributing to this project,
 
 [Contributing Guideline]: https://docs.1chooo.com/contributing
 
+### Pre-commit Hooks
+
+This project uses [Husky](https://typicode.github.io/husky/) and [lint-staged](https://github.com/okonet/lint-staged) to ensure code quality and consistent formatting. Before each commit, the following checks are automatically run:
+
+- **Code Formatting**: Prettier automatically formats staged files
+- **Tests**: Runs the test suite to ensure no regressions
+
+The pre-commit hooks are configured to:
+
+- Format all staged files using Prettier
+- Run the test suite to catch any issues
+
+If any of these checks fail, the commit will be blocked until the issues are resolved.
+
 ## Acknowledgments
 
 This project stands on the shoulders of the incredible open-source community, with particular gratitude to [@codewithsadee] for their foundational [vcard-personal-portfolio]. For a comprehensive list of all credits and inspirations, please visit our [acknowledgments page].
