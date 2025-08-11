@@ -58,4 +58,10 @@ updates:
         update-types:
           - "minor"
           - "patch"
-
+      nextra:
+        patterns:
+          - "nextra"
+          - "nextra-theme-docs"
+        update-types:
+          - "minor"
+          - "patch"
