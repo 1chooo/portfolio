@@ -4,14 +4,14 @@ import PageTitle from "@/components/page-title";
 export const metadata = {
   title: "Chun-Ho (Hugo) Lin",
   description:
-    "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) 🎓. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🎓.".slice(
+    "I'm Chun-Ho (Hugo) Lin, a student at University of Southern California (USC) 🎓. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🎓.".slice(
       0,
       100,
     ) + "...",
   openGraph: {
     title: "Chun-Ho (Hugo) Lin",
     description:
-      "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) 🎓. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🎓.".slice(
+      "I'm Chun-Ho (Hugo) Lin, a student at University of Southern California (USC) 🎓. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🎓.".slice(
         0,
         100,
       ) + "...",

@@ -6,7 +6,7 @@ const config: Config = {
   avatar: "/images/profile.webp",
   title: "Chun-Ho (Hugo) Lin - 1chooo",
   description:
-    "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
+    "I'm Chun-Ho (Hugo) Lin, a student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
   author: "Chun-Ho (Hugo) Lin - 1chooo",
   keywords: [
     "Chun-Ho (Hugo) Lin",
@@ -82,7 +82,7 @@ const config: Config = {
     ),
     title: "Chun-Ho (Hugo) Lin - 1chooo",
     description:
-      "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
+      "I'm Chun-Ho (Hugo) Lin, a student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
     authors: [{ name: "Chun-Ho (Hugo) Lin" }],
     creator: "Chun-Ho (Hugo) Lin",
     keywords: [
@@ -99,7 +99,7 @@ const config: Config = {
       title: "Chun-Ho (Hugo) Lin - 1chooo",
       locale: "en_US",
       description:
-        "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
+        "I'm Chun-Ho (Hugo) Lin, a student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
       images: [
         {
           url: "/opengraph-image",
@@ -115,7 +115,7 @@ const config: Config = {
       card: "summary_large_image",
       title: "Chun-Ho (Hugo) Lin - 1chooo",
       description:
-        "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
+        "I'm Chun-Ho (Hugo) Lin, a student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
       images: [
         {
           url: "/twitter-image",
@@ -146,7 +146,7 @@ const config: Config = {
     pronouns: "He/Him",
     githubUsername: "1chooo",
     introduction: `
-I'm an incoming student at [University of Southern California](https://usc.edu) ✌️. Previously, I obtained my Bachelor's degree from [National Central University](https://www.ncu.edu.tw/) 🐿️.
+I'm a student at [University of Southern California](https://usc.edu) ✌️. Previously, I obtained my Bachelor's degree from [National Central University](https://www.ncu.edu.tw/) 🐿️.
     `,
     lifestyles: [
       {
@@ -469,7 +469,7 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
   rssOptions: {
     title: "Chun-Ho (Hugo) Lin - 1chooo",
     description:
-      "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
+      "I'm Chun-Ho (Hugo) Lin, a student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
     site_url: "https://1chooo.com",
     feed_url: "https://1chooo.com/rss.xml",
     language: "en-US",

@@ -22,7 +22,7 @@ export default function OGImageGenerator() {
     domain: "1chooo.com",
     fullName: "Chun-Ho (Hugo) Lin",
     description:
-      "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) 🎓. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🎓.",
+      "I'm Chun-Ho (Hugo) Lin, a student at University of Southern California (USC) 🎓. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🎓.",
     coverImage: "/images/opengraph-image.png",
   });
 
