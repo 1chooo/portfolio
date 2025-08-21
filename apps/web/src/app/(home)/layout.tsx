@@ -1,5 +1,5 @@
 import Script from "next/script";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Roboto, Roboto_Mono } from "next/font/google";
 import { ViewTransitions } from "next-view-transitions";
 
@@ -50,6 +50,13 @@ const { googleAnalyticId, googleTagManagerId, umamiWebsiteId, umamiUrl } =
   analytics;
 
 export const metadata: Metadata = homeMetaData;
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#121212" },
+    { media: "(prefers-color-scheme: dark)", color: "#121212" },
+  ],
+};
 
 const addJsonLd = (): JsonLdHtml => {
   return {
