@@ -50,7 +50,7 @@
 
 /* Common styles for both themes */
 .tweet .react-tweet-theme p {
-  font-size: inherit;
+  font-size: 1rem; /* Match .prose p text-base size */
   line-height: 1.3rem;
 }
 

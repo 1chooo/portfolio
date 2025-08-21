@@ -37,7 +37,7 @@ export const ReactTweet = (props: TweetProps) => <TweetContent {...props} />;
  */
 export async function Tweet({ id }: { id: string }) {
   return (
-    <div className="tweet my-6 text-light-gray">
+    <div className="tweet my-6">
       <div className={`flex justify-center`}>
         <Suspense fallback={<TweetSkeleton />}>
           <ReactTweet id={id} />

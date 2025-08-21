@@ -25,6 +25,8 @@ import { CaptionImage as Image, type ImageProps } from "@/components/mdx/image";
 import { GitHubMap } from "@/components/mdx/github-map";
 import { Blockquote, type BlockquoteProps } from "@/components/mdx/blockquote";
 import { Paragraph, type ParagraphProps } from "@/components/mdx/paragraph";
+import { RedditEmbed } from "@/components/reddit-embed";
+import { Tweet } from "@/components/tweet";
 
 import { cn } from "@1chooo/ui/lib/utils";
 
@@ -80,6 +82,8 @@ const components: MDXComponents = {
   Callout,
   Image,
   GitHubMap,
+  RedditEmbed,
+  Tweet,
 };
 
 let options: rehypePrettyCodeOptions;
