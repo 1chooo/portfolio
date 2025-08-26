@@ -70,7 +70,7 @@ export default async function BlogCategory({ params }: BlogCategoryProps) {
 
   return (
     <article>
-      <PageTitle title="Hugo's Blog" />
+      <PageTitle title="Blog" />
 
       <section className={cn(styles.blog)}>
         <ul className={styles.filters}>

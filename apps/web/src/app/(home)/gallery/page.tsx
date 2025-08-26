@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 function Gallery() {
   return (
     <article>
-      <PageTitle title="Hugo's Gallery" />
+      <PageTitle title="Gallery" />
       <BlurFadeDemo />
       <div className="z-10 flex items-center justify-center mt-5 mb-5">
         <Link

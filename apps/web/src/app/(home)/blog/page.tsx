@@ -52,7 +52,7 @@ export default async function MdxBlog() {
 
   return (
     <article>
-      <PageTitle title="Hugo's Blog" />
+      <PageTitle title="Blog" />
 
       <section className={cn(styles.blog)}>
         <ul className={styles.filters}>

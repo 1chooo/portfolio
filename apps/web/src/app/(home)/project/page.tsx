@@ -50,7 +50,7 @@ export default async function Project() {
 
   return (
     <article>
-      <PageTitle title="Hugo's Project" />
+      <PageTitle title="Project" />
 
       <section className={cn(styles.project)}>
         <ul className={styles.filters}>
