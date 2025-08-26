@@ -259,6 +259,27 @@ I'm a student at [University of Southern California](https://usc.edu) ✌️. Pr
       title: "Professional Experiences",
       resumeCards: [
         {
+          institution: "Futurenest",
+          institutionImage: "/images/logo/futurenest.svg",
+          title: "R&D Engineer",
+          tags: [
+            { key: "type", value: "Intern", icon: ICON_NAMES.BRIEFCASE },
+            {
+              key: "location",
+              value: "Taipei, Taiwan 🇹🇼",
+              icon: ICON_NAMES.MAP_PIN,
+            },
+            {
+              key: "period",
+              value: "Jan. 2025 - Feb. 2025",
+              icon: ICON_NAMES.CALENDAR,
+            },
+          ],
+          details: [
+            "Built system-integrating APIs with Django, deployed via AWS ECR, developed a Next.js chat UI using v0.dev to test the APIs, delivered API docs to clients, and integrated with GitHub Actions for CI/CD.",
+          ],
+        },
+        {
           institution: "eCloudvalley Digital Technology",
           institutionImage: "/images/logo/ecv.svg",
           title: "Cloud Engineer",
