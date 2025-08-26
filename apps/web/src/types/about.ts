@@ -23,7 +23,6 @@ interface TechStacks {
  *   "lastName": 'Lin',
  *   "middleName": "",
  *   "preferredName": "Hugo",
- *   "additionalName": "Hugo",
  *   "pronouns": 'He/Him',
  *   ...
  * }
@@ -34,7 +33,6 @@ export type About = {
   lastName: string;
   middleName: string;
   preferredName: string;
-  additionalName: string;
   pronouns: string;
   githubUsername: string;
   introduction: string;

@@ -142,7 +142,6 @@ const config: Config = {
     lastName: "Lin",
     middleName: "",
     preferredName: "Hugo",
-    additionalName: "Hugo",
     pronouns: "He/Him",
     githubUsername: "1chooo",
     introduction: `
