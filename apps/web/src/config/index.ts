@@ -207,7 +207,7 @@ I'm a student at [University of Southern California](https://usc.edu) ✌️. Pr
       resumeCards: [
         {
           institution: "University of Southern California",
-          institutionImage: "/images/logos/usc.jpg",
+          institutionImage: "/images/logo/usc.svg",
           title: "Master of Science in Computer Science",
           tags: [
             {
@@ -230,7 +230,7 @@ I'm a student at [University of Southern California](https://usc.edu) ✌️. Pr
         },
         {
           institution: "National Central University",
-          institutionImage: "/images/logos/ncu.png",
+          institutionImage: "/images/logo/ncu.svg",
           title: "Bachelors of Science in Atmospheric Sciences",
           tags: [
             {
@@ -260,7 +260,7 @@ I'm a student at [University of Southern California](https://usc.edu) ✌️. Pr
       resumeCards: [
         {
           institution: "eCloudvalley Digital Technology",
-          institutionImage: "/images/logos/ecv.png",
+          institutionImage: "/images/logo/ecv.svg",
           title: "Cloud Engineer",
           tags: [
             { key: "type", value: "Intern", icon: ICON_NAMES.BRIEFCASE },
@@ -283,7 +283,7 @@ I'm a student at [University of Southern California](https://usc.edu) ✌️. Pr
         },
         {
           institution: "Amazon Web Services",
-          institutionImage: "/images/logos/aws.svg",
+          institutionImage: "/images/logo/aws.svg",
           title: "Campus Ambassador",
           tags: [
             { key: "type", value: "Contract", icon: ICON_NAMES.BRIEFCASE },
@@ -305,7 +305,7 @@ I'm a student at [University of Southern California](https://usc.edu) ✌️. Pr
         },
         {
           institution: "PEGATRON",
-          institutionImage: "/images/logos/pegatron.png",
+          institutionImage: "/images/logo/pegatron.svg",
           title: "AI Engineer",
           tags: [
             { key: "type", value: "Intern", icon: ICON_NAMES.BRIEFCASE },
@@ -328,7 +328,7 @@ I'm a student at [University of Southern California](https://usc.edu) ✌️. Pr
         },
         {
           institution: "National Central University",
-          institutionImage: "/images/logos/ncu.png",
+          institutionImage: "/images/logo/ncu.svg",
           title: "Website Developer",
           tags: [
             { key: "type", value: "Part-time", icon: ICON_NAMES.BRIEFCASE },
