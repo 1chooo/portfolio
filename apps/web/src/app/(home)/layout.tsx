@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Roboto, Roboto_Mono } from "next/font/google";
 import { ViewTransitions } from "next-view-transitions";
 
-import { VercelNavBar } from "@/components/layout/vercel-navbar";
+import { NavBar } from "@/components/layout/nav-bar";
 import Sidebar from "@/components/layout/sidebar";
 import Hello from "@/components/hello";
 import { ProgressBar } from "@/components/progress-bar";
@@ -83,7 +83,7 @@ function HomeLayout({ children }: { readonly children: React.ReactNode }) {
                 contacts={contacts}
               />
               <div className="main-content">
-                <VercelNavBar navigationLinks={navigationLinks} />
+                <NavBar navigationLinks={navigationLinks} />
                 {children}
               </div>
             </main>

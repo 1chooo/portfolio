@@ -11,11 +11,11 @@ import type { NavigationLink } from "@/types/nav-bar";
 
 import "@/styles/nav-bar.css";
 
-interface VercelNavBarProps {
+interface NavBarProps {
   navigationLinks: NavigationLink[];
 }
 
-const VercelNavBar = ({ navigationLinks }: VercelNavBarProps) => {
+const NavBar = ({ navigationLinks }: NavBarProps) => {
   const currentPath = usePathname();
   const [active, setActive] = useState<NavigationLink>(navigationLinks[0]);
   const [isHover, setIsHover] = useState<NavigationLink | null>(null);
@@ -90,5 +90,5 @@ const VercelNavBar = ({ navigationLinks }: VercelNavBarProps) => {
   );
 };
 
-export default VercelNavBar;
-export { VercelNavBar };
+export default NavBar;
+export { NavBar };
