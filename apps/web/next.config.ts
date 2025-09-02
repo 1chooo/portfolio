@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
   images: {
     dangerouslyAllowSVG: true,
     unoptimized: true,
+    qualities: [25, 50, 75, 100],
   },
   transpilePackages: [
     "@1chooo/ui",
