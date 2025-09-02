@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import PageTitle from "@/components/page-title";
 import { MyWritings } from "@/components/about/my-writings";
 import { FadeLeft } from "@/components/animations/animations";
-import { FadeUpDiv } from "@/components/animations/fade-up";
 import {
   getBlogPosts,
   getCleanMdxContentFromPath,
@@ -23,9 +22,7 @@ function About() {
 
   return (
     <article>
-      <FadeUpDiv delay={0.3 * 2}>
-        <PageTitle title="About Me" />
-      </FadeUpDiv>
+      <PageTitle title="About Me" />
 
       <FadeLeft delay={0.3 * 1}>
         <Mdx source={getCleanMdxContentFromPath(ABOUT_PATH)} />

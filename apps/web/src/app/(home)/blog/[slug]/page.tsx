@@ -7,7 +7,7 @@ import Balancer from "react-wrap-balancer";
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 import { ViewCounter } from "@/app/(home)/blog/view-counter";
 import { FadeLeft, FadeIn } from "@/components/animations/animations";
-import { FadeUpDiv } from "@/components/animations/fade-up";
+import { FadeUpDiv } from "@/components/animations/animations";
 
 import PageTitle from "@/components/page-title";
 import Comments from "@/components/comments";
@@ -51,17 +51,15 @@ export default async function Blog(props: Params) {
     <div>
       <article>
         <header className="mb-8">
-          <FadeUpDiv delay={0.3 * 2}>
-            <ViewTransitionsProgressBarLink
-              href="/blog"
-              rel="noopener noreferrer"
-            >
-              <PageTitle
-                className="text-light-gray hover:text-light-gray-70"
-                title="← Back to Blog"
-              />
-            </ViewTransitionsProgressBarLink>
-          </FadeUpDiv>
+          <ViewTransitionsProgressBarLink
+            href="/blog"
+            rel="noopener noreferrer"
+          >
+            <PageTitle
+              className="text-light-gray hover:text-light-gray-70"
+              title="← Back to Blog"
+            />
+          </ViewTransitionsProgressBarLink>
 
           <FadeLeft delay={0.3 * 1}>
             <div className="flex items-center gap-2 mb-4 text-light-gray-70 text-sm">

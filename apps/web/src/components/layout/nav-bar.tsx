@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import { usePathname } from "next/navigation";
 
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
-import { FadeUpNav } from "@/components/animations/fade-up";
+import { fadeUp } from "@/components/animations/fade-up";
 import type { NavigationLink } from "@/types/nav-bar";
 
 import "@/styles/nav-bar.css";
@@ -37,7 +37,7 @@ const NavBar = ({ navigationLinks }: NavBarProps) => {
   }, [currentPath, navigationLinks]);
 
   return (
-    <FadeUpNav className="navbar">
+    <fadeUp.div className="navbar">
       <ul className="flex items-center justify-center navbar-list">
         {navigationLinks.map((item) => (
           <li
@@ -83,7 +83,7 @@ const NavBar = ({ navigationLinks }: NavBarProps) => {
           </li>
         ))}
       </ul>
-    </FadeUpNav>
+    </fadeUp.div>
   );
 };
 

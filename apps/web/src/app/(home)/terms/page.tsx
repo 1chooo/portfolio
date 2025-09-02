@@ -1,7 +1,6 @@
 import PageTitle from "@/components/page-title";
 import Mdx from "@/components/mdx";
 import { FadeIn } from "@/components/animations/animations";
-import { FadeUpDiv } from "@/components/animations/fade-up";
 
 import { getCleanMdxContentFromPath } from "@/lib/api/mdx";
 import { TERMS_PATH } from "@/lib/constants";
@@ -9,9 +8,7 @@ import { TERMS_PATH } from "@/lib/constants";
 async function Terms() {
   return (
     <article>
-      <FadeUpDiv>
-        <PageTitle title="Terms of Use" />
-      </FadeUpDiv>
+      <PageTitle title="Terms of Use" />
 
       <FadeIn>
         <div className="flex justify-center">

@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import Comments from "@/components/comments";
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 import { FadeLeft, FadeIn } from "@/components/animations/animations";
-import { FadeUpDiv } from "@/components/animations/fade-up";
+import { FadeUpDiv } from "@/components/animations/animations";
 
 import PageTitle from "@/components/page-title";
 import { ViewCounter } from "@/app/(home)/project/view-counter";
@@ -53,17 +53,15 @@ export default async function Post(props: Params) {
     <div>
       <article>
         <header className="mb-8">
-          <FadeUpDiv delay={0.3 * 2}>
-            <ViewTransitionsProgressBarLink
-              href="/project"
-              rel="noopener noreferrer"
-            >
-              <PageTitle
-                className="text-light-gray hover:text-light-gray-70"
-                title="← Back to Project"
-              />
-            </ViewTransitionsProgressBarLink>
-          </FadeUpDiv>
+          <ViewTransitionsProgressBarLink
+            href="/project"
+            rel="noopener noreferrer"
+          >
+            <PageTitle
+              className="text-light-gray hover:text-light-gray-70"
+              title="← Back to Project"
+            />
+          </ViewTransitionsProgressBarLink>
 
           <FadeLeft delay={0.3 * 1}>
             <div className="flex items-center gap-2 mb-4 text-light-gray-70 text-sm">
