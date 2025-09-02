@@ -1,6 +1,6 @@
 import PageTitle from "@/components/page-title";
 import Mdx from "@/components/mdx";
-import { FadeIn, FadeUp } from "@/components/animations/animations";
+import { FadeIn, FadeUpDiv } from "@/components/animations/animations";
 
 import { getCleanMdxContentFromPath } from "@/lib/api/mdx";
 import { CODE_OF_CONDUCT_PATH } from "@/lib/constants";
@@ -8,9 +8,9 @@ import { CODE_OF_CONDUCT_PATH } from "@/lib/constants";
 export default async function CodeOfConduct() {
   return (
     <article>
-      <FadeUp>
+      <FadeUpDiv>
         <PageTitle title="Code of Conduct" />
-      </FadeUp>
+      </FadeUpDiv>
 
       <FadeIn>
         <div className="flex justify-center">

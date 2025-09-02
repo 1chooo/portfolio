@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import Balancer from "react-wrap-balancer";
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 import { ViewCounter } from "@/app/(home)/blog/view-counter";
-import { FadeLeft, FadeUp, FadeIn } from "@/components/animations/animations";
+import { FadeLeft, FadeUpDiv, FadeIn } from "@/components/animations/animations";
 import PageTitle from "@/components/page-title";
 import Comments from "@/components/comments";
 import {
@@ -49,7 +49,7 @@ export default async function Blog(props: Params) {
     <div>
       <article>
         <header className="mb-8">
-          <FadeUp delay={0.3 * 2}>
+          <FadeUpDiv delay={0.3 * 2}>
             <ViewTransitionsProgressBarLink
               href="/blog"
               rel="noopener noreferrer"
@@ -59,7 +59,7 @@ export default async function Blog(props: Params) {
                 title="← Back to Blog"
               />
             </ViewTransitionsProgressBarLink>
-          </FadeUp>
+          </FadeUpDiv>
 
           <FadeLeft delay={0.3 * 1}>
             <div className="flex items-center gap-2 mb-4 text-light-gray-70 text-sm">
@@ -70,7 +70,7 @@ export default async function Blog(props: Params) {
             </h1>
           </FadeLeft>
 
-          <FadeUp delay={0.3 * 2}>
+          <FadeUpDiv delay={0.3 * 2}>
             <div className="flex items-center">
               {post.author.avatar ? (
                 <div className="h-10 w-10 rounded-full overflow-hidden mr-3">
@@ -112,7 +112,7 @@ export default async function Blog(props: Params) {
                 </Suspense>
               </div>
             </div>
-          </FadeUp>
+          </FadeUpDiv>
         </header>
 
         <FadeIn delay={0.3 * 3}>

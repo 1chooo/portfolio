@@ -88,7 +88,7 @@ function FadeInNav(props: {
   );
 }
 
-function FadeUp(props: {
+function FadeUpDiv(props: {
   children: React.ReactNode;
   delay?: number;
   divKey?: any;
@@ -165,4 +165,4 @@ function FadeLeft(props: {
   );
 }
 
-export { PopIn, FadeIn, FadeUp, FadeLeft, HoverPop, FadeInNav, FadeUpNav };
+export { PopIn, FadeIn, FadeUpDiv, FadeLeft, HoverPop, FadeInNav, FadeUpNav };

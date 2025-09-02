@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 
 import PageTitle from "@/components/page-title";
 import { MyWritings } from "@/components/about/my-writings";
-import { FadeLeft, FadeUp } from "@/components/animations/animations";
+import { FadeLeft, FadeUpDiv } from "@/components/animations/animations";
 
 import { getBlogPosts, getCleanMdxContentFromPath, getProjectPosts } from "@/lib/api/mdx";
 import { ABOUT_PATH, BLOG_DIRECTORY, PROJECT_DIRECTORY } from "@/lib/constants";
@@ -17,9 +17,9 @@ function About() {
 
   return (
     <article>
-      <FadeUp delay={0.3 * 2}>
+      <FadeUpDiv delay={0.3 * 2}>
         <PageTitle title="About Me" />
-      </FadeUp>
+      </FadeUpDiv>
 
       <FadeLeft delay={0.3 * 1}>
         <Mdx source={getCleanMdxContentFromPath(ABOUT_PATH)} />

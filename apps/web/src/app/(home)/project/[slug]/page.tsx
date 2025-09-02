@@ -5,7 +5,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import Comments from "@/components/comments";
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
-import { FadeLeft, FadeUp, FadeIn } from "@/components/animations/animations";
+import { FadeLeft, FadeUpDiv, FadeIn } from "@/components/animations/animations";
 import PageTitle from "@/components/page-title";
 import { ViewCounter } from "@/app/(home)/project/view-counter";
 import {
@@ -51,7 +51,7 @@ export default async function Post(props: Params) {
     <div>
       <article>
         <header className="mb-8">
-          <FadeUp delay={0.3 * 2}>
+          <FadeUpDiv delay={0.3 * 2}>
             <ViewTransitionsProgressBarLink
               href="/project"
               rel="noopener noreferrer"
@@ -61,7 +61,7 @@ export default async function Post(props: Params) {
                 title="← Back to Project"
               />
             </ViewTransitionsProgressBarLink>
-          </FadeUp>
+          </FadeUpDiv>
 
           <FadeLeft delay={0.3 * 1}>
             <div className="flex items-center gap-2 mb-4 text-light-gray-70 text-sm">
@@ -72,7 +72,7 @@ export default async function Post(props: Params) {
             </h1>
           </FadeLeft>
 
-          <FadeUp delay={0.3 * 2}>
+          <FadeUpDiv delay={0.3 * 2}>
             <div className="flex items-center">
               {post.author.avatar ? (
                 <div className="h-10 w-10 rounded-full overflow-hidden mr-3">
@@ -115,7 +115,7 @@ export default async function Post(props: Params) {
                 </Suspense>
               </div>
             </div>
-          </FadeUp>
+          </FadeUpDiv>
         </header>
 
         <FadeIn delay={0.3 * 3}>
