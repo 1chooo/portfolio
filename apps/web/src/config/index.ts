@@ -76,9 +76,9 @@ const config: Config = {
   ],
   homeMetaData: {
     metadataBase: new URL(
-      process.env.NODE_ENV === "production" 
-        ? "https://1chooo.com" 
-        : "http://localhost:3000"
+      process.env.NODE_ENV === "production"
+        ? "https://1chooo.com"
+        : "http://localhost:3000",
     ),
     title: "Chun-Ho (Hugo) Lin - 1chooo",
     description:

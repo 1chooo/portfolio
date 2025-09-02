@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import { usePathname } from "next/navigation";
 
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
-import { FadeUpNav } from "@/components/animations/animations";
+import { FadeUpNav } from "@/components/animations/fade-up";
 import type { NavigationLink } from "@/types/nav-bar";
 
 import "@/styles/nav-bar.css";
@@ -55,8 +55,9 @@ const NavBar = ({ navigationLinks }: NavBarProps) => {
               className="text-sm md:text-base lg:text-base"
             >
               <div
-                className={`px-2 py-2 relative ${active.label === item.label ? "font-bold" : "font-medium"
-                  }`}
+                className={`px-2 py-2 relative ${
+                  active.label === item.label ? "font-bold" : "font-medium"
+                }`}
               >
                 {item.label}
                 {isHover?.label === item.label && (

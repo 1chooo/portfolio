@@ -6,7 +6,9 @@ import { notFound } from "next/navigation";
 import Balancer from "react-wrap-balancer";
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 import { ViewCounter } from "@/app/(home)/blog/view-counter";
-import { FadeLeft, FadeUpDiv, FadeIn } from "@/components/animations/animations";
+import { FadeLeft, FadeIn } from "@/components/animations/animations";
+import { FadeUpDiv } from "@/components/animations/fade-up";
+
 import PageTitle from "@/components/page-title";
 import Comments from "@/components/comments";
 import {

@@ -94,18 +94,14 @@ function Sidebar({
                 {content}
               </Link>
             ) : (
-              <span className={styles.contactContent}>
-                {content}
-              </span>
+              <span className={styles.contactContent}>{content}</span>
             );
 
             return (
               <li key={index} className={styles.contactItem}>
                 <IconBox iconName={icon} />
                 <div className={styles.contactInfoContainer}>
-                  <p className={styles.contactTitle}>
-                    {title}
-                  </p>
+                  <p className={styles.contactTitle}>{title}</p>
                   {ContentElement}
                 </div>
               </li>
@@ -117,10 +113,7 @@ function Sidebar({
           {socialLinks?.map(({ url, icon }) => {
             const Icon = getIcon(icon);
             return (
-              <li
-                key={icon}
-                className={styles.socialLinkItem}
-              >
+              <li key={icon} className={styles.socialLinkItem}>
                 <Link
                   href={url}
                   target="_blank"

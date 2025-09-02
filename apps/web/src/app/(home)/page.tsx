@@ -2,14 +2,20 @@ import dynamic from "next/dynamic";
 
 import PageTitle from "@/components/page-title";
 import { MyWritings } from "@/components/about/my-writings";
-import { FadeLeft, FadeUpDiv } from "@/components/animations/animations";
-
-import { getBlogPosts, getCleanMdxContentFromPath, getProjectPosts } from "@/lib/api/mdx";
+import { FadeLeft } from "@/components/animations/animations";
+import { FadeUpDiv } from "@/components/animations/fade-up";
+import {
+  getBlogPosts,
+  getCleanMdxContentFromPath,
+  getProjectPosts,
+} from "@/lib/api/mdx";
 import { ABOUT_PATH, BLOG_DIRECTORY, PROJECT_DIRECTORY } from "@/lib/constants";
 
 const AboutSection = dynamic(() => import("@/components/section/about"));
 const Mdx = dynamic(() => import("@/components/mdx"));
-const SelectedProjects = dynamic(() => import("@/components/about/selected-projects"));
+const SelectedProjects = dynamic(
+  () => import("@/components/about/selected-projects"),
+);
 
 function About() {
   const blogs = getBlogPosts(BLOG_DIRECTORY);
@@ -26,7 +32,12 @@ function About() {
       </FadeLeft>
 
       <AboutSection id="selected-project" title="Selected Project">
-        <SelectedProjects count={3} posts={projects} route="/project" seeMoreBadge="✨ See More Projects" />
+        <SelectedProjects
+          count={3}
+          posts={projects}
+          route="/project"
+          seeMoreBadge="✨ See More Projects"
+        />
       </AboutSection>
 
       <AboutSection id="my-writings" title="My Writings">

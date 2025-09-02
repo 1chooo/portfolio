@@ -5,7 +5,9 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import Comments from "@/components/comments";
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
-import { FadeLeft, FadeUpDiv, FadeIn } from "@/components/animations/animations";
+import { FadeLeft, FadeIn } from "@/components/animations/animations";
+import { FadeUpDiv } from "@/components/animations/fade-up";
+
 import PageTitle from "@/components/page-title";
 import { ViewCounter } from "@/app/(home)/project/view-counter";
 import {

@@ -3,7 +3,9 @@ import React, { ComponentPropsWithoutRef } from "react";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import { MDXComponents } from "mdx/types";
 
-import rehypePrettyCode, { Options as rehypePrettyCodeOptions } from "rehype-pretty-code";
+import rehypePrettyCode, {
+  Options as rehypePrettyCodeOptions,
+} from "rehype-pretty-code";
 import remarkGfm from "remark-gfm";
 
 import { Heading, type HeadingProps } from "@/components/mdx/heading";

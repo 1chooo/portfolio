@@ -18,7 +18,12 @@ interface SelectedProjectsProps {
   seeMoreBadge: string;
 }
 
-function SelectedProjects({ count, posts, route, seeMoreBadge }: SelectedProjectsProps) {
+function SelectedProjects({
+  count,
+  posts,
+  route,
+  seeMoreBadge,
+}: SelectedProjectsProps) {
   const visiblePosts = posts.slice(0, count);
 
   const Eye = getIcon(ICON_NAMES.EYE_LU);
@@ -34,9 +39,7 @@ function SelectedProjects({ count, posts, route, seeMoreBadge }: SelectedProject
             delay={0.4}
             direction="up"
           >
-            <li
-              className={cn(styles["latest-post"], "group active")}
-            >
+            <li className={cn(styles["latest-post"], "group active")}>
               <ViewTransitionsProgressBarLink
                 href={`${route}/${post.slug}`}
                 rel="noopener noreferrer"
@@ -52,7 +55,9 @@ function SelectedProjects({ count, posts, route, seeMoreBadge }: SelectedProject
                   </div>
                   <Image
                     src={post.thumbnail}
-                    alt={post.excerpt || "Chun-Ho (Hugo) Lin - Selected Project"}
+                    alt={
+                      post.excerpt || "Chun-Ho (Hugo) Lin - Selected Project"
+                    }
                     width={480}
                     height={270}
                     priority

@@ -1,6 +1,7 @@
 import PageTitle from "@/components/page-title";
 import Mdx from "@/components/mdx";
-import { FadeIn, FadeUpDiv } from "@/components/animations/animations";
+import { FadeIn } from "@/components/animations/animations";
+import { FadeUpDiv } from "@/components/animations/fade-up";
 
 import { getCleanMdxContentFromPath } from "@/lib/api/mdx";
 import { CODE_OF_CONDUCT_PATH } from "@/lib/constants";
