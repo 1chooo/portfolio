@@ -64,6 +64,30 @@ function FadeIn(props: {
   );
 }
 
+function FadeInNav(props: {
+  children: React.ReactNode;
+  delay?: number;
+  divKey?: any;
+  className?: string;
+}) {
+  return (
+    <motion.nav
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+      }}
+      transition={{
+        delay: props.delay || 0.5,
+      }}
+      key={props.divKey || undefined}
+    >
+      {props.children}
+    </motion.nav>
+  );
+}
+
 function FadeUp(props: {
   children: React.ReactNode;
   delay?: number;
@@ -86,6 +110,33 @@ function FadeUp(props: {
     >
       {props.children}
     </motion.div>
+  );
+}
+
+function FadeUpNav(props: {
+  children: React.ReactNode;
+  delay?: number;
+  divKey?: any;
+  className?: string;
+}) {
+  return (
+    <motion.nav
+      initial={{
+        opacity: 0,
+        y: 20,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      transition={{
+        delay: props.delay || 0.5,
+      }}
+      key={props.divKey || undefined}
+      className={props.className || ""}
+    >
+      {props.children}
+    </motion.nav>
   );
 }
 
@@ -114,4 +165,4 @@ function FadeLeft(props: {
   );
 }
 
-export { PopIn, FadeIn, FadeUp, FadeLeft, HoverPop };
+export { PopIn, FadeIn, FadeUp, FadeLeft, HoverPop, FadeInNav, FadeUpNav };
