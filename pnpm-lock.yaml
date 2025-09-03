@@ -170,8 +170,8 @@ importers:
         specifier: 15.5.2
         version: 15.5.2(next@15.5.2(@babel/core@7.28.3)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)
       '@primer/octicons-react':
-        specifier: ^19.15.5
-        version: 19.15.5(react@19.1.1)
+        specifier: ^19.16.0
+        version: 19.16.0(react@19.1.1)
       '@rehype-pretty/transformers':
         specifier: ^0.13.2
         version: 0.13.2
@@ -1706,8 +1706,8 @@ packages:
   '@popperjs/core@2.11.8':
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
-  '@primer/octicons-react@19.15.5':
-    resolution: {integrity: sha512-JEoxBVkd6F8MaKEO1QKau0Nnk3IVroYn7uXGgMqZawcLQmLljfzua3S1fs2FQs295SYM9I6DlkESgz5ORq5yHA==}
+  '@primer/octicons-react@19.16.0':
+    resolution: {integrity: sha512-IbM5Qn2uOpHia2oQ9WtR6ZsnsiQk7Otc4Y7YfE4Q5023co24iGlu+xz2pOUxd5iSACM4qLZOPyWiwsL8P9Inkw==}
     engines: {node: '>=8'}
     peerDependencies:
       react: '>=16.3'
@@ -9439,7 +9439,7 @@ snapshots:
 
   '@popperjs/core@2.11.8': {}
 
-  '@primer/octicons-react@19.15.5(react@19.1.1)':
+  '@primer/octicons-react@19.16.0(react@19.1.1)':
     dependencies:
       react: 19.1.1
 
