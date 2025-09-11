@@ -33,7 +33,7 @@ export default function TwitterCardMeta({
         content={
           description
             ? description
-            : "I'm Chun-Ho (Hugo) Lin, a student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️."
+            : "I am a first-year M.S. student in Computer Science at the [USC Viterbi School of Engineering](https://viterbischool.usc.edu/) ✌️. I graduated with a B.S. in Atmospheric Sciences from the [National Central University](https://www.ncu.edu.tw/) 🐿️."
         }
       />
     </Head>
