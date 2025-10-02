@@ -10,7 +10,7 @@ updates:
       interval: "weekly"
       day: wednesday
       time: "06:00"
-      timezone: "Asia/Taipei"
+      timezone: "America/Los_Angeles"
     assignees:
       - "1chooo"
     open-pull-requests-limit: 10
