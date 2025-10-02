@@ -5,7 +5,7 @@
 [1chooo.com]: https://1chooo.com
 
 <div align="center">
-  <a href="https://1chooo.com">
+  <a href="https://youtu.be/sEmmyETf3Ao">
     <img 
       alt="Home Page of 1chooo.com" 
       src="./.github/images/cover-transparent-with-1chooo-com.png" 
