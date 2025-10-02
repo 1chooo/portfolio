@@ -155,8 +155,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ui
       '@mdx-js/loader':
-        specifier: ^3.1.0
-        version: 3.1.0(acorn@8.15.0)
+        specifier: ^3.1.1
+        version: 3.1.1
       '@mdx-js/react':
         specifier: ^3.1.0
         version: 3.1.0(@types/react@19.2.0)(react@19.2.0)
@@ -165,7 +165,7 @@ importers:
         version: 15.5.4
       '@next/mdx':
         specifier: 15.5.4
-        version: 15.5.4(@mdx-js/loader@3.1.0(acorn@8.15.0))(@mdx-js/react@3.1.0(@types/react@19.2.0)(react@19.2.0))
+        version: 15.5.4(@mdx-js/loader@3.1.1)(@mdx-js/react@3.1.0(@types/react@19.2.0)(react@19.2.0))
       '@next/third-parties':
         specifier: 15.5.4
         version: 15.5.4(next@15.5.4(@babel/core@7.28.3)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
@@ -1382,8 +1382,8 @@ packages:
   '@lit/reactive-element@2.1.1':
     resolution: {integrity: sha512-N+dm5PAYdQ8e6UlywyyrgI2t++wFGXfHx+dSJ1oBrg6FAxUj40jId++EaRm80MKX5JnlH1sBsyZ5h0bcZKemCg==}
 
-  '@mdx-js/loader@3.1.0':
-    resolution: {integrity: sha512-xU/lwKdOyfXtQGqn3VnJjlDrmKXEvMi1mgYxVmukEUtVycIz1nh7oQ40bKTd4cA7rLStqu0740pnhGYxGoqsCg==}
+  '@mdx-js/loader@3.1.1':
+    resolution: {integrity: sha512-0TTacJyZ9mDmY+VefuthVshaNIyCGZHJG2fMnGaDttCt8HmjUF7SizlHJpaCDoGnN635nK1wpzfpx/Xx5S4WnQ==}
     peerDependencies:
       webpack: '>=5'
     peerDependenciesMeta:
@@ -1392,6 +1392,9 @@ packages:
 
   '@mdx-js/mdx@3.1.0':
     resolution: {integrity: sha512-/QxEhPAvGwbQmy1Px8F899L5Uc2KZ6JtXwlCgJmjSTBedwOZkByYcBG4GceIGPXRDsmfxhHazuS+hlOShRLeDw==}
+
+  '@mdx-js/mdx@3.1.1':
+    resolution: {integrity: sha512-f6ZO2ifpwAQIpzGWaBQT2TXxPv6z3RBzQKpVftEWN78Vl/YweF1uwussDx8ECAXVtr3Rs89fKyG9YlzUs9DyGQ==}
 
   '@mdx-js/react@3.1.0':
     resolution: {integrity: sha512-QjHtSaoameoalGnKDT3FoIl4+9RwyTmo9ZJGBdLOks/YOiWHoRDI3PUwEzOE7kEmGcV3AFcp9K6dYu9rEuKLAQ==}
@@ -6775,6 +6778,11 @@ packages:
   recma-jsx@1.0.0:
     resolution: {integrity: sha512-5vwkv65qWwYxg+Atz95acp8DMu1JDSqdGkA2Of1j6rCreyFUE/gp15fC8MnGEuG1W68UKjM6x6+YTWIh7hZM/Q==}
 
+  recma-jsx@1.0.1:
+    resolution: {integrity: sha512-huSIy7VU2Z5OLv6oFLosQGGDqPqdO1iq6bWNAdhzMxSJP7RAso4fCZ1cKu8j9YHCZf3TPrq4dw3okhrylgcd7w==}
+    peerDependencies:
+      acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
+
   recma-parse@1.0.0:
     resolution: {integrity: sha512-OYLsIGBB5Y5wjnSnQW6t3Xg7q3fQ7FWbw/vcXtORTnyaSFscOtABg+7Pnz6YZ6c27fG1/aN8CjfwoUEUIdwqWQ==}
 
@@ -6865,6 +6873,9 @@ packages:
 
   remark-mdx@3.1.0:
     resolution: {integrity: sha512-Ngl/H3YXyBV9RcRNdlYsZujAmhsxwzxpDzpDEhFBVAGthS4GDgnctpDjgFl/ULx5UEDzqtW1cyBSNKqYYrqLBA==}
+
+  remark-mdx@3.1.1:
+    resolution: {integrity: sha512-Pjj2IYlUY3+D8x00UJsIOg5BEvfMyeI+2uLPn9VO9Wg4MEtN/VTIq2NEJQfde9PnX15KgtHyl9S0BcTnWrIuWg==}
 
   remark-parse@11.0.0:
     resolution: {integrity: sha512-FCxlKLNGknS5ba/1lmpYijMUzX2esxW5xQqjWxw2eHFfS2MSdaHVINFmhjo+qN1WhZhNimq0dZATN9pH0IDrpA==}
@@ -9167,12 +9178,11 @@ snapshots:
     dependencies:
       '@lit-labs/ssr-dom-shim': 1.4.0
 
-  '@mdx-js/loader@3.1.0(acorn@8.15.0)':
+  '@mdx-js/loader@3.1.1':
     dependencies:
-      '@mdx-js/mdx': 3.1.0(acorn@8.15.0)
-      source-map: 0.7.4
+      '@mdx-js/mdx': 3.1.1
+      source-map: 0.7.6
     transitivePeerDependencies:
-      - acorn
       - supports-color
 
   '@mdx-js/mdx@3.1.0(acorn@8.15.0)':
@@ -9203,6 +9213,36 @@ snapshots:
       vfile: 6.0.3
     transitivePeerDependencies:
       - acorn
+      - supports-color
+
+  '@mdx-js/mdx@3.1.1':
+    dependencies:
+      '@types/estree': 1.0.8
+      '@types/estree-jsx': 1.0.5
+      '@types/hast': 3.0.4
+      '@types/mdx': 2.0.13
+      acorn: 8.15.0
+      collapse-white-space: 2.1.0
+      devlop: 1.1.0
+      estree-util-is-identifier-name: 3.0.0
+      estree-util-scope: 1.0.0
+      estree-walker: 3.0.3
+      hast-util-to-jsx-runtime: 2.3.6
+      markdown-extensions: 2.0.0
+      recma-build-jsx: 1.0.0
+      recma-jsx: 1.0.1(acorn@8.15.0)
+      recma-stringify: 1.0.0
+      rehype-recma: 1.0.0
+      remark-mdx: 3.1.1
+      remark-parse: 11.0.0
+      remark-rehype: 11.1.2
+      source-map: 0.7.6
+      unified: 11.0.5
+      unist-util-position-from-estree: 2.0.0
+      unist-util-stringify-position: 4.0.0
+      unist-util-visit: 5.0.0
+      vfile: 6.0.3
+    transitivePeerDependencies:
       - supports-color
 
   '@mdx-js/react@3.1.0(@types/react@19.2.0)(react@19.2.0)':
@@ -9287,11 +9327,11 @@ snapshots:
     dependencies:
       fast-glob: 3.3.1
 
-  '@next/mdx@15.5.4(@mdx-js/loader@3.1.0(acorn@8.15.0))(@mdx-js/react@3.1.0(@types/react@19.2.0)(react@19.2.0))':
+  '@next/mdx@15.5.4(@mdx-js/loader@3.1.1)(@mdx-js/react@3.1.0(@types/react@19.2.0)(react@19.2.0))':
     dependencies:
       source-map: 0.7.6
     optionalDependencies:
-      '@mdx-js/loader': 3.1.0(acorn@8.15.0)
+      '@mdx-js/loader': 3.1.1
       '@mdx-js/react': 3.1.0(@types/react@19.2.0)(react@19.2.0)
 
   '@next/swc-darwin-arm64@15.5.4':
@@ -15609,6 +15649,15 @@ snapshots:
     transitivePeerDependencies:
       - acorn
 
+  recma-jsx@1.0.1(acorn@8.15.0):
+    dependencies:
+      acorn: 8.15.0
+      acorn-jsx: 5.3.2(acorn@8.15.0)
+      estree-util-to-js: 2.0.0
+      recma-parse: 1.0.0
+      recma-stringify: 1.0.0
+      unified: 11.0.5
+
   recma-parse@1.0.0:
     dependencies:
       '@types/estree': 1.0.8
@@ -15792,6 +15841,13 @@ snapshots:
       - supports-color
 
   remark-mdx@3.1.0:
+    dependencies:
+      mdast-util-mdx: 3.0.0
+      micromark-extension-mdxjs: 3.0.0
+    transitivePeerDependencies:
+      - supports-color
+
+  remark-mdx@3.1.1:
     dependencies:
       mdast-util-mdx: 3.0.0
       micromark-extension-mdxjs: 3.0.0
