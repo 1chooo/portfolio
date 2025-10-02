@@ -28,8 +28,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "react": "19.1.1",
-    "react-dom": "19.1.1",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
     "@1chooo/activity-calendar": "workspace:*"
   },
   "devDependencies": {
@@ -37,8 +37,8 @@
     "@1chooo/typescript-config": "workspace:*",
     "@turbo/gen": "^2.5.6",
     "@types/node": "24.3.0",
-    "@types/react": "19.1.12",
-    "@types/react-dom": "19.1.8",
+    "@types/react": "19.2.0",
+    "@types/react-dom": "19.2.0",
     "eslint": "9.36.0",
     "typescript": "^5.9.2"
   },
