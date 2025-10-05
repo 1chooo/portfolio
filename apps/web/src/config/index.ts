@@ -380,12 +380,17 @@ I am a first-year M.S. student in Computer Science at the [USC Viterbi School of
     "@context": "http://schema.org",
     "@type": "Person",
     "@id": "https://1chooo.com/#person",
+    name: "Chun-Ho (Hugo) Lin",
     givenName: "Chun-Ho",
     familyName: "Lin",
     additionalName: "Hugo",
     gender: "male",
     birthPlace: "New Taipei, TW",
-    nationality: "Taiwan",
+    nationality: {
+      "@type": "Country",
+      name: "Taiwan",
+      alternateName: "TW",
+    },
     alumniOf: [
       {
         "@type": "CollegeOrUniversity",
@@ -407,6 +412,12 @@ I am a first-year M.S. student in Computer Science at the [USC Viterbi School of
       "http://github.com/1chooo",
       "https://medium.com/@1chooo",
     ],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Los Angeles",
+      addressRegion: "CA",
+      addressCountry: "USA",
+    },
   },
   giscusConfig: {
     id: "comments",

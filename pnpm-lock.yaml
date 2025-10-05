@@ -151,6 +151,9 @@ importers:
       '@1chooo/github-calendar':
         specifier: workspace:*
         version: link:../../packages/github-calendar
+      '@1chooo/schema':
+        specifier: workspace:*
+        version: link:../../packages/schema
       '@1chooo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -469,6 +472,31 @@ importers:
       '@types/react-dom':
         specifier: 19.2.0
         version: 19.2.0(@types/react@19.2.0)
+      eslint:
+        specifier: 9.36.0
+        version: 9.36.0(jiti@2.5.1)
+      typescript:
+        specifier: ^5.9.2
+        version: 5.9.2
+
+  packages/schema:
+    dependencies:
+      react:
+        specifier: 19.2.0
+        version: 19.2.0
+      react-dom:
+        specifier: 19.2.0
+        version: 19.2.0(react@19.2.0)
+    devDependencies:
+      '@1chooo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@1chooo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@types/node':
+        specifier: 24.3.0
+        version: 24.3.0
       eslint:
         specifier: 9.36.0
         version: 9.36.0(jiti@2.5.1)

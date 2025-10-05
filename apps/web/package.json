@@ -38,6 +38,7 @@
     "@1chooo/activity-calendar": "workspace:*",
     "@1chooo/github-calendar": "workspace:*",
     "@1chooo/ui": "workspace:*",
+    "@1chooo/schema": "workspace:*",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
     "@next/bundle-analyzer": "15.5.4",
