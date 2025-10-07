@@ -3,7 +3,7 @@ import type { NavigationLink } from "@/types/nav-bar";
 import type { GiscusProps } from "@giscus/react";
 import type { IconType as ReactIconType } from "react-icons";
 import type { Icon as OcticonsType } from "@primer/octicons-react";
-import type { Person } from "@/types/json-ld";
+import type { Person } from "@1chooo/schema";
 import type { Metadata, MetadataRoute } from "next";
 import type { Resumes } from "@/types/resume";
 import type { FeedOptions } from "@/types/rss";
@@ -49,6 +49,12 @@ export type Config = {
    * If you still want to custom your own theme, you can refer the [following guide](https://github.com/1chooo/portfolio)
    */
   shikiTheme: ShikiTheme;
+  /**
+   * jsonLdPerson - JSON-LD structured data for a Person, following schema.org specifications.
+   * This data helps search engines understand the content and context of the webpage.
+   * Make sure to fill in all the required fields accurately.
+   * @see https://schema.org/Person
+   */
   jsonLdPerson: Person;
   giscusConfig: GiscusProps;
   /**
@@ -66,8 +72,6 @@ export type Config = {
   techStacks: TechStackCategory;
   rssOptions: FeedOptions;
 };
-
-type AnalyticPlatforms = "google-analytics" | "vercel" | "umami";
 
 export type Analytics = {
   googleAnalyticId?: string;

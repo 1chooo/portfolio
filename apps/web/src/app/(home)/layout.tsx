@@ -13,7 +13,7 @@ import { Analytics as VercelAnalytic } from "@vercel/analytics/next";
 
 import config from "@/config";
 
-import type { JsonLdHtml } from "@/types/json-ld";
+import type { JsonLdHtml } from "@1chooo/schema";
 
 import "@/app/globals.css";
 
