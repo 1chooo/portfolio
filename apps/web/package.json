@@ -56,7 +56,7 @@
     "cobe": "^0.6.3",
     "date-fns": "^4.1.0",
     "gray-matter": "^4.0.3",
-    "lucide-react": "0.544.0",
+    "lucide-react": "0.545.0",
     "mdast-util-to-string": "^4.0.0",
     "motion": "12.23.12",
     "next": "15.5.4",
