@@ -25,7 +25,7 @@
     "@1chooo/eslint-config": "workspace:*",
     "@1chooo/typescript-config": "workspace:*",
     "@types/node": "24.3.0",
-    "eslint": "9.36.0",
+    "eslint": "9.37.0",
     "typescript": "^5.9.2"
   },
   "exports": {
