@@ -53,7 +53,7 @@
     "class-variance-authority": "^0.7.1",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
-    "cobe": "^0.6.3",
+    "cobe": "^0.6.5",
     "date-fns": "^4.1.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "0.545.0",
