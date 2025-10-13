@@ -26,7 +26,7 @@
     "@1chooo/typescript-config": "workspace:*",
     "@types/node": "24.3.0",
     "eslint": "9.37.0",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   },
   "exports": {
     ".": "./src/index.ts",
