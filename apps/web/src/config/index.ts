@@ -48,32 +48,6 @@ const config: Config = {
       content: "in/1chooo",
     },
   ],
-  socialLinks: [
-    {
-      url: "https://github.com/1chooo",
-      icon: ICON_NAMES.GITHUB_LU,
-    },
-    {
-      url: "https://www.linkedin.com/in/1chooo/",
-      icon: ICON_NAMES.LINKEDIN_LU,
-    },
-    {
-      url: "https://medium.com/@1chooo",
-      icon: ICON_NAMES.MEDIUM_PI,
-    },
-    {
-      url: "https://twitter.com/1chooo___",
-      icon: ICON_NAMES.TWITTER_FA,
-    },
-    {
-      url: `/rss.xml`,
-      icon: ICON_NAMES.RSS_LU,
-    },
-    {
-      url: `/cv`,
-      icon: ICON_NAMES.ATTACHMENT_MD,
-    },
-  ],
   homeMetaData: {
     metadataBase: new URL(
       process.env.NODE_ENV === "production"

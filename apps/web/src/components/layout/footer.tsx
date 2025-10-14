@@ -14,11 +14,11 @@ function Footer() {
       <div className="footer-links">
         <Link
           className="footer-link"
-          href="https://github.com/1chooo/portfolio"
+          href="/rss.xml"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Code
+          RSS
         </Link>
         <Link className="footer-link" href="/terms">
           Terms

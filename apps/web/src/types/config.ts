@@ -39,7 +39,6 @@ export type Config = {
   siteURL: string;
   navigationLinks: NavigationLink[];
   contacts: Contact[];
-  socialLinks: SocialLink[];
   homeMetaData: Metadata;
   about: About;
   resumes: Resumes;

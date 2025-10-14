@@ -8,9 +8,8 @@ import { MdExpandMore } from "react-icons/md";
 
 import Footer from "@/components/layout/footer";
 import IconBox from "@/components/icon-box";
-import { getIcon } from "@/components/icons";
 
-import type { Contact, SocialLink } from "@/types/config";
+import type { Contact } from "@/types/config";
 
 import styles from "@/styles/layout/sidebar.module.css";
 
@@ -22,7 +21,6 @@ interface SidebarProps {
   preferredName: string;
   status: string;
   contacts?: Contact[];
-  socialLinks?: SocialLink[];
 }
 
 function Sidebar({
@@ -32,7 +30,6 @@ function Sidebar({
   preferredName,
   status,
   contacts,
-  socialLinks,
 }: SidebarProps) {
   const [isActive, setIsActive] = useState(false);
   const sideBarRef = useRef<HTMLDivElement>(null);
@@ -108,25 +105,7 @@ function Sidebar({
             );
           })}
         </ul>
-        <div className={styles.separatorNoLine}></div>
-        <ul className={styles.socialLinksContainer}>
-          {socialLinks?.map(({ url, icon }) => {
-            const Icon = getIcon(icon);
-            return (
-              <li key={icon} className={styles.socialLinkItem}>
-                <Link
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={icon}
-                >
-                  <Icon />
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-        <div className={styles.separatorFooter}></div>
+        <div className={styles.separator}></div>
         <Footer />
       </div>
     </aside>

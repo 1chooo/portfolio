@@ -40,7 +40,6 @@ const {
   navigationLinks,
   jsonLdPerson,
   homeMetaData,
-  socialLinks,
   contacts,
   analytics,
 } = config;
@@ -79,7 +78,6 @@ function HomeLayout({ children }: { readonly children: React.ReactNode }) {
                 middleName={middleName}
                 preferredName={preferredName}
                 status={status}
-                socialLinks={socialLinks}
                 contacts={contacts}
               />
               <div className="main-content">

@@ -82,6 +82,8 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .infoMoreBtn {
@@ -126,21 +128,8 @@
   width: 100%;
   height: 1px;
   background: var(--jet);
-  margin: 16px 0;
-}
-
-.separatorNoLine {
-  margin: 16px 0;
-  width: 100%;
-  height: 1px;
-  opacity: 0;
-}
-
-.separatorFooter {
-  width: 100%;
-  height: 1px;
-  background: var(--jet);
-  margin: 16px 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* Contact List Styles */
@@ -148,7 +137,7 @@
   min-width: 100%;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1rem;
 }
 
 .contactInfoContainer {
@@ -185,27 +174,6 @@
 }
 
 .contactContentLink:hover {
-  color: var(--orange-yellow-crayola);
-}
-
-/* Social Links Styles */
-.socialLinksContainer {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding-bottom: 4px;
-  padding-left: 8px;
-  justify-content: center;
-}
-
-.socialLinkItem {
-  color: var(--light-gray-70);
-  font-size: 18px;
-  transition: all var(--transition-1);
-}
-
-.socialLinkItem:hover {
-  transform: scale(1.1);
   color: var(--orange-yellow-crayola);
 }
 
@@ -355,8 +323,8 @@
   }
 
   .separator:last-of-type {
-    margin: 15px 0;
-    opacity: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 
   .sidebar {
