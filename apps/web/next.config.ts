@@ -12,9 +12,10 @@ const nextConfig: NextConfig = {
     qualities: [25, 50, 75, 100],
   },
   transpilePackages: [
-    "@1chooo/ui",
     "@1chooo/activity-calendar",
     "@1chooo/github-calendar",
+    "@1chooo/schema",
+    "@1chooo/ui",
   ],
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   async redirects() {
@@ -47,6 +48,21 @@ const nextConfig: NextConfig = {
       {
         source: "/cv",
         destination: "/cv.pdf",
+        permanent: true,
+      },
+      {
+        source: "/code",
+        destination: "https://github.com/1chooo",
+        permanent: true,
+      },
+      {
+        source: "/in",
+        destination: "https://www.linkedin.com/in/1chooo",
+        permanent: true,
+      },
+      {
+        source: "/x",
+        destination: "https://x.com/1chooo___",
         permanent: true,
       },
     ];
