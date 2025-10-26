@@ -58,10 +58,6 @@ updates:
         update-types:
           - "minor"
           - "patch"
-      nextra:
-        patterns:
-          - "nextra"
-          - "nextra-theme-docs"
         update-types:
           - "minor"
           - "patch"
@@ -70,5 +66,12 @@ updates:
           - "turbo"
           - "@turbo/*"
         update-types:
+          - "minor"
+          - "patch"
+      docusaurus:
+        patterns:
+          - "@docusaurus/*"
+        update-types:
+          - "major"
           - "minor"
           - "patch"

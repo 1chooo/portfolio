@@ -20,6 +20,9 @@
         "POSTGRES_URL_NON_POOLING"
       ]
     },
+    "1chooo-com-docs#build": {
+      "outputs": ["build/**"]
+    },
     "lint": {
       "dependsOn": ["^lint"]
     },

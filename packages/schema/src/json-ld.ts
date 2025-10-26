@@ -2,7 +2,7 @@ type CollegeOrUniversity = {
   "@type": "CollegeOrUniversity";
   name: string;
   sameAs: string;
-}
+};
 
 /**
  * Schema.org type for Person
@@ -31,25 +31,25 @@ type Person = {
   sameAs?: URL[];
   address?: Text | PostalAddress;
   knowsLanguage?: Text[] | Language[];
-}
+};
 
 /**
  * A Text is a string.
- * 
+ *
  * @see https://schema.org/Text
  */
 type Text = string;
 
 /**
  * A URL is a string that represents a web address.
- * 
+ *
  * @see https://schema.org/URL
  */
 type URL = string;
 
 /**
  * Schema.org type for Language
- * 
+ *
  * @see https://schema.org/Language
  */
 type Language = {
@@ -59,11 +59,11 @@ type Language = {
   description?: Text;
   url?: URL;
   sameAs?: URL[];
-}
+};
 
 /**
  * Schema.org type for PostalAddress
- * 
+ *
  * @see https://schema.org/PostalAddress
  */
 type PostalAddress = {
@@ -75,7 +75,7 @@ type PostalAddress = {
   postOfficeBoxNumber?: Text;
   postalCode?: Text;
   streetAddress?: Text;
-}
+};
 
 /**
  * Schema.org type for Country
@@ -105,7 +105,7 @@ type GeoCoordinates = {
   latitude: string | number;
   longitude: string | number;
   elevation?: string | number;
-}
+};
 
 /**
  * Schema.org type for GeoShape
@@ -116,7 +116,7 @@ type GeoShape = {
   box?: string;
   circle?: string;
   polygon?: string;
-}
+};
 
 /**
  * @see https://schema.org/Thing
@@ -135,12 +135,12 @@ type Thing = {
   sameAs?: URL;
   subjectOf?: CreativeWork | Event;
   url?: URL;
-}
+};
 
 type Action = {
   "@type": "Action";
   error?: Thing;
-}
+};
 
 /**
  * @see https://schema.org/CreativeWork
@@ -148,7 +148,7 @@ type Action = {
 type CreativeWork = {
   "@type": "CreativeWork";
   about?: Thing;
-}
+};
 
 type ImageObject = {
   "@type": "ImageObject";
@@ -156,7 +156,7 @@ type ImageObject = {
   embeddedTextCaption?: Text;
   exifData?: PropertyValue | Text;
   representativeOfPage?: boolean;
-}
+};
 
 /**
  * @see https://schema.org/MediaObject
@@ -164,7 +164,7 @@ type ImageObject = {
 type MediaObject = {
   "@type": "MediaObject";
   contentUrl: URL;
-}
+};
 
 /**
  * @see https://schema.org/PropertyValue
@@ -175,7 +175,7 @@ type PropertyValue = {
   value: Text | number | boolean;
   unitCode?: Text;
   unitText?: Text;
-}
+};
 
 /**
  * @see https://schema.org/Event
@@ -183,16 +183,16 @@ type PropertyValue = {
 type Event = {
   "@type": "Event";
   about?: Thing;
-}
+};
 
 /**
  * A TextObject is an object that contains a description property.
- * 
+ *
  * @see https://schema.org/TextObject
  */
 type TextObject = {
   description: Thing;
-}
+};
 
 /**
  * Interface for embedding JSON-LD structured data in HTML.
@@ -200,6 +200,6 @@ type TextObject = {
  */
 type JsonLdHtml = {
   __html: string;
-}
+};
 
 export { type Person, type JsonLdHtml };

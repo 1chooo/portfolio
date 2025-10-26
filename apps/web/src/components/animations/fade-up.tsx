@@ -11,11 +11,15 @@ interface AnimationProps {
 }
 
 // Generic function to create FadeUp components for any HTML element
-function createFadeUpComponent<T extends keyof JSX.IntrinsicElements>(Component: T) {
-  return function FadeUpComponent(props: AnimationProps & Omit<ComponentProps<T>, keyof AnimationProps>) {
-    const { children, delay, key, className, ...restProps } = props
+function createFadeUpComponent<T extends keyof JSX.IntrinsicElements>(
+  Component: T,
+) {
+  return function FadeUpComponent(
+    props: AnimationProps & Omit<ComponentProps<T>, keyof AnimationProps>,
+  ) {
+    const { children, delay, key, className, ...restProps } = props;
 
-    const MotionComponent = (motion as any)[Component]
+    const MotionComponent = (motion as any)[Component];
 
     return (
       <MotionComponent
@@ -36,8 +40,8 @@ function createFadeUpComponent<T extends keyof JSX.IntrinsicElements>(Component:
       >
         {children}
       </MotionComponent>
-    )
-  }
+    );
+  };
 }
 
 const fadeUp = {
@@ -48,6 +52,6 @@ const fadeUp = {
   // li: createFadeUpComponent("li"),
   // section: createFadeUpComponent("section"),
   // etc.
-}
+};
 
 export { fadeUp, type AnimationProps };

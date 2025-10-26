@@ -1,6 +1,6 @@
 {
   "name": "1chooo-com",
-  "version": "0.14.6",
+  "version": "0.15.0",
   "private": true,
   "author": {
     "name": "Chun-Ho (Hugo) Lin",
@@ -33,6 +33,6 @@
   },
   "packageManager": "pnpm@10.12.1+sha256.889bac470ec93ccc3764488a19d6ba8f9c648ad5e50a9a6e4be3768a5de387a3",
   "engines": {
-    "node": ">=20"
+    "node": "22.x"
   }
 }
