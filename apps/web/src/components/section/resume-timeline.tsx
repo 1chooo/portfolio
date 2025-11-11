@@ -1,14 +1,14 @@
 import IconBox from "@/components/icon-box";
 import ResumeCard from "@/components/resume/resume-card";
 
-import type { ResumeCardType } from "@/types/resume";
+import type { ResumePost } from "@/types/resume";
 
 import { cn } from "@1chooo/ui/lib/utils";
 
 interface ResumeTimeLineProps {
   icon: string;
   title: string;
-  resumeCards: ResumeCardType[];
+  resumePosts: ResumePost[];
 }
 
 import styles from "@/styles/resume/timeline.module.css";
@@ -16,7 +16,7 @@ import styles from "@/styles/resume/timeline.module.css";
 /**
  * @todo update styles name to match lowercase pascal case convention and styles.styleName
  */
-function ResumeTimeLine({ icon, title, resumeCards }: ResumeTimeLineProps) {
+function ResumeTimeLine({ icon, title, resumePosts }: ResumeTimeLineProps) {
   return (
     <div className={cn(styles["timelines"])}>
       <div className="flex items-center gap-4 mb-6">
@@ -25,12 +25,12 @@ function ResumeTimeLine({ icon, title, resumeCards }: ResumeTimeLineProps) {
       </div>
 
       <ol className={cn(styles["timeline"])}>
-        {resumeCards.map((resumeCard: ResumeCardType, index: number) => (
+        {resumePosts.map((resumePost: ResumePost, index: number) => (
           <li
             className={cn(styles["timeline-cards"])}
-            key={`${resumeCard.institution}-${index}`}
+            key={`${resumePost.slug}-${index}`}
           >
-            <ResumeCard resumeCard={resumeCard} />
+            <ResumeCard resumePost={resumePost} />
           </li>
         ))}
       </ol>

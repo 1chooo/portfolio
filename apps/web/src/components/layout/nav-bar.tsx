@@ -26,6 +26,7 @@ const NavBar = ({ navigationLinks }: NavBarProps) => {
     else if (path === "/project" && currentPath.startsWith("/project"))
       return true;
     else if (path === "/post" && currentPath.startsWith("/post")) return true;
+    else if (path === "/resume" && currentPath.startsWith("/resume")) return true;
     return currentPath === path;
   };
 

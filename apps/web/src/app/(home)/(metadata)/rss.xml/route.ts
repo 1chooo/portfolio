@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import RSS from "rss";
-import { getBlogPosts, getProjectPosts } from "@/lib/api/mdx";
-import { BLOG_DIRECTORY, PROJECT_DIRECTORY } from "@/lib/constants";
+import { getBlogPosts, getProjectPosts, getResumePosts } from "@/lib/api/mdx";
+import { BLOG_DIRECTORY, PROJECT_DIRECTORY, RESUME_DIRECTORY } from "@/lib/constants";
 import config from "@/config";
 
 import type { ItemOptions } from "@/types/rss";
@@ -41,6 +41,26 @@ export async function GET() {
       title,
       url: `${siteURL}/project/${project.slug}`,
       date: projectDate,
+      description: excerpt,
+      author: author,
+    };
+
+    feed.item(itemOptions);
+  }
+
+  const resumes = getResumePosts(RESUME_DIRECTORY);
+
+  for (const resume of resumes) {
+    const { title, institution, endDate, excerpt } = resume;
+
+    const resumeDate =
+      endDate && endDate.trim() !== "" ? endDate : new Date().toISOString();
+
+    let itemOptions: ItemOptions;
+    itemOptions = {
+      title: `${institution} - ${title}`,
+      url: `${siteURL}/resume/${resume.slug}`,
+      date: resumeDate,
       description: excerpt,
       author: author,
     };

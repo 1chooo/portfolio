@@ -3,6 +3,7 @@ import matter from "gray-matter";
 import { join } from "path";
 import { calculateReadingTime } from "@/lib/reading-time";
 import { BasePost, ProjectPost, BlogPost } from "@/types/post";
+import { ResumePost } from "@/types/resume";
 
 // Transformer functions for different post types
 export const createBlogPostTransformer =
@@ -235,4 +236,78 @@ export const getProjectPostsByCategory = (
     mdxPostsDirectory,
     category,
     createProjectPostTransformer(),
+  );
+
+// Resume-specific transformers and functions
+export const createResumePostTransformer =
+  () =>
+  (data: any, content: string, slug: string): ResumePost => {
+    return {
+      ...data,
+      slug,
+      content,
+      institution: data.institution || "",
+      institutionImage: data.institutionImage || "",
+      title: data.title || "",
+      category: data.category || "Uncategorized",
+      tags: data.tags || [],
+      author: data.author || { name: "", avatar: "", url: "" },
+      thumbnail: data.thumbnail || "",
+      excerpt: data.excerpt || "",
+      startDate: data.startDate || "",
+      endDate: data.endDate || "",
+    } as ResumePost;
+  };
+
+// Sorting function for resume posts by date (most recent first)
+export const sortByResumeDate = (a: ResumePost, b: ResumePost) => {
+  // If both have endDate, sort by endDate (most recent first)
+  if (a.endDate && b.endDate) {
+    return a.endDate > b.endDate ? -1 : 1;
+  }
+
+  // If one has endDate and the other doesn't, ongoing positions (no endDate) come first
+  if (a.endDate && !b.endDate) {
+    return 1;
+  }
+  if (!a.endDate && b.endDate) {
+    return -1;
+  }
+
+  // If both don't have endDate (both ongoing), sort by startDate (most recent first)
+  if (a.startDate && b.startDate) {
+    return a.startDate > b.startDate ? -1 : 1;
+  }
+
+  return 0;
+};
+
+export const getResumePosts = (mdxPostsDirectory: string): ResumePost[] => {
+  const posts = getMdxPosts(
+    mdxPostsDirectory,
+    createResumePostTransformer(),
+    sortByResumeDate,
+  );
+  return posts;
+};
+
+export const getResumePostBySlug = (
+  mdxPostsDirectory: string,
+  slug: string,
+): ResumePost =>
+  getMdxPostBySlug(mdxPostsDirectory, slug, createResumePostTransformer());
+
+export const getResumeCategories = (
+  mdxPostsDirectory: string,
+): Record<string, number> =>
+  getMdxBlogCategories(mdxPostsDirectory, createResumePostTransformer());
+
+export const getResumePostsByCategory = (
+  mdxPostsDirectory: string,
+  category: string,
+): ResumePost[] =>
+  getMdxPostsByCategory(
+    mdxPostsDirectory,
+    category,
+    createResumePostTransformer(),
   );

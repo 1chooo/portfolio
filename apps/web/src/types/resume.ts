@@ -1,3 +1,5 @@
+import { BasePost } from "@/types/post";
+
 export type TagType = {
   key: string;
   value: string;
@@ -22,4 +24,13 @@ export type ResumeTimeLineType = {
 
 export type Resumes = {
   [key: string]: ResumeTimeLineType;
+};
+
+// New types for MDX-based resume
+export type ResumePost = BasePost & {
+  institution: string;
+  institutionImage: string;
+  tags: TagType[];
+  startDate: string;
+  endDate?: string; // Optional for ongoing positions
 };

@@ -5,7 +5,6 @@ import type { IconType as ReactIconType } from "react-icons";
 import type { Icon as OcticonsType } from "@primer/octicons-react";
 import type { Person } from "@1chooo/schema";
 import type { Metadata, MetadataRoute } from "next";
-import type { Resumes } from "@/types/resume";
 import type { FeedOptions } from "@/types/rss";
 
 export type VCardIconType = ReactIconType | OcticonsType | string;
@@ -41,7 +40,6 @@ export type Config = {
   contacts: Contact[];
   homeMetaData: Metadata;
   about: About;
-  resumes: Resumes;
   /**
    * @see https://shiki.matsu.io/themes for available themes.
    *
