@@ -2,6 +2,8 @@
 
 drafts/
 
+next-env.d.ts
+
 # Dependencies
 node_modules
 .pnp
