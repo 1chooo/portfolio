@@ -35,7 +35,6 @@ export type About = {
   preferredName: string;
   pronouns: string;
   githubUsername: string;
-  introduction: string;
   lifestyles: LifeStyle[];
   techStacks: TechStacks;
 };
