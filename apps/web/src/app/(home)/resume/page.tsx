@@ -26,6 +26,9 @@ export default function Resume() {
   const experiencePosts = resumePosts.filter(
     (post) => post.category === "Experience",
   );
+  const extracurricularPosts = resumePosts.filter(
+    (post) => post.category === "Extracurricular",
+  );
 
   return (
     <article>
@@ -44,6 +47,14 @@ export default function Resume() {
           icon={ICON_NAMES.BRIEFCASE}
           title="Internship Experiences"
           resumePosts={experiencePosts}
+        />
+      )}
+
+      {extracurricularPosts.length > 0 && (
+        <ResumeTimeLine
+          icon={ICON_NAMES.BRIEFCASE}
+          title="Extracurricular Activities"
+          resumePosts={extracurricularPosts}
         />
       )}
     </article>
