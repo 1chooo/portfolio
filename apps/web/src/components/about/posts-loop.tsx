@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 import { BlurFadeLi, BlurFade } from "@/components/magicui/blur-fade";
 import { ViewCounter } from "@/app/(home)/blog/view-counter";
+import { track } from '@vercel/analytics';
 
 import { BlogPost } from "@/types/post";
 import { cn } from "@1chooo/ui/lib/utils";
@@ -53,7 +54,10 @@ function PostsLoop({ count, posts }: BlogPostsProps) {
             delay={0.4}
             direction="up"
             className={cn(styles.gradientCard, "group cursor-pointer")}
-            onClick={() => handlePostClick(post.link)}
+            onClick={() => {
+              handlePostClick(post.link)
+              track('Click My Writings', { post: post.title, slug: post.slug });
+            }}
           >
             <div className="flex flex-col gap-1 overflow-hidden relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1">
               <h2 className="flex items-center mb-3">

@@ -1,9 +1,12 @@
+"use client";
+
 import Image from "next/image";
 
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
 import { BlurFadeLi, BlurFade } from "@/components/magicui/blur-fade";
 import { getIcon, ICON_NAMES } from "@/components/icons";
+import { track } from '@vercel/analytics';
 
 import { ProjectPost } from "@/types/post";
 
@@ -39,6 +42,9 @@ function SelectedProjects({
             inView
             delay={0.4}
             direction="up"
+            onClick={() => {
+              track('Click Selected Projects', { project: post.title, slug: post.slug });
+            }}
           >
             <ViewTransitionsProgressBarLink
               href={`${route}/${post.slug}`}
