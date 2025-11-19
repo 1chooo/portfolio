@@ -90,7 +90,7 @@ const Photo = ({
 export const Photos = () => {
   return (
     <div className="my-8">
-      <div className="hide-scrollbar -my-4 flex gap-8 overflow-y-auto py-4 px-8">
+      <div className="hide-scrollbar -my-4 flex gap-8 overflow-y-auto py-4 md:px-8">
         {travelImages.map((travelImage, index) => (
           <Photo
             key={travelImage.title}
