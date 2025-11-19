@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
-import { BlurFade } from "@/components/magicui/blur-fade";
+import { BlurFadeLi, BlurFade } from "@/components/magicui/blur-fade";
 import { getIcon, ICON_NAMES } from "@/components/icons";
 
 import { ProjectPost } from "@/types/post";
@@ -33,45 +33,44 @@ function SelectedProjects({
     <>
       <ul className={cn(styles["latest-posts"])}>
         {visiblePosts.map((post, index) => (
-          <BlurFade
+          <BlurFadeLi
+            className={cn(styles["latest-post"], "group active")}
             key={`${index}-${post.slug}`}
             inView
             delay={0.4}
             direction="up"
           >
-            <li className={cn(styles["latest-post"], "group active")}>
-              <ViewTransitionsProgressBarLink
-                href={`${route}/${post.slug}`}
-                rel="noopener noreferrer"
-              >
-                <figure className={cn(styles["latest-post-img"])}>
-                  <div
-                    className={cn(
-                      styles["latest-post-icon-box"],
-                      "absolute text-orange-yellow-crayola text-xl bg-jet p-[18px] rounded-xl top-1/2 left-1/2 transition-all duration-250 ease-linear",
-                    )}
-                  >
-                    <Eye />
-                  </div>
-                  <Image
-                    src={post.thumbnail}
-                    alt={
-                      post.excerpt || "Chun-Ho (Hugo) Lin - Selected Project"
-                    }
-                    width={480}
-                    height={270}
-                    priority
-                    quality={50}
-                    placeholder="empty"
-                    loading="eager"
-                  />
-                </figure>
-                <h3 className="ml-[10px] text-white-2 text-base font-normal leading-[1.3] group-hover:text-orange-yellow-crayola group-hover:font-bold">
-                  {post.title}
-                </h3>
-              </ViewTransitionsProgressBarLink>
-            </li>
-          </BlurFade>
+            <ViewTransitionsProgressBarLink
+              href={`${route}/${post.slug}`}
+              rel="noopener noreferrer"
+            >
+              <figure className={cn(styles["latest-post-img"])}>
+                <div
+                  className={cn(
+                    styles["latest-post-icon-box"],
+                    "absolute text-orange-yellow-crayola text-xl bg-jet p-[18px] rounded-xl top-1/2 left-1/2 transition-all duration-250 ease-linear",
+                  )}
+                >
+                  <Eye />
+                </div>
+                <Image
+                  src={post.thumbnail}
+                  alt={
+                    post.excerpt || "Chun-Ho (Hugo) Lin - Selected Project"
+                  }
+                  width={480}
+                  height={270}
+                  priority
+                  quality={50}
+                  placeholder="empty"
+                  loading="eager"
+                />
+              </figure>
+              <h3 className="ml-[10px] text-white-2 text-base font-normal leading-[1.3] group-hover:text-orange-yellow-crayola group-hover:font-bold">
+                {post.title}
+              </h3>
+            </ViewTransitionsProgressBarLink>
+          </BlurFadeLi>
         ))}
       </ul>
 
