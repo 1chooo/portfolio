@@ -58,6 +58,9 @@ function PostsLoop({ count, posts }: BlogPostsProps) {
               handlePostClick(post.link)
               track('Click My Writings', { post: post.title, slug: post.slug });
             }}
+            data-umami-event="Click My Writings"
+            data-umami-title={post.title}
+            data-umami-slug={post.slug}
           >
             <div className="flex flex-col gap-1 overflow-hidden relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1">
               <h2 className="flex items-center mb-3">

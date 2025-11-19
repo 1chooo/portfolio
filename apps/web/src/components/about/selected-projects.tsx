@@ -45,6 +45,9 @@ function SelectedProjects({
             onClick={() => {
               track('Click Selected Projects', { project: post.title, slug: post.slug });
             }}
+            data-umami-event="Click Selected Projects"
+            data-umami-project={post.title}
+            data-umami-slug={post.slug}
           >
             <ViewTransitionsProgressBarLink
               href={`${route}/${post.slug}`}
