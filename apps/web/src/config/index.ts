@@ -22,6 +22,7 @@ const config: Config = {
     { path: "/resume", label: "Resume" },
     { path: "/project", label: "Project" },
     { path: "/blog", label: "Blog" },
+    { path: "/gallery", label: "Gallery" },
   ],
   contacts: [
     {
