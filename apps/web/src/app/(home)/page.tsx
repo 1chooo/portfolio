@@ -2,13 +2,14 @@ import dynamic from "next/dynamic";
 
 import PageTitle from "@/components/page-title";
 import { MyWritings } from "@/components/about/my-writings";
-import { FadeLeft } from "@/components/animations/animations";
+import { FadeLeft, FadeUpDiv } from "@/components/animations/animations";
 import {
   getBlogPosts,
   getCleanMdxContentFromPath,
   getProjectPosts,
 } from "@/lib/api/mdx";
 import { ABOUT_PATH, BLOG_DIRECTORY, PROJECT_DIRECTORY } from "@/lib/constants";
+import { Photos } from "@/components/about/photos";
 
 const AboutSection = dynamic(() => import("@/components/section/about"));
 const Mdx = dynamic(() => import("@/components/mdx"));
@@ -28,6 +29,10 @@ function About() {
         <Mdx source={getCleanMdxContentFromPath(ABOUT_PATH)} />
       </FadeLeft>
 
+      <FadeUpDiv delay={0.3 * 2}>
+        <Photos />
+      </FadeUpDiv>
+      
       <AboutSection id="selected-project" title="Selected Project">
         <SelectedProjects
           count={3}
