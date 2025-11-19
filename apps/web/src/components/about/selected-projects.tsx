@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import { sendGTMEvent } from '@next/third-parties/google';
 
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
 import { BlurFadeLi, BlurFade } from "@/components/magicui/blur-fade";
 import { getIcon, ICON_NAMES } from "@/components/icons";
-import { track } from '@vercel/analytics';
 
 import { ProjectPost } from "@/types/post";
 
@@ -42,16 +42,25 @@ function SelectedProjects({
             inView
             delay={0.4}
             direction="up"
-            onClick={() => {
-              track('Click Selected Projects', { project: post.title, slug: post.slug });
-            }}
-            data-umami-event="Click Selected Projects"
-            data-umami-project={post.title}
-            data-umami-slug={post.slug}
           >
             <ViewTransitionsProgressBarLink
               href={`${route}/${post.slug}`}
               rel="noopener noreferrer"
+              onClick={() => {
+                // Umami tracking
+                if (typeof window !== 'undefined' && window.umami) {
+                  window.umami.track('Click Selected Projects', {
+                    project: post.title,
+                    slug: post.slug,
+                  });
+                }
+                // Google Analytics tracking
+                sendGTMEvent({
+                  event: 'clickSelectedProjects',
+                  value: post.slug,
+                  project_title: post.title,
+                });
+              }}
             >
               <figure className={cn(styles["latest-post-img"])}>
                 <div

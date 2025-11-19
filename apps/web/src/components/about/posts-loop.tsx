@@ -2,11 +2,11 @@
 
 import React, { Suspense } from "react";
 import { useRouter } from "next/navigation";
+import { sendGTMEvent } from '@next/third-parties/google';
 
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 import { BlurFadeLi, BlurFade } from "@/components/magicui/blur-fade";
 import { ViewCounter } from "@/app/(home)/blog/view-counter";
-import { track } from '@vercel/analytics';
 
 import { BlogPost } from "@/types/post";
 import { cn } from "@1chooo/ui/lib/utils";
@@ -40,7 +40,20 @@ function PostsLoop({ count, posts }: BlogPostsProps) {
     };
   });
 
-  const handlePostClick = (link: string) => {
+  const handlePostClick = (link: string, title: string, slug: string) => {
+    // Umami tracking
+    if (typeof window !== 'undefined' && window.umami) {
+      window.umami.track('Click My Writings', {
+        title,
+        slug,
+      });
+    }
+    // Google Analytics tracking
+    sendGTMEvent({
+      event: 'clickMyWritings',
+      value: slug,
+      post_title: title,
+    });
     router.push(link);
   };
 
@@ -54,13 +67,7 @@ function PostsLoop({ count, posts }: BlogPostsProps) {
             delay={0.4}
             direction="up"
             className={cn(styles.gradientCard, "group cursor-pointer")}
-            onClick={() => {
-              handlePostClick(post.link)
-              track('Click My Writings', { post: post.title, slug: post.slug });
-            }}
-            data-umami-event="Click My Writings"
-            data-umami-title={post.title}
-            data-umami-slug={post.slug}
+            onClick={() => handlePostClick(post.link, post.title, post.slug)}
           >
             <div className="flex flex-col gap-1 overflow-hidden relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1">
               <h2 className="flex items-center mb-3">
