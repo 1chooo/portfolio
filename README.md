@@ -1,6 +1,4 @@
-<a name="readme-top"></a>
-
-# [1chooo.com] &middot; [![1chooo.com built with Next.js](https://img.shields.io/badge/Next.js-000000.svg?style=for-the-badge&logo=Next.js&labelColor=2C2C2B&color=FFDB70)](https://nextjs.org/) [![1chooo.com GitHub Stargazers](https://img.shields.io/github/stars/1chooo/1chooo.com?style=for-the-badge&labelColor=2C2C2B&color=FFDB70)](https://github.com/1chooo/portfolio/stargazers) [![1chooo.com GitHub license](https://img.shields.io/github/license/1chooo/1chooo.com?style=for-the-badge&labelColor=2C2C2B&color=FFDB70)](https://github.com/facebook/react/blob/main/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge&labelColor=2C2C2B&color=FFDB70)](https://docs.1chooo.com/contributing)
+# [1chooo.com] &middot; [![1chooo.com built with Next.js](https://img.shields.io/badge/Next.js-000000.svg?style=flat&logo=Next.js&labelColor=2C2C2B&color=FFDB70)](https://nextjs.org/) [![1chooo.com GitHub Stargazers](https://img.shields.io/github/stars/1chooo/1chooo.com?style=flat&labelColor=2C2C2B&color=FFDB70)](https://github.com/1chooo/portfolio/stargazers) [![1chooo.com GitHub license](https://img.shields.io/github/license/1chooo/1chooo.com?style=flat&labelColor=2C2C2B&color=FFDB70)](https://github.com/facebook/react/blob/main/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat&labelColor=2C2C2B&color=FFDB70)](https://docs.1chooo.com/contributing)
 
 [1chooo.com]: https://1chooo.com
 
@@ -57,10 +55,4 @@ This [work] is licensed under [Creative Commons Attribution 4.0 International][c
 
 ## Star History
 
-[![Star History Chart](https://app.repohistory.com/api/svg?repo=1chooo/portfolio&type=Date&background=2C2C2B&color=FFDB70)](https://app.repohistory.com/star-history)
-
-<p align="right" style="font-size: 14px; color: #555; margin-top: 20px;">
-    <a href="#readme-top" style="text-decoration: none; color: #007bff; font-weight: bold;">
-        ↑ Back to Top ↑
-    </a>
-</p>
+[![Star History Chart](https://app.repohistory.com/api/svg?repo=1chooo/portfolio&type=Date&background=2C2C2B&color=FFDB70)](https://dev.1chooo.com/software-compound-interest)
