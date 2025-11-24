@@ -6,25 +6,11 @@
   box-shadow: var(--shadow-1);
   z-index: 1;
   margin-bottom: 15px;
-  max-height: 112px;
-  overflow: hidden;
-  transition: var(--transition-2);
-}
-
-.sidebarActive {
-  max-height: 40rem;
 }
 
 /* Sidebar info more section */
 .sidebarInfoMore {
-  opacity: 0;
-  visibility: hidden;
-  transition: var(--transition-2);
-}
-
-.sidebarActive .sidebarInfoMore {
-  opacity: 1;
-  visibility: visible;
+  display: none;
 }
 
 .sidebarInfo {
@@ -86,43 +72,7 @@
   margin-bottom: 1rem;
 }
 
-.infoMoreBtn {
-  position: absolute;
-  top: -15px;
-  right: -15px;
-  border-radius: 0 15px;
-  font-size: 13px;
-  color: var(--orange-yellow-crayola);
-  background: var(--border-gradient-onyx);
-  padding: 10px;
-  box-shadow: var(--shadow-2);
-  transition: var(--transition-1);
-  z-index: 1;
-}
 
-.infoMoreBtn::before {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  border-radius: inherit;
-  background: var(--bg-gradient-jet);
-  transition: var(--transition-1);
-  z-index: -1;
-}
-
-.infoMoreBtn:hover,
-.infoMoreBtn:focus {
-  background: var(--bg-gradient-yellow-1);
-}
-
-.infoMoreBtn:hover::before,
-.infoMoreBtn:focus::before {
-  background: var(--bg-gradient-yellow-2);
-}
-
-.infoMoreBtn span {
-  display: none;
-}
 
 .separator {
   width: 100%;
@@ -233,21 +183,6 @@
     gap: 20px;
   }
 
-  .infoMoreBtn {
-    top: -30px;
-    right: -30px;
-    padding: 10px 15px;
-  }
-
-  .infoMoreBtn span {
-    display: block;
-    font-size: var(--fs-8);
-  }
-
-  .infoMoreBtn svg {
-    display: none;
-  }
-
   .separator {
     margin: 32px 0;
   }
@@ -256,12 +191,7 @@
     width: 520px;
     margin-inline: auto;
     padding: 30px;
-    max-height: 180px;
     margin-bottom: 30px;
-  }
-
-  .sidebarActive {
-    max-height: 40rem;
   }
 }
 
@@ -271,24 +201,12 @@
     gap: 30px 15px;
   }
 
-  .infoMoreBtn svg {
-    display: none;
-  }
-
   .sidebar {
     width: 700px;
-  }
-
-  .sidebarActive {
-    max-height: 60rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .infoMoreBtn svg {
-    display: none;
-  }
-
   .sidebar {
     width: 950px;
     box-shadow: var(--shadow-5);
@@ -318,10 +236,6 @@
     grid-template-columns: 1fr;
   }
 
-  .infoMoreBtn {
-    display: none;
-  }
-
   .separator:last-of-type {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -339,7 +253,6 @@
   }
 
   .sidebarInfoMore {
-    opacity: 1;
-    visibility: visible;
+    display: block;
   }
 }
