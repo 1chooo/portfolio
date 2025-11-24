@@ -87,7 +87,7 @@ function HomeLayout({ children }: { readonly children: React.ReactNode }) {
               </div>
             </main>
 
-            <main className="lg:hidden xl:hidden 2xl:hidden">
+            <main className="xl:hidden 2xl:hidden">
               <article>
                 <SidebarFooter
                   avatar={avatar}
