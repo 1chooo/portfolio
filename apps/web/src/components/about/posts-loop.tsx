@@ -50,7 +50,7 @@ function PostsLoop({ count, posts }: BlogPostsProps) {
     }
     // Google Analytics tracking
     sendGTMEvent({
-      event: 'clickMyWritings',
+      event: 'click_my_writings',
       value: slug,
       post_title: title,
     });

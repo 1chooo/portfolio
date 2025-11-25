@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 import Footer from "@/components/layout/footer";
 import IconBox from "@/components/icon-box";
@@ -8,7 +7,7 @@ import type { Contact } from "@/types/config";
 
 import styles from "@/styles/layout/sidebar.module.css";
 
-interface SidebarProps {
+interface SidebarFooterProps {
   avatar: string;
   firstName: string;
   lastName: string;
@@ -18,29 +17,17 @@ interface SidebarProps {
   contacts?: Contact[];
 }
 
-function Sidebar({
-  avatar,
+function SidebarFooter({
   firstName,
   lastName,
   preferredName,
   status,
   contacts,
-}: SidebarProps) {
+}: SidebarFooterProps) {
+
   return (
-    <aside className={styles.sidebar} data-sidebar>
-      <div className={styles.sidebarInfo}>
-        <figure className={styles.avatarBox}>
-          <Image
-            id={`${firstName} (${preferredName}) ${lastName}`}
-            src={avatar}
-            alt={`${firstName} (${preferredName}) ${lastName}`}
-            width={150}
-            height={150}
-            quality={50}
-            loading="eager"
-            priority
-          />
-        </figure>
+    <aside className={styles.sidebarFooter} data-sidebar-footer>
+      <div className={styles.sidebarFooterInfo}>
         <div>
           <h1
             className={styles.name}
@@ -52,7 +39,7 @@ function Sidebar({
         </div>
       </div>
 
-      <div className={styles.sidebarInfoMore}>
+      <div className={styles.sidebarFooterInfoMore}>
         <div className={styles.separator}></div>
         <ul className={styles.contactsList}>
           {contacts?.map((contact, index) => {
@@ -89,5 +76,5 @@ function Sidebar({
   );
 }
 
-export default Sidebar;
-export { Sidebar };
+export default SidebarFooter;
+export { SidebarFooter };

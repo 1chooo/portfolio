@@ -56,7 +56,7 @@ function SelectedProjects({
                 }
                 // Google Analytics tracking
                 sendGTMEvent({
-                  event: 'clickSelectedProjects',
+                  event: 'click_selected_projects',
                   value: post.slug,
                   project_title: post.title,
                 });
