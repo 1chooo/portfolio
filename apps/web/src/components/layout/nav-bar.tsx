@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { usePathname } from "next/navigation";
+import { sendGTMEvent } from '@next/third-parties/google';
 
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 import { fadeUp } from "@/components/animations/fade-up";
@@ -30,6 +31,23 @@ const NavBar = ({ navigationLinks }: NavBarProps) => {
     return currentPath === path;
   };
 
+  const handleNavClick = (item: NavigationLink) => {
+    // Umami tracking
+    if (typeof window !== 'undefined' && window.umami) {
+      window.umami.track('Click Navigation', {
+        label: item.label,
+        path: item.path,
+      });
+    }
+    // Google Analytics tracking
+    sendGTMEvent({
+      event: 'click_navigation',
+      value: item.path,
+      nav_label: item.label,
+    });
+    setActive(item);
+  };
+
   useEffect(() => {
     const activeLink = navigationLinks.find((link) => isActive(link.path));
     if (activeLink) {
@@ -44,7 +62,7 @@ const NavBar = ({ navigationLinks }: NavBarProps) => {
           <li
             key={item.label}
             className="py-2 relative duration-300 transition-colors hover:!text-orange-yellow-crayola navbar-item"
-            onClick={() => setActive(item)}
+            onClick={() => handleNavClick(item)}
             onMouseEnter={() => setIsHover(item)}
             onMouseLeave={() => setIsHover(null)}
             style={{
