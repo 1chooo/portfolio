@@ -7,7 +7,7 @@ import type { Contact } from "@/types/config";
 
 import styles from "@/styles/layout/sidebar.module.css";
 
-interface SidebarFooterProps {
+interface MobileFooterProps {
   avatar: string;
   firstName: string;
   lastName: string;
@@ -17,16 +17,18 @@ interface SidebarFooterProps {
   contacts?: Contact[];
 }
 
-function SidebarFooter({
+function MobileFooter({
   firstName,
   lastName,
   preferredName,
   status,
   contacts,
-}: SidebarFooterProps) {
+}: MobileFooterProps) {
 
   return (
-    <aside className={styles.sidebarFooter} data-sidebar-footer>
+    <footer className={styles.mobileFooterWrapper}>
+      <article className={styles.mobileFooterArticle}>
+        <aside className={styles.sidebarFooter} data-sidebar-footer>
       <div className={styles.sidebarFooterInfo}>
         <div>
           <h1
@@ -72,9 +74,11 @@ function SidebarFooter({
         <div className={styles.separator}></div>
         <Footer />
       </div>
-    </aside>
+        </aside>
+      </article>
+    </footer>
   );
 }
 
-export default SidebarFooter;
-export { SidebarFooter };
+export default MobileFooter;
+export { MobileFooter };

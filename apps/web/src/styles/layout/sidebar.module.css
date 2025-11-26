@@ -213,7 +213,28 @@
   }
 }
 
+.mobileFooterWrapper {
+  margin: 15px 12px;
+  min-width: 259px;
+  margin-bottom: 4rem;
+}
+
+.mobileFooterArticle {
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: var(--shadow-1);
+  z-index: 1;
+  display: block;
+  animation: fade 0.5s ease backwards;
+}
+
 @media (min-width: 1250px) {
+  .mobileFooterWrapper {
+    display: none;
+  }
+
   .sidebarInfo {
     flex-direction: column;
   }
