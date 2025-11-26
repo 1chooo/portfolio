@@ -5,7 +5,7 @@ import { ViewTransitions } from "next-view-transitions";
 
 import { NavBar } from "@/components/layout/nav-bar";
 import Sidebar from "@/components/layout/sidebar";
-import SidebarFooter from "@/components/layout/sidebar-footer";
+import MobileFooter from "@/components/layout/mobile-footer";
 import Hello from "@/components/hello";
 import { ProgressBar } from "@/components/progress-bar";
 import { GoogleAnalytic } from "@/components/analytics/google";
@@ -87,19 +87,15 @@ function HomeLayout({ children }: { readonly children: React.ReactNode }) {
               </div>
             </main>
 
-            <main className="xl:hidden 2xl:hidden">
-              <article>
-                <SidebarFooter
-                  avatar={avatar}
-                  firstName={firstName}
-                  lastName={lastName}
-                  middleName={middleName}
-                  preferredName={preferredName}
-                  status={status}
-                  contacts={contacts}
-                />
-              </article>
-            </main>
+            <MobileFooter
+              avatar={avatar}
+              firstName={firstName}
+              lastName={lastName}
+              middleName={middleName}
+              preferredName={preferredName}
+              status={status}
+              contacts={contacts}
+            />
           </ProgressBar>
           <Script
             id="application/ld+json"
