@@ -6,9 +6,11 @@ import { useRouter } from "next/navigation";
 import { sendGTMEvent } from "@next/third-parties/google";
 import { ViewCounter } from "@/app/(home)/blog/view-counter";
 
+import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 import { BlurFadeLi } from "@/components/magicui/blur-fade";
+import { getIcon, ICON_NAMES } from "@/components/icons";
 
 import { cn } from "@1chooo/ui/lib/utils";
 
@@ -21,6 +23,8 @@ interface PostCardsProps {
 }
 
 function PostCards({ posts }: PostCardsProps) {
+  const ArrowRight = getIcon(ICON_NAMES.ARROW_RIGHT);
+
   return (
     <div className="w-full md:w-2/3 space-y-7">
       <ul className="space-y-6">
@@ -28,15 +32,20 @@ function PostCards({ posts }: PostCardsProps) {
           <PostCard key={post.slug} post={post} index={index} />
         ))}
       </ul>
-
       <BlurFade inView delay={0.4} direction="up">
-        <div className="flex items-center justify-center w-full py-4">
-          <ViewTransitionsProgressBarLink
-            href="/blog"
-            className="inline-flex w-auto px-4 py-2 text-xs font-semibold duration-300 ease-out border rounded-full bg-white text-neutral-900 hover:border-neutral-300 hover:bg-black hover:text-white"
+        <div className="z-10 flex items-center justify-center py-4">
+          <div
+            className={cn(
+              "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800",
+            )}
           >
-            {"View All My Writings"}
-          </ViewTransitionsProgressBarLink>
+            <ViewTransitionsProgressBarLink href="/blog">
+              <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
+                <span>{"✨ View All My Writings"}</span>
+                <ArrowRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+              </AnimatedShinyText>
+            </ViewTransitionsProgressBarLink>
+          </div>
         </div>
       </BlurFade>
     </div>
