@@ -3,7 +3,7 @@
 import React, { Suspense } from "react";
 
 import { useRouter } from "next/navigation";
-import { sendGTMEvent } from '@next/third-parties/google';
+import { sendGTMEvent } from "@next/third-parties/google";
 import { ViewCounter } from "@/app/(home)/blog/view-counter";
 
 import { BlurFade } from "@/components/magicui/blur-fade";
@@ -54,15 +54,15 @@ function PostCard({ post, index }: PostCardProps) {
 
   const handlePostClick = (link: string, title: string, slug: string) => {
     // Umami tracking
-    if (typeof window !== 'undefined' && window.umami) {
-      window.umami.track('Click My Writings', {
+    if (typeof window !== "undefined" && window.umami) {
+      window.umami.track("Click My Writings", {
         title,
         slug,
       });
     }
     // Google Analytics tracking
     sendGTMEvent({
-      event: 'click_my_writings',
+      event: "click_my_writings",
       value: slug,
       post_title: title,
     });

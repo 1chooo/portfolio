@@ -24,56 +24,55 @@ function MobileFooter({
   status,
   contacts,
 }: MobileFooterProps) {
-
   return (
     <footer className={styles.mobileFooterWrapper}>
       <article className={styles.mobileFooterArticle}>
         <aside className={styles.sidebarFooter} data-sidebar-footer>
-      <div className={styles.sidebarFooterInfo}>
-        <div>
-          <h1
-            className={styles.name}
-            title={`${firstName} (${preferredName}) ${lastName}`}
-          >
-            {firstName} ({preferredName}) {lastName}
-          </h1>
-          <p className={styles.title}>{status}</p>
-        </div>
-      </div>
-
-      <div className={styles.sidebarFooterInfoMore}>
-        <div className={styles.separator}></div>
-        <ul className={styles.contactsList}>
-          {contacts?.map((contact, index) => {
-            const { icon, title, content, link } = contact;
-
-            const ContentElement = link ? (
-              <Link
-                href={link}
-                className={styles.contactContentLink}
-                target="_blank"
-                rel="noopener noreferrer"
+          <div className={styles.sidebarFooterInfo}>
+            <div>
+              <h1
+                className={styles.name}
+                title={`${firstName} (${preferredName}) ${lastName}`}
               >
-                {content}
-              </Link>
-            ) : (
-              <span className={styles.contactContent}>{content}</span>
-            );
+                {firstName} ({preferredName}) {lastName}
+              </h1>
+              <p className={styles.title}>{status}</p>
+            </div>
+          </div>
 
-            return (
-              <li key={index} className={styles.contactItem}>
-                <IconBox iconName={icon} />
-                <div className={styles.contactInfoContainer}>
-                  <p className={styles.contactTitle}>{title}</p>
-                  {ContentElement}
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-        <div className={styles.separator}></div>
-        <Footer />
-      </div>
+          <div className={styles.sidebarFooterInfoMore}>
+            <div className={styles.separator}></div>
+            <ul className={styles.contactsList}>
+              {contacts?.map((contact, index) => {
+                const { icon, title, content, link } = contact;
+
+                const ContentElement = link ? (
+                  <Link
+                    href={link}
+                    className={styles.contactContentLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {content}
+                  </Link>
+                ) : (
+                  <span className={styles.contactContent}>{content}</span>
+                );
+
+                return (
+                  <li key={index} className={styles.contactItem}>
+                    <IconBox iconName={icon} />
+                    <div className={styles.contactInfoContainer}>
+                      <p className={styles.contactTitle}>{title}</p>
+                      {ContentElement}
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+            <div className={styles.separator}></div>
+            <Footer />
+          </div>
         </aside>
       </article>
     </footer>

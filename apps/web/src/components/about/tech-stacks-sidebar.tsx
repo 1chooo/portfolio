@@ -13,7 +13,13 @@ function TechStacksSidebar() {
   return (
     <ul className="w-full mt-10 md:w-1/3 md:mt-0">
       {Object.entries(config.techStacks).map(([category, badges]) => (
-        <BlurFadeLi inView delay={0.4} direction="up" key={category} className={cn(styles.gradientCard, "mb-4")}>
+        <BlurFadeLi
+          inView
+          delay={0.4}
+          direction="up"
+          key={category}
+          className={cn(styles.gradientCard, "mb-4")}
+        >
           <div className="flex flex-wrap gap-2 shadow-feature-card dark:shadow-feature-card-dark rounded-xl">
             <div className="relative flex items-center space-x-2">
               <Zap className="flex-none text-white-1" size={18} />
@@ -23,9 +29,7 @@ function TechStacksSidebar() {
             </div>
             <div className="flex flex-wrap gap-2 shadow-feature-card dark:shadow-feature-card-dark rounded-xl mt-4">
               {badges.map((badgeKey) => (
-                <span key={badgeKey}>
-                  {ClickableTechBadges[badgeKey]}
-                </span>
+                <span key={badgeKey}>{ClickableTechBadges[badgeKey]}</span>
               ))}
             </div>
           </div>

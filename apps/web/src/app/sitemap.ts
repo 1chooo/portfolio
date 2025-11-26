@@ -1,7 +1,11 @@
 import type { MetadataRoute } from "next";
 
 import { getProjectPosts, getBlogPosts, getResumePosts } from "@/lib/api/mdx";
-import { BLOG_DIRECTORY, PROJECT_DIRECTORY, RESUME_DIRECTORY } from "@/lib/constants";
+import {
+  BLOG_DIRECTORY,
+  PROJECT_DIRECTORY,
+  RESUME_DIRECTORY,
+} from "@/lib/constants";
 import config from "@/config";
 
 const { siteURL } = config;

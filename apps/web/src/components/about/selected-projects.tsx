@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { sendGTMEvent } from '@next/third-parties/google';
+import { sendGTMEvent } from "@next/third-parties/google";
 
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
@@ -48,15 +48,15 @@ function SelectedProjects({
               rel="noopener noreferrer"
               onClick={() => {
                 // Umami tracking
-                if (typeof window !== 'undefined' && window.umami) {
-                  window.umami.track('Click Selected Projects', {
+                if (typeof window !== "undefined" && window.umami) {
+                  window.umami.track("Click Selected Projects", {
                     project: post.title,
                     slug: post.slug,
                   });
                 }
                 // Google Analytics tracking
                 sendGTMEvent({
-                  event: 'click_selected_projects',
+                  event: "click_selected_projects",
                   value: post.slug,
                   project_title: post.title,
                 });
@@ -73,9 +73,7 @@ function SelectedProjects({
                 </div>
                 <Image
                   src={post.thumbnail}
-                  alt={
-                    post.excerpt || "Chun-Ho (Hugo) Lin - Selected Project"
-                  }
+                  alt={post.excerpt || "Chun-Ho (Hugo) Lin - Selected Project"}
                   width={480}
                   height={270}
                   priority

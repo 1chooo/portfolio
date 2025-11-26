@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { usePathname } from "next/navigation";
-import { sendGTMEvent } from '@next/third-parties/google';
+import { sendGTMEvent } from "@next/third-parties/google";
 
 import { ViewTransitionsProgressBarLink } from "@/components/progress-bar";
 import { fadeUp } from "@/components/animations/fade-up";
@@ -21,7 +21,8 @@ const NavBar = ({ navigationLinks }: NavBarProps) => {
 
   const isActive = (path: string) => {
     if (path === "/blog" && currentPath.startsWith("/blog")) return true;
-    if (path === "/portfolio" && currentPath.startsWith("/portfolio")) return true;
+    if (path === "/portfolio" && currentPath.startsWith("/portfolio"))
+      return true;
     if (path === "/project" && currentPath.startsWith("/project")) return true;
     if (path === "/post" && currentPath.startsWith("/post")) return true;
     if (path === "/resume" && currentPath.startsWith("/resume")) return true;
@@ -30,15 +31,15 @@ const NavBar = ({ navigationLinks }: NavBarProps) => {
 
   const handleNavClick = (item: NavigationLink) => {
     // Umami tracking
-    if (typeof window !== 'undefined' && window.umami) {
-      window.umami.track('Switch Navigation Tab', {
+    if (typeof window !== "undefined" && window.umami) {
+      window.umami.track("Switch Navigation Tab", {
         label: item.label,
         path: item.path,
       });
     }
     // Google Analytics tracking
     sendGTMEvent({
-      event: 'switch_navigation_tab',
+      event: "switch_navigation_tab",
       value: item.path,
       nav_label: item.label,
     });
@@ -50,7 +51,7 @@ const NavBar = ({ navigationLinks }: NavBarProps) => {
         {navigationLinks.map((item) => {
           const active = isActive(item.path);
           const hovered = hoveredPath === item.path;
-          
+
           return (
             <li key={item.label} className="py-2 navbar-item">
               <ViewTransitionsProgressBarLink
@@ -65,21 +66,21 @@ const NavBar = ({ navigationLinks }: NavBarProps) => {
                 }}
               >
                 {item.label}
-                
+
                 {hovered && (
                   <motion.div
                     layoutId="hover-bg"
                     className="absolute inset-0 bg-white/10 rounded-xl -z-10"
                   />
                 )}
-                
+
                 {active && (
                   <motion.div
                     layoutId="active"
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-orange-yellow-crayola"
                   />
                 )}
-                
+
                 {hovered && (
                   <motion.div
                     layoutId="hover"

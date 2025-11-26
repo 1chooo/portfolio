@@ -9,27 +9,27 @@ const images = [
   {
     src: "/images/photo/usc.webp",
     alt: "USC",
-    title: "USC"
+    title: "USC",
   },
   {
     src: "/images/photo/half-dome.webp",
     alt: "Half Dome",
-    title: "Yosemite Half Dome"
+    title: "Yosemite Half Dome",
   },
   {
     src: "/images/photo/vernal-falls.webp",
     alt: "Vernal Falls",
-    title: "Yosemite Vernal Falls"
+    title: "Yosemite Vernal Falls",
   },
   {
     src: "/images/photo/ucla.webp",
     alt: "UCLA",
-    title: "UCLA"
+    title: "UCLA",
   },
   {
     src: "/images/photo/ucsd.webp",
     alt: "UCSD",
-    title: "UCSD"
+    title: "UCSD",
   },
 ];
 

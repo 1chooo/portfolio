@@ -1,7 +1,11 @@
 import { NextResponse } from "next/server";
 import RSS from "rss";
 import { getBlogPosts, getProjectPosts, getResumePosts } from "@/lib/api/mdx";
-import { BLOG_DIRECTORY, PROJECT_DIRECTORY, RESUME_DIRECTORY } from "@/lib/constants";
+import {
+  BLOG_DIRECTORY,
+  PROJECT_DIRECTORY,
+  RESUME_DIRECTORY,
+} from "@/lib/constants";
 import config from "@/config";
 
 import type { ItemOptions } from "@/types/rss";

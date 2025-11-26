@@ -32,7 +32,7 @@ function About() {
       <FadeUpDiv delay={0.3 * 2}>
         <Photos />
       </FadeUpDiv>
-      
+
       <AboutSection id="selected-project" title="Selected Project">
         <SelectedProjects
           count={3}
