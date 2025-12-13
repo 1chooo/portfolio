@@ -17,13 +17,6 @@ const config: Config = {
   ],
   status: "Fight on ✌️",
   siteURL: "https://1chooo.com",
-  navigationLinks: [
-    { path: "/", label: "About" },
-    { path: "/resume", label: "Resume" },
-    { path: "/project", label: "Project" },
-    { path: "/blog", label: "Blog" },
-    { path: "/gallery", label: "Gallery" },
-  ],
   contacts: [
     {
       icon: ICON_NAMES.MAP_PIN_LU,

@@ -38,7 +38,6 @@ const {
   about,
   avatar,
   status,
-  navigationLinks,
   jsonLdPerson,
   homeMetaData,
   contacts,
@@ -82,7 +81,7 @@ function HomeLayout({ children }: { readonly children: React.ReactNode }) {
                 contacts={contacts}
               />
               <div className="main-content">
-                <NavBar navigationLinks={navigationLinks} />
+                <NavBar />
                 {children}
               </div>
             </main>

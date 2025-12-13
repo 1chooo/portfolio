@@ -1,5 +1,4 @@
 import type { About } from "@/types/about";
-import type { NavigationLink } from "@/types/nav-bar";
 import type { GiscusProps } from "@giscus/react";
 import type { IconType as ReactIconType } from "react-icons";
 import type { Icon as OcticonsType } from "@primer/octicons-react";
@@ -36,7 +35,6 @@ export type Config = {
   keywords: string[];
   status: string;
   siteURL: string;
-  navigationLinks: NavigationLink[];
   contacts: Contact[];
   homeMetaData: Metadata;
   about: About;
