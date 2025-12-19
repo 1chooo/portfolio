@@ -191,7 +191,7 @@ const NavBar = () => {
           </ViewTransitionsProgressBarLink>
         </li>
 
-        <li className="py-2 navbar-item">
+        {/* <li className="py-2 navbar-item">
           <ViewTransitionsProgressBarLink
             href="/gallery"
             onClick={() => handleNavClick("Gallery", "/gallery")}
@@ -226,7 +226,7 @@ const NavBar = () => {
               />
             )}
           </ViewTransitionsProgressBarLink>
-        </li>
+        </li> */}
       </ul>
     </fadeUp.div>
   );
