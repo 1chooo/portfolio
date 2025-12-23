@@ -62,7 +62,7 @@
     "next": "16.0.10",
     "next-mdx-remote": "^5.0.0",
     "next-view-transitions": "0.3.4",
-    "octokit": "^5.0.3",
+    "octokit": "^5.0.4",
     "react": "19.2.0",
     "react-bootstrap": "^2.10.9",
     "react-dom": "19.2.0",
