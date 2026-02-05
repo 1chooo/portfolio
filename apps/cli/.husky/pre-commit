@@ -1,4 +1,0 @@
-pnpm lint:fix
-pnpm format:fix
-pnpm test
-pnpm build

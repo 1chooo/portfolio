@@ -1,9 +1,0 @@
-node_modules
-.DS_Store
-dist
-*.local
-node_modules/*
-dist
-coverage
-pnpm-lock.yaml
-routeTree.gen.ts

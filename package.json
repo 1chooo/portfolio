@@ -1,38 +1,122 @@
 {
-  "name": "1chooo-com",
+  "name": "1chooo-com-web",
   "version": "0.15.0",
   "private": true,
+  "type": "module",
+  "license": "CC-BY-4.0",
   "author": {
     "name": "Chun-Ho (Hugo) Lin",
     "email": "hugo@1chooo.com",
     "url": "https://1chooo.com"
   },
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/1chooo/portfolio"
   },
   "description": "1chooo.com is a personal portfolio and blog website built with Next.js, React, and TypeScript. It features a modern design, supports Markdown content, and includes various interactive components.",
   "homepage": "https://1chooo.com",
+  "bugs": {
+    "url": "https://github.com/1chooo/portfolio/issues"
+  },
+  "keywords": [
+    "next",
+    "react",
+    "portfolio",
+    "blog",
+    "markdown"
+  ],
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "test": "turbo run test",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md,js,json,css}\"",
-    "delete": "rm -rf apps/docs/ && rm -rf apps/web/src/contents/ && rm -rf apps/web/src/config/index.ts",
-    "gen-config": "node scripts/gen-config.js",
-    "clean": "rm -rf node_modules packages/*/node_modules apps/*/node_modules"
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "next lint",
+    "check-types": "tsc --noEmit",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/bundle-analyzer": "16.0.10",
+    "@next/mdx": "16.0.10",
+    "@next/third-parties": "16.0.10",
+    "@primer/octicons-react": "^19.18.0",
+    "@rehype-pretty/transformers": "^0.13.2",
+    "@supabase/supabase-js": "^2.58.0",
+    "@types/mdx": "^2.0.13",
+    "@types/node": "24.3.0",
+    "@vercel/analytics": "^1.5.0",
+    "class-variance-authority": "^0.7.1",
+    "classnames": "^2.5.1",
+    "clsx": "^2.1.1",
+    "cobe": "^0.6.5",
+    "date-fns": "^4.1.0",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "0.545.0",
+    "mdast-util-to-string": "^4.0.0",
+    "motion": "12.23.12",
+    "next": "16.0.10",
+    "next-mdx-remote": "^5.0.0",
+    "next-view-transitions": "0.3.4",
+    "octokit": "^5.0.3",
+    "react": "19.2.0",
+    "react-bootstrap": "^2.10.9",
+    "react-dom": "19.2.0",
+    "react-github-calendar": "^5.0.5",
+    "react-icons": "5.5.0",
+    "react-loading-skeleton": "^3.5.0",
+    "react-spring": "^10.0.0",
+    "react-syntax-highlighter": "^15.6.1",
+    "react-tweet": "^3.2.2",
+    "react-wrap-balancer": "1.1.1",
+    "reading-time": "^1.5.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-github-alerts": "4.1.1",
+    "rehype-pretty-code": "^0.14.1",
+    "rehype-raw": "^7.0.0",
+    "rehype-slug": "^6.0.0",
+    "rehype-stringify": "^10.0.1",
+    "remark": "^15.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-html": "^16.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "rss": "^1.2.2",
+    "schema-dts": "^1.1.5",
+    "shiki": "3.13.0",
+    "tailwind-merge": "^3.2.0",
+    "tailwindcss-animate": "^1.0.7",
+    "unist-util-visit": "^5.0.0",
+    "zod": "4.1.12"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "@1chooo/eslint-config": "workspace:*",
-    "@1chooo/typescript-config": "workspace:*",
-    "prettier": "^3.6.2",
-    "turbo": "2.5.8",
-    "typescript": "5.9.3"
-  },
-  "packageManager": "pnpm@10.12.1+sha256.889bac470ec93ccc3764488a19d6ba8f9c648ad5e50a9a6e4be3768a5de387a3",
-  "engines": {
-    "node": "22.x"
+    "@giscus/react": "^3.1.0",
+    "@shikijs/rehype": "3.13.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.0",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "@vitejs/plugin-react": "^5.0.4",
+    "autoprefixer": "^10.4.21",
+    "jsdom": "^26.1.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "typescript": "5.9.3",
+    "unified": "^11.0.5",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.2.4"
   }
 }
