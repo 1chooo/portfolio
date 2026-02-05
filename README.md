@@ -11,7 +11,7 @@
   </a>
 </div>
 
-Welcome to the monorepo of my personal portfolio and blog! 👋
+Welcome to my personal portfolio and blog! 👋
 
 ## Features
 
