@@ -170,7 +170,7 @@ export async function generateMetadata(
     authors: [
       {
         name: post.author.name,
-        url: post.author.url || "https://1chooo.com",
+        url: post.author.url || "https://v0.1chooo.com",
       },
     ],
     description: post.excerpt || config.description,

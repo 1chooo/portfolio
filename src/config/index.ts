@@ -16,7 +16,7 @@ const config: Config = {
     "National Central University",
   ],
   status: "Fight on ✌️",
-  siteURL: "https://1chooo.com",
+  siteURL: "https://v0.1chooo.com",
   contacts: [
     {
       icon: ICON_NAMES.MAP_PIN_LU,
@@ -45,7 +45,7 @@ const config: Config = {
   homeMetaData: {
     metadataBase: new URL(
       process.env.NODE_ENV === "production"
-        ? "https://1chooo.com"
+        ? "https://v0.1chooo.com"
         : "http://localhost:3000",
     ),
     title: "Chun-Ho (Hugo) Lin - 1chooo",
@@ -61,7 +61,7 @@ const config: Config = {
       "National Central University",
     ],
     openGraph: {
-      url: "https://1chooo.com/",
+      url: "https://v0.1chooo.com/",
       type: "website",
       siteName: "Chun-Ho (Hugo) Lin - 1chooo",
       title: "Chun-Ho (Hugo) Lin - 1chooo",
@@ -172,7 +172,7 @@ const config: Config = {
   jsonLdPerson: {
     "@context": "http://schema.org",
     "@type": "Person",
-    "@id": "https://1chooo.com/#person",
+    "@id": "https://v0.1chooo.com/#person",
     name: "Chun-Ho (Hugo) Lin",
     givenName: "Chun-Ho",
     familyName: "Lin",
@@ -198,8 +198,8 @@ const config: Config = {
     ],
     jobTitle: "Software Engineer",
     skills: "Software Engineering, Web Development, Open Source",
-    image: "https://1chooo.com/images/profile.webp",
-    url: "https://1chooo.com",
+    image: "https://v0.1chooo.com/images/profile.webp",
+    url: "https://v0.1chooo.com",
     sameAs: [
       "https://www.linkedin.com/in/1chooo/",
       "http://github.com/1chooo",
@@ -240,17 +240,17 @@ const config: Config = {
         userAgent: "*",
       },
     ],
-    sitemap: "https://1chooo.com/sitemap.xml",
-    host: "https://1chooo.com",
+    sitemap: "https://v0.1chooo.com/sitemap.xml",
+    host: "https://v0.1chooo.com",
   },
   llmsTxtContent: `# 1chooo.com
 
 ## Section Name
 
-- [About](https://1chooo.com): A brief introduction to the site and its creator, showcasing skills and interests.
-- [Resume](https://1chooo.com/resume): A detailed resume highlighting professional experience, education, and skills.
-- [Blog](https://1chooo.com/blog): A collection of articles and tutorials on web development, programming, and technology.
-- [Project](https://1chooo.com/project): Showcases various projects and contributions.
+- [About](https://v0.1chooo.com): A brief introduction to the site and its creator, showcasing skills and interests.
+- [Resume](https://v0.1chooo.com/resume): A detailed resume highlighting professional experience, education, and skills.
+- [Blog](https://v0.1chooo.com/blog): A collection of articles and tutorials on web development, programming, and technology.
+- [Project](https://v0.1chooo.com/project): Showcases various projects and contributions.
 
 ## Optional
 
@@ -260,10 +260,10 @@ const config: Config = {
 
 ## Section Name
 
-- [About](https://1chooo.com): A brief introduction to the site and its creator, showcasing skills and interests.
-- [Resume](https://1chooo.com/resume): A detailed resume highlighting professional experience, education, and skills.
-- [Blog](https://1chooo.com/blog): A collection of articles and tutorials on web development, programming, and technology.
-- [Project](https://1chooo.com/project): Showcases various projects and contributions.
+- [About](https://v0.1chooo.com): A brief introduction to the site and its creator, showcasing skills and interests.
+- [Resume](https://v0.1chooo.com/resume): A detailed resume highlighting professional experience, education, and skills.
+- [Blog](https://v0.1chooo.com/blog): A collection of articles and tutorials on web development, programming, and technology.
+- [Project](https://v0.1chooo.com/project): Showcases various projects and contributions.
 
 ## Optional
 
@@ -294,8 +294,8 @@ const config: Config = {
     title: "Chun-Ho (Hugo) Lin - 1chooo",
     description:
       "I am a first-year M.S. student in Computer Science at the [USC Viterbi School of Engineering](https://viterbischool.usc.edu/) ✌️. I graduated with a B.S. in Atmospheric Sciences from the [National Central University](https://www.ncu.edu.tw/) 🐿️.",
-    site_url: "https://1chooo.com",
-    feed_url: "https://1chooo.com/rss.xml",
+    site_url: "https://v0.1chooo.com",
+    feed_url: "https://v0.1chooo.com/rss.xml",
     language: "en-US",
     docs: "https://docs.1chooo.com",
     image_url: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",

@@ -1,17 +1,4 @@
-# [1chooo.com] &middot; [![1chooo.com built with Next.js](https://img.shields.io/badge/Next.js-000000.svg?style=flat&logo=Next.js&labelColor=2C2C2B&color=FFDB70)](https://nextjs.org/) [![1chooo.com GitHub Stargazers](https://img.shields.io/github/stars/1chooo/1chooo.com?style=flat&labelColor=2C2C2B&color=FFDB70)](https://github.com/1chooo/portfolio/stargazers) [![1chooo.com GitHub license](https://img.shields.io/github/license/1chooo/1chooo.com?style=flat&labelColor=2C2C2B&color=FFDB70)](https://github.com/facebook/react/blob/main/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat&labelColor=2C2C2B&color=FFDB70)](https://docs.1chooo.com/contributing)
-
-[1chooo.com]: https://1chooo.com
-
-<div align="center">
-  <a href="https://youtu.be/sEmmyETf3Ao">
-    <img 
-      alt="Home Page of 1chooo.com" 
-      src="./.github/images/cover-transparent-with-1chooo-com.png" 
-    />
-  </a>
-</div>
-
-Welcome to my personal portfolio and blog! 👋
+# VCard &middot; [![1chooo.com built with Next.js](https://img.shields.io/badge/Next.js-000000.svg?style=flat&logo=Next.js&labelColor=2C2C2B&color=FFDB70)](https://nextjs.org/) [![1chooo.com GitHub Stargazers](https://img.shields.io/github/stars/1chooo/1chooo.com?style=flat&labelColor=2C2C2B&color=FFDB70)](https://github.com/1chooo/portfolio/stargazers) [![1chooo.com GitHub license](https://img.shields.io/github/license/1chooo/1chooo.com?style=flat&labelColor=2C2C2B&color=FFDB70)](https://github.com/facebook/react/blob/main/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat&labelColor=2C2C2B&color=FFDB70)](https://docs.1chooo.com/contributing)
 
 ## Features
 

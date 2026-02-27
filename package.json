@@ -7,14 +7,14 @@
   "author": {
     "name": "Chun-Ho (Hugo) Lin",
     "email": "hugo@1chooo.com",
-    "url": "https://1chooo.com"
+    "url": "https://v0.1chooo.com"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/1chooo/portfolio"
   },
   "description": "1chooo.com is a personal portfolio and blog website built with Next.js, React, and TypeScript. It features a modern design, supports Markdown content, and includes various interactive components.",
-  "homepage": "https://1chooo.com",
+  "homepage": "https://v0.1chooo.com",
   "bugs": {
     "url": "https://github.com/1chooo/portfolio/issues"
   },

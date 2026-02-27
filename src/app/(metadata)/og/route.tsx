@@ -25,7 +25,7 @@ export async function GET(req: NextRequest) {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "center",
-          backgroundImage: "url(https://1chooo.com/images/opengraph-image.png)",
+          backgroundImage: "url(https://v0.1chooo.com/images/opengraph-image.png)",
         }}
       >
         <div

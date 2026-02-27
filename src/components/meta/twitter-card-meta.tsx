@@ -21,7 +21,7 @@ export default function TwitterCardMeta({
     <Head>
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:site" content={"@1chooo___"} />
-      <meta property="twitter:url" content={"https://1chooo.com" + url} />
+      <meta property="twitter:url" content={"https://v0.1chooo.com" + url} />
       <meta
         property="twitter:title"
         content={

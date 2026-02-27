@@ -5,7 +5,7 @@ thumbnail: "/images/blog/python-env/banner.webp"
 author:
   name: Hugo Lin
   avatar: "https://github.com/1chooo.png"
-  url: "https://1chooo.com"
+  url: "https://v0.1chooo.com"
 publishedAt: "2024-12-26"
 category: "Python"
 tags:
@@ -17,7 +17,7 @@ tags:
   - os.getenv
 ---
 
-Hi everyone! I'm Hugo. I am currently focusing on developing https://1chooo.com and backend applications with Python. And there is a scenario where I need to access environment variable values in Python. However, sometimes it works, sometimes it doesn't. So, I decided to write this post to share with you three methods to access environment variable values in Python. That way, you can easily access environment variables in your Python applications.
+Hi everyone! I'm Hugo. I am currently focusing on developing https://v0.1chooo.com and backend applications with Python. And there is a scenario where I need to access environment variable values in Python. However, sometimes it works, sometimes it doesn't. So, I decided to write this post to share with you three methods to access environment variable values in Python. That way, you can easily access environment variables in your Python applications.
 
 ![3 Methods to Load .env in Python by Hugo](/images/blog/python-env/banner.webp)
 
@@ -51,7 +51,7 @@ print(os.environ['1CHOOO_DOMAIN_NAME'])
 result:
 
 ```bash
-https://1chooo.com
+https://v0.1chooo.com
 ```
 
 You can also use the `get()` method to access environment variables. The `get()` method returns the value of the specified environment variable.
@@ -72,7 +72,7 @@ print(os.getenv('1CHOOO_DOMAIN_NAME'))
 result:
 
 ```bash
-https://1chooo.com
+https://v0.1chooo.com
 ```
 
 ## Method 3: Using the `python-dotenv` Package
@@ -86,7 +86,7 @@ $ pip install python-dotenv
 Now, you can create a `.env` file in the root directory of your project and add the environment variables you want to use that you can config your own setting in the specific project.
 
 ```bash
-1CHOOO_DOMAIN_NAME=https://1chooo.com
+1CHOOO_DOMAIN_NAME=https://v0.1chooo.com
 ```
 
 Then, you can use the `load_dotenv()` function to load the environment variables from the `.env` file.
@@ -104,7 +104,7 @@ print(f"1chooo Domain Name: {os.getenv('1CHOOO_DOMAIN_NAME')}")
 result:
 
 ```bash
-1chooo Domain Name: https://1chooo.com
+1chooo Domain Name: https://v0.1chooo.com
 ```
 
 That's it! You now know three methods to access environment variable values in Python. You can use the `os.environ` property, the `os.getenv()` method, or the `python-dotenv` package to access environment variables in your Python applications.
