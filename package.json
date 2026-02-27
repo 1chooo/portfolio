@@ -56,7 +56,7 @@
     "mdast-util-to-string": "^4.0.0",
     "motion": "12.23.12",
     "next": "16.0.10",
-    "next-mdx-remote": "^5.0.0",
+    "next-mdx-remote": "^6.0.0",
     "next-view-transitions": "0.3.4",
     "octokit": "^5.0.3",
     "react": "19.2.0",
