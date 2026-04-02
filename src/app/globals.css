@@ -1,6 +1,110 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* ================================
+   Tailwind CSS v4 Theme Configuration
+   ================================ */
+
+@theme {
+  /* Custom Breakpoints */
+  --breakpoint-custom-md: 580px;
+  --breakpoint-custom-lg: 1250px;
+
+  /* Custom Colors */
+  --color-jet: hsl(0, 0%, 22%);
+  --color-onyx: hsl(240, 1%, 17%);
+  --color-eerie-black-1: hsl(240, 2%, 13%);
+  --color-eerie-black-2: hsl(240, 2%, 12%);
+  --color-smoky-black: hsl(0, 0%, 7%);
+  --color-white-1: hsl(0, 0%, 100%);
+  --color-white-2: hsl(0, 0%, 98%);
+  --color-orange-yellow-crayola: hsl(45, 100%, 72%);
+  --color-orange-yellow-crayola-dark: hsl(45, 100%, 10%);
+  --color-vegas-gold: hsl(45, 54%, 58%);
+  --color-light-gray: hsl(0, 0%, 84%);
+  --color-light-gray-70: hsla(0, 0%, 84%, 0.7);
+  --color-bittersweet-shimmer: hsl(0, 43%, 51%);
+
+  /* Border Radius */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Box Shadows */
+  --shadow-shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
+  --shadow-shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);
+  --shadow-shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.25);
+  --shadow-shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.15);
+  --shadow-shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.25);
+
+  /* Animations */
+  --animate-shiny-text: shiny-text 8s infinite;
+  --animate-gradient: gradient 8s linear infinite;
+  --animate-marquee: marquee var(--duration) linear infinite;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  --animate-marquee-left: marquee-left var(--duration, 30s) linear infinite;
+  --animate-marquee-up: marquee-up var(--duration, 30s) linear infinite;
+
+  /* Keyframes */
+  @keyframes shiny-text {
+    0%, 90%, 100% {
+      background-position: calc(-100% - var(--shiny-width)) 0;
+    }
+    30%, 60% {
+      background-position: calc(100% + var(--shiny-width)) 0;
+    }
+  }
+
+  @keyframes gradient {
+    to {
+      background-position: var(--bg-size) 0;
+    }
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100% - var(--gap))); }
+  }
+
+  @keyframes marquee-vertical {
+    from { transform: translateY(0); }
+    to { transform: translateY(calc(-100% - var(--gap))); }
+  }
+
+  @keyframes marquee-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100% - var(--gap))); }
+  }
+
+  @keyframes marquee-up {
+    from { transform: translateY(0); }
+    to { transform: translateY(calc(-100% - var(--gap))); }
+  }
+}
+
+/* Custom Utilities for Background Images */
+@utility bg-gradient-onyx {
+  background: linear-gradient(to bottom right, hsl(240, 1%, 25%) 3%, hsl(0, 0%, 19%) 97%);
+}
+
+@utility bg-gradient-jet {
+  background: linear-gradient(to bottom right, hsla(240, 1%, 18%, 0.251) 0%, hsla(240, 2%, 11%, 0) 100%), hsl(240, 2%, 13%);
+}
+
+@utility bg-gradient-yellow-1 {
+  background: linear-gradient(to bottom right, hsl(45, 100%, 71%) 0%, hsla(36, 100%, 69%, 0) 50%);
+}
+
+@utility bg-gradient-yellow-2 {
+  background: linear-gradient(135deg, hsla(45, 100%, 71%, 0.251) 0%, hsla(35, 100%, 68%, 0) 59.86%), hsl(240, 2%, 13%);
+}
+
+@utility bg-border-gradient-onyx {
+  background: linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%);
+}
+
+@utility bg-text-gradient-yellow {
+  background: linear-gradient(to right, hsl(45, 100%, 72%), hsl(35, 100%, 68%));
+}
 
 :root {
   /* gradient */
@@ -79,6 +183,9 @@
   /* transition */
   --transition-1: 0.25s ease;
   --transition-2: 0.5s ease-in-out;
+
+  /* radius for shadcn */
+  --radius: 0.5rem;
 }
 
 /*-----------------------------------*\

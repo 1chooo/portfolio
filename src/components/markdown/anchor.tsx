@@ -22,7 +22,7 @@ function Anchor({ children, ...props }: AnchorProps) {
 
   return (
     <a
-      className="inline text-orange-yellow-crayola underline hover:text-opacity-70"
+      className="inline text-orange-yellow-crayola underline hover:text-orange-yellow-crayola/70"
       target="_blank"
       rel="noreferrer"
       {...props}

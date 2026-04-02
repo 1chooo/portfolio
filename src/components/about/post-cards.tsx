@@ -97,7 +97,7 @@ function PostCard({ post, index }: PostCardProps) {
             {post.title}
           </ViewTransitionsProgressBarLink>
           <svg
-            className="group-hover:translate-x-0 flex-shrink-0 translate-y-0.5 -translate-x-1 w-2.5 h-2.5 stroke-current ml-1 transition-all ease-in-out duration-200 transform text-light-gray"
+            className="group-hover:translate-x-0 shrink-0 translate-y-0.5 -translate-x-1 w-2.5 h-2.5 stroke-current ml-1 transition-all ease-in-out duration-200 transform text-light-gray"
             viewBox="0 0 13 15"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"

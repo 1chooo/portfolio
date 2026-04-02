@@ -79,7 +79,7 @@ const Photo = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 0.2 } }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 w-full bg-gradient-to-t from-black/75 via-black/0 flex items-end"
+            className="absolute inset-0 w-full bg-linear-to-t from-black/75 via-black/0 flex items-end"
           >
             <h3 className="px-3 py-2 font-mono text-xs font-bold text-white-1">
               {title}
